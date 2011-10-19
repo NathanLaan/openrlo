@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<OpenRLO.Website.Models.RegisterModel>" %>
 
-<asp:Content ID="registerTitle" ContentPlaceHolderID="TitleContent" runat="server">
+<asp:Content ID="registerTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Register
 </asp:Content>
 

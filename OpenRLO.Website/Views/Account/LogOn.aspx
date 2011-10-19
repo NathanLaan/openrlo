@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<OpenRLO.Website.Models.LogOnModel>" %>
 
-<asp:Content ID="loginTitle" ContentPlaceHolderID="TitleContent" runat="server">
+<asp:Content ID="loginTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
     Log On
 </asp:Content>
 

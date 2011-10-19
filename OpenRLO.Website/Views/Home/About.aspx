@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage" %>
 
-<asp:Content ID="aboutTitle" ContentPlaceHolderID="TitleContent" runat="server">
-About Us
+<asp:Content ID="aboutTitle" ContentPlaceHolderID="PageTitleContent" runat="server">
+About OpenRLO
 </asp:Content>
 
 <asp:Content ID="pageNameTitle" ContentPlaceHolderID="PageNameContent" runat="server">

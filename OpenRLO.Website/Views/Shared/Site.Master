@@ -4,7 +4,7 @@
 <html lang="en">
   <head runat="server">
     <meta charset="utf-8">
-    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <title><asp:ContentPlaceHolder ID="PageTitleContent" runat="server" /></title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -80,7 +80,7 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="#">OpenRLO</a>
+          <a class="brand" href="/">OpenRLO</a>
           <ul class="nav">
             <li class="active"><%: Html.ActionLink("Home", "Index", "Home")%></li>
             <li><%: Html.ActionLink("About", "About", "Home")%></li>

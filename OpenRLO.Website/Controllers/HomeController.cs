@@ -11,12 +11,16 @@ namespace OpenRLO.Website.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
-
+            ViewData["Message"] = "Index";
             return View();
         }
 
         public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Help()
         {
             return View();
         }
