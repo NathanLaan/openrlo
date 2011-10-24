@@ -69,6 +69,7 @@
     <Content Include="css\360.css" />
     <Content Include="css\960.css" />
     <Content Include="css\480.css" />
+    <Content Include="css\bootstrap.css" />
     <Content Include="css\reset.css" />
     <Content Include="css\screen.css" />
     <Content Include="css\text.css" />
