@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMobile.Master.cs" Inherits="OpenRLO.Web.SiteMobile" EnableViewState="false" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head id="HeadElement" runat="server">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="google-site-verification" content="XY_0UjI-sNWSkiaqZbUitXuqoO-ztPjnkEqH8ciiUZc" />
+  <title>anetro</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <!-- http://css-tricks.com/how-to-create-an-ie-only-stylesheet/ -->
+  <!--[if IE]>
+  <link rel="stylesheet" href="/css/960.css" type="text/css" />
+  <![endif]-->
+  <!--[if !IE]><!-->
+  <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen and (min-device-width: 960px)" />
+  <link rel="stylesheet" href="/css/480.css" type="text/css" media="screen and (min-device-width: 480px) and (max-device-width: 960px)" />
+  <link rel="stylesheet" href="/css/360.css" type="text/css" media="screen and (min-device-width: 320px) and (max-device-width: 480px)" />
+  <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen and (min-width: 960px)" />
+  <link rel="stylesheet" href="/css/480.css" type="text/css" media="screen and (min-width: 480px) and (max-width: 960px)" />
+  <link rel="stylesheet" href="/css/360.css" type="text/css" media="screen and (min-width: 320px) and (max-width: 480px)" />
+  <link rel="stylesheet" href="/css/360.css" type="text/css" media="handheld" />
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" />
+  <link type="text/plain" rel="author" href="/humans.txt" />
+</head>
+<body>
+<form id="form1" runat="server">
+<div id="header" class="container_12 clearfix">
+  <div id="logo">
+    <div><a href="/"><asp:Label runat="server" ID="lblSiteName"></asp:Label></a></div>
+  </div>
+  <div id="navigation">
+    <ul id="nav">
+      <li><asp:HyperLink ID="lnkHome" runat="server">Home</asp:HyperLink></li>
+      <li><asp:HyperLink ID="lnkAbout" runat="server">About</asp:HyperLink></li>
+      <li><asp:HyperLink ID="lnkAdmin" runat="server">Admin</asp:HyperLink></li>
+    </ul>
+  </div>
+</div>
+<div id="content" class="container_12 clearfix">
+  <div class="grid_4 alpha sidebar">
+    <h2>Categories</h2>
+    <asp:Repeater runat="server" ID="categoryRepeater">
+      <ItemTemplate><div><a href="/<%# ((OpenRLO.Web.Data.Category)Container.DataItem).Url %>"><%# ((OpenRLO.Web.Data.Category)Container.DataItem).Title%></a></div></ItemTemplate>
+    </asp:Repeater>
+    <h2>Links</h2>
+    <asp:HyperLink ID="lnkFeed" runat="server">Subscribe (RSS)</asp:HyperLink>
+    <asp:Repeater runat="server" ID="siteLinkRepeater">
+      <ItemTemplate><div><a href="<%# ((OpenRLO.Web.Data.SiteLink)Container.DataItem).Url %>"><%# ((OpenRLO.Web.Data.SiteLink)Container.DataItem).Title %></a></div></ItemTemplate>
+    </asp:Repeater>
+  </div>
+  <!-- <div class="grid_4 alpha">&nbsp;</div> -->
+  <div class="grid_7 omega contentContainer">
+    <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+  </div>
+</div>
+<div id="footer" class="container_12 clearfix">
+<p><asp:Label runat="server" ID="lblCopyright"></asp:Label>&nbsp;|&nbsp;Version <asp:Label runat="server" ID="lblSiteVersion"></asp:Label>&nbsp;|&nbsp;<asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink>&nbsp;<asp:Label runat="server" ID="lblUsername"></asp:Label></p>
+</div>
+</form>
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-3918071-1");
+  pageTracker._trackPageview();
+</script>
+
+<script src="/js/Utility.js" type="text/javascript" />
+
+</body> 
+</html>

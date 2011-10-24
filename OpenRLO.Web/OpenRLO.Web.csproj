@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E6272CAD-E145-4853-8321-E6D420CEB7E4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenRLO.Web</RootNamespace>
+    <AssemblyName>OpenRLO.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Solution.Web.Library, Version=3.1.8.19, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Solution.Web.Library\bin\Debug\Solution.Web.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Admin\AdminArticleManage.aspx" />
+    <Content Include="Admin\AdminCategoryManage.aspx" />
+    <Content Include="Admin\AdminSiteLinkManage.aspx" />
+    <Content Include="Admin\AdminSiteMenu.aspx" />
+    <Content Include="Admin\AdminArticleEdit.aspx" />
+    <Content Include="Admin\AdminSiteSettingsEdit.aspx" />
+    <Content Include="Admin\AdminSiteUserManage.aspx" />
+    <Content Include="Admin\EmailTest.aspx" />
+    <Content Include="Admin\Logout.aspx" />
+    <Content Include="Admin\AdminArticleNew.aspx" />
+    <Content Include="Admin\Template.aspx" />
+    <Content Include="Admin\Upload.aspx" />
+    <Content Include="App_Data\_AnetroTemplateIndex.html" />
+    <Content Include="App_Data\_AnetroTemplateCategory.html" />
+    <Content Include="App_Data\_AnetroTemplateArticle.html" />
+    <Content Include="css\360.css" />
+    <Content Include="css\960.css" />
+    <Content Include="css\480.css" />
+    <Content Include="css\reset.css" />
+    <Content Include="css\screen.css" />
+    <Content Include="css\text.css" />
+    <Content Include="favicon_NathanLaan.ico" />
+    <Content Include="humans.txt" />
+    <Content Include="img\missing.jpg" />
+    <Content Include="img\monitor.png" />
+    <Content Include="js\960.gridder.js" />
+    <Content Include="js\HeaderBar.js" />
+    <Content Include="js\Utility.js" />
+    <Content Include="robots.txt" />
+    <Content Include="RSS.aspx" />
+    <Content Include="Service\ArticleService.asmx" />
+    <Content Include="Service\CategoryService.asmx" />
+    <Content Include="Service\TemplateService.asmx" />
+    <Content Include="Service\SiteLinkService.asmx" />
+    <Content Include="Service\SiteSettingsService.asmx" />
+    <Content Include="Service\SiteUserService.asmx" />
+    <Content Include="Twitter.aspx" />
+    <Content Include="img\blank.gif" />
+    <Content Include="img\bottom_grad.png" />
+    <Content Include="img\bottom_grad2.png" />
+    <Content Include="img\bottom_grad3.png" />
+    <Content Include="img\category.gif" />
+    <Content Include="img\category.png" />
+    <Content Include="img\category_over.png" />
+    <Content Include="img\clock.png" />
+    <Content Include="img\date.png" />
+    <Content Include="img\permalink.png" />
+    <Content Include="img\permalink_over.png" />
+    <Content Include="img\rss_icon.gif" />
+    <Content Include="img\rss_icon_over.gif" />
+    <Content Include="img\side_category_over.png" />
+    <Content Include="img\side_clock.png" />
+    <Content Include="img\side_clock_over.png" />
+    <Content Include="img\side_date.png" />
+    <Content Include="img\side_date_over.png" />
+    <Content Include="js\javascript.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon_Anetro.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Admin\Login.aspx" />
+    <Content Include="js\jquery-1.4.1-vsdoc.js" />
+    <Content Include="js\jquery-1.4.1.js" />
+    <Content Include="js\jquery-1.4.1.min.js" />
+    <Content Include="ViewArticle.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminArticleManage.aspx.cs">
+      <DependentUpon>AdminArticleManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminArticleManage.aspx.designer.cs">
+      <DependentUpon>AdminArticleManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminCategoryManage.aspx.cs">
+      <DependentUpon>AdminCategoryManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminCategoryManage.aspx.designer.cs">
+      <DependentUpon>AdminCategoryManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminSiteLinkManage.aspx.cs">
+      <DependentUpon>AdminSiteLinkManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminSiteLinkManage.aspx.designer.cs">
+      <DependentUpon>AdminSiteLinkManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminSiteMenu.aspx.cs">
+      <DependentUpon>AdminSiteMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminSiteMenu.aspx.designer.cs">
+      <DependentUpon>AdminSiteMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminArticleEdit.aspx.cs">
+      <DependentUpon>AdminArticleEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminArticleEdit.aspx.designer.cs">
+      <DependentUpon>AdminArticleEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminSiteSettingsEdit.aspx.cs">
+      <DependentUpon>AdminSiteSettingsEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminSiteSettingsEdit.aspx.designer.cs">
+      <DependentUpon>AdminSiteSettingsEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminSiteUserManage.aspx.cs">
+      <DependentUpon>AdminSiteUserManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminSiteUserManage.aspx.designer.cs">
+      <DependentUpon>AdminSiteUserManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AnetroTemplateArticle.cs" />
+    <Compile Include="Data\AnetroTemplate.cs" />
+    <Compile Include="Data\AnetroTemplateCategory.cs" />
+    <Compile Include="Data\AnetroTemplateElement.cs" />
+    <Compile Include="Data\AnetroTemplateEngine.cs" />
+    <Compile Include="Data\AnetroTemplateIndex.cs" />
+    <Compile Include="Data\AnetroTemplateLink.cs" />
+    <Compile Include="Admin\EmailTest.aspx.cs">
+      <DependentUpon>EmailTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EmailTest.aspx.designer.cs">
+      <DependentUpon>EmailTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminArticleNew.aspx.cs">
+      <DependentUpon>AdminArticleNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminArticleNew.aspx.designer.cs">
+      <DependentUpon>AdminArticleNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Template.aspx.cs">
+      <DependentUpon>Template.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Template.aspx.designer.cs">
+      <DependentUpon>Template.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Upload.aspx.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Upload.aspx.designer.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Article.cs" />
+    <Compile Include="Data\ArticleCache.cs" />
+    <Compile Include="Data\ArticleIndex.cs" />
+    <Compile Include="Data\ArticleVersion.cs" />
+    <Compile Include="Data\Category.cs" />
+    <Compile Include="Data\CategoryIndex.cs" />
+    <Compile Include="Data\Constants.cs" />
+    <Compile Include="Data\Email.cs" />
+    <Compile Include="Data\Index.cs" />
+    <Compile Include="Data\IndexItem.cs" />
+    <Compile Include="Data\IndexManager.cs" />
+    <Compile Include="Data\LogEntry.cs" />
+    <Compile Include="Data\Markdown.cs" />
+    <Compile Include="Data\SiteLink.cs" />
+    <Compile Include="Data\SiteLinkIndex.cs" />
+    <Compile Include="Data\SiteMenu.cs" />
+    <Compile Include="Data\SiteMenuItem.cs" />
+    <Compile Include="Data\SiteSettings.cs" />
+    <Compile Include="Data\SiteUser.cs" />
+    <Compile Include="Data\SiteUserIndex.cs" />
+    <Compile Include="Data\Utility.cs" />
+    <Compile Include="SiteMobile.Master.cs">
+      <DependentUpon>SiteMobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteMobile.Master.designer.cs">
+      <DependentUpon>SiteMobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SiteAdmin.Master.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteAdmin.Master.designer.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="HttpHandler\WebSiteFlexHttpHandlerPlugin.cs" />
+    <Compile Include="RSS.aspx.cs">
+      <DependentUpon>RSS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RSS.aspx.designer.cs">
+      <DependentUpon>RSS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Twitter.aspx.cs">
+      <DependentUpon>Twitter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Twitter.aspx.designer.cs">
+      <DependentUpon>Twitter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="ViewArticle.aspx.cs">
+      <DependentUpon>ViewArticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewArticle.aspx.designer.cs">
+      <DependentUpon>ViewArticle.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SiteAdmin.Master" />
+    <Content Include="SiteMobile.Master" />
+    <Content Include="Admin\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Service\Web.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>1999</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

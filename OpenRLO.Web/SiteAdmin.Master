@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteAdmin.Master.cs" Inherits="OpenRLO.Web.SiteAdmin" EnableViewState="false" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head id="HeadElement" runat="server">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta name="robots" content="index,follow" />
+  <title>anetro</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <!-- http://css-tricks.com/how-to-create-an-ie-only-stylesheet/ -->
+  <!--[if IE]>
+  <link rel="stylesheet" href="/css/960.css" type="text/css" />
+  <![endif]-->
+  <!--[if !IE]><!-->
+  <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen and (min-device-width: 960px)" />
+  <link rel="stylesheet" href="/css/480.css" type="text/css" media="screen and (min-device-width: 480px) and (max-device-width: 960px)" />
+  <link rel="stylesheet" href="/css/360.css" type="text/css" media="screen and (min-device-width: 320px) and (max-device-width: 480px)" />
+  <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen and (min-width: 960px)" />
+  <link rel="stylesheet" href="/css/480.css" type="text/css" media="screen and (min-width: 480px) and (max-width: 960px)" />
+  <link rel="stylesheet" href="/css/360.css" type="text/css" media="screen and (min-width: 320px) and (max-width: 480px)" />
+  <link rel="stylesheet" href="/css/360.css" type="text/css" media="handheld" />
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" />
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/Utility.js"></script>
+</head>
+<body>
+<form id="mainForm" runat="server">
+<!--<div id="header" class="container_12 clearfix"></div>-->
+<div id="content" class="container_12 clearfix">
+  <div class="grid_2 alpha sidebar">
+    <!--<h2>Admin</h2>-->
+    <br />
+    <a title="Open in a new window" href="/" target="_blank"><img src="/img/monitor.png" height="12" width="12" /></a>&nbsp;<a href="/" title="Return to <%= OpenRLO.Web.Global.SiteSettings.SiteName %>">Site</a>&nbsp;&raquo;
+    <br />
+    <br /><a title="Open in a new window" href="/admin/content" target="_blank"><img src="/img/monitor.png" height="12" width="12" /></a>&nbsp;<asp:HyperLink ID="lnkContent" NavigateUrl="/admin/content" runat="server">Content</asp:HyperLink>
+    <br /><a title="Open in a new window" href="/admin/article/manage" target="_blank"><img src="/img/monitor.png" height="12" width="12" /></a>&nbsp;<asp:HyperLink ID="lnkArticleManage" NavigateUrl="/admin/article/manage" runat="server">Articles</asp:HyperLink>
+    <br /><a title="Open in a new window" href="/admin/article/new" target="_blank"><img src="/img/monitor.png" height="12" width="12" /></a>&nbsp;<asp:HyperLink ID="lnkArticleNew" NavigateUrl="/admin/article/new" runat="server">New Article</asp:HyperLink>
+    <br /><a title="Open in a new window" href="/admin/category/manage" target="_blank"><img src="/img/monitor.png" height="12" width="12" /></a>&nbsp;<asp:HyperLink ID="lnkCategoryManage" NavigateUrl="/admin/category/manage" runat="server">Categories</asp:HyperLink>
+    <br /><a title="Open in a new window" href="/admin/site/settings" target="_blank"><img src="/img/monitor.png" height="12" width="12" /></a>&nbsp;<asp:HyperLink ID="lnkSiteSettings" NavigateUrl="/admin/site/settings" runat="server">Settings</asp:HyperLink>
+    <br /><a title="Open in a new window" href="/admin/site/links" target="_blank"><img src="/img/monitor.png" height="12" width="12" /></a>&nbsp;<asp:HyperLink ID="lnkSiteLinks" NavigateUrl="/admin/site/links" runat="server">Links</asp:HyperLink>
+    <br /><a title="Open in a new window" href="/admin/upload" target="_blank"><img src="/img/monitor.png" height="12" width="12" /></a>&nbsp;<asp:HyperLink ID="lnkUpload" NavigateUrl="/admin/upload" runat="server">Upload</asp:HyperLink>
+    <br /><a title="Open in a new window" href="/admin/user/manage" target="_blank"><img src="/img/monitor.png" height="12" width="12" /></a>&nbsp;<asp:HyperLink ID="lnkUserManage" NavigateUrl="/admin/user/manage" runat="server">Users</asp:HyperLink>
+    <br />
+  </div>
+  <div class="grid_10 omega contentContainer">
+    <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+  </div>
+</div>
+<div id="footer" class="container_10 clearfix">
+<p><asp:Label runat="server" ID="lblCopyright"></asp:Label>&nbsp;|&nbsp;Version <asp:Label runat="server" ID="lblSiteVersion"></asp:Label>&nbsp;|&nbsp;<asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink>&nbsp;<asp:Label runat="server" ID="lblUsername"></asp:Label></p>
+</div>
+</form>
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-3918071-1");
+  pageTracker._trackPageview();
+</script>
+
+</body> 
+</html>

@@ -1,0 +1,7 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="OpenRLO.Web.About" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+  <h2>ABOUT</h2>
+  <p>This site is powered by <a href="http://anetro.com">Anetro</a>, a web publishing system designed for simplicity and clarity. The features and functionality of the site have been purposefully kept to the bare minimum. On the back-end, the site does not use a database, or have any external software dependencies. It is entirely self-contained. On the front-end, the site aims to provide simple, clean URLs for all content, while avoiding the issues caused by <a href="http://www.isolani.co.uk/blog/javascript/BreakingTheWebWithHashBangs">hash-bang URLs</a>.</p>
+  <p>The design and layout of the site is based on the <a href="http://960.gs">960 Grid System</a>. It's a relatively old system and it's not the latest or greatest, but it works, it's well tested and, best of all, it's simple.</p>
+  <p><a href="http://fusion.google.com/add?feedurl=<%= OpenRLO.Web.Global.SiteSettings.SiteFeedUrl %>" title="Add to Google"><img style="vertical-align: top; border: 0;" src="http://buttons.googlesyndication.com/fusion/add.gif" alt="Add to Google"/></a></p>
+</asp:Content>
