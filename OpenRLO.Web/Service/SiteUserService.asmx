@@ -76,20 +76,7 @@ namespace OpenRLO.Web.Service
         Global.SiteUserIndex.Save();
         try
         {
-          Email.SendMail(
-            "smtp.gmail.com",
-            587,
-            "noreply@nathanlaan.com",
-            "anetro#2011",
-            "noreply@nathanlaan.com",
-            "Anetro (" + Global.SiteSettings.SiteName + ")",
-            "nathanlaan@gmail.com",
-            "Nathan Laan",
-            "User edited: " + oldSiteUser.Showname,
-            "User edited: " + System.Environment.NewLine + System.Environment.NewLine
-            + "Original User Details: " + System.Environment.NewLine + oldSiteUser.ToString() + System.Environment.NewLine + System.Environment.NewLine
-            + "New User Details: " + System.Environment.NewLine + newSiteUser.ToString() + System.Environment.NewLine,
-            true);
+
         }
         catch
         {

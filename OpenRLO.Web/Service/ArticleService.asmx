@@ -134,22 +134,7 @@ namespace OpenRLO.Web.Service
 
           try
           {
-            Email.SendMail(
-              "smtp.gmail.com",
-              587,
-              "noreply@nathanlaan.com",
-              "anetro#2011",
-              "noreply@nathanlaan.com",
-              "Anetro (" + Global.SiteSettings.SiteName + ")",
-              "nathanlaan@gmail.com",
-              "Nathan Laan",
-              (article.Published?"Article Published: ":"Article Drafted: ") + article.Title,
-              (article.Published?"Article Published: ":"Article Drafted: ") + article.Title + "<br><br>" + System.Environment.NewLine + System.Environment.NewLine
-              + Global.SiteSettings.SiteUrl + "/" + article.Category + "/" + article.TitleUrl + "<br><br>" + System.Environment.NewLine + System.Environment.NewLine
-              + article.LatestArticleContentsHtml + "<br><br><br>" + System.Environment.NewLine + System.Environment.NewLine + System.Environment.NewLine
-              + article.Filename + "<br>" + System.Environment.NewLine
-              + articleVersion.Filename + "<br>" + System.Environment.NewLine,
-              true);
+            
           }
           catch
           {
