@@ -98,18 +98,9 @@ namespace OpenRLO.Web.Service
       }
       else
       {
-        Email.SendMail(
-          "smtp.gmail.com",
-          587,
-          "noreply@nathanlaan.com",
-          "anetro#2011",
-          "noreply@nathanlaan.com",
-          "Anetro Automated Email",
-          "nathanlaan@gmail.com",
-          "Nathan Laan",
-          "Message Subject",
-          "User ["+oldSiteUser.Username+"] not found",
-          true);
+        //
+        //
+        //
       }
     }
 
