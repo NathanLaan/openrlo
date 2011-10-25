@@ -45,6 +45,8 @@ namespace OpenRLO.Web
 
       this.lnkHome.NavigateUrl = "/";
       this.lnkAbout.NavigateUrl = "/about";
+      this.lnkAdmin.NavigateUrl = "/admin";
+      this.lnkHelp.NavigateUrl = "/help";
       //this.lnkColophon.NavigateUrl = "/colophon";
       this.lnkFeed.NavigateUrl = Global.SiteSettings.SiteFeedUrl;
       this.lblCopyright.Text = Global.SiteSettings.SiteCopyright;
@@ -59,16 +61,16 @@ namespace OpenRLO.Web
       switch (currentPage)
       {
         case "home":
-          this.lnkHome.CssClass = "currentLink";
+              this.lnkHome.CssClass = "active";
           break;
         case "about":
-          this.lnkAbout.CssClass = "currentLink";
+          this.lnkAbout.CssClass = "active";
           break;
         //case "colophon":
         //  this.lnkColophon.CssClass = "currentLink";
         //  break;
         case "admin":
-          this.lnkAdmin.CssClass = "currentLink";
+          this.lnkAdmin.CssClass = "active";
           break;
       }
 

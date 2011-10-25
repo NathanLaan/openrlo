@@ -107,9 +107,8 @@
           <ul class="nav">
               <li class="active"><asp:HyperLink ID="lnkHome" runat="server">Home</asp:HyperLink></li>
               <li><asp:HyperLink ID="lnkAbout" runat="server">About</asp:HyperLink></li>
+              <li><asp:HyperLink ID="lnkHelp" runat="server">Help</asp:HyperLink></li>
               <li><asp:HyperLink ID="lnkAdmin" runat="server">Admin</asp:HyperLink></li>
-            <li>About</li>
-            <li>Help</li>
           </ul>
           <form action="" class="pull-right">
             <input class="input-small" type="text" placeholder="Username">
@@ -125,7 +124,7 @@
         <div id="Div1">
         </div>
         <div class="page-header">
-          <h1><asp:Label runat="server" ID="lblSiteName"></asp:Label></a><asp:ContentPlaceHolder ID="PageNameContent" runat="server" /><small><asp:ContentPlaceHolder ID="TaglineContent" runat="server" /></small></h1>
+          <h1><asp:Label runat="server" ID="lblSiteName"></asp:Label><asp:ContentPlaceHolder ID="PageNameContent" runat="server" /><small><asp:ContentPlaceHolder ID="TaglineContent" runat="server" /></small></h1>
         </div>
         <div class="row">
           <div class="span10">
