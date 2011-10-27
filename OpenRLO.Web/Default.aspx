@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="OpenRLO.Web.Default" %>
 <%@ OutputCache Duration="2400" VaryByParam="*"  %>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+
+DEFAULT PAGE
+
   <span runat="server" id="categoryHeader">
     <h2><asp:Label runat="server" ID="lblCategoryName" /></h2>
     <br />

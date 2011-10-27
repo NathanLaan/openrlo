@@ -61,24 +61,24 @@ namespace OpenRLO.Web
       //
       // Authentication
       //
-      if (Global.IsLoggedIn())
-      {
-        //this.lnkAdmin.Visible = true;
-        //this.lnkAdmin.NavigateUrl = "/admin";
-        this.lblUsername.Visible = true;
-        // DisplayName should always be found because the user is logged in...
-        this.lblUsername.Text = "USER: " + Global.SiteUserIndex.GetDisplayName(HttpContext.Current.User.Identity.Name);
-        this.lnkLogout.Visible = true;
-        this.lnkLogout.Text = "Logout";
-        this.lnkLogout.NavigateUrl = "/admin/logout";
-      }
-      else
-      {
-        //this.lnkAdmin.Visible = false;
-        this.lblUsername.Visible = false;
-        this.lnkLogout.Text = "Login";
-        this.lnkLogout.NavigateUrl = "/admin/login";
-      }
+      //if (Global.IsLoggedIn())
+      //{
+      //  //this.lnkAdmin.Visible = true;
+      //  //this.lnkAdmin.NavigateUrl = "/admin";
+      //  this.lblUsername.Visible = true;
+      //  // DisplayName should always be found because the user is logged in...
+      //  this.lblUsername.Text = "USER: " + Global.SiteUserIndex.GetDisplayName(HttpContext.Current.User.Identity.Name);
+      //  this.lnkLogout.Visible = true;
+      //  this.lnkLogout.Text = "Logout";
+      //  this.lnkLogout.NavigateUrl = "/admin/logout";
+      //}
+      //else
+      //{
+      //  //this.lnkAdmin.Visible = false;
+      //  this.lblUsername.Visible = false;
+      //  this.lnkLogout.Text = "Login";
+      //  this.lnkLogout.NavigateUrl = "/admin/login";
+      //}
 
     }
   }

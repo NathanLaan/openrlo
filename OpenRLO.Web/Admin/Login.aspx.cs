@@ -21,14 +21,14 @@ namespace OpenRLO.Web.Admin
       // http://msdn.microsoft.com/en-us/library/ff647070.aspx
       //
 
-      if (Global.SiteUserIndex.ValidateUser(txtUsername.Text, txtPassword.Text))
-      {
-        FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, true);
-      }
-      else
-      {
-        lblOutput.Text = "Login failed. Please try again";
-      }
+      //if (Global.SiteUserIndex.ValidateUser(txtUsername.Text, txtPassword.Text))
+      //{
+      //  FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, true);
+      //}
+      //else
+      //{
+      //  lblOutput.Text = "Login failed. Please try again";
+      //}
 
       //if (Membership.ValidateUser(userName.Text, password.Text))
       //{

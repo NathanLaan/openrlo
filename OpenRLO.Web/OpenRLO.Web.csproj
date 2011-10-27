@@ -73,7 +73,7 @@
     <Content Include="css\reset.css" />
     <Content Include="css\screen.css" />
     <Content Include="css\text.css" />
-    <Content Include="favicon_NathanLaan.ico" />
+    <Content Include="favicon.ico" />
     <Content Include="humans.txt" />
     <Content Include="img\missing.jpg" />
     <Content Include="img\monitor.png" />
@@ -109,7 +109,6 @@
     <Content Include="img\side_date_over.png" />
     <Content Include="js\javascript.js" />
     <Content Include="Default.aspx" />
-    <Content Include="favicon_Anetro.ico" />
     <Content Include="Global.asax" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="js\jquery-1.4.1-vsdoc.js" />

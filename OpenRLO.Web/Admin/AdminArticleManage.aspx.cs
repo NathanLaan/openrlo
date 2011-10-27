@@ -10,8 +10,8 @@ namespace OpenRLO.Web.Admin
   {
     protected void Page_Load(object sender, EventArgs e)
     {
-      this.articleList.DataSource = Global.ArticleIndex.List;
-      this.articleList.DataBind();
+      //this.articleList.DataSource = Global.ArticleIndex.List;
+      //this.articleList.DataBind();
     }
   }
 }

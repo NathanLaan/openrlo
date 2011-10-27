@@ -52,10 +52,10 @@ namespace OpenRLO.Web
       this.lblCopyright.Text = Global.SiteSettings.SiteCopyright;
 
       //this.categoryRepeater.DataSource = Global.ArticleIndex.GetCategoryList();
-      this.categoryRepeater.DataSource = Global.CategoryIndexNew.IndexList;
-      this.categoryRepeater.DataBind();
-      this.siteLinkRepeater.DataSource = Global.SiteLinkIndex.List;
-      this.siteLinkRepeater.DataBind();
+      //this.categoryRepeater.DataSource = Global.CategoryIndexNew.IndexList;
+      //this.categoryRepeater.DataBind();
+      //this.siteLinkRepeater.DataSource = Global.SiteLinkIndex.List;
+      //this.siteLinkRepeater.DataBind();
 
       string currentPage = Solution.Web.Library.HttpHandler.FlexHttpHandlerFactory.GetFlexPageName(Request.RawUrl);
       switch (currentPage)
@@ -83,7 +83,7 @@ namespace OpenRLO.Web
         this.lnkAdmin.NavigateUrl = "/admin";
         this.lblUsername.Visible = true;
         // DisplayName should always be found because the user is logged in...
-        this.lblUsername.Text = "USER: " + Global.SiteUserIndex.GetDisplayName(HttpContext.Current.User.Identity.Name);
+        //this.lblUsername.Text = "USER: " + Global.SiteUserIndex.GetDisplayName(HttpContext.Current.User.Identity.Name);
         this.lnkLogout.Visible = true;
         this.lnkLogout.Text = "Logout";
         this.lnkLogout.NavigateUrl = "/admin/logout";

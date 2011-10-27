@@ -21,11 +21,10 @@ namespace OpenRLO.Web
     public static Index<Category> CategoryIndexNew { get; private set; }
 
     public static SiteSettings SiteSettings { get; set; }
-    public static ArticleIndex ArticleIndex { get; private set; }
-    public static ArticleCache ArticleCache { get; private set; }
-    public static SiteUserIndex SiteUserIndex { get; private set; }
-    //public static CategoryIndex CategoryIndex { get; private set; }
-    public static SiteLinkIndex SiteLinkIndex { get; private set; }
+    //public static ArticleIndex ArticleIndex { get; private set; }
+    //public static ArticleCache ArticleCache { get; private set; }
+    //public static SiteUserIndex SiteUserIndex { get; private set; }
+    //public static SiteLinkIndex SiteLinkIndex { get; private set; }
 
     private static string siteVersion = null;
     public static string SiteVersion
@@ -61,62 +60,31 @@ namespace OpenRLO.Web
       FlexHttpHandlerFactory.DetectMobile = true;
       FlexHttpHandlerFactory.Add(new OpenRLO.Web.HttpHandler.WebSiteFlexHttpHandlerPlugin());
 
-      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin/email", "/admin/EmailTest.aspx"));
+      FlexHttpHandlerFactory.Add(new FlexPage("about", "/about", "/About.aspx"));
       FlexHttpHandlerFactory.Add(new FlexPage("RSS", "/feed", "/RSS.aspx"));
       FlexHttpHandlerFactory.Add(new FlexPage("RSS", "/rss", "/RSS.aspx"));
       FlexHttpHandlerFactory.Add(new FlexPage("home", "/", "/default.aspx"));
 
-      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin", "/admin/AdminArticleManage.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("adminArticleManage", "/admin/article/manage", "/admin/AdminArticleManage.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("adminArticleNew", "/admin/article/new", "/admin/AdminArticleNew.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("adminCategoryManage", "/admin/category/manage", "/admin/AdminCategoryManage.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("adminSiteSettings", "/admin/site/settings", "/admin/AdminSiteSettingsEdit.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("adminSiteLinks", "/admin/site/links", "/admin/AdminSiteLinkManage.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("adminUserManage", "/admin/user/manage", "/admin/AdminSiteUserManage.aspx"));
-      //FlexHttpHandlerFactory.Add(new FlexPage("adminUserEdit", "/admin/user/edit", "/admin/AdminSiteUserEdit.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin/login", "/admin/Login.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin/logout", "/admin/Logout.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("adminUpload", "/admin/upload", "/admin/Upload.aspx"));
-      // TODO: this functionality doesn't exist yet
-      //FlexHttpHandlerFactory.Add(new FlexPage("adminSiteMenu", "/admin/sitemenu", "admin/AdminSiteMenu.aspx"));
-      //
-      //
-      //
-      FlexHttpHandlerFactory.Add(new FlexPage("adminContent", "/admin/content", "/admin/Template.aspx"));
-
-      //FlexHttpHandlerFactory.Add(new FlexPage("", "", ""));
-      //FlexHttpHandlerFactory.Add(new FlexPage("", "", ""));
-
-      Global.ArticleCache = new Data.ArticleCache();
-
-      //
-      // TEST: Testing Mobile Web Brower
-      //
-      //FlexHttpHandlerFactory.Add(new FlexPage("admin", "/m", "/MobileTest.aspx"));
-      //FlexHttpHandlerFactory.Add(new FlexPage("admin", "/t", "/Twitter.aspx"));
+      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin", "/Admin.aspx"));
+      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/login", "/Login.aspx"));
+      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/logout", "/Logout.aspx"));
 
 
-
-      Global.CategoryIndexNew = new Index<Category>(HttpContext.Current.Server.MapPath("/App_Data/_IndexCategory.txt"));
+      //Global.CategoryIndexNew = new Index<Category>(HttpContext.Current.Server.MapPath("/App_Data/_IndexCategory.txt"));
 
       //
       //
       //
       Global.SiteSettings = new OpenRLO.Web.Data.SiteSettings(HttpContext.Current.Server.MapPath("/App_Data/_IndexSiteSettings.txt"));
       Global.SiteSettings.Load();
-      Global.SiteUserIndex = new SiteUserIndex(HttpContext.Current.Server.MapPath("/App_Data/_IndexUser.txt"));
-      Global.SiteUserIndex.Load();
-      Global.SiteLinkIndex = new OpenRLO.Web.Data.SiteLinkIndex();
-      Global.SiteLinkIndex.Filename = HttpContext.Current.Server.MapPath("/App_Data/_IndexSiteLink.txt");
-      Global.SiteLinkIndex.Load();
-      Global.ArticleIndex = new ArticleIndex();
-      Global.ArticleIndex.Filename = HttpContext.Current.Server.MapPath("/App_Data/_IndexArticle.txt");
-      Global.ArticleIndex.Load();
-
-
-      //Global.CategoryIndex = new CategoryIndexNew();
-      //Global.CategoryIndex.Filename = HttpContext.Current.Server.MapPath("/App_Data/CategoryIndexNew.txt");
-      //Global.CategoryIndex.Load();
+      //Global.SiteUserIndex = new SiteUserIndex(HttpContext.Current.Server.MapPath("/App_Data/_IndexUser.txt"));
+      //Global.SiteUserIndex.Load();
+      //Global.SiteLinkIndex = new OpenRLO.Web.Data.SiteLinkIndex();
+      //Global.SiteLinkIndex.Filename = HttpContext.Current.Server.MapPath("/App_Data/_IndexSiteLink.txt");
+      //Global.SiteLinkIndex.Load();
+      //Global.ArticleIndex = new ArticleIndex();
+      //Global.ArticleIndex.Filename = HttpContext.Current.Server.MapPath("/App_Data/_IndexArticle.txt");
+      //Global.ArticleIndex.Load();
 
       //
       // Attempt to regenerate the index when the application load. This is perhaps not the best approach as

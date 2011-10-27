@@ -58,7 +58,7 @@ namespace OpenRLO.Web
         this.categoryHeader.Visible = true;
         lnkPrev.NavigateUrl = "/" + c + "/page/" + (pageNumber - 1);
         lnkNext.NavigateUrl = "/" + c + "/page/" + (pageNumber + 1);
-        sourceList = Global.ArticleIndex.GetArticleList(c, pageNumber);
+        //sourceList = Global.ArticleIndex.GetArticleList(c, pageNumber);
       }
       else
       {
@@ -68,7 +68,7 @@ namespace OpenRLO.Web
         this.categoryHeader.Visible = false;
         lnkPrev.NavigateUrl = "/page/" + (pageNumber - 1);
         lnkNext.NavigateUrl = "/page/" + (pageNumber + 1);
-        sourceList = Global.ArticleIndex.GetArticleList(pageNumber);
+        //sourceList = Global.ArticleIndex.GetArticleList(pageNumber);
       }
 
 
@@ -82,16 +82,16 @@ namespace OpenRLO.Web
         lblPrev.Visible = false;
       }
 
-      if (Global.ArticleIndex.IsLastPage(c, pageNumber))
-      {
-        lnkNext.Visible = false;
-        lblNext.Visible = true;
-      }
-      else
-      {
-        lnkNext.Visible = true;
-        lblNext.Visible = false;
-      }
+      //if (Global.ArticleIndex.IsLastPage(c, pageNumber))
+      //{
+      //  lnkNext.Visible = false;
+      //  lblNext.Visible = true;
+      //}
+      //else
+      //{
+      //  lnkNext.Visible = true;
+      //  lblNext.Visible = false;
+      //}
 
       if (Global.IsLoggedIn())
       {

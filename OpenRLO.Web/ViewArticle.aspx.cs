@@ -25,14 +25,14 @@ namespace OpenRLO.Web
 
       Article article = null;
 
-      if (!string.IsNullOrEmpty(c) && !string.IsNullOrEmpty(a))
-      {
-        article = Global.ArticleIndex.GetArticle(c, a);
-      }
-      else if (!string.IsNullOrEmpty(s))
-      {
-        article = Global.ArticleIndex.GetArticle(s);
-      }
+      //if (!string.IsNullOrEmpty(c) && !string.IsNullOrEmpty(a))
+      //{
+      //  article = Global.ArticleIndex.GetArticle(c, a);
+      //}
+      //else if (!string.IsNullOrEmpty(s))
+      //{
+      //  article = Global.ArticleIndex.GetArticle(s);
+      //}
       if (article != null)
       {
         Category category = Global.CategoryIndexNew.Get(article.Category);

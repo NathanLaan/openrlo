@@ -9,8 +9,8 @@ namespace OpenRLO.Web
   {
     protected void Page_Load(object sender, EventArgs e)
     {
-      rptRSS.DataSource = Global.ArticleIndex.GetArticleListPublishedWithCategory();
-      rptRSS.DataBind();
+      //rptRSS.DataSource = Global.ArticleIndex.GetArticleListPublishedWithCategory();
+      //rptRSS.DataBind();
     }
 
     protected string FormatForXML(object input)
