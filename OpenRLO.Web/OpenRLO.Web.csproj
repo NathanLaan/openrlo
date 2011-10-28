@@ -229,6 +229,7 @@
     <Compile Include="Data\Index.cs" />
     <Compile Include="Data\IndexItem.cs" />
     <Compile Include="Data\IndexManager.cs" />
+    <Compile Include="Data\LearningObject.cs" />
     <Compile Include="Data\LogEntry.cs" />
     <Compile Include="Data\Markdown.cs" />
     <Compile Include="Data\SiteLink.cs" />
