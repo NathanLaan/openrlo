@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRLO.Website", "OpenRLO.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CE24F2FE-B320-47B5-B9DE-2DCA340C9DA3}"
 	ProjectSection(SolutionItems) = preProject
-		Bootstrap\bootstrap.css = Bootstrap\bootstrap.css
-		Bootstrap\bootstrap.min.css = Bootstrap\bootstrap.min.css
 		Bootstrap\container-app.html = Bootstrap\container-app.html
 		Bootstrap\fluid.html = Bootstrap\fluid.html
 		Bootstrap\hero.html = Bootstrap\hero.html
