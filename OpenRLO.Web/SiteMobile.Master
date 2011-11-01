@@ -7,7 +7,6 @@
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <meta name="robots" content="index,follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="google-site-verification" content="XY_0UjI-sNWSkiaqZbUitXuqoO-ztPjnkEqH8ciiUZc" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <!-- http://css-tricks.com/how-to-create-an-ie-only-stylesheet/ -->
   <!--[if IE]>
@@ -50,7 +49,7 @@
         text-align: center; /* center align it with the container */
       }
       .container {
-        width: 820px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
+        /*width: 820px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
       }
 
       /* The white background content wrapper */
@@ -102,7 +101,7 @@
 
     <div class="topbar">
       <div class="fill">
-        <div class="container">
+        <div class="container_12">
           <a class="brand" href="/">OpenRLO</a>
           <ul class="nav">
               <li class="active"><asp:HyperLink ID="lnkHome" runat="server">Home</asp:HyperLink></li>
@@ -119,7 +118,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container_12">
       <div class="content">
         <div id="Div1">
         </div>

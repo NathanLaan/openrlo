@@ -193,6 +193,7 @@ body {
 }
 .container {
   width: 940px;
+  width: 960px;
   margin-left: auto;
   margin-right: auto;
   zoom: 1;
@@ -202,9 +203,6 @@ body {
   content: "";
   zoom: 1;
   *display: inline;
-}
-.container:after {
-  clear: both;
 }
 .container-fluid {
   position: relative;
@@ -1315,6 +1313,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
   outline: 0;
   background-color: #ffffff;
   color: #404040;
+  background-color: red;
   text-shadow: 0 1px 0 #ffffff;
   border: 0;
   padding: 5px 10px;
@@ -1324,7 +1323,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 }
 .topbar-inner, .topbar .fill {
   background-color: #222;
-  background-color: #222222;
+  background-color: #FF0000;
   background-repeat: repeat-x;
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
