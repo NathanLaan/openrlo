@@ -176,6 +176,7 @@
     <Compile Include="Admin\AdminSiteUserManage.aspx.designer.cs">
       <DependentUpon>AdminSiteUserManage.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Code\Topic.cs" />
     <Compile Include="Data\AnetroTemplateArticle.cs" />
     <Compile Include="Data\AnetroTemplate.cs" />
     <Compile Include="Data\AnetroTemplateCategory.cs" />
