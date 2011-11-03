@@ -5,7 +5,10 @@ using System.Web;
 
 namespace OpenRLO.Web.App_Code
 {
-  public class Topic
+  public class Group
   {
+
+    // List of Topics that Group is assigned to
+
   }
 }
