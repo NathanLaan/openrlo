@@ -16,9 +16,6 @@ namespace OpenRLO.Web
       Response.Cache.SetExpires(DateTime.Now.AddMonths(1));
       Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
       Response.Cache.SetValidUntilExpires(true);
-      // NOT WORKING!!!!!!!
-      //this.lblGeneratedDateTime.Text = DateTime.Now.ToString("yyyyMMdd:HHmmss");
-      //this.lblGeneratedDateTime.Text = DateTime.Now.ToString("yyyyMMdd");
 
       string mobile = Request.QueryString.Get("mobile");
       if (!string.IsNullOrEmpty(mobile))
@@ -47,8 +44,7 @@ namespace OpenRLO.Web
       this.lnkAbout.NavigateUrl = "/about";
       this.lnkAdmin.NavigateUrl = "/admin";
       this.lnkHelp.NavigateUrl = "/help";
-      //this.lnkColophon.NavigateUrl = "/colophon";
-      this.lnkFeed.NavigateUrl = Global.SiteSettings.SiteFeedUrl;
+      this.lnkLast.NavigateUrl = "/last";
       this.lblCopyright.Text = Global.SiteSettings.SiteCopyright;
 
       //this.categoryRepeater.DataSource = Global.ArticleIndex.GetCategoryList();

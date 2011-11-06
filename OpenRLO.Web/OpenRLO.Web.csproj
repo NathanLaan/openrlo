@@ -89,7 +89,6 @@
     <Content Include="js\HeaderBar.js" />
     <Content Include="js\Utility.js" />
     <Content Include="robots.txt" />
-    <Content Include="RSS.aspx" />
     <Content Include="Service\ArticleService.asmx" />
     <Content Include="Service\CategoryService.asmx" />
     <Content Include="Service\TemplateService.asmx" />
@@ -270,13 +269,6 @@
       <DependentUpon>SiteAdmin.Master</DependentUpon>
     </Compile>
     <Compile Include="HttpHandler\WebSiteFlexHttpHandlerPlugin.cs" />
-    <Compile Include="RSS.aspx.cs">
-      <DependentUpon>RSS.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RSS.aspx.designer.cs">
-      <DependentUpon>RSS.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Twitter.aspx.cs">
       <DependentUpon>Twitter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

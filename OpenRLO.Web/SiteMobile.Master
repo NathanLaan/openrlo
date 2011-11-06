@@ -39,7 +39,6 @@
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="../../Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
       /* Override some defaults */
       html, body {
@@ -94,10 +93,12 @@
     </style>
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <!--
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+    -->
   </head>
 
   <body>
@@ -120,6 +121,7 @@
             <li><asp:HyperLink ID="lnkAbout" runat="server">About</asp:HyperLink></li>
             <li><asp:HyperLink ID="lnkHelp" runat="server">Help</asp:HyperLink></li>
             <li><asp:HyperLink ID="lnkAdmin" runat="server">Admin</asp:HyperLink></li>
+            <li><asp:HyperLink ID="lnkLast" runat="server">LAST</asp:HyperLink></li>
           </ul>
         </div>
       </div>
@@ -144,12 +146,11 @@
             </form>
           </div>
           <div class="span4">
-            <h3>Categories</h3>
+            <h3>Subjects</h3>
             <asp:Repeater runat="server" ID="categoryRepeater">
               <ItemTemplate><div><a href="/<%# ((OpenRLO.Web.Data.Category)Container.DataItem).Url %>"><%# ((OpenRLO.Web.Data.Category)Container.DataItem).Title%></a></div></ItemTemplate>
             </asp:Repeater>
             <h3>Links</h3>
-            <asp:HyperLink ID="lnkFeed" runat="server">Subscribe (RSS)</asp:HyperLink>
             <asp:Repeater runat="server" ID="siteLinkRepeater">
               <ItemTemplate><div><a href="<%# ((OpenRLO.Web.Data.SiteLink)Container.DataItem).Url %>"><%# ((OpenRLO.Web.Data.SiteLink)Container.DataItem).Title %></a></div></ItemTemplate>
             </asp:Repeater>
@@ -175,7 +176,7 @@
 </script>
 
     <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
-    <script src="../js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
         $(".dropdown-toggle, .menu").click(function (e) {
@@ -183,7 +184,7 @@
           return false;
         });
       }); 
-</script>
+    </script>
 
   </body>
 </html>

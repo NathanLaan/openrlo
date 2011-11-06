@@ -67,6 +67,15 @@ namespace OpenRLO.Web {
         protected global::System.Web.UI.WebControls.HyperLink lnkAdmin;
         
         /// <summary>
+        /// lnkLast control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkLast;
+        
+        /// <summary>
         /// lblSiteName control.
         /// </summary>
         /// <remarks>
@@ -119,15 +128,6 @@ namespace OpenRLO.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater categoryRepeater;
-        
-        /// <summary>
-        /// lnkFeed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkFeed;
         
         /// <summary>
         /// siteLinkRepeater control.

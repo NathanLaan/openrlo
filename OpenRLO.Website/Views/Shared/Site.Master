@@ -14,7 +14,7 @@
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="../../Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
       /* Override some defaults */
       html, body {

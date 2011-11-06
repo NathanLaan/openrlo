@@ -23,7 +23,7 @@ namespace OpenRLO.Web
     public static SiteSettings SiteSettings { get; set; }
     //public static ArticleIndex ArticleIndex { get; private set; }
     //public static ArticleCache ArticleCache { get; private set; }
-    //public static SiteUserIndex SiteUserIndex { get; private set; }
+    public static SiteUserIndex SiteUserIndex { get; private set; }
     //public static SiteLinkIndex SiteLinkIndex { get; private set; }
 
     private static string siteVersion = null;
@@ -61,13 +61,11 @@ namespace OpenRLO.Web
       FlexHttpHandlerFactory.Add(new OpenRLO.Web.HttpHandler.WebSiteFlexHttpHandlerPlugin());
 
       FlexHttpHandlerFactory.Add(new FlexPage("about", "/about", "/About.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("RSS", "/feed", "/RSS.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("RSS", "/rss", "/RSS.aspx"));
       FlexHttpHandlerFactory.Add(new FlexPage("home", "/", "/default.aspx"));
 
       FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin", "/Admin.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/login", "/Login.aspx"));
-      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/logout", "/Logout.aspx"));
+      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin/login", "/admin/Login.aspx"));
+      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin/logout", "/admin/Logout.aspx"));
 
 
       //Global.CategoryIndexNew = new Index<Category>(HttpContext.Current.Server.MapPath("/App_Data/_IndexCategory.txt"));
@@ -77,8 +75,8 @@ namespace OpenRLO.Web
       //
       Global.SiteSettings = new OpenRLO.Web.Data.SiteSettings(HttpContext.Current.Server.MapPath("/App_Data/_IndexSiteSettings.txt"));
       Global.SiteSettings.Load();
-      //Global.SiteUserIndex = new SiteUserIndex(HttpContext.Current.Server.MapPath("/App_Data/_IndexUser.txt"));
-      //Global.SiteUserIndex.Load();
+      Global.SiteUserIndex = new SiteUserIndex(HttpContext.Current.Server.MapPath("/App_Data/_IndexUser.txt"));
+      Global.SiteUserIndex.Load();
       //Global.SiteLinkIndex = new OpenRLO.Web.Data.SiteLinkIndex();
       //Global.SiteLinkIndex.Filename = HttpContext.Current.Server.MapPath("/App_Data/_IndexSiteLink.txt");
       //Global.SiteLinkIndex.Load();
