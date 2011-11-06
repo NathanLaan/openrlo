@@ -78,6 +78,14 @@
     <Content Include="img\missing.jpg" />
     <Content Include="img\monitor.png" />
     <Content Include="js\960.gridder.js" />
+    <Content Include="js\bootstrap-alerts.js" />
+    <Content Include="js\bootstrap-buttons.js" />
+    <Content Include="js\bootstrap-dropdown.js" />
+    <Content Include="js\bootstrap-modal.js" />
+    <Content Include="js\bootstrap-popover.js" />
+    <Content Include="js\bootstrap-scrollspy.js" />
+    <Content Include="js\bootstrap-tabs.js" />
+    <Content Include="js\bootstrap-twipsy.js" />
     <Content Include="js\HeaderBar.js" />
     <Content Include="js\Utility.js" />
     <Content Include="robots.txt" />
