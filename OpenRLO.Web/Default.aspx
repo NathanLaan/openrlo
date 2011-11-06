@@ -1,8 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="OpenRLO.Web.Default" %>
 <%@ OutputCache Duration="2400" VaryByParam="*"  %>
-<asp:Content ID="Content2" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="PageTitleContent" runat="server">Home</asp:Content>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
 DEFAULT PAGE
+<br />
 
   <span runat="server" id="categoryHeader">
     <h2><asp:Label runat="server" ID="lblCategoryName" /></h2>
@@ -22,4 +27,8 @@ DEFAULT PAGE
   </asp:Repeater>
   <br />
   <asp:Label runat="server" ID="lblPrev">&laquo; Prev</asp:Label><asp:HyperLink runat="server" ID="lnkPrev">&laquo; Prev</asp:HyperLink>&nbsp;|&nbsp;<asp:HyperLink runat="server" ID="lnkNext">Next &raquo;</asp:HyperLink><asp:Label runat="server" ID="lblNext">Next &raquo;</asp:Label>
+
+  
+<br />
+<br />
 </asp:Content>
