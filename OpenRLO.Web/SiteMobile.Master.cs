@@ -40,11 +40,10 @@ namespace OpenRLO.Web
       this.lblSiteName.Text = Global.SiteSettings.SiteName;
       this.lblSiteVersion.Text = Global.SiteVersion;
 
-      this.lnkHome.NavigateUrl = "/";
-      this.lnkAbout.NavigateUrl = "/about";
-      this.lnkAdmin.NavigateUrl = "/admin";
-      this.lnkHelp.NavigateUrl = "/help";
-      this.lnkLast.NavigateUrl = "/last";
+      //this.lnkHome.NavigateUrl = "/";
+      //this.lnkAbout.NavigateUrl = "/about";
+      //this.lnkHelp.NavigateUrl = "/help";
+      //this.lnkAdmin.NavigateUrl = "/admin";
       this.lblCopyright.Text = Global.SiteSettings.SiteCopyright;
 
       //this.categoryRepeater.DataSource = Global.ArticleIndex.GetCategoryList();
@@ -54,29 +53,38 @@ namespace OpenRLO.Web
       //this.siteLinkRepeater.DataBind();
 
       string currentPage = Solution.Web.Library.HttpHandler.FlexHttpHandlerFactory.GetFlexPageName(Request.RawUrl);
+      Response.Write("CP: " + currentPage);
       switch (currentPage)
       {
         case "home":
-              this.lnkHome.CssClass = "active";
-          break;
+              this.liHome.Attributes["class"] = "active";
+              break;
+        case "view":
+              this.liView.Attributes["class"] = "active";
+              break;
+        case "help":
+              this.liHelp.Attributes["class"] = "active";
+              break;
         case "about":
-          this.lnkAbout.CssClass = "active";
-          break;
-        //case "colophon":
-        //  this.lnkColophon.CssClass = "currentLink";
-        //  break;
+              this.liAbout.Attributes["class"] = "active";
+              break;
+        case "create":
+              this.liCreate.Attributes["class"] = "active";
+              break;
         case "admin":
-          this.lnkAdmin.CssClass = "active";
-          break;
+              this.liAdmin.Attributes["class"] = "active";
+              break;
       }
+
 
       //
       // Authentication
       //
       if (Global.IsLoggedIn())
       {
-        this.lnkAdmin.Visible = true;
-        this.lnkAdmin.NavigateUrl = "/admin";
+        this.liAdmin.Visible = true;
+        //this.lnkAdmin.Visible = true;
+        //this.lnkAdmin.NavigateUrl = "/admin";
         this.lblUsername.Visible = true;
         // DisplayName should always be found because the user is logged in...
         //this.lblUsername.Text = "USER: " + Global.SiteUserIndex.GetDisplayName(HttpContext.Current.User.Identity.Name);
@@ -87,7 +95,8 @@ namespace OpenRLO.Web
       }
       else
       {
-        this.lnkAdmin.Visible = false;
+        this.liAdmin.Visible = false;
+        //this.lnkAdmin.Visible = false;
         this.lblUsername.Visible = false;
         this.lnkLogout.Text = "Login";
         this.lnkLogout.NavigateUrl = "/admin/login";

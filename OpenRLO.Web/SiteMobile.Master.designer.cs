@@ -31,49 +31,58 @@ namespace OpenRLO.Web {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder PageTitleContent;
         
         /// <summary>
-        /// lnkHome control.
+        /// liHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkHome;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liHome;
         
         /// <summary>
-        /// lnkAbout control.
+        /// liCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAbout;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liCreate;
         
         /// <summary>
-        /// lnkHelp control.
+        /// liView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkHelp;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liView;
         
         /// <summary>
-        /// lnkAdmin control.
+        /// liAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAdmin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAdmin;
         
         /// <summary>
-        /// lnkLast control.
+        /// liAbout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkLast;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAbout;
+        
+        /// <summary>
+        /// liHelp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liHelp;
         
         /// <summary>
         /// lblSiteName control.
@@ -101,15 +110,6 @@ namespace OpenRLO.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder TaglineContent;
-        
-        /// <summary>
-        /// MainContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
         
         /// <summary>
         /// bodyContentPlaceHolder control.

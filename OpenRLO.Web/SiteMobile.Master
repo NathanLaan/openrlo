@@ -109,7 +109,9 @@
         <div class="container">
           <a class="brand" href="/">OpenRLO</a>
           <ul class="nav">
-            <li class="active"><asp:HyperLink ID="lnkHome" runat="server">Home</asp:HyperLink></li>
+            <li runat="server" ID="liHome"><a href="/" title="Home">Home</a></li>
+            <li runat="server" ID="liCreate"><a href="/create" title="Create content">Create</a></li>
+            <li runat="server" ID="liView"><a href="/view" title="View content">View</a></li>
             <li class="dropdown"><a href="#" class="dropdown-toggle">Subjects</a>
               <ul class="dropdown-menu">
                 <li><a href="#">Subject 1</a></li>
@@ -118,10 +120,9 @@
                 <li><a href="#">Subject 3</a></li>
               </ul>
             </li>
-            <li><asp:HyperLink ID="lnkAbout" runat="server">About</asp:HyperLink></li>
-            <li><asp:HyperLink ID="lnkHelp" runat="server">Help</asp:HyperLink></li>
-            <li><asp:HyperLink ID="lnkAdmin" runat="server">Admin</asp:HyperLink></li>
-            <li><asp:HyperLink ID="lnkLast" runat="server">LAST</asp:HyperLink></li>
+            <li runat="server" ID="liAdmin"><a href="/admin" title="Admin">[Admin]</a></li>
+            <li runat="server" ID="liAbout"><a href="/about" title="About">About</a></li>
+            <li runat="server" ID="liHelp"><a href="/help" title="Help">Help</a></li>
           </ul>
         </div>
       </div>
@@ -137,13 +138,7 @@
         </div>
         <div class="row">
           <div class="span10">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server" />
-            <form action="">
-              <input class="input-small" type="text" placeholder="Username">
-              <input class="input-small" type="password" placeholder="Password">
-              <button class="btn" type="submit">Sign in</button>
-            </form>
           </div>
           <div class="span4">
             <h3>Subjects</h3>

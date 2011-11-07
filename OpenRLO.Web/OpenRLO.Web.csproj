@@ -66,6 +66,8 @@
     <Content Include="App_Data\_AnetroTemplateIndex.html" />
     <Content Include="App_Data\_AnetroTemplateCategory.html" />
     <Content Include="App_Data\_AnetroTemplateArticle.html" />
+    <Content Include="Create.aspx" />
+    <Content Include="View.aspx" />
     <Content Include="css\360.css" />
     <Content Include="css\960.css" />
     <Content Include="css\480.css" />
@@ -190,6 +192,20 @@
     <Compile Include="App_Code\Group.cs" />
     <Compile Include="App_Code\LearningObjectItem.cs" />
     <Compile Include="App_Code\RLOUser.cs" />
+    <Compile Include="Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Data\AnetroTemplateArticle.cs" />
     <Compile Include="Data\AnetroTemplate.cs" />
     <Compile Include="Data\AnetroTemplateCategory.cs" />
