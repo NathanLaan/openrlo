@@ -93,7 +93,6 @@
     <Content Include="Service\SiteLinkService.asmx" />
     <Content Include="Service\SiteSettingsService.asmx" />
     <Content Include="Service\SiteUserService.asmx" />
-    <Content Include="Twitter.aspx" />
     <Content Include="img\blank.gif" />
     <Content Include="img\bottom_grad.png" />
     <Content Include="img\bottom_grad2.png" />
@@ -281,13 +280,6 @@
       <DependentUpon>SiteAdmin.Master</DependentUpon>
     </Compile>
     <Compile Include="HttpHandler\WebSiteFlexHttpHandlerPlugin.cs" />
-    <Compile Include="Twitter.aspx.cs">
-      <DependentUpon>Twitter.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Twitter.aspx.designer.cs">
-      <DependentUpon>Twitter.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
