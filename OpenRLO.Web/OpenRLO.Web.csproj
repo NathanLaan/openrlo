@@ -180,13 +180,6 @@
     <Compile Include="Admin\AdminSiteUserManage.aspx.designer.cs">
       <DependentUpon>AdminSiteUserManage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\Topic.cs" />
-    <Compile Include="App_Code\Subject.cs" />
-    <Compile Include="App_Code\Section.cs" />
-    <Compile Include="App_Code\Page.cs" />
-    <Compile Include="App_Code\Group.cs" />
-    <Compile Include="App_Code\LearningObjectItem.cs" />
-    <Compile Include="App_Code\RLOUser.cs" />
     <Compile Include="Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -333,6 +326,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Service\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

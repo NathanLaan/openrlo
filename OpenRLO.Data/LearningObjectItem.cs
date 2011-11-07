@@ -12,5 +12,11 @@ namespace OpenRLO.Web.App_Code
     public string Url { get; set; }
     public DateTime ModifiedDateTime { get; set; }
 
+
+    public void GenerateUrl()
+    {
+      this.Url = Title.Replace(" ", "");
+    }
+
   }
 }

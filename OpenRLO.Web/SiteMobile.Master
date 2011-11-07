@@ -120,7 +120,7 @@
                 <li><a href="#">Subject 3</a></li>
                 <!-- ADD REPEATER CONTROL HERE -->
                 <asp:Repeater runat="server" ID="subjectMenuRepeater">
-                  <ItemTemplate><div><a href="/<%# ((OpenRLO.Data.Subject)Container.DataItem).Url %>"><%# ((OpenRLO.Data.Subject)Container.DataItem).Title%></a></div></ItemTemplate>
+                  <ItemTemplate><li><a href="/<%# ((OpenRLO.Data.Subject)Container.DataItem).Url %>"><%# ((OpenRLO.Data.Subject)Container.DataItem).Title%></a></li></ItemTemplate>
                 </asp:Repeater>
               </ul>
             </li>
