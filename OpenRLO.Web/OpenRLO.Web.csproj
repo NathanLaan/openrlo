@@ -313,6 +313,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OpenRLO.Data\OpenRLO.Data.csproj">
+      <Project>{248668F5-C073-4831-9347-32DE97869BF3}</Project>
+      <Name>OpenRLO.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Solution.Web.Library\Solution.Web.Library.csproj">
       <Project>{DF9FCE37-6619-45ED-B5D2-5181B515056D}</Project>
       <Name>Solution.Web.Library</Name>

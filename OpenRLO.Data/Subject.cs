@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace OpenRLO.Data
+namespace OpenRLO.Web.App_Code
 {
-  public class Group
+  public class Subject : LearningObjectItem
   {
-
-    // List of Topics that Group is assigned to
-
   }
 }
