@@ -52,8 +52,9 @@ namespace OpenRLO.Web
       //this.siteLinkRepeater.DataSource = Global.SiteLinkIndex.List;
       //this.siteLinkRepeater.DataBind();
 
-      string currentPage = Solution.Web.Library.HttpHandler.FlexHttpHandlerFactory.GetFlexPageName(Request.RawUrl);
-      Response.Write("CP: " + currentPage);
+      //string currentPage = Solution.Web.Library.HttpHandler.FlexHttpHandlerFactory.GetFlexPageName(Request.RawUrl);
+      string currentPage = Solution.Web.Library.HttpHandler.FlexHttpHandlerFactory.GetFlexPageName();
+      //Response.Write("CurrentPage: " + currentPage);
       switch (currentPage)
       {
         case "home":

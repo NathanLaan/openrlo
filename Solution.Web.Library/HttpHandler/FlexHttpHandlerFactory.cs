@@ -96,44 +96,18 @@ namespace Solution.Web.Library.HttpHandler
 
 
 
-    public static string GetFlexPageName(HttpContext httpContext, Uri url)
+    #region GetFlexPageName
+
+    public static string GetFlexPageName()
     {
-      string rawUrl = httpContext.Request.RawUrl;
-      foreach (FlexPage fp in FlexHttpHandlerFactory.flexPageList)
+      string rawUrl = HttpContext.Current.Request.RawUrl;
+      string retVal = GetFlexPageName(rawUrl);
+      if (retVal != "")
       {
-        if (rawUrl.Equals(fp.RawUrl))
-        {
-          //HttpContext.Current.Response.Write("RawURL Found <br>");
-          return fp.Name;
-        }
+        return retVal;
       }
-      //Match matchPage = FlexHttpHandlerFactory.PageRegex.Match(rawUrl);
-      //if (matchPage.Captures.Count > 0)
-      //{
-      //  Capture capture = matchPage.Captures[0];
-      //  if (capture.Value != null && capture.Value != string.Empty)
-      //  {
-      //    string[] splitArray = capture.Value.Split(FlexHttpHandlerFactory.PageRegexSplitCharacter);
-      //    foreach (FlexHttpHandlerPlugin plugin in FlexHttpHandlerFactory.flexHttpHandlerPluginList)
-      //    {
-      //      FlexHttpHandlerResult result = plugin.FindMatch(splitArray);
-      //      if (result != null)
-      //      {
-      //        return result.Name;
-      //      }
-      //    }
-      //  }
-      //}
-      string[] splitArray = SplitUrl(rawUrl);
-      foreach (FlexHttpHandlerPlugin plugin in FlexHttpHandlerFactory.flexHttpHandlerPluginList)
-      {
-        FlexHttpHandlerResult result = plugin.FindMatch(splitArray);
-        if (result != null)
-        {
-          return result.Name;
-        }
-      }
-      return "";
+      string absUrl = HttpContext.Current.Request.Url.AbsolutePath;
+      return GetFlexPageName(absUrl);
     }
 
     public static string GetFlexPageName(string rawUrl)
@@ -146,6 +120,13 @@ namespace Solution.Web.Library.HttpHandler
           return fp.Name;
         }
       }
+      foreach (FlexPage fp in FlexHttpHandlerFactory.flexPageList)
+      {
+        if (rawUrl.Equals(fp.MapUrl))
+        {
+          return fp.Name;
+        }
+      }
       string[] splitArray = SplitUrl(rawUrl);
       foreach (FlexHttpHandlerPlugin plugin in FlexHttpHandlerFactory.flexHttpHandlerPluginList)
       {
@@ -157,6 +138,8 @@ namespace Solution.Web.Library.HttpHandler
       }
       return "";
     }
+
+    #endregion GetFlexPageName
 
 
     //private static readonly Regex PageRegex = new Regex(@"[\+\\""\''\d\w\s\.\/:]*[^\?]");
