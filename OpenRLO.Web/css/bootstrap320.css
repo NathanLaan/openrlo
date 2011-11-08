@@ -1340,7 +1340,6 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 HIDE ON MOBILE
 */
 .topbar .brand {
-  color: Red;
   visibility: hidden;
   width: 0px;
   height: 0px;

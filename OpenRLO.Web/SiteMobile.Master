@@ -16,14 +16,14 @@
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <!--[if !IE]><!-->
-  <link rel="stylesheet" href="/css/bootstrap940.css" type="text/css" media="screen and (min-device-width: 940px)" />
+  <link rel="stylesheet" href="/css/bootstrap940.css" type="text/css" media="screen and (min-device-width: 980px)" />
   <!--<link rel="stylesheet" href="/css/bootstrap480.css" type="text/css" media="screen and (min-device-width: 480px) and (max-device-width: 960px)" />-->
   <!--<link rel="stylesheet" href="/css/bootstrap320.css" type="text/css" media="screen and (min-device-width: 100px) and (max-device-width: 480px)" />-->
   <link rel="stylesheet" href="/css/bootstrap480.css" type="text/css" media="screen and (min-device-width: 321px) and (max-device-width: 900px)" />
   <link rel="stylesheet" href="/css/bootstrap320.css" type="text/css" media="screen and (min-device-width: 100px) and (max-device-width: 320px)" />
-  <link rel="stylesheet" href="/css/bootstrap940.css" type="text/css" media="screen and (min-width: 960px)" />
-  <link rel="stylesheet" href="/css/bootstrap480.css" type="text/css" media="screen and (min-width: 480px) and (max-width: 900px)" />
-  <link rel="stylesheet" href="/css/bootstrap320.css" type="text/css" media="screen and (min-width: 100px) and (max-width: 400px)" />
+  <link rel="stylesheet" href="/css/bootstrap940.css" type="text/css" media="screen and (min-width: 980px)" />
+  <link rel="stylesheet" href="/css/bootstrap480.css" type="text/css" media="screen and (min-width: 520px) and (max-width: 900px)" />
+  <link rel="stylesheet" href="/css/bootstrap320.css" type="text/css" media="screen and (min-width: 100px) and (max-width: 519px)" />
   <link rel="stylesheet" href="/css/bootstrap320.css" type="text/css" media="handheld" />
   <!--<![endif]-->
   <!--<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />-->
