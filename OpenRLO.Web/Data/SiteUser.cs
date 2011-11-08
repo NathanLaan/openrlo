@@ -10,6 +10,9 @@ namespace OpenRLO.Web.Data
   {
 
     public Guid UserID { get; set; }
+    public bool IsContentCreator { get; set; }
+    public bool IsAdministrator { get; set; }
+
     #region Email
     private string email;
     public string Email
