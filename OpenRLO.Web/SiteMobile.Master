@@ -16,13 +16,15 @@
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <!--[if !IE]><!-->
-  <link rel="stylesheet" href="/css/bootstrap940.css" type="text/css" media="screen and (min-device-width: 960px)" />
-  <link rel="stylesheet" href="/css/480.css" type="text/css" media="screen and (min-device-width: 480px) and (max-device-width: 960px)" />
-  <link rel="stylesheet" href="/css/360.css" type="text/css" media="screen and (min-device-width: 320px) and (max-device-width: 480px)" />
+  <link rel="stylesheet" href="/css/bootstrap940.css" type="text/css" media="screen and (min-device-width: 940px)" />
+  <!--<link rel="stylesheet" href="/css/bootstrap480.css" type="text/css" media="screen and (min-device-width: 480px) and (max-device-width: 960px)" />-->
+  <!--<link rel="stylesheet" href="/css/bootstrap320.css" type="text/css" media="screen and (min-device-width: 100px) and (max-device-width: 480px)" />-->
+  <link rel="stylesheet" href="/css/bootstrap480.css" type="text/css" media="screen and (min-device-width: 321px) and (max-device-width: 900px)" />
+  <link rel="stylesheet" href="/css/bootstrap320.css" type="text/css" media="screen and (min-device-width: 100px) and (max-device-width: 320px)" />
   <link rel="stylesheet" href="/css/bootstrap940.css" type="text/css" media="screen and (min-width: 960px)" />
-  <link rel="stylesheet" href="/css/480.css" type="text/css" media="screen and (min-width: 480px) and (max-width: 960px)" />
-  <link rel="stylesheet" href="/css/360.css" type="text/css" media="screen and (min-width: 320px) and (max-width: 480px)" />
-  <link rel="stylesheet" href="/css/360.css" type="text/css" media="handheld" />
+  <link rel="stylesheet" href="/css/bootstrap480.css" type="text/css" media="screen and (min-width: 480px) and (max-width: 900px)" />
+  <link rel="stylesheet" href="/css/bootstrap320.css" type="text/css" media="screen and (min-width: 100px) and (max-width: 400px)" />
+  <link rel="stylesheet" href="/css/bootstrap320.css" type="text/css" media="handheld" />
   <!--<![endif]-->
   <!--<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />-->
   <!--<link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" />-->
@@ -105,18 +107,20 @@
             <li runat="server" ID="liHome"><a href="/" title="Home">Home</a></li>
             <li runat="server" ID="liCreate"><a href="/create" title="Create content">Create</a></li>
             <li runat="server" ID="liView"><a href="/view" title="View content">View</a></li>
+            
+            <!--
             <li class="dropdown"><a href="#" class="dropdown-toggle">Subjects</a>
               <ul class="dropdown-menu">
                 <li><a href="#">Subject 1</a></li>
                 <li><a href="#">Subject 2</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Subject 3</a></li>
-                <!-- SUBJECT MENU REPEATER -->
                 <asp:Repeater runat="server" ID="subjectMenuRepeater">
                   <ItemTemplate><li><a href="/<%# ((OpenRLO.Data.Subject)Container.DataItem).Url %>"><%# ((OpenRLO.Data.Subject)Container.DataItem).Title%></a></li></ItemTemplate>
                 </asp:Repeater>
               </ul>
             </li>
+            -->
             <li runat="server" ID="liAdmin"><a href="/admin" title="Admin">[Admin]</a></li>
             <li runat="server" ID="liAbout"><a href="/about" title="About">About</a></li>
           </ul>

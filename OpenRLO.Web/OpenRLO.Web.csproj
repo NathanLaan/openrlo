@@ -64,6 +64,7 @@
     <Content Include="App_Data\_AnetroTemplateArticle.html" />
     <Content Include="Create.aspx" />
     <Content Include="css\bootstrap940.css" />
+    <Content Include="css\bootstrap480.css" />
     <Content Include="Service\SubjectService.asmx" />
     <Content Include="View.aspx" />
     <Content Include="css\360.css" />
