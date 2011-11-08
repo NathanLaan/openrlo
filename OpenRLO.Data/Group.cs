@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 
-namespace OpenRLO.Web.App_Code
+namespace OpenRLO.Data
 {
   public class Group
   {

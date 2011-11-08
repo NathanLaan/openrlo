@@ -9,36 +9,29 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <!-- http://css-tricks.com/how-to-create-an-ie-only-stylesheet/ -->
   <!--[if IE]>
-  <link rel="stylesheet" href="/css/960.css" type="text/css" />
+  <link rel="stylesheet" href="/css/bootstrap940.css" type="text/css" />
   <![endif]-->
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <!--[if !IE]><!-->
-  <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen and (min-device-width: 960px)" />
+  <link rel="stylesheet" href="/css/bootstrap940.css" type="text/css" media="screen and (min-device-width: 960px)" />
   <link rel="stylesheet" href="/css/480.css" type="text/css" media="screen and (min-device-width: 480px) and (max-device-width: 960px)" />
   <link rel="stylesheet" href="/css/360.css" type="text/css" media="screen and (min-device-width: 320px) and (max-device-width: 480px)" />
-  <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen and (min-width: 960px)" />
+  <link rel="stylesheet" href="/css/bootstrap940.css" type="text/css" media="screen and (min-width: 960px)" />
   <link rel="stylesheet" href="/css/480.css" type="text/css" media="screen and (min-width: 480px) and (max-width: 960px)" />
   <link rel="stylesheet" href="/css/360.css" type="text/css" media="screen and (min-width: 320px) and (max-width: 480px)" />
   <link rel="stylesheet" href="/css/360.css" type="text/css" media="handheld" />
   <!--<![endif]-->
   <!--<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />-->
-  <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" media="screen" />
+  <!--<link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" />-->
   <link type="text/plain" rel="author" href="/humans.txt" />
   <meta charset="utf-8">
   <title><asp:ContentPlaceHolder ID="PageTitleContent" runat="server" /></title>
   <meta name="description" content="">
   <meta name="author" content="">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
     <style type="text/css">
       /* Override some defaults */
       html, body {
@@ -118,7 +111,7 @@
                 <li><a href="#">Subject 2</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Subject 3</a></li>
-                <!-- ADD REPEATER CONTROL HERE -->
+                <!-- SUBJECT MENU REPEATER -->
                 <asp:Repeater runat="server" ID="subjectMenuRepeater">
                   <ItemTemplate><li><a href="/<%# ((OpenRLO.Data.Subject)Container.DataItem).Url %>"><%# ((OpenRLO.Data.Subject)Container.DataItem).Title%></a></li></ItemTemplate>
                 </asp:Repeater>
@@ -132,10 +125,8 @@
     </div>
     <!-- -->
 
-    <div class="container_12">
+    <div class="container">
       <div class="content">
-        <div id="Div1">
-        </div>
         <div class="page-header">
           <h1><asp:Label runat="server" ID="lblSiteName"></asp:Label><asp:ContentPlaceHolder ID="PageNameContent" runat="server" /><small><asp:ContentPlaceHolder ID="TaglineContent" runat="server" /></small></h1>
         </div>
@@ -148,10 +139,12 @@
             <asp:Repeater runat="server" ID="categoryRepeater">
               <ItemTemplate><div><a href="/<%# ((OpenRLO.Web.Data.Category)Container.DataItem).Url %>"><%# ((OpenRLO.Web.Data.Category)Container.DataItem).Title%></a></div></ItemTemplate>
             </asp:Repeater>
+            <!--
             <h3>Links</h3>
             <asp:Repeater runat="server" ID="siteLinkRepeater">
               <ItemTemplate><div><a href="<%# ((OpenRLO.Web.Data.SiteLink)Container.DataItem).Url %>"><%# ((OpenRLO.Web.Data.SiteLink)Container.DataItem).Title %></a></div></ItemTemplate>
             </asp:Repeater>
+            -->
           </div>
         </div>
       </div>

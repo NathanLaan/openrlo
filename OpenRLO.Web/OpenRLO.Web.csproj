@@ -63,11 +63,12 @@
     <Content Include="App_Data\_AnetroTemplateCategory.html" />
     <Content Include="App_Data\_AnetroTemplateArticle.html" />
     <Content Include="Create.aspx" />
+    <Content Include="css\bootstrap940.css" />
+    <Content Include="Service\SubjectService.asmx" />
     <Content Include="View.aspx" />
     <Content Include="css\360.css" />
     <Content Include="css\960.css" />
     <Content Include="css\480.css" />
-    <Content Include="css\bootstrap.css" />
     <Content Include="css\reset.css" />
     <Content Include="css\screen.css" />
     <Content Include="css\text.css" />
@@ -186,6 +187,10 @@
     </Compile>
     <Compile Include="Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\SubjectService.asmx.cs">
+      <DependentUpon>SubjectService.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>

@@ -9,6 +9,7 @@ namespace OpenRLO.Web.Data
   public class SiteUser
   {
 
+    public Guid UserID { get; set; }
     #region Email
     private string email;
     public string Email
