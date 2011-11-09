@@ -43,7 +43,14 @@ namespace OpenRLO.Web
       //this.lnkAbout.NavigateUrl = "/about";
       //this.lnkHelp.NavigateUrl = "/help";
       //this.lnkAdmin.NavigateUrl = "/admin";
-      this.lblCopyright.Text = Global.SiteSettings.SiteCopyright;
+      if (!string.IsNullOrEmpty(Global.SiteSettings.SiteCopyright))
+      {
+        this.lblCopyright.Text = Global.SiteSettings.SiteCopyright;
+      }
+      else
+      {
+        this.lblCopyright.Text = "Copyright &copy; " + DateTime.Now.Year + " " + Global.SiteSettings.SiteName;
+      }
 
       //this.categoryRepeater.DataSource = Global.ArticleIndex.GetCategoryList();
       //this.categoryRepeater.DataSource = Global.CategoryIndexNew.IndexList;

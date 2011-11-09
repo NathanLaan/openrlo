@@ -18,7 +18,7 @@
       <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="SiteVersion" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">0000.0013.0453.1148</Value>
+      <Value Profile="(Default)">0.3.1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

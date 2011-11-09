@@ -55,6 +55,7 @@
     <Content Include="Admin\AdminSiteSettingsEdit.aspx" />
     <Content Include="Admin\AdminSiteUserManage.aspx" />
     <Content Include="Admin\EmailTest.aspx" />
+    <Content Include="PagedContent.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Admin\AdminArticleNew.aspx" />
     <Content Include="Admin\Template.aspx" />
@@ -182,6 +183,13 @@
     </Compile>
     <Compile Include="Admin\AdminSiteUserManage.aspx.designer.cs">
       <DependentUpon>AdminSiteUserManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagedContent.aspx.cs">
+      <DependentUpon>PagedContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagedContent.aspx.designer.cs">
+      <DependentUpon>PagedContent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>

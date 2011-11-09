@@ -134,7 +134,7 @@
     <div class="container">
       <div class="content">
         <div class="page-header">
-          <h1><asp:Label runat="server" ID="lblSiteName"></asp:Label><asp:ContentPlaceHolder ID="PageNameContent" runat="server" /><small><asp:ContentPlaceHolder ID="TaglineContent" runat="server" /></small></h1>
+          <h1><!--<asp:Label runat="server" ID="lblSiteName"></asp:Label>--><asp:ContentPlaceHolder ID="PageNameContent" runat="server" /><small><asp:ContentPlaceHolder ID="TaglineContent" runat="server" /></small></h1>
         </div>
         <div class="row">
           <div class="span10">
