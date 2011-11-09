@@ -7,6 +7,13 @@ namespace OpenRLO.Web.Data
   public class SiteSettings
   {
 
+
+    public string CreatePageTitle(string pageName)
+    {
+      return new StringBuilder(this.SiteName).Append(" :: ").Append(pageName).ToString();
+    }
+
+
     public string SiteName { get; set; }
     public string SiteUrl { get; set; }
     public string SiteCopyright { get; set; }

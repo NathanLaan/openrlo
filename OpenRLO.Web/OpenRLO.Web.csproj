@@ -55,7 +55,7 @@
     <Content Include="Admin\AdminSiteSettingsEdit.aspx" />
     <Content Include="Admin\AdminSiteUserManage.aspx" />
     <Content Include="Admin\EmailTest.aspx" />
-    <Content Include="Admin\Logout.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="Admin\AdminArticleNew.aspx" />
     <Content Include="Admin\Template.aspx" />
     <Content Include="Admin\Upload.aspx" />
@@ -65,6 +65,7 @@
     <Content Include="Create.aspx" />
     <Content Include="css\bootstrap940.css" />
     <Content Include="css\bootstrap480.css" />
+    <Content Include="css\bootstrap320.css" />
     <Content Include="Service\SubjectService.asmx" />
     <Content Include="View.aspx" />
     <Content Include="css\360.css" />
@@ -116,7 +117,7 @@
     <Content Include="js\javascript.js" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Admin\Login.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="js\jquery-1.4.1-vsdoc.js" />
     <Content Include="js\jquery-1.4.1.js" />
     <Content Include="js\jquery-1.4.1.min.js" />
@@ -214,11 +215,11 @@
     <Compile Include="Admin\EmailTest.aspx.designer.cs">
       <DependentUpon>EmailTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Logout.aspx.cs">
+    <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Logout.aspx.designer.cs">
+    <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminArticleNew.aspx.cs">
@@ -289,11 +290,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Login.aspx.cs">
+    <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Login.aspx.designer.cs">
+    <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

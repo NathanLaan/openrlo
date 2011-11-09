@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OpenRLO.Web.Admin {
+namespace OpenRLO.Web {
     
     
     public partial class Logout {

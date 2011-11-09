@@ -66,7 +66,9 @@ namespace OpenRLO.Web
       FlexHttpHandlerFactory.Add(new FlexPage("home", "/", "/default.aspx"));
 
       FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin", "/Admin.aspx"));
+      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/login", "/Login.aspx"));
       FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin/login", "/admin/Login.aspx"));
+      FlexHttpHandlerFactory.Add(new FlexPage("admin", "/logout", "/Logout.aspx"));
       FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin/logout", "/admin/Logout.aspx"));
 
 

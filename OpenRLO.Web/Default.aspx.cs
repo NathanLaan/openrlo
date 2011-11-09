@@ -16,7 +16,7 @@ namespace OpenRLO.Web
       Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
       Response.Cache.SetValidUntilExpires(true);
 
-      this.Title = Global.SiteSettings.SiteName;
+      this.Title = Global.SiteSettings.CreatePageTitle("HOME");
       //string c = this.Request["c"];
       //string p = this.Request["p"];
       //this.Title = string.Format("{0}: {1}", Global.SiteSettings.SiteName, c);

@@ -36,7 +36,6 @@ namespace OpenRLO.Web
       //  this.HeadElement.Controls.Add(link);
       //}
 
-      this.Page.Title = Global.SiteSettings.SiteName;
       this.lblSiteName.Text = Global.SiteSettings.SiteName;
       this.lblSiteVersion.Text = Global.SiteVersion;
 

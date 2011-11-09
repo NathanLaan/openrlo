@@ -6,12 +6,13 @@ using System.Web.UI.WebControls;
 using OpenRLO.Web.Data;
 using System.Web.Security;
 
-namespace OpenRLO.Web.Admin
+namespace OpenRLO.Web
 {
   public partial class Logout : System.Web.UI.Page
   {
     protected void Page_Load(object sender, EventArgs e)
     {
+      this.Title = Global.SiteSettings.CreatePageTitle("LOGOUT");
       FormsAuthentication.SignOut();
       FormsAuthentication.RedirectToLoginPage();
     }
