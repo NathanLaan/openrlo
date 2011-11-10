@@ -5,7 +5,15 @@ using System.Web;
 
 namespace OpenRLO.Data
 {
-  public class Topic
+  public class Topic : LearningObjectItem
   {
+
+    //
+    // TODO: Metadata XML
+    //
+    public string MetadataFilename { get; set; }
+
+
+
   }
 }

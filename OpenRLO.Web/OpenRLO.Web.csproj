@@ -259,10 +259,7 @@
     <Compile Include="Data\CategoryIndex.cs" />
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\Email.cs" />
-    <Compile Include="Data\Index.cs" />
-    <Compile Include="Data\IndexItem.cs" />
     <Compile Include="Data\IndexManager.cs" />
-    <Compile Include="Data\LearningObject.cs" />
     <Compile Include="Data\LogEntry.cs" />
     <Compile Include="Data\Markdown.cs" />
     <Compile Include="Data\SiteLink.cs" />
@@ -270,8 +267,6 @@
     <Compile Include="Data\SiteMenu.cs" />
     <Compile Include="Data\SiteMenuItem.cs" />
     <Compile Include="Data\SiteSettings.cs" />
-    <Compile Include="Data\SiteUser.cs" />
-    <Compile Include="Data\SiteUserIndex.cs" />
     <Compile Include="Data\Utility.cs" />
     <Compile Include="SiteMobile.Master.cs">
       <DependentUpon>SiteMobile.Master</DependentUpon>

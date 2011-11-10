@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using System.Text;
-using OpenRLO.Web.Data;
 
-namespace OpenRLO.Web.Data
+namespace OpenRLO.Data
 {
   public sealed class SiteUserIndex
   {

@@ -64,14 +64,14 @@ namespace OpenRLO.Web.Data
     {
       get
       {
-        if (this.Category != "(None)")
-        {
-          Category c = Global.CategoryIndexNew.Get(this.Category);
-          if (c != null)
-          {
-            return c.Title;
-          }
-        }
+        //if (this.Category != "(None)")
+        //{
+        //  Category c = Global.CategoryIndexNew.Get(this.Category);
+        //  if (c != null)
+        //  {
+        //    return c.Title;
+        //  }
+        //}
         return this.Category;
       }
     }

@@ -33,63 +33,63 @@ namespace OpenRLO.Web
       //{
       //  article = Global.ArticleIndex.GetArticle(s);
       //}
-      if (article != null)
-      {
-        Category category = Global.CategoryIndexNew.Get(article.Category);
-        if (category != null)
-        {
-          this.lnkCategoryName.Text = category.Title;
-          this.lnkCategoryName.NavigateUrl = "/" + category.Url;
-        }
-        else
-        {
-          this.lnkCategoryName.Visible = false;
-        }
-        article.Load();
-        this.lblArticleTitle.Text = article.Title;
-        this.lblArticleName.Text = article.Title;
-        this.lnkPermalink.NavigateUrl = Global.SiteSettings.SiteUrl +  "/" + article.Category + "/" + article.TitleUrl;
+    //  if (article != null)
+    //  {
+    //    Category category = Global.CategoryIndexNew.Get(article.Category);
+    //    if (category != null)
+    //    {
+    //      this.lnkCategoryName.Text = category.Title;
+    //      this.lnkCategoryName.NavigateUrl = "/" + category.Url;
+    //    }
+    //    else
+    //    {
+    //      this.lnkCategoryName.Visible = false;
+    //    }
+    //    article.Load();
+    //    this.lblArticleTitle.Text = article.Title;
+    //    this.lblArticleName.Text = article.Title;
+    //    this.lnkPermalink.NavigateUrl = Global.SiteSettings.SiteUrl +  "/" + article.Category + "/" + article.TitleUrl;
 
-        Page.ClientScript.RegisterHiddenField("hiddenFieldPermalink", this.lnkPermalink.NavigateUrl);
+    //    Page.ClientScript.RegisterHiddenField("hiddenFieldPermalink", this.lnkPermalink.NavigateUrl);
 
-        this.lnkShortUrl.NavigateUrl = Global.SiteSettings.ShortURL + "/s/" + article.ShortUrl;
-        this.lblDateTime.Text = "Posted " + article.PublishedDateTime.ToString("yyyy/MMM/dd");
-        Markdown markdown = new Markdown();
-        if (article.LatestArticleVersion != null)
-        {
-          string html = markdown.Transform(article.LatestArticleVersion.Contents);
-          this.lblArticleContent.Text = html;
-          //this.lblVersion.Text = article.LatestArticleVersion.Version.ToString();
-        }
-        else
-        {
-          this.lblArticleContent.Text = "Unable to load article.<br>";
-          this.lblDateTime.Visible = false;
-        }
+    //    this.lnkShortUrl.NavigateUrl = Global.SiteSettings.ShortURL + "/s/" + article.ShortUrl;
+    //    this.lblDateTime.Text = "Posted " + article.PublishedDateTime.ToString("yyyy/MMM/dd");
+    //    Markdown markdown = new Markdown();
+    //    if (article.LatestArticleVersion != null)
+    //    {
+    //      string html = markdown.Transform(article.LatestArticleVersion.Contents);
+    //      this.lblArticleContent.Text = html;
+    //      //this.lblVersion.Text = article.LatestArticleVersion.Version.ToString();
+    //    }
+    //    else
+    //    {
+    //      this.lblArticleContent.Text = "Unable to load article.<br>";
+    //      this.lblDateTime.Visible = false;
+    //    }
 
-        if (Global.IsLoggedIn())
-        {
-          this.lblEditArticle.Visible = true;
-          this.lnkEditArticle.Visible = true;
-          this.lnkEditArticle.NavigateUrl = "/admin/article/edit/" + article.TitleUrl;
-        }
-        else
-        {
-          this.lblEditArticle.Visible = false;
-          this.lnkEditArticle.Visible = false;
-        }
-      }
-      else
-      {
-        this.lblArticleContent.Text = "Article not found.<br>";
-        this.lnkCategoryName.Visible = false;
-        this.lblDateTime.Visible = false;
-        this.lnkPermalink.Visible = false;
-        this.lblArticleTitle.Visible = false;
-        this.lblArticleName.Visible = false;
-        this.lblEditArticle.Visible = false;
-        this.lnkEditArticle.Visible = false;
-      }
+    //    if (Global.IsLoggedIn())
+    //    {
+    //      this.lblEditArticle.Visible = true;
+    //      this.lnkEditArticle.Visible = true;
+    //      this.lnkEditArticle.NavigateUrl = "/admin/article/edit/" + article.TitleUrl;
+    //    }
+    //    else
+    //    {
+    //      this.lblEditArticle.Visible = false;
+    //      this.lnkEditArticle.Visible = false;
+    //    }
+    //  }
+    //  else
+    //  {
+    //    this.lblArticleContent.Text = "Article not found.<br>";
+    //    this.lnkCategoryName.Visible = false;
+    //    this.lblDateTime.Visible = false;
+    //    this.lnkPermalink.Visible = false;
+    //    this.lblArticleTitle.Visible = false;
+    //    this.lblArticleName.Visible = false;
+    //    this.lblEditArticle.Visible = false;
+    //    this.lnkEditArticle.Visible = false;
+    //  }
     }
   }
 }

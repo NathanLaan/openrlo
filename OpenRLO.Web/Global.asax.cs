@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using OpenRLO.Web.Properties;
 using OpenRLO.Web.Data;
 using Solution.Web.Library.HttpHandler;
+using OpenRLO.Data;
 
 namespace OpenRLO.Web
 {
@@ -18,11 +19,9 @@ namespace OpenRLO.Web
 
     #region Properties
 
-    public static Index<Category> CategoryIndexNew { get; private set; }
+    public static Index<Subject> SubjectIndex { get; private set; }
 
     public static SiteSettings SiteSettings { get; set; }
-    //public static ArticleIndex ArticleIndex { get; private set; }
-    //public static ArticleCache ArticleCache { get; private set; }
     public static SiteUserIndex SiteUserIndex { get; private set; }
     //public static SiteLinkIndex SiteLinkIndex { get; private set; }
 

@@ -4,7 +4,7 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Web.Security;
 
-namespace OpenRLO.Web.Data
+namespace OpenRLO.Data
 {
   public class SiteUser
   {
@@ -12,65 +12,20 @@ namespace OpenRLO.Web.Data
     public Guid UserID { get; set; }
     public bool IsContentCreator { get; set; }
     public bool IsAdministrator { get; set; }
-
-    #region Email
-    private string email;
-    public string Email
-    {
-      get { return email; }
-      set { email = value; }
-    }
-    #endregion
-    #region Username
-    private string username;
-    public string Username
-    {
-      get { return username; }
-      set { username = value; }
-    }
-    #endregion
-    #region Showname
-    private string showname;
-    public string Showname
-    {
-      get { return showname; }
-      set { showname = value; }
-    }
-    #endregion
-    #region Password
-    private string password;
-    public string Password
-    {
-      get { return password; }
-      set
-      {
-        this.password = value;
-      }
-    }
-    #endregion
-    #region Saltcode
-    private string saltcode;
-    public string Saltcode
-    {
-      get { return saltcode; }
-      set { saltcode = value; }
-    }
-    #endregion
-    #region Timezone
-    private string timezone;
-    public string Timezone
-    {
-      get { return timezone; }
-      set { timezone = value; }
-    }
-    #endregion
+    
+    public string Email{get;set;}
+    public string Username { get; set; }
+    public string Showname { get; set; }
+    public string Password { get; set; }
+    public string Saltcode { get; set; }
+    public string Timezone { get; set; }
 
     public string Passcode
     {
       set
       {
-        this.saltcode = SiteUser.CreateSaltcode(8);
-        this.password = SiteUser.CreatePassword(value, this.Saltcode);
+        this.Saltcode = SiteUser.CreateSaltcode(8);
+        this.Password = SiteUser.CreatePassword(value, this.Saltcode);
       }
     }
 

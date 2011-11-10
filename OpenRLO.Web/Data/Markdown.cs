@@ -1,4 +1,21 @@
-﻿using System;
+﻿/*  
+* MarkdownSharp  
+* -------------  
+* a C# Markdown processor  
+*   
+* Markdown is a text-to-HTML conversion tool for web writers  
+* Copyright (c) 2004 John Gruber  
+* http://daringfireball.net/projects/markdown/  
+*   
+* Markdown.NET  
+* Copyright (c) 2004-2009 Milan Negovan  
+* http://www.aspnetresources.com  
+* http://aspnetresources.com/blog/markdown_announced.aspx 
+*   
+*/
+
+
+using System;
 using System.Collections;
 using System.Security.Cryptography;
 using System.Text;
