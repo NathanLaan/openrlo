@@ -94,7 +94,7 @@ namespace OpenRLO.Web
         //this.lblUsername.Text = "USER: " + Global.SiteUserIndex.GetDisplayName(HttpContext.Current.User.Identity.Name);
         this.lnkLogout.Visible = true;
         this.lnkLogout.Text = "Logout";
-        this.lnkLogout.NavigateUrl = "/admin/logout";
+        this.lnkLogout.NavigateUrl = "/logout";
         //this.divFooterBar.Visible = true;
       }
       else

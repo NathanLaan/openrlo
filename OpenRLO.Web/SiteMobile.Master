@@ -77,7 +77,7 @@
         min-height: 500px;
       }
       /* Give a quick and non-cross-browser friendly divider */
-      .content_REMOVE .span4 {
+      .content .span4 {
         margin-left: 0;
         padding-left: 19px;
         border-left: 1px solid #eee;
@@ -108,7 +108,7 @@
           <ul class="nav">
             <li runat="server" ID="liHome"><a href="/" title="Home">Home</a></li>
             <li runat="server" ID="liCreate"><a href="/create" title="Create content">Create</a></li>
-            <li runat="server" ID="liView"><a href="/view" title="View content">View</a></li>
+            <!--<li runat="server" ID="liView"><a href="/view" title="View content">View</a></li>-->
             
             <!--
             <li class="dropdown"><a href="#" class="dropdown-toggle">Subjects</a>
@@ -126,6 +126,7 @@
             <li runat="server" ID="liAdmin"><a href="/admin" title="Admin">[Admin]</a></li>
             <li runat="server" ID="liAbout"><a href="/about" title="About">About</a></li>
           </ul>
+          <p class="pull-right">User: <asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink>|<asp:Label runat="server" ID="lblUsername"></asp:Label></p>
         </div>
       </div>
     </div>
@@ -155,7 +156,7 @@
         </div>
       </div>
       <footer>
-        <p><asp:Label runat="server" ID="lblCopyright"></asp:Label>&nbsp;|&nbsp;Version <asp:Label runat="server" ID="lblSiteVersion"></asp:Label>&nbsp;|&nbsp;<a href="/logout">Logout</a><asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink>&nbsp;<asp:Label runat="server" ID="lblUsername"></asp:Label></p>
+        <p><asp:Label runat="server" ID="lblCopyright"></asp:Label>&nbsp;|&nbsp;Version <asp:Label runat="server" ID="lblSiteVersion"></asp:Label></p>
       </footer>
     </div> <!-- /container -->
 
