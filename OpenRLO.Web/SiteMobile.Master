@@ -155,8 +155,8 @@
         </div>
       </div>
       <footer>
-        <p><asp:Label runat="server" ID="lblCopyright"></asp:Label>&nbsp;|&nbsp;Version <asp:Label runat="server" ID="lblSiteVersion"></asp:Label>&nbsp;|&nbsp;<asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink>&nbsp;<asp:Label runat="server" ID="lblUsername"></asp:Label></p>
-      </footer>
+        <p><asp:Label runat="server" ID="lblCopyright"></asp:Label>&nbsp;|&nbsp;Version <asp:Label runat="server" ID="lblSiteVersion"></asp:Label>&nbsp;|&nbsp;<a href="/logout">Logout</a><asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink>&nbsp;<asp:Label runat="server" ID="lblUsername"></asp:Label></p>
+      </footer>f
     </div> <!-- /container -->
 
 
