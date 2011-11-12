@@ -80,6 +80,10 @@ namespace OpenRLO.Web
       Global.SiteSettings.Load();
       Global.SiteUserIndex = new SiteUserIndex(HttpContext.Current.Server.MapPath("/App_Data/_IndexUser.txt"));
       Global.SiteUserIndex.Load();
+
+      Global.SubjectIndex = new Index<Subject>(HttpContext.Current.Server.MapPath("/App_Data/_IndexSubject.txt"));
+      Global.SubjectIndex.Load();
+
       //Global.SiteLinkIndex = new OpenRLO.Web.Data.SiteLinkIndex();
       //Global.SiteLinkIndex.Filename = HttpContext.Current.Server.MapPath("/App_Data/_IndexSiteLink.txt");
       //Global.SiteLinkIndex.Load();

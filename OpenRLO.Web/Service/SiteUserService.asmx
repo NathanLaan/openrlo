@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Script.Services;
 using System.Web.Services.Protocols;
-using OpenRLO.Web.Data;
+using OpenRLO.Data;
 using Solution.Web.Anetro.Library.Utility;
 
 namespace OpenRLO.Web.Service
