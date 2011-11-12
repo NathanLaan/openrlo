@@ -82,7 +82,7 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public List<Subject> GetList()
     {
-      return Global.SubjectIndex.SiteUserList;
+      return Global.SubjectIndex.IndexList;
     }
 
     /// <summary>
