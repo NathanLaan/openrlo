@@ -12,7 +12,7 @@ using Solution.Web.Anetro.Library.Utility;
 namespace OpenRLO.Web.Service
 {
 
-  [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Web.Data.SiteUser))]
+  [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Data.SiteUser))]
   [WebService(Namespace = "http://anetro.com/Service/SiteSettingsService")]
   [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
   [System.ComponentModel.ToolboxItem(false)]

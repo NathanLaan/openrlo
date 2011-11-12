@@ -10,6 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link type="text/plain" rel="author" href="/humans.txt" />
 
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -33,7 +34,9 @@
     <link rel="stylesheet" href="/css/bootstrap320.css" type="text/css" media="handheld" />
     <!--<![endif]-->
 
-    <link type="text/plain" rel="author" href="/humans.txt" />
+    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
 
     <style type="text/css">
       /* Override some defaults */
@@ -107,7 +110,7 @@
           <a class="brand" href="/">OpenRLO</a>
           <ul class="nav">
             <li runat="server" ID="liHome"><a href="/" title="Home">Home</a></li>
-            <li runat="server" ID="liCreate"><a href="/create" title="Create content">Create</a></li>
+            <li runat="server" ID="liCreate"><a href="/manage" title="Manage content">Manage</a></li>
             <!--<li runat="server" ID="liView"><a href="/view" title="View content">View</a></li>-->
             
             <!--
@@ -173,9 +176,6 @@
   pageTracker._trackPageview();
 </script>
 
-    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
-    <script src="/js/bootstrap-dropdown.js"></script>
-    <script src="/js/bootstrap-modal.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
         $(".dropdown-toggle, .menu").click(function (e) {

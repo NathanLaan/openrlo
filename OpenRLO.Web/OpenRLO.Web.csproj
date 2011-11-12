@@ -63,7 +63,7 @@
     <Content Include="App_Data\_AnetroTemplateIndex.html" />
     <Content Include="App_Data\_AnetroTemplateCategory.html" />
     <Content Include="App_Data\_AnetroTemplateArticle.html" />
-    <Content Include="Create.aspx" />
+    <Content Include="ManageContent.aspx" />
     <Content Include="css\bootstrap940.css" />
     <Content Include="css\bootstrap480.css" />
     <Content Include="css\bootstrap320.css" />
@@ -191,12 +191,12 @@
     <Compile Include="PagedContent.aspx.designer.cs">
       <DependentUpon>PagedContent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Create.aspx.cs">
-      <DependentUpon>Create.aspx</DependentUpon>
+    <Compile Include="ManageContent.aspx.cs">
+      <DependentUpon>ManageContent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Create.aspx.designer.cs">
-      <DependentUpon>Create.aspx</DependentUpon>
+    <Compile Include="ManageContent.aspx.designer.cs">
+      <DependentUpon>ManageContent.aspx</DependentUpon>
     </Compile>
     <Compile Include="View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>
