@@ -14,7 +14,7 @@ namespace OpenRLO.Data
      * */
     public int CompareTo(LearningObjectItem other)
     {
-      return other.Key.CompareTo(this.Key);
+      return this.Key.CompareTo(other.Key);
     }
     #endregion
 
@@ -52,8 +52,11 @@ namespace OpenRLO.Data
 
     public void GenerateUrl()
     {
-      this.Url = Title.Replace(" ", "");
+      this.Url = Title.Replace(" ", "").Replace("/", "").Replace("\\", "").Replace("'", "").Replace("\"", "");
     }
+
+
+
 
     public virtual string Save()
     {

@@ -37,10 +37,19 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public void Add(Subject subject)
+    public string Add(string title)
     {
+      Subject subject = new Subject();
+      subject.Title = title;
+      subject.GenerateUrl();
+      if (Global.SubjectIndex.ExistsKey(title))
+      {
+        return "Subject already exists";
+      }
       Global.SubjectIndex.IndexList.Add(subject);
+      Global.SubjectIndex.IndexList.Sort();
       Global.SubjectIndex.Save();
+      return "Subject added";
     }
 
     [WebMethod]

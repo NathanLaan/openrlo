@@ -37,6 +37,7 @@
     <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
     <script src="/js/bootstrap-dropdown.js"></script>
     <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-alerts.js"></script>
 
     <style type="text/css">
       /* Override some defaults */
@@ -110,9 +111,7 @@
           <a class="brand" href="/">OpenRLO</a>
           <ul class="nav">
             <li runat="server" ID="liHome"><a href="/" title="Home">Home</a></li>
-            <li runat="server" ID="liCreate"><a href="/manage" title="Manage content">Manage</a></li>
             <!--<li runat="server" ID="liView"><a href="/view" title="View content">View</a></li>-->
-            
             <!--
             <li class="dropdown"><a href="#" class="dropdown-toggle">Subjects</a>
               <ul class="dropdown-menu">
@@ -126,7 +125,7 @@
               </ul>
             </li>
             -->
-            <li runat="server" ID="liAdmin"><a href="/admin" title="Admin">[Admin]</a></li>
+            <li runat="server" ID="liManage"><a href="/manage" title="Manage Content">Manage</a></li>
             <li runat="server" ID="liAbout"><a href="/about" title="About">About</a></li>
           </ul>
           <p class="pull-right">User: <asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink>|<asp:Label runat="server" ID="lblUsername"></asp:Label></p>

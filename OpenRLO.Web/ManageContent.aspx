@@ -8,8 +8,10 @@
   <asp:ScriptManager runat="server" ID="masterPageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
     <Services>
       <asp:ServiceReference Path="~/Service/SiteUserService.asmx" />
+      <asp:ServiceReference Path="~/Service/SubjectService.asmx" />
     </Services>
-  </asp:ScriptManager></form>
+  </asp:ScriptManager>
+  </form>
 
   <!-- SUBJECT -->
   <div id="subject-modal" class="modal hide fade">
@@ -21,7 +23,7 @@
       <form action="">
         <fieldset>
           <div class="clearfix">
-            <input class="span3" id="" name="" type="text" placeholder="New Subject" /><a href="#" class="btn success" id="addSubject">Add Subject</a>
+            <input class="span3" id="subjectTitle" name="" type="text" placeholder="New Subject" /><a href="#" class="btn success" id="addSubject">Add Subject</a>
             <select class="medium" name="mediumSelect" id="subjectList"></select><a href="#" class="btn danger" id="deleteSubject">Delete Subject</a>
           </div><!-- /clearfix -->
         </fieldset>
@@ -33,6 +35,8 @@
     </div>
     -->
   </div>
+
+
 
   <script language="javascript" type="text/javascript">
 
@@ -47,7 +51,12 @@
     });
 
     function addSubject() {
-      alert('addSubject()');
+      var subject = $('#subjectTitle').val()
+      OpenRLO.Web.Service.SubjectService.Add(subject, function (a) {
+        LoadSubjectList();
+      }, function (m) {
+        alert('Error: ' + m.toString() + '.<br/>');
+      });
     }
 
     function deleteSubject() {
@@ -55,19 +64,20 @@
     }
 
     function LoadSubjectList() {
-      OpenRLO.Web.Service.SiteUserService.GetList(function (a) {
+      OpenRLO.Web.Service.SubjectService.GetList(function (a) {
         if (a != null) {
           var listControl = $('#subjectList')[0];
           listControl.options.length = 0;
           $.each(a, function () {
-            var idx = listControl.options.length;
-            listControl.options[idx] = new Option(a[idx].Showname + " [" + a[idx].Username + "]", a[idx].Username);
+            var i = listControl.options.length;
+            listControl.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
           });
         }
       }, function (m) {
         $('div#output').html('Error: ' + m.toString() + '.<br/>');
       });
     }
+
   </script>
 
   <h2>Subjects</h2>

@@ -72,11 +72,8 @@ namespace OpenRLO.Web
         case "about":
               this.liAbout.Attributes["class"] = "active";
               break;
-        case "create":
-              this.liCreate.Attributes["class"] = "active";
-              break;
-        case "admin":
-              this.liAdmin.Attributes["class"] = "active";
+        case "manage":
+              this.liManage.Attributes["class"] = "active";
               break;
       }
 
@@ -86,7 +83,7 @@ namespace OpenRLO.Web
       //
       if (Global.IsLoggedIn())
       {
-        this.liAdmin.Visible = true;
+        this.liManage.Visible = true;
         //this.lnkAdmin.Visible = true;
         //this.lnkAdmin.NavigateUrl = "/admin";
         this.lblUsername.Visible = true;
@@ -99,11 +96,11 @@ namespace OpenRLO.Web
       }
       else
       {
-        this.liAdmin.Visible = false;
+        this.liManage.Visible = false;
         //this.lnkAdmin.Visible = false;
         this.lblUsername.Visible = false;
         this.lnkLogout.Text = "Login";
-        this.lnkLogout.NavigateUrl = "/admin/login";
+        this.lnkLogout.NavigateUrl = "/login";
         //this.divFooterBar.Visible = false;
       }
 

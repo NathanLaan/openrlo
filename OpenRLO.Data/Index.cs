@@ -117,6 +117,18 @@ namespace OpenRLO.Data
       return false;
     }
 
+    public bool ExistsKey(string key)
+    {
+      foreach (T t in this.indexList)
+      {
+        if (key.Equals(t.Key))
+        {
+          return true;
+        }
+      }
+      return false;
+    }
+
 
     /*
     private void ReOrder()

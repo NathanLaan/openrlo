@@ -31,15 +31,6 @@ namespace OpenRLO.Web {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liHome;
         
         /// <summary>
-        /// liCreate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liCreate;
-        
-        /// <summary>
         /// liView control.
         /// </summary>
         /// <remarks>
@@ -58,13 +49,13 @@ namespace OpenRLO.Web {
         protected global::System.Web.UI.WebControls.Repeater subjectMenuRepeater;
         
         /// <summary>
-        /// liAdmin control.
+        /// liManage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAdmin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liManage;
         
         /// <summary>
         /// liAbout control.
