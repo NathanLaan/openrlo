@@ -21,11 +21,7 @@
     </div>
     <div class="modal-body">
       <form action="">
-        <fieldset>
-          <div class="clearfix">
-            <input class="span3" id="subjectTitle" name="" type="text" placeholder="New Subject" /><a href="#" class="btn success" id="addSubject">Add Subject</a>
-            <select class="medium" name="mediumSelect" id="subjectList"></select><a href="#" class="btn danger" id="deleteSubject">Delete Subject</a>
-          </div><!-- /clearfix -->
+        <fieldset><!-- /clearfix -->
         </fieldset>
       </form>
     </div>
@@ -60,7 +56,21 @@
     }
 
     function deleteSubject() {
-      alert('deleteSubject()');
+      var listControl = $('#subjectList').get(0);
+      if (listControl.selectedIndex >= 0) {
+        var elem = listControl.options[listControl.selectedIndex];
+        var text = elem.value;
+        if (confirm('Delete ' + text + '?')) {
+          OpenRLO.Web.Service.SiteUserService.Delete(text, function (s) {
+            LoadSubjectList();
+          }, function (m) {
+            alert('Error: ' + m.toString());
+          });
+        }
+      } else {
+        $('div#output').html('Please select a user from the list to delete.<br/>');
+        alert('Please select a user from the list to delete');
+      }
     }
 
     function LoadSubjectList() {
@@ -74,12 +84,16 @@
           });
         }
       }, function (m) {
-        $('div#output').html('Error: ' + m.toString() + '.<br/>');
+        alert('Error: ' + m.toString() + '.<br/>');
       });
     }
 
   </script>
 
   <h2>Subjects</h2>
-  <button data-controls-modal="subject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Subjects</button>
+  <div class="clearfix">
+    <input class="span3" id="subjectTitle" name="" type="text" placeholder="New Subject" /><a href="#" class="btn success" id="addSubject">Add Subject</a>
+    <select class="medium" name="mediumSelect" id="subjectList"></select><a href="#" class="btn danger" id="deleteSubject">Delete Subject</a>
+  </div>
+  <!--<button data-controls-modal="subject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Subjects</button>-->
 </asp:Content>

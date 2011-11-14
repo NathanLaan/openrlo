@@ -13,7 +13,7 @@ namespace OpenRLO.Data
      * */
     public int CompareTo(Subject other)
     {
-      return other.Key.CompareTo(this.Key);
+      return this.Key.CompareTo(other.Key);
     }
     #endregion
 

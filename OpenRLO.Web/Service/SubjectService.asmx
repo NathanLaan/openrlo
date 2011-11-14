@@ -39,6 +39,10 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public string Add(string title)
     {
+      if (string.IsNullOrEmpty(title))
+      {
+        return "Invalid subject title";
+      }
       Subject subject = new Subject();
       subject.Title = title;
       subject.GenerateUrl();
