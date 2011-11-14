@@ -143,18 +143,14 @@
           <div class="span10">
             <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server" />
           </div>
+          <!--
           <div class="span4">
             <h3>Subjects</h3>
             <asp:Repeater runat="server" ID="categoryRepeater">
               <ItemTemplate><div><a href="/<%# ((OpenRLO.Web.Data.Category)Container.DataItem).Url %>"><%# ((OpenRLO.Web.Data.Category)Container.DataItem).Title%></a></div></ItemTemplate>
             </asp:Repeater>
-            <!--
-            <h3>Links</h3>
-            <asp:Repeater runat="server" ID="siteLinkRepeater">
-              <ItemTemplate><div><a href="<%# ((OpenRLO.Web.Data.SiteLink)Container.DataItem).Url %>"><%# ((OpenRLO.Web.Data.SiteLink)Container.DataItem).Title %></a></div></ItemTemplate>
-            </asp:Repeater>
-            -->
           </div>
+          -->
         </div>
       </div>
       <footer>

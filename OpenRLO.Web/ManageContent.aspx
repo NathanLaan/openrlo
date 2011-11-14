@@ -9,6 +9,7 @@
     <Services>
       <asp:ServiceReference Path="~/Service/SiteUserService.asmx" />
       <asp:ServiceReference Path="~/Service/SubjectService.asmx" />
+      <asp:ServiceReference Path="~/Service/TopicService.asmx" />
     </Services>
   </asp:ScriptManager>
   </form>
@@ -20,8 +21,10 @@
       <h3>Manage Subjects</h3>
     </div>
     <div class="modal-body">
-      <form action="">
-        <fieldset><!-- /clearfix -->
+      <form>
+        <fieldset>
+    <input class="span3" id="subjectTitle" type="text" placeholder="New Subject" /><a href="#" class="btn" id="addSubject">Add</a>
+    <select class="medium" name="mediumSelect" id="subjectList"></select><a href="#" class="btn danger" id="deleteSubject">Delete</a>
         </fieldset>
       </form>
     </div>
@@ -31,6 +34,29 @@
     </div>
     -->
   </div>
+  <!-- /SUBJECT -->
+
+  <!-- TOPIC -->
+  <div id="topic-modal" class="modal hide fade">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Manage Topics</h3>
+    </div>
+    <div class="modal-body">
+      <form>
+        <fieldset>
+    <select class="medium" name="mediumSelect" id="topicSubjectList"></select><input class="span3" id="topicTitle" type="text" placeholder="New Subject" /><a href="#" class="btn success" id="a1">Add Topic</a>
+    <select class="medium" name="mediumSelect" id="topicList"></select><a href="#" class="btn danger" id="A2">Delete Topic</a>
+        </fieldset>
+      </form>
+    </div>
+    <!--
+    <div class="modal-footer">
+      <a href="#" class="btn primary">OK</a>
+    </div>
+    -->
+  </div>
+  <!-- /TOPIC -->
 
 
 
@@ -76,11 +102,32 @@
     function LoadSubjectList() {
       OpenRLO.Web.Service.SubjectService.GetList(function (a) {
         if (a != null) {
-          var listControl = $('#subjectList')[0];
-          listControl.options.length = 0;
+          var listControl1 = $('#subjectList')[0];
+          var listControl2 = $('#topicSubjectList')[0];
+          listControl1.options.length = 0;
+          listControl2.options.length = 0;
           $.each(a, function () {
-            var i = listControl.options.length;
-            listControl.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
+            var i = listControl1.options.length;
+            listControl1.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
+            listControl2.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
+          });
+        }
+      }, function (m) {
+        alert('Error: ' + m.toString() + '.<br/>');
+      });
+    }
+
+    function LoadTopicList() {
+      OpenRLO.Web.Service.SubjectService.GetList(function (a) {
+        if (a != null) {
+          var listControl1 = $('#subjectList')[0];
+          var listControl2 = $('#topicSubjectList')[0];
+          listControl1.options.length = 0;
+          listControl2.options.length = 0;
+          $.each(a, function () {
+            var i = listControl1.options.length;
+            listControl1.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
+            listControl2.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
           });
         }
       }, function (m) {
@@ -90,10 +137,17 @@
 
   </script>
 
-  <h2>Subjects</h2>
+  <h2>Content Pages</h2>
   <div class="clearfix">
-    <input class="span3" id="subjectTitle" name="" type="text" placeholder="New Subject" /><a href="#" class="btn success" id="addSubject">Add Subject</a>
-    <select class="medium" name="mediumSelect" id="subjectList"></select><a href="#" class="btn danger" id="deleteSubject">Delete Subject</a>
+    <select class="medium" name="mediumSelect" id="contentTopicList"></select><br />
+    TEXTAREA<br />
+    <a href="#" class="btn success" id="a3">Add Content</a><br />
+    <select class="medium" name="mediumSelect" id="contentList"></select><a href="#" class="btn danger" id="A4">Delete Content Page</a>
   </div>
-  <!--<button data-controls-modal="subject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Subjects</button>-->
+  <br /><br />
+
+  <h2>Manage ...</h2>
+  <button data-controls-modal="subject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Subjects</button>
+  <button data-controls-modal="topic-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Topics</button>
+
 </asp:Content>
