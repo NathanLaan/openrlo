@@ -140,7 +140,7 @@
   <h2>Content Pages</h2>
   <form>
     <fieldset>
-      <legend>Example form legend</legend>
+      <!--<legend>Example form legend</legend>-->
       <div class="clearfix">
         <label for="contentTopicList">Topic:</label>
         <div class="input">
