@@ -138,12 +138,40 @@
   </script>
 
   <h2>Content Pages</h2>
-  <div class="clearfix">
-    <select class="medium" name="mediumSelect" id="contentTopicList"></select><br />
-    TEXTAREA<br />
-    <a href="#" class="btn success" id="a3">Add Content</a><br />
-    <select class="medium" name="mediumSelect" id="contentList"></select><a href="#" class="btn danger" id="A4">Delete Content Page</a>
-  </div>
+  <form>
+    <fieldset>
+      <legend>Example form legend</legend>
+      <div class="clearfix">
+        <label for="contentTopicList">Topic:</label>
+        <div class="input">
+          <select class="medium" name="mediumSelect" id="contentTopicList"></select>
+        </div>
+      </div>
+      <div class="clearfix">
+        <label for="contentTopicList">Page Title:</label>
+        <div class="input">
+          <input class="span3" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
+        </div>
+      </div>
+      <div class="clearfix">
+        <label for="pageContent">Page Contents:</label>
+        <div class="input">
+          <textarea class="xxlarge" id="pageContent" name="pageContent" rows="10"></textarea>
+          <span class="help-block">Block of help text to describe the field above if need be.</span>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input">
+          <a href="#" class="btn success" id="a3">Add Page</a><br />
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input">
+          <select class="medium" name="mediumSelect" id="contentList"></select><a href="#" class="btn danger" id="A4">Delete Content Page</a>
+        </div>
+      </div>
+    </fieldset>
+  </form>
   <br /><br />
 
   <h2>Manage ...</h2>
