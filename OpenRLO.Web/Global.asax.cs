@@ -84,7 +84,7 @@ namespace OpenRLO.Web
 
       //Global.SubjectIndex = new Index<Subject>(HttpContext.Current.Server.MapPath("/App_Data/_IndexSubject.txt"));
       //Global.SubjectIndex.Load();
-      Global.LearningObjectIndex = new Index<LearningObject>(HttpContext.Current.Server.MapPath("/App_Data/_IndexTopic.txt"));
+      Global.LearningObjectIndex = new Index<LearningObject>(HttpContext.Current.Server.MapPath("/App_Data/_IndexLearningObject.txt"));
       Global.LearningObjectIndex.Load();
 
       //Global.SiteLinkIndex = new OpenRLO.Web.Data.SiteLinkIndex();
