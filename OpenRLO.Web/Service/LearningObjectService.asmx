@@ -1,4 +1,4 @@
-﻿<%@ WebService Language="C#" Class="OpenRLO.Web.Service.TopicService" %>
+﻿<%@ WebService Language="C#" Class="OpenRLO.Web.Service.LearningObjectService" %>
 
 using System;
 using System.Collections.Generic;
@@ -64,6 +64,7 @@ namespace OpenRLO.Web.Service
       try
       {
         Global.LearningObjectIndex.Delete(key);
+        Global.LearningObjectIndex.Save();
         return "Learning Object deleted";
       }
       catch (Exception e)
@@ -109,10 +110,10 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public bool Exists(string key)
     {
-      List<Subject> list = Global.SubjectIndex.IndexList;
-      foreach (Subject subject in list)
+      List<LearningObject> list = Global.LearningObjectIndex.IndexList;
+      foreach (LearningObject lo in list)
       {
-        if (subject.Equals(key))
+        if (lo.Equals(key))
         {
           return true;
         }

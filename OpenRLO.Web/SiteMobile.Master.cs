@@ -67,9 +67,6 @@ namespace OpenRLO.Web
         case "home":
               this.liHome.Attributes["class"] = "active";
               break;
-        case "view":
-              this.liView.Attributes["class"] = "active";
-              break;
         case "about":
               this.liAbout.Attributes["class"] = "active";
               break;

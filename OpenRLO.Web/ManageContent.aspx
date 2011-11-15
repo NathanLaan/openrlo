@@ -5,36 +5,13 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
   <form runat="server">
-  <asp:ScriptManager runat="server" ID="masterPageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
-    <Services>
-      <asp:ServiceReference Path="~/Service/SiteUserService.asmx" />
-      <asp:ServiceReference Path="~/Service/SubjectService.asmx" />
-      <asp:ServiceReference Path="~/Service/LearningObjectService.asmx" />
-    </Services>
-  </asp:ScriptManager>
+    <asp:ScriptManager runat="server" ID="masterPageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
+      <Services>
+        <asp:ServiceReference Path="~/Service/SiteUserService.asmx" />
+        <asp:ServiceReference Path="~/Service/LearningObjectService.asmx" />
+      </Services>
+    </asp:ScriptManager>
   </form>
-
-  <!-- SUBJECT -->
-  <div id="subject-modal" class="modal hide fade">
-    <div class="modal-header">
-      <a href="#" class="close">&times;</a>
-      <h3>Manage Subjects</h3>
-    </div>
-    <div class="modal-body">
-      <form>
-        <fieldset>
-    <input class="span3" id="subjectTitle" type="text" placeholder="New Subject" /><a href="#" class="btn" id="addSubject">Add</a>
-    <select class="medium" name="mediumSelect" id="subjectList"></select><a href="#" class="btn danger" id="deleteSubject">Delete</a>
-        </fieldset>
-      </form>
-    </div>
-    <!--
-    <div class="modal-footer">
-      <a href="#" class="btn primary">OK</a>
-    </div>
-    -->
-  </div>
-  <!-- /SUBJECT -->
 
   <!-- LearningObject -->
   <div id="LearningObject-modal" class="modal hide fade">
@@ -45,83 +22,65 @@
     <div class="modal-body">
       <form>
         <fieldset>
-    <select class="medium" name="mediumSelect" id="LearningObjectSubjectList"></select><input class="span3" id="LearningObjectTitle" type="text" placeholder="New Subject" /><a href="#" class="btn success" id="a1">Add LearningObject</a>
-    <select class="medium" name="mediumSelect" id="LearningObjectList"></select><a href="#" class="btn danger" id="A2">Delete LearningObject</a>
+          <input class="span3" id="loTitle" type="text" placeholder="Learning Object Title" /><a href="#" class="btn" id="addLearningObject">Add LearningObject</a><br />
+          <select class="medium" name="mediumSelect" id="loList1"></select><a href="#" class="btn danger" id="deleteLearningObject">Delete LearningObject</a>
+          <br />TODO: Tags
         </fieldset>
       </form>
     </div>
-    <!--
-    <div class="modal-footer">
-      <a href="#" class="btn primary">OK</a>
-    </div>
-    -->
+    <!--<div class="modal-footer"><a href="#" class="btn primary">Done</a></div>-->
   </div>
   <!-- /LearningObject -->
 
 
+  <button data-controls-modal="LearningObject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Learning Objects</button>
+  <br />
+  <br />
 
   <script language="javascript" type="text/javascript">
 
     $(document).ready(function () {
-      LoadSubjectList();
-      $('#addSubject').click(function () {
-        addSubject();
+      LoadLearningObjectList();
+      $('#addLearningObject').click(function () {
+        addLearningObject();
       });
-      $('#deleteSubject').click(function () {
-        deleteSubject();
+      $('#deleteLearningObject').click(function () {
+        deleteLearningObject();
       });
     });
 
-    function addSubject() {
-      var subject = $('#subjectTitle').val()
-      OpenRLO.Web.Service.SubjectService.Add(subject, function (a) {
-        LoadSubjectList();
+    function addLearningObject() {
+      var loTitle = $('#loTitle').val()
+      OpenRLO.Web.Service.LearningObjectService.Add(loTitle, function (a) {
+        LoadLearningObjectList();
       }, function (m) {
         alert('Error: ' + m.toString() + '.<br/>');
       });
     }
 
-    function deleteSubject() {
-      var listControl = $('#subjectList').get(0);
+    function deleteLearningObject() {
+      var listControl = $('#loList1').get(0);
       if (listControl.selectedIndex >= 0) {
         var elem = listControl.options[listControl.selectedIndex];
         var text = elem.value;
         if (confirm('Delete ' + text + '?')) {
-          OpenRLO.Web.Service.SiteUserService.Delete(text, function (s) {
-            LoadSubjectList();
+          OpenRLO.Web.Service.LearningObjectService.Delete(text, function (s) {
+            LoadLearningObjectList();
           }, function (m) {
             alert('Error: ' + m.toString());
           });
         }
       } else {
-        $('div#output').html('Please select a user from the list to delete.<br/>');
+        $('div#output').html('Please select a Learning Object from the list to delete.<br/>');
         alert('Please select a user from the list to delete');
       }
     }
 
-    function LoadSubjectList() {
-      OpenRLO.Web.Service.SubjectService.GetList(function (a) {
-        if (a != null) {
-          var listControl1 = $('#subjectList')[0];
-          var listControl2 = $('#LearningObjectSubjectList')[0];
-          listControl1.options.length = 0;
-          listControl2.options.length = 0;
-          $.each(a, function () {
-            var i = listControl1.options.length;
-            listControl1.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
-            listControl2.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
-          });
-        }
-      }, function (m) {
-        alert('Error: ' + m.toString() + '.<br/>');
-      });
-    }
-
     function LoadLearningObjectList() {
-      OpenRLO.Web.Service.SubjectService.GetList(function (a) {
+      OpenRLO.Web.Service.LearningObjectService.GetList(function (a) {
         if (a != null) {
-          var listControl1 = $('#subjectList')[0];
-          var listControl2 = $('#LearningObjectSubjectList')[0];
+          var listControl1 = $('#loList1')[0];
+          var listControl2 = $('#loList2')[0];
           listControl1.options.length = 0;
           listControl2.options.length = 0;
           $.each(a, function () {
@@ -142,9 +101,9 @@
     <fieldset>
       <!--<legend>Example form legend</legend>-->
       <div class="clearfix">
-        <label for="contentLearningObjectList">LearningObject:</label>
+        <label for="loList2">LearningObject:</label>
         <div class="input">
-          <select class="medium" name="mediumSelect" id="contentLearningObjectList"></select>
+          <select class="medium" name="mediumSelect" id="loList2"></select>
         </div>
       </div>
       <div class="clearfix">
@@ -173,9 +132,5 @@
     </fieldset>
   </form>
   <br /><br />
-
-  <h2>Manage ...</h2>
-  <button data-controls-modal="subject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Subjects</button>
-  <button data-controls-modal="LearningObject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage LearningObjects</button>
 
 </asp:Content>
