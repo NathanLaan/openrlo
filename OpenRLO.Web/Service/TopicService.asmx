@@ -1,4 +1,4 @@
-﻿<%@ WebService Language="C#" Class="OpenRLO.Web.Service.SubjectService" %>
+﻿<%@ WebService Language="C#" Class="OpenRLO.Web.Service.TopicService" %>
 
 using System;
 using System.Collections.Generic;
@@ -13,18 +13,19 @@ namespace OpenRLO.Web.Service
 {
 
   [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Data.Subject))]
+  [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Data.Topic))]
   [WebService(Namespace = "http://anetro.com/Service/SiteSettingsService")]
   [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
   [System.ComponentModel.ToolboxItem(false)]
   [System.Web.Script.Services.ScriptService]
-  public class SubjectService : System.Web.Services.WebService
+  public class TopicService : System.Web.Services.WebService
   {
 
     [WebMethod]
     [ScriptMethod]
-    public Subject Get(string key)
+    public Topic Get(string key)
     {
-      List<Subject> list = Global.SubjectIndex.IndexList;
+      List<Topic> list = Global.SubjectIndex.IndexList;
       foreach (Subject subject in list)
       {
         if (subject.Key.Equals(key))

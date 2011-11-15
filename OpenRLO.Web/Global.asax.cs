@@ -20,6 +20,7 @@ namespace OpenRLO.Web
     #region Properties
 
     public static Index<Subject> SubjectIndex { get; private set; }
+    public static Index<Topic> TopicIndex { get; private set; }
 
     public static SiteSettings SiteSettings { get; set; }
     public static SiteUserIndex SiteUserIndex { get; private set; }
@@ -83,6 +84,8 @@ namespace OpenRLO.Web
 
       Global.SubjectIndex = new Index<Subject>(HttpContext.Current.Server.MapPath("/App_Data/_IndexSubject.txt"));
       Global.SubjectIndex.Load();
+      Global.TopicIndex = new Index<Topic>(HttpContext.Current.Server.MapPath("/App_Data/_IndexTopic.txt"));
+      Global.TopicIndex.Load();
 
       //Global.SiteLinkIndex = new OpenRLO.Web.Data.SiteLinkIndex();
       //Global.SiteLinkIndex.Filename = HttpContext.Current.Server.MapPath("/App_Data/_IndexSiteLink.txt");

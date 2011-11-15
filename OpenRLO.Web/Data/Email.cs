@@ -4,7 +4,7 @@ using System.Text;
 //using System.Web.Mail;
 using System.Net.Mail;
 
-namespace Solution.Web.Anetro.Library.Utility
+namespace OpenRLO.Web.Data
 {
   public class Email
   {
