@@ -114,7 +114,7 @@
             <li runat="server" ID="liManage"><a href="/manage" title="Manage Content">Manage</a></li>
             <li runat="server" ID="liAbout"><a href="/about" title="About">About</a></li>
           </ul>
-          <p class="pull-right">User: <asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink>|<asp:Label runat="server" ID="lblUsername"></asp:Label></p>
+          <p class="pull-right"><asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink>|<asp:Label runat="server" ID="lblUsername"></asp:Label></p>
         </div>
       </div>
     </div>

@@ -49,6 +49,24 @@
       });
     });
 
+    function LoadLearningObjectList() {
+      OpenRLO.Web.Service.LearningObjectService.GetList(function (a) {
+        if (a != null) {
+          var listControl1 = $('#loList1')[0];
+          var listControl2 = $('#loList2')[0];
+          listControl1.options.length = 0;
+          listControl2.options.length = 0;
+          $.each(a, function () {
+            var i = listControl1.options.length;
+            listControl1.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
+            listControl2.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
+          });
+        }
+      }, function (m) {
+        alert('Error: ' + m.toString() + '.<br/>');
+      });
+    }
+
     function addLearningObject() {
       var loTitle = $('#loTitle').val()
       OpenRLO.Web.Service.LearningObjectService.Add(loTitle, function (a) {
@@ -74,24 +92,6 @@
         $('div#output').html('Please select a Learning Object from the list to delete.<br/>');
         alert('Please select a user from the list to delete');
       }
-    }
-
-    function LoadLearningObjectList() {
-      OpenRLO.Web.Service.LearningObjectService.GetList(function (a) {
-        if (a != null) {
-          var listControl1 = $('#loList1')[0];
-          var listControl2 = $('#loList2')[0];
-          listControl1.options.length = 0;
-          listControl2.options.length = 0;
-          $.each(a, function () {
-            var i = listControl1.options.length;
-            listControl1.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
-            listControl2.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
-          });
-        }
-      }, function (m) {
-        alert('Error: ' + m.toString() + '.<br/>');
-      });
     }
 
   </script>
