@@ -12,25 +12,24 @@ using OpenRLO.Web.Data;
 namespace OpenRLO.Web.Service
 {
 
-  [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Data.Subject))]
-  [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Data.Topic))]
-  [WebService(Namespace = "http://anetro.com/Service/SiteSettingsService")]
+  [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Data.LearningObject))]
+  [WebService(Namespace = "http://openrlo.com/Service/LearningObjectService")]
   [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
   [System.ComponentModel.ToolboxItem(false)]
   [System.Web.Script.Services.ScriptService]
-  public class TopicService : System.Web.Services.WebService
+  public class LearningObjectService : System.Web.Services.WebService
   {
 
     [WebMethod]
     [ScriptMethod]
-    public Topic Get(string key)
+    public LearningObject Get(string key)
     {
-      List<Topic> list = Global.SubjectIndex.IndexList;
-      foreach (Subject subject in list)
+      List<LearningObject> list = Global.LearningObjectIndex.IndexList;
+      foreach (LearningObject lo in list)
       {
-        if (subject.Key.Equals(key))
+        if (lo.Key.Equals(key))
         {
-          return subject;
+          return lo;
         }
       }
       return null;
@@ -44,17 +43,18 @@ namespace OpenRLO.Web.Service
       {
         return "Invalid subject title";
       }
-      Subject subject = new Subject();
-      subject.Title = title;
-      subject.GenerateUrl();
-      if (Global.SubjectIndex.ExistsKey(title))
+      if (Global.LearningObjectIndex.ExistsKey(title))
       {
         return "Subject already exists";
       }
-      Global.SubjectIndex.IndexList.Add(subject);
-      Global.SubjectIndex.IndexList.Sort();
-      Global.SubjectIndex.Save();
-      return "Subject added";
+      LearningObject learningObject = new LearningObject();
+      learningObject.Title = title;
+      learningObject.GenerateUrl();
+      learningObject.ModifiedDateTime = DateTime.Now;
+      Global.LearningObjectIndex.IndexList.Add(learningObject);
+      Global.LearningObjectIndex.IndexList.Sort();
+      Global.LearningObjectIndex.Save();
+      return "Learning Object added";
     }
 
     [WebMethod]
@@ -63,8 +63,8 @@ namespace OpenRLO.Web.Service
     {
       try
       {
-        Global.SubjectIndex.Delete(key);
-        return "Deleted";
+        Global.LearningObjectIndex.Delete(key);
+        return "Learning Object deleted";
       }
       catch (Exception e)
       {
@@ -74,15 +74,15 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public void Edit(Subject oldSubject, Subject newSubject)
+    public void Edit(LearningObject oldLearningObject, LearningObject newLearningObject)
     {
-      Subject old = this.Get(oldSubject.Key);
+      LearningObject old = this.Get(oldLearningObject.Key);
       if (old != null)
       {
-        old.Title = newSubject.Title;
-        old.Url = newSubject.Url;
-        old.ModifiedDateTime = newSubject.ModifiedDateTime;
-        Global.SubjectIndex.Save();
+        old.Title = newLearningObject.Title;
+        old.Url = newLearningObject.Url;
+        old.ModifiedDateTime = newLearningObject.ModifiedDateTime;
+        Global.LearningObjectIndex.Save();
       }
       else
       {
@@ -94,9 +94,9 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public List<Subject> GetList()
+    public List<LearningObject> GetList()
     {
-      return Global.SubjectIndex.IndexList;
+      return Global.LearningObjectIndex.IndexList;
     }
 
     /// <summary>

@@ -9,7 +9,7 @@
     <Services>
       <asp:ServiceReference Path="~/Service/SiteUserService.asmx" />
       <asp:ServiceReference Path="~/Service/SubjectService.asmx" />
-      <asp:ServiceReference Path="~/Service/TopicService.asmx" />
+      <asp:ServiceReference Path="~/Service/LearningObjectService.asmx" />
     </Services>
   </asp:ScriptManager>
   </form>
@@ -36,17 +36,17 @@
   </div>
   <!-- /SUBJECT -->
 
-  <!-- TOPIC -->
-  <div id="topic-modal" class="modal hide fade">
+  <!-- LearningObject -->
+  <div id="LearningObject-modal" class="modal hide fade">
     <div class="modal-header">
       <a href="#" class="close">&times;</a>
-      <h3>Manage Topics</h3>
+      <h3>Manage LearningObjects</h3>
     </div>
     <div class="modal-body">
       <form>
         <fieldset>
-    <select class="medium" name="mediumSelect" id="topicSubjectList"></select><input class="span3" id="topicTitle" type="text" placeholder="New Subject" /><a href="#" class="btn success" id="a1">Add Topic</a>
-    <select class="medium" name="mediumSelect" id="topicList"></select><a href="#" class="btn danger" id="A2">Delete Topic</a>
+    <select class="medium" name="mediumSelect" id="LearningObjectSubjectList"></select><input class="span3" id="LearningObjectTitle" type="text" placeholder="New Subject" /><a href="#" class="btn success" id="a1">Add LearningObject</a>
+    <select class="medium" name="mediumSelect" id="LearningObjectList"></select><a href="#" class="btn danger" id="A2">Delete LearningObject</a>
         </fieldset>
       </form>
     </div>
@@ -56,7 +56,7 @@
     </div>
     -->
   </div>
-  <!-- /TOPIC -->
+  <!-- /LearningObject -->
 
 
 
@@ -103,7 +103,7 @@
       OpenRLO.Web.Service.SubjectService.GetList(function (a) {
         if (a != null) {
           var listControl1 = $('#subjectList')[0];
-          var listControl2 = $('#topicSubjectList')[0];
+          var listControl2 = $('#LearningObjectSubjectList')[0];
           listControl1.options.length = 0;
           listControl2.options.length = 0;
           $.each(a, function () {
@@ -117,11 +117,11 @@
       });
     }
 
-    function LoadTopicList() {
+    function LoadLearningObjectList() {
       OpenRLO.Web.Service.SubjectService.GetList(function (a) {
         if (a != null) {
           var listControl1 = $('#subjectList')[0];
-          var listControl2 = $('#topicSubjectList')[0];
+          var listControl2 = $('#LearningObjectSubjectList')[0];
           listControl1.options.length = 0;
           listControl2.options.length = 0;
           $.each(a, function () {
@@ -142,13 +142,13 @@
     <fieldset>
       <!--<legend>Example form legend</legend>-->
       <div class="clearfix">
-        <label for="contentTopicList">Topic:</label>
+        <label for="contentLearningObjectList">LearningObject:</label>
         <div class="input">
-          <select class="medium" name="mediumSelect" id="contentTopicList"></select>
+          <select class="medium" name="mediumSelect" id="contentLearningObjectList"></select>
         </div>
       </div>
       <div class="clearfix">
-        <label for="contentTopicList">Page Title:</label>
+        <label for="contentLearningObjectList">Page Title:</label>
         <div class="input">
           <input class="span3" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
         </div>
@@ -176,6 +176,6 @@
 
   <h2>Manage ...</h2>
   <button data-controls-modal="subject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Subjects</button>
-  <button data-controls-modal="topic-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Topics</button>
+  <button data-controls-modal="LearningObject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage LearningObjects</button>
 
 </asp:Content>
