@@ -22,7 +22,7 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public Page GetByUrl(string topicUrl, string pageUrl)
+    public Page GetByUrl(string learningObjectUrl, string pageUrl)
     {
       //List<Page> list = Global.PageIndex.IndexList;
       //foreach (Page lo in list)
@@ -37,11 +37,11 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public string Add(string topicUrl, string pageTitle, string pageContents)
+    public string Add(string learningObjectUrl, string pageTitle, string pageContents)
     {
-      if (string.IsNullOrEmpty(topicUrl))
+      if (string.IsNullOrEmpty(learningObjectUrl))
       {
-        return "Invalid topic";
+        return "Invalid learning object";
       }
       if (string.IsNullOrEmpty(pageTitle))
       {
@@ -51,14 +51,16 @@ namespace OpenRLO.Web.Service
       {
         return "Invalid page contents";
       }
+      
       Page page = new Page();
+      page.ParentLearningObjectUrl = learningObjectUrl;
       page.Title = pageTitle;
       page.Contents = pageContents;
       page.GenerateUrl();
       page.ModifiedDateTime = DateTime.Now;
 
       
-      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(topicUrl);
+      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
 
       if (learningObject == null)
       {
@@ -85,7 +87,7 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public string DeleteByUrl(string topicUrl, string pageUrl)
+    public string DeleteByUrl(string learningObjectUrl, string pageUrl)
     {
       try
       {
@@ -101,9 +103,9 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public void Edit(string topicUrl, Page oldPage, Page newPage)
+    public void Edit(string learningObjectUrl, Page oldPage, Page newPage)
     {
-      Page old = this.GetByUrl(topicUrl, oldPage.Url);
+      Page old = this.GetByUrl(learningObjectUrl, oldPage.Url);
       if (old != null)
       {
         //old.Title = newPage.Title;
@@ -121,9 +123,9 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public List<Page> GetList(string topicUrl)
+    public List<Page> GetList(string learningObjectUrl)
     {
-      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(topicUrl);
+      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
       if (learningObject != null)
       {
         return learningObject.PageIndex.IndexList;
@@ -134,7 +136,7 @@ namespace OpenRLO.Web.Service
     
     [WebMethod]
     [ScriptMethod]
-    public bool Exists(string topicUrl, string pageUrl)
+    public bool Exists(string learningObjectUrl, string pageUrl)
     {
       //List<Page> list = Global.PageIndex.IndexList;
       //foreach (Page lo in list)

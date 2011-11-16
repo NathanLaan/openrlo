@@ -9,6 +9,7 @@
       <Services>
         <asp:ServiceReference Path="~/Service/SiteUserService.asmx" />
         <asp:ServiceReference Path="~/Service/LearningObjectService.asmx" />
+        <asp:ServiceReference Path="~/Service/PageService.asmx" />
       </Services>
     </asp:ScriptManager>
   </form>
@@ -51,6 +52,7 @@
         <label for="contentLearningObjectList">Page Title:</label>
         <div class="input">
           <input class="span6" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
+          <a href="#" class="btn success" id="addPage">Add Page</a><br />
         </div>
       </div>
       <div class="clearfix">
@@ -62,7 +64,7 @@
       </div>
       <div class="clearfix">
         <div class="input">
-          <a href="#" class="btn success" id="a3">Add Page</a><br />
+          
         </div>
       </div><!-- /clearfix -->
       <br />
@@ -95,11 +97,40 @@
       $('#loList2').change(function () {
         loadPages($(this).attr('value'));
       });
+      $('#addPage').click(function () {
+        addPage();
+      });
     });
 
-    function loadPages(url) {
-      alert('loadPages: ' + url);
-      // Get pages for Topic URL
+    function addPage() {
+      var learningObjectUrl = $('#loList2').val();
+      var pageTitle = $('#pageTitle').val();
+      var pageContent = $('#pageContent').val();
+
+      alert('addPage(): ' + learningObjectUrl + " : " + pageTitle + " : " + pageContent);
+
+      OpenRLO.Web.Service.PageService.Add(learningObjectUrl, pageTitle, pageContent, function (a) {
+        loadPages(learningObjectUrl);
+      }, function (m) {
+        alert('Error: ' + m.toString() + '.<br/>');
+      });
+    }
+
+    function loadPages(learningObjectUrl) {
+      //alert('loadPages: ' + learningObjectUrl);
+      // Get pages for LearningObjectURL
+      OpenRLO.Web.Service.PageService.GetList(learningObjectUrl, function (a) {
+        if (a != null) {
+          var pageList = $('#pageList')[0];
+          pageList.options.length = 0;
+          $.each(a, function () {
+            var i = pageList.options.length;
+            pageList.options[i] = new Option(a[i].Title, a[i].Url);
+          });
+        }
+      }, function (m) {
+        alert('Error: ' + m.toString() + '.<br/>');
+      });
     }
 
     function LoadLearningObjectList() {
@@ -123,7 +154,7 @@
     }
 
     function addLearningObject() {
-      var loTitle = $('#loTitle').val()
+      var loTitle = $('#loTitle').val();
       OpenRLO.Web.Service.LearningObjectService.Add(loTitle, function (a) {
         LoadLearningObjectList();
       }, function (m) {
