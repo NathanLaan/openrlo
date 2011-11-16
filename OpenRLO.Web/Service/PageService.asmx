@@ -86,7 +86,10 @@ namespace OpenRLO.Web.Service
         return "Page already exists";
       }
 
-      page.Order = learningObject.PageIndex.IndexList.Count;
+      //
+      // Page Number starts at ONE (1).
+      //
+      page.Order = learningObject.PageIndex.IndexList.Count + 1;
 
       learningObject.PageIndex.Add(page);
       Global.LearningObjectIndex.Save();

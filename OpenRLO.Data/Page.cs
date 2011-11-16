@@ -36,6 +36,8 @@ namespace OpenRLO.Data
       this.SavePageContents();
 
       StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append(this.ParentLearningObjectUrl);
+      stringBuilder.Append(Constants.IndexEntryDelimiter);
       stringBuilder.Append(this.Title);
       stringBuilder.Append(Constants.IndexEntryDelimiter);
       stringBuilder.Append(this.Url);
@@ -51,12 +53,13 @@ namespace OpenRLO.Data
     public override void Load(string line)
     {
       string[] indexEntries = line.Split(Constants.IndexEntryDelimiter);
-      if (indexEntries.Length > 3)
+      if (indexEntries.Length > 4)
       {
-        this.Title = indexEntries[0];
-        this.Url = indexEntries[1];
-        this.ModifiedDateTime = DateTime.Parse(indexEntries[2]);
-        this.Order = int.Parse(indexEntries[3]);
+        this.ParentLearningObjectUrl = indexEntries[0];
+        this.Title = indexEntries[1];
+        this.Url = indexEntries[2];
+        this.ModifiedDateTime = DateTime.Parse(indexEntries[3]);
+        this.Order = int.Parse(indexEntries[4]);
         this.LoadPageContents();
       }
     }

@@ -11,6 +11,8 @@
 
 
   <h2>LEARN</h2>
+  <div class="clearfix" id="pageContent">
+  </div>
   <p>...</p>
 
   <!-- for testing purposes -->
@@ -33,7 +35,6 @@
       var t = $('#hiddenFieldT').val();
       var p = $('#hiddenFieldP').val();
 
-
       OpenRLO.Web.Service.PageService.GetList(t, function (a) {
         if (a != null) {
           var pageList = $('#pageList')[0];
@@ -47,20 +48,25 @@
         alert('Error: ' + m.toString() + '.<br/>');
       });
 
+      $('#pageContent').html("p: " + p);
 
-      if (p != null) {
-
-        alert("p: " + p);
-
-        OpenRLO.Web.Service.PageService.GetByUrl(t, p, function (p) {
-          if (p != null) {
-            alert("CONTENT: " + p.Content);
-          }
-        }, function (m) {
-          alert('Error: ' + m.toString() + '.<br/>');
-        });
+      if (p == null || p == "") {
+        p = 1;
       }
 
+      OpenRLO.Web.Service.PageService.GetByUrl(t, p, function (page) {
+        $('#pageContent').html("RES");
+        if (page != null) {
+          alert("CONTENT: " + page.Contents);
+          $('#pageContent').html(page.Contents);
+        } else {
+          $('#pageContent').html("NULL");
+        }
+      }, function (m) {
+        alert('Error: ' + m.toString() + '.<br/>');
+        $('#pageContent').html("ERR");
+      });
+      
 
     }
 

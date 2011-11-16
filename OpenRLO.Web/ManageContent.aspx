@@ -87,7 +87,7 @@
   <script language="javascript" type="text/javascript">
 
     $(document).ready(function () {
-      LoadLearningObjectList();
+      loadLearningObjectList();
       $('#addLearningObject').click(function () {
         addLearningObject();
       });
@@ -129,11 +129,11 @@
           });
         }
       }, function (m) {
-        alert('Error: ' + m.toString() + '.<br/>');
+        alert('ERROR: Unable to load pages for [' + learningObjectUrl + ']');
       });
     }
 
-    function LoadLearningObjectList() {
+    function loadLearningObjectList() {
       OpenRLO.Web.Service.LearningObjectService.GetList(function (a) {
         if (a != null) {
           var listControl1 = $('#loList1')[0];
@@ -147,6 +147,7 @@
             listControl1.options[i] = new Option(a[i].Title, a[i].Url);
             listControl2.options[i] = new Option(a[i].Title, a[i].Url);
           });
+          loadPages($('#loList2').val());
         }
       }, function (m) {
         alert('Error: ' + m.toString() + '.<br/>');
@@ -156,7 +157,7 @@
     function addLearningObject() {
       var loTitle = $('#loTitle').val();
       OpenRLO.Web.Service.LearningObjectService.Add(loTitle, function (a) {
-        LoadLearningObjectList();
+        loadLearningObjectList();
       }, function (m) {
         alert('Error: ' + m.toString() + '.<br/>');
       });
@@ -169,7 +170,7 @@
         var text = elem.value;
         if (confirm('Delete ' + text + '?')) {
           OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(text, function (s) {
-            LoadLearningObjectList();
+            loadLearningObjectList();
           }, function (m) {
             alert('Error: ' + m.toString());
           });

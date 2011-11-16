@@ -56,6 +56,7 @@ namespace OpenRLO.Data
     public LearningObject()
     {
       //this.TagList = new List<string>();
+      this.PageIndex = new Index<Page>();
     }
 
 
@@ -68,6 +69,8 @@ namespace OpenRLO.Data
 
     public virtual string Save()
     {
+      this.PageIndex.Save();
+
       StringBuilder stringBuilder = new StringBuilder();
       stringBuilder.Append(this.Title);
       stringBuilder.Append(Constants.IndexEntryDelimiter);
