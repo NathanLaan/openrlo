@@ -42,7 +42,7 @@ namespace OpenRLO.Web
       //}
 
 
-      List<Article> sourceList = null;
+      //List<Article> sourceList = null;
 
       //if (!string.IsNullOrEmpty(c))
       //{

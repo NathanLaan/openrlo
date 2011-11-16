@@ -19,12 +19,11 @@ namespace OpenRLO.Web
 
     #region Properties
 
-    //public static Index<Subject> SubjectIndex { get; private set; }
+    //public static Index<Page> PageIndex { get; private set; }
     public static Index<LearningObject> LearningObjectIndex { get; private set; }
 
     public static SiteSettings SiteSettings { get; set; }
     public static SiteUserIndex SiteUserIndex { get; private set; }
-    //public static SiteLinkIndex SiteLinkIndex { get; private set; }
 
     private static string siteVersion = null;
     public static string SiteVersion
@@ -72,7 +71,6 @@ namespace OpenRLO.Web
       FlexHttpHandlerFactory.Add(new FlexPage("admin", "/admin/logout", "/admin/Logout.aspx"));
 
 
-      //Global.CategoryIndexNew = new Index<Category>(HttpContext.Current.Server.MapPath("/App_Data/_IndexCategory.txt"));
 
       //
       //
@@ -82,39 +80,8 @@ namespace OpenRLO.Web
       Global.SiteUserIndex = new SiteUserIndex(HttpContext.Current.Server.MapPath("/App_Data/_IndexUser.txt"));
       Global.SiteUserIndex.Load();
 
-      //Global.SubjectIndex = new Index<Subject>(HttpContext.Current.Server.MapPath("/App_Data/_IndexSubject.txt"));
-      //Global.SubjectIndex.Load();
       Global.LearningObjectIndex = new Index<LearningObject>(HttpContext.Current.Server.MapPath("/App_Data/_IndexLearningObject.txt"));
       Global.LearningObjectIndex.Load();
-
-      //Global.SiteLinkIndex = new OpenRLO.Web.Data.SiteLinkIndex();
-      //Global.SiteLinkIndex.Filename = HttpContext.Current.Server.MapPath("/App_Data/_IndexSiteLink.txt");
-      //Global.SiteLinkIndex.Load();
-      //Global.ArticleIndex = new ArticleIndex();
-      //Global.ArticleIndex.Filename = HttpContext.Current.Server.MapPath("/App_Data/_IndexArticle.txt");
-      //Global.ArticleIndex.Load();
-
-      //
-      // Attempt to regenerate the index when the application load. This is perhaps not the best approach as
-      // if a critical error occurs somewhere there is the possibility that the application could end up stuck
-      // in an infinite loop. In addition, if the application is idle for long enough, the application will 
-      // restart, causing a complete regeneration of the site from the templates.
-      //
-      // TODO: Web.config configuration setting to determine if this runs???
-      //
-      //try
-      //{
-      //  string indexTemplatePath = HttpContext.Current.Server.MapPath("/App_Data/_AnetroTemplateIndex.html");
-      //  string categoryTemplatePath = HttpContext.Current.Server.MapPath("/App_Data/_AnetroTemplateCategory.html");
-      //  string articleTemplatePath = HttpContext.Current.Server.MapPath("/App_Data/_AnetroTemplateArticle.html");
-      //  string baseFilePath = HttpContext.Current.Server.MapPath("/");
-      //  AnetroTemplateEngine anetroTemplateEngine = new AnetroTemplateEngine(indexTemplatePath, categoryTemplatePath, articleTemplatePath, baseFilePath);
-      //  //anetroTemplateEngine.Article = Global.ArticleIndex.List[0];
-      //  anetroTemplateEngine.GenerateAll();
-      //}
-      //catch
-      //{
-      //}
     }
 
     protected void Session_Start(object sender, EventArgs e)

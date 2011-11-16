@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Text;
+using System.IO;
 
 namespace OpenRLO.Data
 {
   public class LearningObject : IndexItem, IComparable<LearningObject>
   {
 
+    #region Equals
     public bool Equals(IndexItem item)
     {
       try
@@ -20,6 +22,7 @@ namespace OpenRLO.Data
         return false;
       }
     }
+    #endregion
 
     #region IComparable
     /*
@@ -33,6 +36,8 @@ namespace OpenRLO.Data
     }
     #endregion
 
+    public Index<Page> PageIndex { get; private set; }
+
     public string Title { get; set; }
     public string Url { get; set; }
     public DateTime ModifiedDateTime { get; set; }
@@ -45,12 +50,12 @@ namespace OpenRLO.Data
     //
     // TODO: Tags
     //
-    public List<string> TagList { get; private set; }
+    //public List<string> TagList { get; private set; }
 
 
     public LearningObject()
     {
-      this.TagList = new List<string>();
+      //this.TagList = new List<string>();
     }
 
 
@@ -58,7 +63,6 @@ namespace OpenRLO.Data
     {
       this.Url = Title.Replace(" ", "").Replace("/", "").Replace("\\", "").Replace("'", "").Replace("\"", "");
     }
-
 
 
 
@@ -83,6 +87,52 @@ namespace OpenRLO.Data
         this.Title = indexEntries[0];
         this.Url = indexEntries[1];
         this.ModifiedDateTime = DateTime.Parse(indexEntries[2]);
+        this.LoadPages();
+      }
+    }
+
+    private void LoadPages()
+    {
+
+      this.PageIndex = new Index<Page>(this.FileName);
+      this.PageIndex.Load();
+
+      //
+      // Load pages
+      //
+      //string fileName = this.FileName;
+      //if (File.Exists(fileName))
+      //{
+      //  using (StreamReader sr = new StreamReader(fileName))
+      //  {
+      //    string fullFileContents = sr.ReadToEnd();
+      //    if (fullFileContents != null && fullFileContents != string.Empty)
+      //    {
+      //      string[] fileLines = fullFileContents.Split(Environment.NewLine.ToCharArray());
+      //      foreach (string line in fileLines)
+      //      {
+      //        if (line != null && line != string.Empty)
+      //        {
+      //          T t = new T();
+      //          t.Load(line);
+      //          this.indexList.Add(t);
+      //        }
+      //      }
+      //      this.indexList.Sort();
+      //    }
+      //  }
+      //}
+      //else
+      //{
+      //  //TODO: nothing???
+      //}
+    }
+
+    private string FileName
+    {
+      get
+      {
+        return HttpContext.Current.Server.MapPath("/App_Data/_" + this.Url + ".txt");
       }
     }
 

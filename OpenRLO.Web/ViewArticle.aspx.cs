@@ -23,7 +23,7 @@ namespace OpenRLO.Web
       //Page.ClientScript.RegisterHiddenField("hiddenFieldA", a);
       //Page.ClientScript.RegisterHiddenField("hiddenFieldS", s);
 
-      Article article = null;
+      //Article article = null;
 
       //if (!string.IsNullOrEmpty(c) && !string.IsNullOrEmpty(a))
       //{

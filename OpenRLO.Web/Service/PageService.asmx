@@ -12,9 +12,8 @@ using OpenRLO.Web.Data;
 namespace OpenRLO.Web.Service
 {
 
-  [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Data.LearningObject))]
   [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Data.Page))]
-  [WebService(Namespace = "http://openrlo.com/Service/LearningObjectService")]
+  [WebService(Namespace = "http://openrlo.com/Service/PageService")]
   [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
   [System.ComponentModel.ToolboxItem(false)]
   [System.Web.Script.Services.ScriptService]
@@ -23,49 +22,75 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public LearningObject Get(string key)
+    public Page GetByUrl(string topicUrl, string pageUrl)
     {
-      List<LearningObject> list = Global.LearningObjectIndex.IndexList;
-      foreach (LearningObject lo in list)
-      {
-        if (lo.Key.Equals(key))
-        {
-          return lo;
-        }
-      }
+      //List<Page> list = Global.PageIndex.IndexList;
+      //foreach (Page lo in list)
+      //{
+      //  if (lo.Url.Equals(url))
+      //  {
+      //    return lo;
+      //  }
+      //}
       return null;
     }
 
     [WebMethod]
     [ScriptMethod]
-    public string Add(string title)
+    public string Add(string topicUrl, string pageTitle, string pageContents)
     {
-      if (string.IsNullOrEmpty(title))
+      if (string.IsNullOrEmpty(topicUrl))
       {
-        return "Invalid subject title";
+        return "Invalid topic";
       }
-      if (Global.LearningObjectIndex.ExistsKey(title))
+      if (string.IsNullOrEmpty(pageTitle))
       {
-        return "Subject already exists";
+        return "Invalid page title";
       }
-      LearningObject learningObject = new LearningObject();
-      learningObject.Title = title;
-      learningObject.GenerateUrl();
-      learningObject.ModifiedDateTime = DateTime.Now;
-      Global.LearningObjectIndex.IndexList.Add(learningObject);
-      Global.LearningObjectIndex.IndexList.Sort();
+      if (string.IsNullOrEmpty(pageContents))
+      {
+        return "Invalid page contents";
+      }
+      Page page = new Page();
+      page.Title = pageTitle;
+      page.Contents = pageContents;
+      page.GenerateUrl();
+      page.ModifiedDateTime = DateTime.Now;
+
+      
+      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(topicUrl);
+
+      if (learningObject == null)
+      {
+        return "Invalid Learning Object";
+      }
+      if (learningObject.PageIndex.Exists(page.Url))
+      {
+        return "Page already exists";
+      }
+
+      page.Order = learningObject.PageIndex.IndexList.Count;
+
+      learningObject.PageIndex.Add(page);
       Global.LearningObjectIndex.Save();
+
+      
+      //
+      // Do we need to?
+      //
+      learningObject.PageIndex.Save();
+      
       return "Learning Object added";
     }
 
     [WebMethod]
     [ScriptMethod]
-    public string Delete(string key)
+    public string DeleteByUrl(string topicUrl, string pageUrl)
     {
       try
       {
-        Global.LearningObjectIndex.Delete(key);
-        Global.LearningObjectIndex.Save();
+        //Global.PageIndex.DeleteByUrl(url);
+        //Global.PageIndex.Save();
         return "Learning Object deleted";
       }
       catch (Exception e)
@@ -76,15 +101,15 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public void Edit(LearningObject oldLearningObject, LearningObject newLearningObject)
+    public void Edit(string topicUrl, Page oldPage, Page newPage)
     {
-      LearningObject old = this.Get(oldLearningObject.Key);
+      Page old = this.GetByUrl(topicUrl, oldPage.Url);
       if (old != null)
       {
-        old.Title = newLearningObject.Title;
-        old.Url = newLearningObject.Url;
-        old.ModifiedDateTime = newLearningObject.ModifiedDateTime;
-        Global.LearningObjectIndex.Save();
+        //old.Title = newPage.Title;
+        //old.Url = newPage.Url;
+        //old.ModifiedDateTime = newPage.ModifiedDateTime;
+        //Global.PageIndex.Save();
       }
       else
       {
@@ -96,29 +121,29 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public List<LearningObject> GetList()
+    public List<Page> GetList(string topicUrl)
     {
-      return Global.LearningObjectIndex.IndexList;
+      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(topicUrl);
+      if (learningObject != null)
+      {
+        return learningObject.PageIndex.IndexList;
+      }
+      return null;
     }
 
-    /// <summary>
-    /// Returns true if EITHER username or showname exist.
-    /// </summary>
-    /// <param name="username"></param>
-    /// <param name="showname"></param>
-    /// <returns></returns>
+    
     [WebMethod]
     [ScriptMethod]
-    public bool Exists(string key)
+    public bool Exists(string topicUrl, string pageUrl)
     {
-      List<LearningObject> list = Global.LearningObjectIndex.IndexList;
-      foreach (LearningObject lo in list)
-      {
-        if (lo.Equals(key))
-        {
-          return true;
-        }
-      }
+      //List<Page> list = Global.PageIndex.IndexList;
+      //foreach (Page lo in list)
+      //{
+      //  if (lo.Url.Equals(url))
+      //  {
+      //    return true;
+      //  }
+      //}
       return false;
     }
 

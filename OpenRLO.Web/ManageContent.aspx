@@ -37,6 +37,51 @@
   <br />
   <br />
 
+  <h2>Content Pages</h2>
+  <form>
+    <fieldset>
+      <!--<legend>Example form legend</legend>-->
+      <div class="clearfix">
+        <label for="loList2">LearningObject:</label>
+        <div class="input">
+          <select class="span6" name="mediumSelect" id="loList2"></select>
+        </div>
+      </div>
+      <div class="clearfix">
+        <label for="contentLearningObjectList">Page Title:</label>
+        <div class="input">
+          <input class="span6" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
+        </div>
+      </div>
+      <div class="clearfix">
+        <label for="pageContent">Page Contents:</label>
+        <div class="input">
+          <textarea class="xxlarge" id="pageContent" name="pageContent" rows="10"></textarea>
+          <span class="help-block">Block of help text to describe the field above if need be.</span>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="input">
+          <a href="#" class="btn success" id="a3">Add Page</a><br />
+        </div>
+      </div><!-- /clearfix -->
+      <br />
+      <br />
+      <div class="clearfix">
+        <label for="pageList">Pages</label>
+        <div class="input">
+          <select class="span6" size="5" multiple="multiple" name="pageList" id="pageList">
+          </select>
+          <br />
+          <a href="#" class="btn" id="movePageUp">Move Up</a>
+          <a href="#" class="btn" id="movePageDown">Move Down</a>
+          <a href="#" class="btn danger" id="deletePage">Delete Content Page</a>
+        </div>
+      </div><!-- /clearfix -->
+    </fieldset>
+  </form>
+  <br /><br />
+
   <script language="javascript" type="text/javascript">
 
     $(document).ready(function () {
@@ -47,7 +92,15 @@
       $('#deleteLearningObject').click(function () {
         deleteLearningObject();
       });
+      $('#loList2').change(function () {
+        loadPages($(this).attr('value'));
+      });
     });
+
+    function loadPages(url) {
+      alert('loadPages: ' + url);
+      // Get pages for Topic URL
+    }
 
     function LoadLearningObjectList() {
       OpenRLO.Web.Service.LearningObjectService.GetList(function (a) {
@@ -97,44 +150,5 @@
     }
 
   </script>
-
-  <h2>Content Pages</h2>
-  <form>
-    <fieldset>
-      <!--<legend>Example form legend</legend>-->
-      <div class="clearfix">
-        <label for="loList2">LearningObject:</label>
-        <div class="input">
-          <select class="span6" name="mediumSelect" id="loList2"></select>
-        </div>
-      </div>
-      <div class="clearfix">
-        <label for="contentLearningObjectList">Page Title:</label>
-        <div class="input">
-          <input class="span6" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
-        </div>
-      </div>
-      <div class="clearfix">
-        <label for="pageContent">Page Contents:</label>
-        <div class="input">
-          <textarea class="xxlarge" id="pageContent" name="pageContent" rows="10"></textarea>
-          <span class="help-block">Block of help text to describe the field above if need be.</span>
-        </div>
-      </div>
-      <div class="clearfix">
-        <div class="input">
-          <a href="#" class="btn success" id="a3">Add Page</a><br />
-        </div>
-      </div>
-      <br />
-      <br />
-      <div class="clearfix">
-        <div class="input">
-          <select class="span6" name="mediumSelect" id="contentList"></select><a href="#" class="btn danger" id="A4">Delete Content Page</a>
-        </div>
-      </div>
-    </fieldset>
-  </form>
-  <br /><br />
 
 </asp:Content>

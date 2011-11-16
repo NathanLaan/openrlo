@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 using System.Web;
+using System.IO;
 
 namespace OpenRLO.Data
 {
@@ -24,6 +25,75 @@ namespace OpenRLO.Data
     #endregion
 
     public string ParentLearningObjectUrl { get; set; }
+
+    public int Order { get; set; }
+
+    public string Contents { get; set; }
+
+
+    public override string Save()
+    {
+      this.SavePageContents();
+
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.Append(this.Title);
+      stringBuilder.Append(Constants.IndexEntryDelimiter);
+      stringBuilder.Append(this.Url);
+      stringBuilder.Append(Constants.IndexEntryDelimiter);
+      stringBuilder.Append(this.ModifiedDateTime.ToString());
+      stringBuilder.Append(Constants.IndexEntryDelimiter);
+      stringBuilder.Append(this.Order.ToString());
+      stringBuilder.Append(Constants.IndexEntryDelimiter);
+      stringBuilder.Append(Environment.NewLine);
+      return stringBuilder.ToString();
+    }
+
+    public override void Load(string line)
+    {
+      string[] indexEntries = line.Split(Constants.IndexEntryDelimiter);
+      if (indexEntries.Length > 3)
+      {
+        this.Title = indexEntries[0];
+        this.Url = indexEntries[1];
+        this.ModifiedDateTime = DateTime.Parse(indexEntries[2]);
+        this.Order = int.Parse(indexEntries[3]);
+        this.LoadPageContents();
+      }
+    }
+
+    private void SavePageContents()
+    {
+      using (StreamWriter streamWriter = new StreamWriter(this.FileName))
+      {
+        streamWriter.Write(this.Contents);
+      }
+    }
+
+    private void LoadPageContents()
+    {
+      string fileName = this.FileName;
+      if (File.Exists(fileName))
+      {
+        using (StreamReader sr = new StreamReader(fileName))
+        {
+          this.Contents = sr.ReadToEnd();
+        }
+      }
+      else
+      {
+        //TODO: nothing???
+      }
+    }
+
+
+    public string FileName
+    {
+      get
+      {
+        return HttpContext.Current.Server.MapPath("/App_Data/_" + this.ParentLearningObjectUrl + "_" + this.Url + ".txt");
+      }
+    }
+
 
   }
 }
