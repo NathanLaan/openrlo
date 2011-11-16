@@ -50,7 +50,6 @@
     <Compile Include="Reference.cs" />
     <Compile Include="SiteUser.cs" />
     <Compile Include="SiteUserIndex.cs" />
-    <Compile Include="Subject.cs" />
     <Compile Include="LearningObject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

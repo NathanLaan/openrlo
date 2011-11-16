@@ -69,7 +69,6 @@
     <Content Include="css\bootstrap320.css" />
     <Content Include="Service\PageService.asmx" />
     <Content Include="Service\LearningObjectService.asmx" />
-    <Content Include="Service\SubjectService.asmx" />
     <Content Include="View.aspx" />
     <Content Include="css\reset.css" />
     <Content Include="css\screen.css" />
@@ -90,10 +89,6 @@
     <Content Include="js\HeaderBar.js" />
     <Content Include="js\Utility.js" />
     <Content Include="robots.txt" />
-    <Content Include="Service\ArticleService.asmx" />
-    <Content Include="Service\CategoryService.asmx" />
-    <Content Include="Service\TemplateService.asmx" />
-    <Content Include="Service\SiteLinkService.asmx" />
     <Content Include="Service\SiteSettingsService.asmx" />
     <Content Include="Service\SiteUserService.asmx" />
     <Content Include="img\blank.gif" />
@@ -204,13 +199,6 @@
     <Compile Include="View.aspx.designer.cs">
       <DependentUpon>View.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Data\AnetroTemplateArticle.cs" />
-    <Compile Include="Data\AnetroTemplate.cs" />
-    <Compile Include="Data\AnetroTemplateCategory.cs" />
-    <Compile Include="Data\AnetroTemplateElement.cs" />
-    <Compile Include="Data\AnetroTemplateEngine.cs" />
-    <Compile Include="Data\AnetroTemplateIndex.cs" />
-    <Compile Include="Data\AnetroTemplateLink.cs" />
     <Compile Include="Admin\EmailTest.aspx.cs">
       <DependentUpon>EmailTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -246,21 +234,10 @@
     <Compile Include="Admin\Upload.aspx.designer.cs">
       <DependentUpon>Upload.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Data\Article.cs" />
-    <Compile Include="Data\ArticleCache.cs" />
-    <Compile Include="Data\ArticleIndex.cs" />
-    <Compile Include="Data\ArticleVersion.cs" />
-    <Compile Include="Data\Category.cs" />
-    <Compile Include="Data\CategoryIndex.cs" />
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\Email.cs" />
-    <Compile Include="Data\IndexManager.cs" />
     <Compile Include="Data\LogEntry.cs" />
     <Compile Include="Data\Markdown.cs" />
-    <Compile Include="Data\SiteLink.cs" />
-    <Compile Include="Data\SiteLinkIndex.cs" />
-    <Compile Include="Data\SiteMenu.cs" />
-    <Compile Include="Data\SiteMenuItem.cs" />
     <Compile Include="Data\SiteSettings.cs" />
     <Compile Include="Data\Utility.cs" />
     <Compile Include="SiteMobile.Master.cs">
