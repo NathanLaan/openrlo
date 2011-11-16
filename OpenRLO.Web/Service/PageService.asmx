@@ -1,4 +1,4 @@
-﻿<%@ WebService Language="C#" Class="OpenRLO.Web.Service.LearningObjectService" %>
+﻿<%@ WebService Language="C#" Class="OpenRLO.Web.Service.PageService" %>
 
 using System;
 using System.Collections.Generic;
@@ -13,21 +13,22 @@ namespace OpenRLO.Web.Service
 {
 
   [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Data.LearningObject))]
+  [System.Web.Script.Services.GenerateScriptType(typeof(OpenRLO.Data.Page))]
   [WebService(Namespace = "http://openrlo.com/Service/LearningObjectService")]
   [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
   [System.ComponentModel.ToolboxItem(false)]
   [System.Web.Script.Services.ScriptService]
-  public class LearningObjectService : System.Web.Services.WebService
+  public class PageService : System.Web.Services.WebService
   {
 
     [WebMethod]
     [ScriptMethod]
-    public LearningObject GetByUrl(string url)
+    public LearningObject Get(string key)
     {
       List<LearningObject> list = Global.LearningObjectIndex.IndexList;
       foreach (LearningObject lo in list)
       {
-        if (lo.Url.Equals(url))
+        if (lo.Key.Equals(key))
         {
           return lo;
         }
@@ -43,14 +44,14 @@ namespace OpenRLO.Web.Service
       {
         return "Invalid subject title";
       }
+      if (Global.LearningObjectIndex.ExistsKey(title))
+      {
+        return "Subject already exists";
+      }
       LearningObject learningObject = new LearningObject();
       learningObject.Title = title;
       learningObject.GenerateUrl();
       learningObject.ModifiedDateTime = DateTime.Now;
-      if (Global.LearningObjectIndex.Exists(learningObject.Url))
-      {
-        return "Subject already exists";
-      }
       Global.LearningObjectIndex.IndexList.Add(learningObject);
       Global.LearningObjectIndex.IndexList.Sort();
       Global.LearningObjectIndex.Save();
@@ -59,11 +60,11 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public string DeleteByUrl(string url)
+    public string Delete(string key)
     {
       try
       {
-        Global.LearningObjectIndex.DeleteByUrl(url);
+        Global.LearningObjectIndex.Delete(key);
         Global.LearningObjectIndex.Save();
         return "Learning Object deleted";
       }
@@ -77,7 +78,7 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public void Edit(LearningObject oldLearningObject, LearningObject newLearningObject)
     {
-      LearningObject old = this.GetByUrl(oldLearningObject.Url);
+      LearningObject old = this.Get(oldLearningObject.Key);
       if (old != null)
       {
         old.Title = newLearningObject.Title;
@@ -108,12 +109,12 @@ namespace OpenRLO.Web.Service
     /// <returns></returns>
     [WebMethod]
     [ScriptMethod]
-    public bool Exists(string url)
+    public bool Exists(string key)
     {
       List<LearningObject> list = Global.LearningObjectIndex.IndexList;
       foreach (LearningObject lo in list)
       {
-        if (lo.Url.Equals(url))
+        if (lo.Equals(key))
         {
           return true;
         }

@@ -8,32 +8,18 @@ namespace OpenRLO.Data
   public class LearningObject : IndexItem, IComparable<LearningObject>
   {
 
-    #region IndexItem
-
-    public virtual string Key
-    {
-      get { return this.Title; }
-    }
-
-    public virtual string Val
-    {
-      get { return this.Url; }
-    }
-
     public bool Equals(IndexItem item)
     {
       try
       {
         LearningObject obj = (LearningObject)item;
-        return obj.Key == this.Key;
+        return obj.Url == this.Url;
       }
       catch
       {
         return false;
       }
     }
-
-    #endregion
 
     #region IComparable
     /*
@@ -43,7 +29,7 @@ namespace OpenRLO.Data
      * */
     public int CompareTo(LearningObject other)
     {
-      return this.Key.CompareTo(other.Key);
+      return this.Url.CompareTo(other.Url);
     }
     #endregion
 

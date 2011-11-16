@@ -31,7 +31,7 @@ namespace OpenRLO.Data
 
     public void Add(T item)
     {
-      if (!this.Exists(item.Key))
+      if (!this.Exists(item.Url))
       {
         this.indexList.Add(item);
         this.indexList.Sort();
@@ -39,9 +39,9 @@ namespace OpenRLO.Data
     }
 
 
-    public void Delete(string key)
+    public void DeleteByUrl(string url)
     {
-      T item = this.Get(key);
+      T item = this.GetByUrl(url);
       if (item != null)
       {
         this.indexList.Remove(item);
@@ -92,11 +92,11 @@ namespace OpenRLO.Data
     }
 
 
-    public T Get(string key)
+    public T GetByUrl(string url)
     {
       foreach (T t in this.indexList)
       {
-        if (key.Equals(t.Key))
+        if (url.Equals(t.Url))
         {
           return t;
         }
@@ -105,23 +105,11 @@ namespace OpenRLO.Data
     }
 
 
-    public bool Exists(string val)
+    public bool Exists(string url)
     {
       foreach (T t in this.indexList)
       {
-        if (val.Equals(t.Val))
-        {
-          return true;
-        }
-      }
-      return false;
-    }
-
-    public bool ExistsKey(string key)
-    {
-      foreach (T t in this.indexList)
-      {
-        if (key.Equals(t.Key))
+        if (url.Equals(t.Url))
         {
           return true;
         }

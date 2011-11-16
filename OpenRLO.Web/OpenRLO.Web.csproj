@@ -67,6 +67,7 @@
     <Content Include="css\bootstrap940.css" />
     <Content Include="css\bootstrap480.css" />
     <Content Include="css\bootstrap320.css" />
+    <Content Include="Service\PageService.asmx" />
     <Content Include="Service\LearningObjectService.asmx" />
     <Content Include="Service\SubjectService.asmx" />
     <Content Include="View.aspx" />
@@ -272,13 +273,6 @@
     <Compile Include="SiteMobile.Master.designer.cs">
       <DependentUpon>SiteMobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="SiteAdmin.Master.cs">
-      <DependentUpon>SiteAdmin.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SiteAdmin.Master.designer.cs">
-      <DependentUpon>SiteAdmin.Master</DependentUpon>
-    </Compile>
     <Compile Include="HttpHandler\WebSiteFlexHttpHandlerPlugin.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -323,7 +317,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SiteAdmin.Master" />
     <Content Include="SiteMobile.Master" />
     <Content Include="Admin\Web.config">
       <SubType>Designer</SubType>

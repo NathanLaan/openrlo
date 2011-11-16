@@ -30,6 +30,11 @@ _ReSharper*/
 *.scc/
 *.[Pp]ublish.xml
 
+#
+# Ignore the index files. We might want to turn this back on at some point.
+#
+*_*.txt
+
 # Ignore Visual Studio user/workstation specific files
 *.suo
 *.user

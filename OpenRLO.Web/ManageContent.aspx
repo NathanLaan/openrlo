@@ -22,8 +22,8 @@
     <div class="modal-body">
       <form>
         <fieldset>
-          <input class="span3" id="loTitle" type="text" placeholder="Learning Object Title" /><a href="#" class="btn" id="addLearningObject">Add LearningObject</a><br />
-          <select class="medium" name="mediumSelect" id="loList1"></select><a href="#" class="btn danger" id="deleteLearningObject">Delete LearningObject</a>
+          <input class="span6" id="loTitle" type="text" placeholder="Learning Object Title" /><a href="#" class="btn" id="addLearningObject">Add LearningObject</a><br />
+          <select class="span6" name="mediumSelect" id="loList1"></select><a href="#" class="btn danger" id="deleteLearningObject">Delete LearningObject</a>
           <br />TODO: Tags
         </fieldset>
       </form>
@@ -58,8 +58,10 @@
           listControl2.options.length = 0;
           $.each(a, function () {
             var i = listControl1.options.length;
-            listControl1.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
-            listControl2.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
+            //listControl1.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
+            //listControl2.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
+            listControl1.options[i] = new Option(a[i].Title, a[i].Url);
+            listControl2.options[i] = new Option(a[i].Title, a[i].Url);
           });
         }
       }, function (m) {
@@ -82,7 +84,7 @@
         var elem = listControl.options[listControl.selectedIndex];
         var text = elem.value;
         if (confirm('Delete ' + text + '?')) {
-          OpenRLO.Web.Service.LearningObjectService.Delete(text, function (s) {
+          OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(text, function (s) {
             LoadLearningObjectList();
           }, function (m) {
             alert('Error: ' + m.toString());
@@ -103,13 +105,13 @@
       <div class="clearfix">
         <label for="loList2">LearningObject:</label>
         <div class="input">
-          <select class="medium" name="mediumSelect" id="loList2"></select>
+          <select class="span6" name="mediumSelect" id="loList2"></select>
         </div>
       </div>
       <div class="clearfix">
         <label for="contentLearningObjectList">Page Title:</label>
         <div class="input">
-          <input class="span3" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
+          <input class="span6" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
         </div>
       </div>
       <div class="clearfix">
@@ -124,9 +126,11 @@
           <a href="#" class="btn success" id="a3">Add Page</a><br />
         </div>
       </div>
+      <br />
+      <br />
       <div class="clearfix">
         <div class="input">
-          <select class="medium" name="mediumSelect" id="contentList"></select><a href="#" class="btn danger" id="A4">Delete Content Page</a>
+          <select class="span6" name="mediumSelect" id="contentList"></select><a href="#" class="btn danger" id="A4">Delete Content Page</a>
         </div>
       </div>
     </fieldset>

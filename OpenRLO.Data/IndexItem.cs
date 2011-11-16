@@ -12,8 +12,8 @@ namespace OpenRLO.Data
     /// <summary>
     /// Implemented as a property so it is accessible via JavaScript.
     /// </summary>
-    string Key { get; }
-    string Val { get; }
+    string Title { get; set; }
+    string Url { get; set; }
     //string Filename { set; get; }
 
     //

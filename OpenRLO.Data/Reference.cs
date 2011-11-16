@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OpenRLO.Data
 {
-  public class Reference : IndexItem, IComparable<Reference>
+  public class Reference : IComparable<Reference>
   {
 
     #region IComparable
@@ -20,32 +20,17 @@ namespace OpenRLO.Data
     }
     #endregion
 
-    #region IndexItem
-
-    public string Key
-    {
-      get { return this.ID.ToString(); }
-    }
-
-    public string Val
-    {
-      get { return this.Value; }
-    }
-
-    public bool Equals(IndexItem item)
+    public bool Equals(Reference item)
     {
       try
       {
-        Reference obj = (Reference)item;
-        return obj.ID == this.ID;
+        return item.ID == this.ID;
       }
       catch
       {
         return false;
       }
     }
-
-    #endregion
 
     public Guid ID { get; set; }
     public string Value { get; set; }

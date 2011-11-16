@@ -26,7 +26,7 @@
           listControl1.options.length = 0;
           $.each(a, function () {
             var i = listControl1.options.length;
-            listControl1.options[i] = new Option(a[i].Title + " [" + a[i].Url + "]", a[i].Title);
+            listControl1.options[i] = new Option(a[i].Title, a[i].Url);
           });
         }
       }, function (m) {
@@ -37,20 +37,21 @@
   </script>
 
 <h3>LEARN</h3>
-<p>Explore the learning objects:</p>
 <form>
   <fieldset>
     <div class="clearfix">
-      <select class="span3" name="normalSelect" id="loList1">
-      </select>
-      <button class="btn primary" id="goButton">GO</button>
+      <select class="span6" name="normalSelect" id="loList1"></select>
+      <button class="btn primary" id="goButton">Learn</button>
+      <span class="help-block">Navigate to a learning object.</span>
     </div>
   </fieldset>
 </form>
-<p>Search for learning objects by keywords:</p>
-<form action="">
+<form>
   <fieldset>
-    <div class="clearfix"><input class="span3" id="" name="" type="text" placeholder="Search" /><button class="btn primary">Search</button></div>
+    <div class="clearfix">
+      <input class="span6" id="" name="" type="text" placeholder="Search" /><button class="btn primary">Search</button>
+      <span class="help-block">Search for learning objects by keywords.</span>
+    </div>
   </fieldset>
 </form>
 
