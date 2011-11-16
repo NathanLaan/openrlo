@@ -69,7 +69,7 @@
     <Content Include="css\bootstrap320.css" />
     <Content Include="Service\PageService.asmx" />
     <Content Include="Service\LearningObjectService.asmx" />
-    <Content Include="View.aspx" />
+    <Content Include="Learn.aspx" />
     <Content Include="css\reset.css" />
     <Content Include="css\screen.css" />
     <Content Include="css\text.css" />
@@ -192,12 +192,12 @@
     <Compile Include="ManageContent.aspx.designer.cs">
       <DependentUpon>ManageContent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View.aspx.cs">
-      <DependentUpon>View.aspx</DependentUpon>
+    <Compile Include="Learn.aspx.cs">
+      <DependentUpon>Learn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View.aspx.designer.cs">
-      <DependentUpon>View.aspx</DependentUpon>
+    <Compile Include="Learn.aspx.designer.cs">
+      <DependentUpon>Learn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EmailTest.aspx.cs">
       <DependentUpon>EmailTest.aspx</DependentUpon>

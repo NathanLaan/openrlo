@@ -16,22 +16,33 @@
   <script language="javascript" type="text/javascript">
 
     $(document).ready(function () {
-      LoadLearningObjectList();
+      loadLearningObjectList();
+      $('#goButton').click(function () {
+        navigateToLearningObject();
+      });
     });
 
-    function LoadLearningObjectList() {
+    function loadLearningObjectList() {
       OpenRLO.Web.Service.LearningObjectService.GetList(function (a) {
         if (a != null) {
-          var listControl1 = $('#loList1')[0];
-          listControl1.options.length = 0;
+          var learningObjectList = $('#learningObjectList')[0];
+          learningObjectList.options.length = 0;
           $.each(a, function () {
-            var i = listControl1.options.length;
-            listControl1.options[i] = new Option(a[i].Title, a[i].Url);
+            var i = learningObjectList.options.length;
+            learningObjectList.options[i] = new Option(a[i].Title, a[i].Url);
           });
         }
       }, function (m) {
         alert('Error: ' + m.toString() + '.<br/>');
       });
+    }
+
+    function navigateToLearningObject() {
+      var learningObjectUrl = $('#learningObjectList').val();
+
+      alert("NAV: " + learningObjectUrl);
+
+      window.location = "/learn/" + learningObjectUrl;
     }
 
   </script>
@@ -40,7 +51,7 @@
 <form>
   <fieldset>
     <div class="clearfix">
-      <select class="span6" name="normalSelect" id="loList1"></select>
+      <select class="span6" name="normalSelect" id="learningObjectList"></select>
       <button class="btn primary" id="goButton">Learn</button>
       <span class="help-block">Navigate to a learning object.</span>
     </div>

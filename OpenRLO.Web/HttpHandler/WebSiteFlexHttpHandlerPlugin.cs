@@ -10,28 +10,19 @@ namespace OpenRLO.Web.HttpHandler
     {
       FlexHttpHandlerResult result = null;
 
-      if (splitArray.Length > 4
-        && splitArray[1] == "learn"
-        && !string.IsNullOrEmpty(splitArray[2])
-        && !string.IsNullOrEmpty(splitArray[3])
-        && !string.IsNullOrEmpty(splitArray[4]))
-      {
-        result = new FlexHttpHandlerResult(@"/View.aspx", "s=" + splitArray[2] + "&t=" + splitArray[3] + "&p=" + splitArray[4], "admin");
-      }
-
       if (splitArray.Length > 3
         && splitArray[1] == "learn"
         && !string.IsNullOrEmpty(splitArray[2])
         && !string.IsNullOrEmpty(splitArray[3]))
       {
-        result = new FlexHttpHandlerResult(@"/View.aspx", "s=" + splitArray[2] + "&t=" + splitArray[3], "admin");
+        result = new FlexHttpHandlerResult(@"/Learn.aspx", "t=" + splitArray[2] + "&p=" + splitArray[3], "learn");
       }
 
       if (splitArray.Length > 2
         && splitArray[1] == "learn"
         && !string.IsNullOrEmpty(splitArray[2]))
       {
-        result = new FlexHttpHandlerResult(@"/View.aspx", "s=" + splitArray[2], "admin");
+        result = new FlexHttpHandlerResult(@"/Learn.aspx", "t=" + splitArray[2], "learn");
       }
 
       return result;
