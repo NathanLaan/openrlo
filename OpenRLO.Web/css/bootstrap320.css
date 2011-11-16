@@ -846,10 +846,12 @@ input.span5, textarea.span5 {
   width: 270px;
   margin-left: 0;
 }
-input.span6, textarea.span6 {
+input.span6, textarea.span6, select.span6 {
   display: inline-block;
   float: none;
   width: 330px;
+  /* Making smaller for mobile support */
+  width: 150px;
   margin-left: 0;
 }
 input.span7, textarea.span7 {

@@ -71,9 +71,6 @@
     <Content Include="Service\LearningObjectService.asmx" />
     <Content Include="Service\SubjectService.asmx" />
     <Content Include="View.aspx" />
-    <Content Include="css\360.css" />
-    <Content Include="css\960.css" />
-    <Content Include="css\480.css" />
     <Content Include="css\reset.css" />
     <Content Include="css\screen.css" />
     <Content Include="css\text.css" />
