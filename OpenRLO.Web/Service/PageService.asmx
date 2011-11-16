@@ -24,14 +24,29 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public Page GetByUrl(string learningObjectUrl, string pageUrl)
     {
-      //List<Page> list = Global.PageIndex.IndexList;
-      //foreach (Page lo in list)
-      //{
-      //  if (lo.Url.Equals(url))
-      //  {
-      //    return lo;
-      //  }
-      //}
+      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+      if (learningObject != null)
+      {
+        return learningObject.PageIndex.GetByUrl(pageUrl);
+      }
+      return null;
+    }
+
+    [WebMethod]
+    [ScriptMethod]
+    public Page GetByUrl(string learningObjectUrl, int pageNumber)
+    {
+      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+      if (learningObject != null)
+      {
+        foreach (Page page in learningObject.PageIndex.IndexList)
+        {
+          if (page.Order == pageNumber)
+          {
+            return page;
+          }
+        }
+      }
       return null;
     }
 

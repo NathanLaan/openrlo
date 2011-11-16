@@ -46,6 +46,22 @@
       }, function (m) {
         alert('Error: ' + m.toString() + '.<br/>');
       });
+
+
+      if (p != null) {
+
+        alert("p: " + p);
+
+        OpenRLO.Web.Service.PageService.GetByUrl(t, p, function (p) {
+          if (p != null) {
+            alert("CONTENT: " + p.Content);
+          }
+        }, function (m) {
+          alert('Error: ' + m.toString() + '.<br/>');
+        });
+      }
+
+
     }
 
   </script>

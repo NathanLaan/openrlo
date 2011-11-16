@@ -39,9 +39,6 @@
 
     function navigateToLearningObject() {
       var learningObjectUrl = $('#learningObjectList').val();
-
-      alert("NAV: " + learningObjectUrl);
-
       window.location = "/learn/" + learningObjectUrl;
     }
 
