@@ -100,7 +100,7 @@ namespace OpenRLO.Web.Service
       //
       learningObject.PageIndex.Save();
       
-      return "Learning Object added";
+      return "Page added";
     }
 
     [WebMethod]
@@ -111,7 +111,7 @@ namespace OpenRLO.Web.Service
       {
         //Global.PageIndex.DeleteByUrl(url);
         //Global.PageIndex.Save();
-        return "Learning Object deleted";
+        return "Page deleted";
       }
       catch (Exception e)
       {
