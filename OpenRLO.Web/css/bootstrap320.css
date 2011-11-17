@@ -811,7 +811,9 @@ select.xlarge {
 input.xxlarge,
 textarea.xxlarge,
 select.xxlarge {
-  width: 530px;
+  /* width: 530px; */
+  /* MOBILE */
+  width: 150px;
 }
 textarea.xxlarge {
   overflow-y: auto;

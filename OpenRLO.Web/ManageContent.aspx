@@ -17,71 +17,67 @@
   <!-- LearningObject -->
   <div id="LearningObject-modal" class="modal hide fade">
     <div class="modal-header">
-      <a href="#" class="close">&times;</a>
+      <a href="#" class="close close-modal">&times;</a>
       <h3>Manage LearningObjects</h3>
     </div>
     <div class="modal-body">
       <form>
         <fieldset>
-          <input class="span6" id="loTitle" type="text" placeholder="Learning Object Title" /><a href="#" class="btn" id="addLearningObject">Add LearningObject</a><br />
-          <select class="span6" name="mediumSelect" id="loList1"></select><a href="#" class="btn danger" id="deleteLearningObject">Delete LearningObject</a>
-          <br />TODO: Tags
         </fieldset>
       </form>
+      <br />
+      <br />
     </div>
     <!--<div class="modal-footer"><a href="#" class="btn primary">Done</a></div>-->
   </div>
   <!-- /LearningObject -->
 
-
-  <button data-controls-modal="LearningObject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Learning Objects</button>
+  <!--<button data-controls-modal="LearningObject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Learning Objects</button>
   <br />
   <br />
+  -->
 
-  <h2>Content Pages</h2>
-  <form>
-    <fieldset>
-      <!--<legend>Example form legend</legend>-->
+  <div class="well">
+    <form>
+      <h3>Manage Learning Objects</h3>
+      <input class="span6" id="loTitle" type="text" placeholder="Learning Object Title" /><br />
+      <a href="#" class="btn" id="addLearningObject">Add Learning Object</a><br />
+      <select class="span6" name="mediumSelect" id="loList1"></select><a href="#" class="btn danger" id="deleteLearningObject">Delete Selected Learning Object</a>
+    </form>
+  </div>
+
+  <div class="well">
+    <form>
+    <h3>Add Page to Learning Object</h3>
       <div class="clearfix">
-        <label for="loList2">LearningObject:</label>
-        <div class="input">
-          <select class="span6" name="mediumSelect" id="loList2"></select>
-        </div>
+        <select class="span6" id="loList2"></select>
+        <!--<span class="help-block">Step 1: Select the Learning Object to add the Page to.</span>-->
       </div>
       <div class="clearfix">
-        <label for="contentLearningObjectList">Page Title:</label>
-        <div class="input">
-          <input class="span6" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
-          <a href="#" class="btn success" id="addPage">Add Page</a><br />
-        </div>
+        <input class="span6" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
+        <!--<span class="help-block">Step 2: Enter a Page Title.</span>-->
       </div>
       <div class="clearfix">
-        <label for="pageContent">Page Contents:</label>
-        <div class="input">
-          <textarea class="xxlarge" id="pageContent" name="pageContent" rows="10"></textarea>
-          <span class="help-block">Block of help text to describe the field above if need be.</span>
-        </div>
+        <textarea class="xxlarge" id="pageContent" name="pageContent" rows="10"></textarea>
+        <!--<span class="help-block">Step 3: Enter the Page contents.</span>-->
+        <br />
+        <a href="#" class="btn success" id="addPage">Add Page</a>
       </div>
+    </form>
+  </div>
+  
+  <div class="well">
+    <form>
+      <h3>Manage Learning Object Pages</h3>
       <div class="clearfix">
-        <div class="input">
-          
-        </div>
-      </div><!-- /clearfix -->
-      <br />
-      <br />
-      <div class="clearfix">
-        <label for="pageList">Pages</label>
-        <div class="input">
-          <select class="span6" size="5" multiple="multiple" name="pageList" id="pageList">
-          </select>
-          <br />
-          <a href="#" class="btn" id="movePageUp">Move Up</a>
-          <a href="#" class="btn" id="movePageDown">Move Down</a>
-          <a href="#" class="btn danger" id="deletePage">Delete Content Page</a>
-        </div>
-      </div><!-- /clearfix -->
-    </fieldset>
-  </form>
+        <select class="span6" size="5" multiple="multiple" name="pageList" id="pageList"></select>
+        <br />
+        <a href="#" class="btn" id="movePageUp">Move Up</a>
+        <a href="#" class="btn" id="movePageDown">Move Down</a>
+        <a href="#" class="btn danger" id="deletePage">Delete Selected Page</a>
+      </div>
+    </form>
+  </div>
   <br /><br />
 
   <script language="javascript" type="text/javascript">
@@ -107,12 +103,11 @@
       var pageTitle = $('#pageTitle').val();
       var pageContent = $('#pageContent').val();
 
-      alert('addPage(): ' + learningObjectUrl + " : " + pageTitle + " : " + pageContent);
-
       OpenRLO.Web.Service.PageService.Add(learningObjectUrl, pageTitle, pageContent, function (a) {
         loadPages(learningObjectUrl);
+        alert(a);
       }, function (m) {
-        alert('Error: ' + m.toString() + '.<br/>');
+        alert('Error: unable to add page [' + pageTitle + ']');
       });
     }
 
@@ -150,7 +145,7 @@
           loadPages($('#loList2').val());
         }
       }, function (m) {
-        alert('Error: ' + m.toString() + '.<br/>');
+        alert('Error loading Learning Object list.');
       });
     }
 
@@ -158,8 +153,10 @@
       var loTitle = $('#loTitle').val();
       OpenRLO.Web.Service.LearningObjectService.Add(loTitle, function (a) {
         loadLearningObjectList();
+        alert(a);
       }, function (m) {
-        alert('Error: ' + m.toString() + '.<br/>');
+        alert('Error adding Learning Object: ' + m + '.');
+        console.log(m);
       });
     }
 

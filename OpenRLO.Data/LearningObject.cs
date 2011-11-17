@@ -69,6 +69,7 @@ namespace OpenRLO.Data
 
     public virtual string Save()
     {
+      this.PageIndex.FileName = this.FileName;
       this.PageIndex.Save();
 
       StringBuilder stringBuilder = new StringBuilder();
