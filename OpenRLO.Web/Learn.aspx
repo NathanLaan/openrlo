@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="Learn.aspx.cs" Inherits="OpenRLO.Web.Learn" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="PageNameContent" runat="server"><div id="learningObjectTitle"></div></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
   <form id="learnForm" runat="server">
     <asp:ScriptManager runat="server" ID="masterPageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
@@ -9,8 +11,8 @@
     </asp:ScriptManager>
   </form>
 
-  <h2 id="pageTitle">LEARN</h2>
-  <div class="clearfix" id="pageContent">Loading page contents...</div>
+  <h2 id="pageTitle"></h2>
+  <div class="clearfix" id="pageContent">Loading content...</div>
 
   <br />
   <br />
@@ -56,6 +58,18 @@
         if (page != null) {
           $('#pageContent').html(page.Contents);
           $('#pageTitle').html(page.Title);
+          $('#learningObjectTitle').html("Test");
+
+
+          OpenRLO.Web.Service.LearningObjectService.GetByUrl(page.ParentLearningObjectUrl, function (learningObject) {
+            if (learningObject != null) {
+              $('#learningObjectTitle').html(learningObject.Title);
+            } else {
+              $('#learningObjectTitle').html(page.ParentLearningObjectUrl);
+            }
+          }, function (m) {
+            //alert('Error loading page contents');
+          });
         } else {
           $('#pageContent').html("Invalid page contents!");
         }
