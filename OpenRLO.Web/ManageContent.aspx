@@ -133,6 +133,12 @@
       $('#addLearningObject').click(function () {
         addLearningObject();
       });
+      $('#movePageUp').click(function () {
+        movePageUp();
+      });
+      $('#movePageDown').click(function () {
+        movePageDown();
+      });
       $('#deletePage').click(function () {
         deletePage();
       });
@@ -172,6 +178,28 @@
           alert('Error: Unable to delete page [' + pageUrl + ']');
         });
       }
+    }
+
+    function movePageUp() {
+      var learningObjectUrl = $('#loList3').val();
+      var pageUrl = $('#pageList').val();
+      OpenRLO.Web.Service.PageService.MovePageUp(learningObjectUrl, pageUrl, function (a) {
+        loadPages(learningObjectUrl);
+        alert(a);
+      }, function (m) {
+        alert('Error: Unable to move page [' + pageUrl + ']');
+      });
+    }
+
+    function movePageDown() {
+      var learningObjectUrl = $('#loList3').val();
+      var pageUrl = $('#pageList').val();
+      OpenRLO.Web.Service.PageService.MovePageDown(learningObjectUrl, pageUrl, function (a) {
+        loadPages(learningObjectUrl);
+        alert(a);
+      }, function (m) {
+        alert('Error: Unable to move page [' + pageUrl + ']');
+      });
     }
 
     function loadPages(learningObjectUrl) {

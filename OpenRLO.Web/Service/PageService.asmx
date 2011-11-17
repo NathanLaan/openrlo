@@ -136,6 +136,69 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
+    public string MovePageUp(string learningObjectUrl, string pageUrl)
+    {
+      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+      if (learningObject != null)
+      {
+        int x = learningObject.PageIndex.IndexList.Count;
+        if (x > 1)
+        {
+          for (int i = 1; i < x; i++)
+          {
+            if (learningObject.PageIndex.IndexList[i].Url.Equals(pageUrl))
+            {
+              int o = learningObject.PageIndex.IndexList[i].Order;
+              learningObject.PageIndex.IndexList[i].Order = learningObject.PageIndex.IndexList[i - 1].Order;
+              learningObject.PageIndex.IndexList[i - 1].Order = o;
+            }
+          }
+          learningObject.PageIndex.IndexList.Sort();
+          learningObject.Save();
+          return "Page [" + pageUrl + "] moved";
+        }
+      }
+      else
+      {
+        return "Learning Object [" + learningObjectUrl + "] not found";
+      }
+      return "Unable to move page [" + pageUrl + "]";
+    }
+
+    [WebMethod]
+    [ScriptMethod]
+    public string MovePageDown(string learningObjectUrl, string pageUrl)
+    {
+      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+      if (learningObject != null)
+      {
+        int x = learningObject.PageIndex.IndexList.Count;
+        if (x > 1)
+        {
+          for (int i = x - 1; i >= 0; i--)
+          {
+            if (learningObject.PageIndex.IndexList[i].Url.Equals(pageUrl))
+            {
+              int o = learningObject.PageIndex.IndexList[i].Order;
+              learningObject.PageIndex.IndexList[i].Order = learningObject.PageIndex.IndexList[i + 1].Order;
+              learningObject.PageIndex.IndexList[i + 1].Order = o;
+            }
+          }
+
+          learningObject.PageIndex.IndexList.Sort();
+          learningObject.Save();
+          return "Page [" + pageUrl + "] moved";
+        }
+      }
+      else
+      {
+        return "Learning Object [" + learningObjectUrl + "] not found";
+      }
+      return "Unable to move page [" + pageUrl + "]";
+    }
+
+    [WebMethod]
+    [ScriptMethod]
     public void Edit(string learningObjectUrl, Page oldPage, Page newPage)
     {
       Page old = this.GetByUrl(learningObjectUrl, oldPage.Url);
