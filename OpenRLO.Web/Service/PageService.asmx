@@ -34,7 +34,7 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public Page GetByUrl(string learningObjectUrl, int pageNumber)
+    public Page GetByUrl2(string learningObjectUrl, int pageNumber)
     {
       LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
       if (learningObject != null)
@@ -109,14 +109,29 @@ namespace OpenRLO.Web.Service
     {
       try
       {
-        //Global.PageIndex.DeleteByUrl(url);
-        //Global.PageIndex.Save();
-        return "Page deleted";
+        LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+        if (learningObject != null)
+        {
+          foreach (Page page in learningObject.PageIndex.IndexList)
+          {
+            if (page.Url == pageUrl)
+            {
+              learningObject.PageIndex.DeleteByUrl(pageUrl);
+              learningObject.Save();
+              return "Page deleted";
+            }
+          }
+        }
+        else
+        {
+          return "Learning Object ["+learningObjectUrl+"] not found";
+        }
       }
       catch (Exception e)
       {
         return e.ToString();
       }
+      return "Page [" + pageUrl + "] not deleted";
     }
 
     [WebMethod]

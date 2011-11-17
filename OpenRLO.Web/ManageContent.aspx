@@ -69,33 +69,28 @@
       <form class="form-stacked">
         <div class="clearfix">
           <label for="loList1">Learning Objects</label>
-            <select class="span6" id="loList1"></select>
-            <br />
-            <br />
-            <a href="#" class="btn" rel="popover" title="Edit Learning Object" data-content="Edit the selected Learning Object." id="A1">Edit</a>
-            <a href="#" class="btn danger" rel="popover" title="Delete Learning Object" data-content="Permanently delete the selected Learning Object." id="deleteLearningObject">Delete</a>
-          
+          <select class="span6" id="loList1"></select>
+          <br />
+          <br />
+          <a href="#" class="btn" rel="popover" title="Edit Learning Object" data-content="Edit the selected Learning Object." id="A1">Edit</a>
+          <a href="#" class="btn danger" rel="popover" title="Delete Learning Object" data-content="Permanently delete the selected Learning Object." id="deleteLearningObject">Delete</a>
         </div>
       </form>
     </div>
 
     <div id="tabAddPage">
       <form class="form-stacked">
-        <!--<h3>Add Page to Learning Object</h3>-->
         <div class="clearfix">
           <label for="loTitle">Learning Object</label>
           <select class="span6" id="loList2"></select>
-          <!--<span class="help-block">Step 1: Select the Learning Object to add the Page to.</span>-->
-          
+          <br />
           <br />
           <label for="pageTitle">Page Title</label>
           <input class="span6" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
-          <!--<span class="help-block">Step 2: Enter a Page Title.</span>-->
-          
+          <br />
           <br />
           <label for="pageContent">Page Content</label>
           <textarea class="xxlarge" id="pageContent" name="pageContent" rows="10"></textarea>
-          <!--<span class="help-block">Step 3: Enter the Page contents.</span>-->
           <br />
           <br />
           <a href="#" class="btn" id="addPage">Add</a>
@@ -110,8 +105,9 @@
           <label for="loTitle">Learning Object</label>
           <select class="span6" id="loList3"></select>
           <br />
+          <br />
           <label for="loTitle">Pages</label>
-          <select class="span6" size="7" multiple="multiple" name="pageList" id="pageList"></select>
+          <select class="span6" id="pageList"></select>
           <br />
           <br />
           <a href="#" class="btn" id="movePageUp">Move Up</a>
@@ -127,26 +123,21 @@
   
   <script language="javascript" type="text/javascript">
 
-    $(function () {
-      $("a[rel=popover]")
-                  .popover({
-                    offset: 10
-                  })
-                  .click(function (e) {
-                    e.preventDefault()
-                  })
-                })
 
     $(document).ready(function () {
-      $(function () {
-        $('.tabs').tabs();
-      })
+      $("a[rel=popover]").popover({ offset: 10 }).click(function (e) {
+        e.preventDefault();
+      });
+      $('.tabs').tabs();
       loadLearningObjectList();
       $('#addLearningObject').click(function () {
         addLearningObject();
       });
+      $('#deletePage').click(function () {
+        deletePage();
+      });
       $('#deleteLearningObject').click(function () {
-        deleteLearningObject();
+        deletePage();
       });
       $('#loList3').change(function () {
         loadPages($(this).attr('value'));
@@ -165,8 +156,22 @@
         loadPages(learningObjectUrl);
         alert(a);
       }, function (m) {
-        alert('Error: unable to add page [' + pageTitle + ']');
+        alert('Error: Unable to add page [' + pageTitle + ']');
       });
+    }
+
+    function deletePage() {
+      var learningObjectUrl = $('#loList3').val();
+      var pageUrl = $('#pageList').val();
+
+      if (confirm('Delete ' + pageUrl + ' from ' + learningObjectUrl + '?')) {
+        OpenRLO.Web.Service.PageService.DeleteByUrl(learningObjectUrl, pageUrl, function (a) {
+          loadPages(learningObjectUrl);
+          alert(a);
+        }, function (m) {
+          alert('Error: Unable to delete page [' + pageUrl + ']');
+        });
+      }
     }
 
     function loadPages(learningObjectUrl) {
@@ -181,7 +186,7 @@
           });
         }
       }, function (m) {
-        alert('ERROR: Unable to load pages for [' + learningObjectUrl + ']');
+        alert('Error: Unable to load pages for [' + learningObjectUrl + ']');
       });
     }
 
@@ -205,7 +210,7 @@
           loadPages($('#loList3').val());
         }
       }, function (m) {
-        alert('Error loading Learning Object list.');
+        alert('Error: Unable to load Learning Object list.');
       });
     }
 
@@ -215,8 +220,7 @@
         loadLearningObjectList();
         alert(a);
       }, function (m) {
-        alert('Error adding Learning Object: ' + m + '.');
-        console.log(m);
+        alert('Error: Unable to add Learning Object [' + loTitle + ']');
       });
     }
 
@@ -229,11 +233,10 @@
           OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(text, function (s) {
             loadLearningObjectList();
           }, function (m) {
-            alert('Error: ' + m.toString());
+            alert('Error: Unable to delete [' + text + ']');
           });
         }
       } else {
-        $('div#output').html('Please select a Learning Object from the list to delete.<br/>');
         alert('Please select a user from the list to delete');
       }
     }

@@ -53,10 +53,10 @@
         p = 1;
       }
 
-      OpenRLO.Web.Service.PageService.GetByUrl(t, p, function (page) {
+      OpenRLO.Web.Service.PageService.GetByUrl2(t, p, function (page) {
         $('#pageContent').html("Loading page contents...");
         if (page != null) {
-          $('#pageContent').html(page.Contents);
+          $('#pageContent').html(page.HtmlContents);
           $('#pageTitle').html(page.Title);
           $('#learningObjectTitle').html("Test");
 

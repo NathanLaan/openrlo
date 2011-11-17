@@ -147,6 +147,7 @@ namespace Solution.Web.Library.HttpHandler
       private static readonly Regex PageRegex = new Regex(@"[\+\\""\''\-\d\w\s\.\/:]*[^\?\&\#]");
 
     private static readonly char[] PageRegexSplitCharacter = new char[] { '/' };
+    //private static readonly char[] PageRegexSplitCharacter = new char[] { '/', '?', '&' };
 
     private bool IsImageFile(string url)
     {

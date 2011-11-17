@@ -30,14 +30,12 @@ namespace OpenRLO.Data
 
     public string Contents { get; set; }
 
-    public string HTML
+    public string HtmlContents
     {
       get
       {
-        //
-        // TODO: Use the MARKDOWN library to parse the Contents
-        //
-        return this.Contents;
+        Markdown markdown = new Markdown();
+        return markdown.Transform(this.Contents);
       }
     }
 
