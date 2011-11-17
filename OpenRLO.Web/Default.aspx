@@ -7,7 +7,6 @@
   <form id="Form1" runat="server">
   <asp:ScriptManager runat="server" ID="masterPageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
     <Services>
-      <asp:ServiceReference Path="~/Service/SiteUserService.asmx" />
       <asp:ServiceReference Path="~/Service/LearningObjectService.asmx" />
     </Services>
   </asp:ScriptManager>
@@ -17,7 +16,7 @@
 
     $(document).ready(function () {
       loadLearningObjectList();
-      $('#goButton').click(function () {
+      $('#navigateButton').click(function () {
         navigateToLearningObject();
       });
     });
@@ -33,23 +32,24 @@
           });
         }
       }, function (m) {
-        alert('Error: ' + m.toString() + '.<br/>');
+        alert('ERROR: Unable to get Learning Object list');
       });
     }
 
     function navigateToLearningObject() {
       var learningObjectUrl = $('#learningObjectList').val();
+      //alert("/learn/" + learningObjectUrl);
       window.location = "/learn/" + learningObjectUrl;
     }
 
   </script>
 
 <h3>LEARN</h3>
-<form>
+<form action="">
   <fieldset>
     <div class="clearfix">
       <select class="span6" name="normalSelect" id="learningObjectList"></select>
-      <button class="btn primary" id="goButton">Learn</button>
+      <a href="#" class="btn primary" id="navigateButton">Learn</a>
       <span class="help-block">Navigate to a learning object.</span>
     </div>
   </fieldset>
