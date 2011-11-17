@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageNameContent" runat="server">Open Social Learning</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TaglineContent" runat="server"></asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-  <form id="Form1" runat="server">
+  <form id="defaultForm" runat="server">
   <asp:ScriptManager runat="server" ID="masterPageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
     <Services>
       <asp:ServiceReference Path="~/Service/LearningObjectService.asmx" />
@@ -45,7 +45,7 @@
   </script>
 
 <h3>LEARN</h3>
-<form action="">
+<form>
   <fieldset>
     <div class="clearfix">
       <select class="span6" name="normalSelect" id="learningObjectList"></select>

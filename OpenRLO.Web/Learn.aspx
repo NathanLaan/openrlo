@@ -9,20 +9,19 @@
     </asp:ScriptManager>
   </form>
 
+  <h2 id="pageTitle">LEARN</h2>
+  <div class="clearfix" id="pageContent">Loading page contents...</div>
 
-  <h2>LEARN</h2>
-  <div class="clearfix" id="pageContent">
-  </div>
-  <p>...</p>
+  <br />
+  <br />
 
-  <!-- for testing purposes -->
+  <!-- jump menu -->
   <div class="clearfix">
-    <label for="pageList">Pages</label>
-    <div class="input">
-      <select class="span6" size="5" multiple="multiple" name="pageList" id="pageList"></select>
-    </div>
-  </div><!-- /clearfix -->
-  <!-- for testing purposes -->
+    Jump to page: <select class="span6" name="pageList" id="pageList"></select><a href="#" class="btn" id="jumpListButton">Go</a>
+  </div>
+  
+  
+  <span class="label important">TODO: Paging Controls</span>
   
   <script language="javascript" type="text/javascript">
 
@@ -41,30 +40,28 @@
           pageList.options.length = 0;
           $.each(a, function () {
             var i = pageList.options.length;
-            pageList.options[i] = new Option(a[i].Title, a[i].Url);
+            pageList.options[i] = new Option((i+1) + ": " + a[i].Title, a[i].Url);
           });
         }
       }, function (m) {
-        alert('Error: ' + m.toString() + '.<br/>');
+        alert('Error loading page contents');
       });
-
-      $('#pageContent').html("p: " + p);
 
       if (p == null || p == "") {
         p = 1;
       }
 
       OpenRLO.Web.Service.PageService.GetByUrl(t, p, function (page) {
-        $('#pageContent').html("RES");
+        $('#pageContent').html("Loading page contents...");
         if (page != null) {
-          alert("CONTENT: " + page.Contents);
           $('#pageContent').html(page.Contents);
+          $('#pageTitle').html(page.Title);
         } else {
-          $('#pageContent').html("NULL");
+          $('#pageContent').html("Invalid page contents!");
         }
       }, function (m) {
         alert('Error: ' + m.toString() + '.<br/>');
-        $('#pageContent').html("ERR");
+        $('#pageContent').html("Error loading page contents");
       });
       
 

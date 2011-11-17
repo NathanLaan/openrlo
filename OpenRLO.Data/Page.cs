@@ -20,7 +20,7 @@ namespace OpenRLO.Data
      * */
     public int CompareTo(Page other)
     {
-      return this.Url.CompareTo(other.Url);
+      return this.Order.CompareTo(other.Order);
     }
     #endregion
 
@@ -30,6 +30,26 @@ namespace OpenRLO.Data
 
     public string Contents { get; set; }
 
+    public string HTML
+    {
+      get
+      {
+        //
+        // TODO: Use the MARKDOWN library to parse the Contents
+        //
+        return this.Contents;
+      }
+    }
+
+    public string FileName
+    {
+      get
+      {
+        return HttpContext.Current.Server.MapPath("/App_Data/_" + this.ParentLearningObjectUrl + "_" + this.Url + ".txt");
+      }
+    }
+
+    #region Save
 
     public override string Save()
     {
@@ -50,6 +70,18 @@ namespace OpenRLO.Data
       return stringBuilder.ToString();
     }
 
+    private void SavePageContents()
+    {
+      using (StreamWriter streamWriter = new StreamWriter(this.FileName))
+      {
+        streamWriter.Write(this.Contents);
+      }
+    }
+
+    #endregion
+
+    #region Load
+
     public override void Load(string line)
     {
       string[] indexEntries = line.Split(Constants.IndexEntryDelimiter);
@@ -61,14 +93,6 @@ namespace OpenRLO.Data
         this.ModifiedDateTime = DateTime.Parse(indexEntries[3]);
         this.Order = int.Parse(indexEntries[4]);
         this.LoadPageContents();
-      }
-    }
-
-    private void SavePageContents()
-    {
-      using (StreamWriter streamWriter = new StreamWriter(this.FileName))
-      {
-        streamWriter.Write(this.Contents);
       }
     }
 
@@ -88,15 +112,7 @@ namespace OpenRLO.Data
       }
     }
 
-
-    public string FileName
-    {
-      get
-      {
-        return HttpContext.Current.Server.MapPath("/App_Data/_" + this.ParentLearningObjectUrl + "_" + this.Url + ".txt");
-      }
-    }
-
+    #endregion
 
   }
 }

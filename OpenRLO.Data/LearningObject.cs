@@ -52,6 +52,14 @@ namespace OpenRLO.Data
     //
     //public List<string> TagList { get; private set; }
 
+    private string FileName
+    {
+      get
+      {
+        return HttpContext.Current.Server.MapPath("/App_Data/_" + this.Url + ".txt");
+      }
+    }
+
 
     public LearningObject()
     {
@@ -97,47 +105,9 @@ namespace OpenRLO.Data
 
     private void LoadPages()
     {
-
       this.PageIndex = new Index<Page>(this.FileName);
       this.PageIndex.Load();
-
-      //
-      // Load pages
-      //
-      //string fileName = this.FileName;
-      //if (File.Exists(fileName))
-      //{
-      //  using (StreamReader sr = new StreamReader(fileName))
-      //  {
-      //    string fullFileContents = sr.ReadToEnd();
-      //    if (fullFileContents != null && fullFileContents != string.Empty)
-      //    {
-      //      string[] fileLines = fullFileContents.Split(Environment.NewLine.ToCharArray());
-      //      foreach (string line in fileLines)
-      //      {
-      //        if (line != null && line != string.Empty)
-      //        {
-      //          T t = new T();
-      //          t.Load(line);
-      //          this.indexList.Add(t);
-      //        }
-      //      }
-      //      this.indexList.Sort();
-      //    }
-      //  }
-      //}
-      //else
-      //{
-      //  //TODO: nothing???
-      //}
-    }
-
-    private string FileName
-    {
-      get
-      {
-        return HttpContext.Current.Server.MapPath("/App_Data/_" + this.Url + ".txt");
-      }
+      this.PageIndex.IndexList.Sort();
     }
 
   }
