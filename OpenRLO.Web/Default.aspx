@@ -44,7 +44,7 @@
 
   </script>
 
-<h3>LEARN</h3>
+<h3>Learn</h3>
 <form>
   <fieldset>
     <div class="clearfix">
@@ -63,8 +63,8 @@
   </fieldset>
 </form>
 
-<h3>MISSION</h3>
-<p>OpenRLO aims to provide an open social based learning platform.</p>
+<h3>Mission</h3>
+<p>OpenRLO aims to provide a platform for creating open reusable learning objects.</p>
 <p>Knowledge is socially constructed through dialogue and interaction with others [Berger, P. (1966). The Social Construction of Reality. Anchor Books. ISBN 0385058985].</p>
 <br />  
 <br />
