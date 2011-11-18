@@ -51,12 +51,9 @@
 //        var pageNumber = _p + 1;
 //        window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
 //      });
-
-
     });
 
     function setupLinks() {
-
       // force _p into an integer
       var pageNumber = parseInt(_p);
 
