@@ -52,7 +52,7 @@
       <form class="form-stacked">
         <div class="clearfix">
           <!--<h3>Learning Objects</h3>-->
-          <label for="loTitle">Learning Object Title</label>
+          <label for="loTitle">Title</label>
           <div class="input">
             <input class="span6" id="loTitle" type="text" placeholder="Learning Object Title" />
             <br />
@@ -81,15 +81,15 @@
     <div id="tabAddPage">
       <form class="form-stacked">
         <div class="clearfix">
-          <label for="loTitle">Learning Object</label>
+          <label for="loTitle">Learning Objects</label>
           <select class="span6" id="loList2"></select>
           <br />
           <br />
-          <label for="pageTitle">Page Title</label>
+          <label for="pageTitle">Title</label>
           <input class="span6" id="pageTitle" type="text" placeholder="Page Title (used for sorting)" />
           <br />
           <br />
-          <label for="pageContent">Page Content</label>
+          <label for="pageContent">Content</label>
           <textarea class="xxlarge" id="pageContent" name="pageContent" rows="10"></textarea>
           <br />
           <br />
@@ -102,7 +102,7 @@
       <form class="form-stacked">
         <!--<h3>Manage Learning Object Pages</h3>-->
         <div class="clearfix">
-          <label for="loTitle">Learning Object</label>
+          <label for="loTitle">Learning Objects</label>
           <select class="span6" id="loList3"></select>
           <br />
           <br />

@@ -40,14 +40,35 @@
       }
       loadPageContent();
       $('#btnJump').click(function () {
-        jump();
+        var pageNumber = $('#pageList').val();
+        window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
       });
+//      $('#btnPrev').click(function () {
+//        var pageNumber = _p - 1;
+//        window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
+//      });
+//      $('#btnNext').click(function () {
+//        var pageNumber = _p + 1;
+//        window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
+//      });
+
+
     });
 
-    function jump() {
-      var jumpPageNumber = $('#pageList').val();
-      //alert("/learn/" + _learningObject.Url + "/" + jumpPageNumber);
-      window.location = "/learn/" + _learningObject.Url + "/" + jumpPageNumber;
+    function setupLinks() {
+
+      // force _p into an integer
+      var pageNumber = parseInt(_p);
+
+      if (pageNumber == 1) {
+        $('#btnPrev').hide();
+      }
+      if (pageNumber >= _learningObject.PageCount) {
+        $('#btnNext').hide();
+      }
+
+      $('#btnPrev').attr('href', '/learn/' + _learningObject.Url + '/' + (pageNumber - 1));
+      $('#btnNext').attr('href', '/learn/' + _learningObject.Url + '/' + (pageNumber + 1));
     }
 
     function loadPageContent() {
@@ -68,6 +89,7 @@
         if (learningObject != null) {
           _learningObject = learningObject;
           $('#learningObjectTitle').html(_learningObject.Title);
+          setupLinks();
         } else {
           $('#learningObjectTitle').html(_t);
         }

@@ -47,6 +47,22 @@ namespace OpenRLO.Data
     //
     public string MetadataFilename { get; set; }
 
+    public int PageCount
+    {
+      get
+      {
+        try
+        {
+          return this.PageIndex.IndexList.Count;
+        }
+        catch
+        {
+          return 0;
+        }
+      }
+    }
+
+
     //
     // TODO: Tags
     //
