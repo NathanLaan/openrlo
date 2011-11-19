@@ -324,7 +324,7 @@
           pageList.options.length = 0;
           $.each(a, function () {
             var i = pageList.options.length;
-            pageList.options[i] = new Option(a[i].Title, a[i].Url);
+            pageList.options[i] = new Option((i + 1) + ": " + a[i].Title, a[i].Url);
           });
         }
       }, function (m) {
