@@ -14,7 +14,27 @@
     </asp:ScriptManager>
   </form>
 
-  <!-- LearningObject -->
+  <!-- LearningObjectModal -->
+  <div id="editLearningObjectModal" class="modal hide fade">
+    <div class="modal-header">
+      <a href="#" class="close close-modal">&times;</a>
+      <h3>Edit Learning Object</h3>
+    </div>
+    <div class="modal-body">
+      <form class="form-stacked">
+        <div class="clearfix">
+          <label for="editLearningObjectTitle">Title</label>
+          <input class="span6" id="editLearningObjectTitle" type="text" />
+        </div>
+      </form>
+      <br />
+      <br />
+    </div>
+    <div class="modal-footer"><a href="#" id="btnEditLearningObjectSave" class="btn primary">Save</a><a href="#" id="btnEditLearningObjectCancel" class="btn">Cancel</a></div>
+  </div>
+  <!-- LearningObjectModal -->
+
+  <!-- PageModal -->
   <div id="editPageModal" class="modal hide fade">
     <div class="modal-header">
       <a href="#" class="close close-modal">&times;</a>
@@ -36,7 +56,7 @@
     </div>
     <div class="modal-footer"><a href="#" id="btnEditPageSave" class="btn primary">Save</a><a href="#" id="btnEditPageCancel" class="btn">Cancel</a></div>
   </div>
-  <!-- /LearningObject -->
+  <!-- PageModal -->
 
   <!--<button data-controls-modal="LearningObject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Learning Objects</button>
   <br />
@@ -78,7 +98,7 @@
           <select class="span6" id="loList1"></select>
           <br />
           <br />
-          <a href="#" class="btn" rel="popover" title="Edit Learning Object" data-content="Edit the selected Learning Object." id="A1">Edit</a>
+          <a href="#" data-controls-modal="editLearningObjectModal" data-backdrop="true" data-keyboard="true" class="btn" rel="popover" title="Edit Learning Object" data-content="Edit the selected Learning Object." id="btnEditLearningObject">Edit</a>
           <a href="#" class="btn danger" rel="popover" title="Delete Learning Object" data-content="Permanently delete the selected Learning Object." id="deleteLearningObject">Delete</a>
         </div>
       </form>
@@ -157,6 +177,7 @@
       $('#addPage').click(function () {
         addPage();
       });
+
       $('#btnEditPage').click(function () {
         editPage();
       });
@@ -166,13 +187,54 @@
       $('#btnEditPageCancel').click(function () {
         cancelEditPage();
       });
+
+      $('#btnEditLearningObject').click(function () {
+        editLearningObject();
+      });
+      $('#btnEditLearningObjectSave').click(function () {
+        saveEditLearningObject();
+      });
+      $('#btnEditLearningObjectCancel').click(function () {
+        cancelEditLearningObject();
+      });
     });
+
+    function editLearningObject() {
+      var learningObjectUrl = $('#loList1').val();
+      OpenRLO.Web.Service.LearningObjectService.GetByUrl(learningObjectUrl, function (lo) {
+        if (lo != null) {
+          $('#editLearningObjectTitle').val(lo.Title);
+        } else {
+          //
+          //TODO: Error handling
+          //
+          $('#editLearningObjectTitle').val("Invalid Learning Object");
+        }
+      }, function (m) {
+        $('#pageContent').html("Error loading page contents");
+      });
+    }
+    function saveEditLearningObject() {
+      var learningObjectUrl = $('#loList1').val();
+      var newLearningObjectTitle = $('#editLearningObjectTitle').val();
+
+      OpenRLO.Web.Service.LearningObjectService.Edit(learningObjectUrl, newLearningObjectTitle, function (a) {
+        loadLearningObjectList();
+        alert(a);
+      }, function (m) {
+        $('#pageContent').html("Error loading page contents");
+      });
+
+      $('#editLearningObjectModal').modal('hide');
+    }
+    function cancelEditLearningObject() {
+      $('#editLearningObjectModal').modal('hide');
+    }
 
     function addPage() {
       var learningObjectUrl = $('#loList2').val();
       var pageTitle = $('#pageTitle').val();
       var pageContent = $('#pageContent').val();
-
       OpenRLO.Web.Service.PageService.Add(learningObjectUrl, pageTitle, pageContent, function (a) {
         loadPages(learningObjectUrl);
         alert(a);
@@ -186,7 +248,6 @@
       var pageUrl = $('#pageList').val();
       OpenRLO.Web.Service.PageService.GetByUrl(learningObjectUrl, pageUrl, function (page) {
         if (page != null) {
-          console.log(page);
           $('#txtEditPageTitle').val(page.Title);
           $('#txtEditPageContents').val(page.Contents);
         } else {

@@ -87,22 +87,18 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public void Edit(LearningObject oldLearningObject, LearningObject newLearningObject)
+    public string Edit(string learningObjectUrl, string newLearningObjectTitle)
     {
-      LearningObject old = this.GetByUrl(oldLearningObject.Url);
-      if (old != null)
+      LearningObject learningObject = this.GetByUrl(learningObjectUrl);
+      if (learningObject != null)
       {
-        old.Title = newLearningObject.Title;
-        old.Url = newLearningObject.Url;
-        old.ModifiedDateTime = newLearningObject.ModifiedDateTime;
+        learningObject.Title = newLearningObjectTitle;
+        learningObject.GenerateUrl();
+        learningObject.ModifiedDateTime = DateTime.Now;
         Global.LearningObjectIndex.Save();
+        return "Learning Object updated";
       }
-      else
-      {
-        //
-        // TODO: ?
-        //
-      }
+      return "Error updating Learning Object";
     }
 
     [WebMethod]
