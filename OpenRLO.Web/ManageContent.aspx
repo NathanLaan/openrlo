@@ -15,20 +15,29 @@
   </form>
 
   <!-- LearningObject -->
-  <div id="LearningObject-modal" class="modal hide fade">
+  <div id="editPageModal" class="modal hide fade">
     <div class="modal-header">
       <a href="#" class="close close-modal">&times;</a>
-      <h3>Manage LearningObjects</h3>
+      <h3>Edit Page</h3>
     </div>
     <div class="modal-body">
-      <form>
-        <fieldset>
-        </fieldset>
+      <form class="form-stacked">
+        <div class="clearfix">
+          <label for="pageTitle">Title</label>
+          <input class="span6" id="txtEditPageTitle" type="text" placeholder="Page Title (used for sorting)" />
+          <br />
+          <br />
+          <label for="pageContent">Content</label>
+          <textarea class="xxlarge" id="txtEditPageContents" name="pageContent" rows="10"></textarea>
+          <br />
+          <br />
+          <a href="#" class="btn" id="a2">Add</a>
+        </div>
       </form>
       <br />
       <br />
     </div>
-    <!--<div class="modal-footer"><a href="#" class="btn primary">Done</a></div>-->
+    <div class="modal-footer"><a href="#" class="btn primary">Finish Editing</a></div>
   </div>
   <!-- /LearningObject -->
 
@@ -38,8 +47,8 @@
   -->
 
   <ul class="tabs">
-    <li class="active"><a href="#tabAddLearningObject">Add Learning Object</a></li>
-    <li><a href="#tabEditLearningObjects">Edit Learning Objects</a></li>
+    <li class="active"><a href="#tabAddLearningObject">Add RLO</a></li>
+    <li><a href="#tabEditLearningObjects">Edit RLOs</a></li>
     <li><a href="#tabAddPage">Add Page</a></li>
     <li><a href="#tabPages">Edit Pages</a></li>
   </ul>
@@ -112,7 +121,7 @@
           <br />
           <a href="#" class="btn" id="movePageUp">Move Up</a>
           <a href="#" class="btn" id="movePageDown">Move Down</a>
-          <a href="#" class="btn" id="btnEditPage">Edit</a>
+          <a href="#" data-controls-modal="editPageModal" data-backdrop="true" data-keyboard="true" class="btn" id="btnEditPage">Edit</a>
           <a href="#" class="btn danger" id="deletePage">Delete</a>
         </div>
       </form>
@@ -151,6 +160,9 @@
       $('#addPage').click(function () {
         addPage();
       });
+      $('#btnEditPage').click(function () {
+        editPage();
+      });
     });
 
     function addPage() {
@@ -166,10 +178,22 @@
       });
     }
 
-    function deletePage() {
+    function editPage() {
       var learningObjectUrl = $('#loList3').val();
       var pageUrl = $('#pageList').val();
 
+      //
+      // TODO: Get details
+      //
+    }
+
+    function saveEditPage() {
+      $('#editPageModal').modal('hide');
+    }
+
+    function deletePage() {
+      var learningObjectUrl = $('#loList3').val();
+      var pageUrl = $('#pageList').val();
       if (confirm('Delete ' + pageUrl + ' from ' + learningObjectUrl + '?')) {
         OpenRLO.Web.Service.PageService.DeleteByUrl(learningObjectUrl, pageUrl, function (a) {
           loadPages(learningObjectUrl);
