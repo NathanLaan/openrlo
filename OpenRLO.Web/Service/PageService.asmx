@@ -199,22 +199,26 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public void Edit(string learningObjectUrl, Page oldPage, Page newPage)
+    public string Edit(string learningObjectUrl, string oldPageUrl, string newPageTitle, string newPageContents)
     {
-      Page old = this.GetByUrl(learningObjectUrl, oldPage.Url);
-      if (old != null)
+      Page oldPage = this.GetByUrl(learningObjectUrl, oldPageUrl);
+      if (oldPage != null)
       {
-        //old.Title = newPage.Title;
-        //old.Url = newPage.Url;
-        //old.ModifiedDateTime = newPage.ModifiedDateTime;
-        //Global.PageIndex.Save();
+        oldPage.Title = newPageTitle;
+        oldPage.Contents = newPageContents;
+        oldPage.GenerateUrl();
+        oldPage.ModifiedDateTime = DateTime.Now;
+
+        LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+        if (learningObject != null)
+        {
+          learningObject.PageIndex.IndexList.Sort();
+          learningObject.Save();
+          return "Page updated";
+        }
+        // get parent
       }
-      else
-      {
-        //
-        // TODO: ?
-        //
-      }
+      return "Error updating page";
     }
 
     [WebMethod]
@@ -244,6 +248,7 @@ namespace OpenRLO.Web.Service
       //}
       return false;
     }
+    
 
   }
 }

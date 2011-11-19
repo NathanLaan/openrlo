@@ -20,6 +20,18 @@ namespace OpenRLO.Web.Service
   public class LearningObjectService : System.Web.Services.WebService
   {
 
+
+    //[WebMethod]
+    //[ScriptMethod]
+    //public string GenerateUrl(string title)
+    //{
+    //  LearningObject learningObject = new LearningObject();
+    //  learningObject.Title = title;
+    //  learningObject.GenerateUrl();
+    //  return learningObject.Url;
+    //}
+    
+
     [WebMethod]
     [ScriptMethod]
     public LearningObject GetByUrl(string url)

@@ -23,21 +23,18 @@
     <div class="modal-body">
       <form class="form-stacked">
         <div class="clearfix">
-          <label for="pageTitle">Title</label>
-          <input class="span6" id="txtEditPageTitle" type="text" placeholder="Page Title (used for sorting)" />
+          <label for="txtEditPageTitle">Title</label>
+          <input class="span6" id="txtEditPageTitle" type="text" />
           <br />
           <br />
-          <label for="pageContent">Content</label>
+          <label for="txtEditPageContents">Content</label>
           <textarea class="xxlarge" id="txtEditPageContents" name="pageContent" rows="10"></textarea>
-          <br />
-          <br />
-          <a href="#" class="btn" id="a2">Add</a>
         </div>
       </form>
       <br />
       <br />
     </div>
-    <div class="modal-footer"><a href="#" class="btn primary">Finish Editing</a></div>
+    <div class="modal-footer"><a href="#" id="btnEditPageSave" class="btn primary">Save</a><a href="#" id="btnEditPageCancel" class="btn">Cancel</a></div>
   </div>
   <!-- /LearningObject -->
 
@@ -163,6 +160,12 @@
       $('#btnEditPage').click(function () {
         editPage();
       });
+      $('#btnEditPageSave').click(function () {
+        saveEditPage();
+      });
+      $('#btnEditPageCancel').click(function () {
+        cancelEditPage();
+      });
     });
 
     function addPage() {
@@ -181,13 +184,44 @@
     function editPage() {
       var learningObjectUrl = $('#loList3').val();
       var pageUrl = $('#pageList').val();
-
-      //
-      // TODO: Get details
-      //
+      OpenRLO.Web.Service.PageService.GetByUrl(learningObjectUrl, pageUrl, function (page) {
+        if (page != null) {
+          console.log(page);
+          $('#txtEditPageTitle').val(page.Title);
+          $('#txtEditPageContents').val(page.Contents);
+        } else {
+          //
+          //TODO: Error handling
+          //
+          $('#txtEditPageTitle').val("Invalid page contents");
+          $('#txtEditPageContents').val("Invalid page contents");
+        }
+      }, function (m) {
+        $('#pageContent').html("Error loading page contents");
+      });
     }
 
     function saveEditPage() {
+      var learningObjectUrl = $('#loList3').val();
+      var oldPageUrl = $('#pageList').val();
+      var newPageTitle = $('#txtEditPageTitle').val();
+      var newPageContents = $('#txtEditPageContents').val();
+
+      //
+      // TODO: It would be nice to disable everything while we are saving...
+      //
+
+      OpenRLO.Web.Service.PageService.Edit(learningObjectUrl, oldPageUrl, newPageTitle, newPageContents, function (a) {
+        loadPages(learningObjectUrl);
+        alert(a);
+      }, function (m) {
+        $('#pageContent').html("Error loading page contents");
+      });
+
+      $('#editPageModal').modal('hide');
+    }
+
+    function cancelEditPage() {
       $('#editPageModal').modal('hide');
     }
 

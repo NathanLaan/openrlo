@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="Learn.aspx.cs" Inherits="OpenRLO.Web.Learn" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="PageNameContent" runat="server"><div id="learningObjectTitle"></div></asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="PageNameContent" runat="server"><div id="learningObjectTitle">Loading content...</div></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
   <form id="learnForm" runat="server">
     <asp:ScriptManager runat="server" ID="masterPageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
