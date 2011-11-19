@@ -31,9 +31,11 @@ _ReSharper*/
 *.[Pp]ublish.xml
 
 #
-# Ignore the index files. We might want to turn this back on at some point.
+# Ignore the index files.
 #
-*_*.txt
+# Allow the INDEX file to save the content.
+#
+# *_*.txt
 
 # Ignore Visual Studio user/workstation specific files
 *.suo
