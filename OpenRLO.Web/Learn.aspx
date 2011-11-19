@@ -26,8 +26,6 @@
   </div>
   
   
-  <span class="label important">TODO: Paging Controls</span>
-  
   <script language="javascript" type="text/javascript">
 
     var _t, _p, _learningObject, gPage;

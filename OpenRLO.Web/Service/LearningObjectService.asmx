@@ -7,7 +7,6 @@ using System.Web.Services;
 using System.Web.Script.Services;
 using System.Web.Services.Protocols;
 using OpenRLO.Data;
-using OpenRLO.Web.Data;
 
 namespace OpenRLO.Web.Service
 {
@@ -19,17 +18,6 @@ namespace OpenRLO.Web.Service
   [System.Web.Script.Services.ScriptService]
   public class LearningObjectService : System.Web.Services.WebService
   {
-
-
-    //[WebMethod]
-    //[ScriptMethod]
-    //public string GenerateUrl(string title)
-    //{
-    //  LearningObject learningObject = new LearningObject();
-    //  learningObject.Title = title;
-    //  learningObject.GenerateUrl();
-    //  return learningObject.Url;
-    //}
     
 
     [WebMethod]
@@ -47,13 +35,14 @@ namespace OpenRLO.Web.Service
       return null;
     }
 
+    
     [WebMethod]
     [ScriptMethod]
     public string Add(string title)
     {
       if (string.IsNullOrEmpty(title))
       {
-        return "Invalid subject title";
+        return "Invalid Learning Object title";
       }
       LearningObject learningObject = new LearningObject();
       learningObject.Title = title;
@@ -61,13 +50,14 @@ namespace OpenRLO.Web.Service
       learningObject.ModifiedDateTime = DateTime.Now;
       if (Global.LearningObjectIndex.Exists(learningObject.Url))
       {
-        return "Subject already exists";
+        return "Learning Object already exists";
       }
       Global.LearningObjectIndex.IndexList.Add(learningObject);
       Global.LearningObjectIndex.IndexList.Sort();
       Global.LearningObjectIndex.Save();
       return "Learning Object added";
     }
+    
 
     [WebMethod]
     [ScriptMethod]
@@ -85,6 +75,7 @@ namespace OpenRLO.Web.Service
       }
     }
 
+    
     [WebMethod]
     [ScriptMethod]
     public string Edit(string learningObjectUrl, string newLearningObjectTitle)
@@ -101,12 +92,14 @@ namespace OpenRLO.Web.Service
       return "Error updating Learning Object";
     }
 
+    
     [WebMethod]
     [ScriptMethod]
     public List<LearningObject> GetList()
     {
       return Global.LearningObjectIndex.IndexList;
     }
+    
 
     /// <summary>
     /// Returns true if EITHER username or showname exist.
@@ -128,6 +121,7 @@ namespace OpenRLO.Web.Service
       }
       return false;
     }
+    
 
   }
 }

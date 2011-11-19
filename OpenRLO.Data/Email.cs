@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-//using System.Web.Mail;
 using System.Net.Mail;
 
-namespace OpenRLO.Web.Data
+namespace OpenRLO.Data
 {
   public class Email
   {

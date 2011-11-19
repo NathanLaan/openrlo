@@ -6,7 +6,6 @@ using System.Web.SessionState;
 using System.Security.Principal;
 using System.Text.RegularExpressions;
 using OpenRLO.Web.Properties;
-using OpenRLO.Web.Data;
 using Solution.Web.Library.HttpHandler;
 using OpenRLO.Data;
 
@@ -75,7 +74,7 @@ namespace OpenRLO.Web
       //
       //
       //
-      Global.SiteSettings = new OpenRLO.Web.Data.SiteSettings(HttpContext.Current.Server.MapPath("/App_Data/_IndexSiteSettings.txt"));
+      Global.SiteSettings = new OpenRLO.Data.SiteSettings(HttpContext.Current.Server.MapPath("/App_Data/_IndexSiteSettings.txt"));
       Global.SiteSettings.Load();
       Global.SiteUserIndex = new SiteUserIndex(HttpContext.Current.Server.MapPath("/App_Data/_IndexUser.txt"));
       Global.SiteUserIndex.Load();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using OpenRLO.Web.Data;
+using OpenRLO.Data;
 using System.Web.Security;
 
 namespace OpenRLO.Web

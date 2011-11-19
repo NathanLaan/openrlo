@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Text;
 using System.IO;
+using OpenRLO.Data;
 
-namespace OpenRLO.Web.Data
+namespace OpenRLO.Data
 {
   public class SiteSettings
   {

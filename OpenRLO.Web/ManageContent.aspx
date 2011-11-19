@@ -49,6 +49,7 @@
           <br />
           <label for="txtEditPageContents">Content</label>
           <textarea class="xxlarge" id="txtEditPageContents" name="pageContent" rows="10"></textarea>
+          <span class="help-block"><strong>Note:</strong> Page content is formatted using <a href="http://daringfireball.net/projects/markdown/" target="_blank">MARKDOWN</a>.</span>
         </div>
       </form>
       <br />
@@ -57,11 +58,6 @@
     <div class="modal-footer"><a href="#" id="btnEditPageSave" class="btn primary">Save</a><a href="#" id="btnEditPageCancel" class="btn">Cancel</a></div>
   </div>
   <!-- PageModal -->
-
-  <!--<button data-controls-modal="LearningObject-modal" data-backdrop="true" data-keyboard="true" class="btn">Manage Learning Objects</button>
-  <br />
-  <br />
-  -->
 
   <ul class="tabs">
     <li class="active"><a href="#tabAddLearningObject">Add RLO</a></li>
@@ -77,7 +73,6 @@
     <div class="active" id="tabAddLearningObject">
       <form class="form-stacked">
         <div class="clearfix">
-          <!--<h3>Learning Objects</h3>-->
           <label for="loTitle">Title</label>
           <div class="input">
             <input class="span6" id="loTitle" type="text" placeholder="Learning Object Title" />
@@ -117,6 +112,7 @@
           <br />
           <label for="pageContent">Content</label>
           <textarea class="xxlarge" id="pageContent" name="pageContent" rows="10"></textarea>
+          <span class="help-block"><strong>Note:</strong> Page content is formatted using <a href="http://daringfireball.net/projects/markdown/" target="_blank">MARKDOWN</a>.</span>
           <br />
           <br />
           <a href="#" class="btn" id="addPage">Add</a>
@@ -126,7 +122,6 @@
      
     <div id="tabPages">
       <form class="form-stacked">
-        <!--<h3>Manage Learning Object Pages</h3>-->
         <div class="clearfix">
           <label for="loTitle">Learning Objects</label>
           <select class="span6" id="loList3"></select>
