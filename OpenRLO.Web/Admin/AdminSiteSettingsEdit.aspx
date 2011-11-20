@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="AdminSiteSettingsEdit.aspx.cs" Inherits="OpenRLO.Web.Admin.AdminSiteSettingsEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="AdminSiteSettingsEdit.aspx.cs" Inherits="OpenRLO.Web.Admin.AdminSiteSettingsEdit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
   <asp:ScriptManager runat="server" ID="pageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
     <Services>

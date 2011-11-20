@@ -59,51 +59,107 @@
   </div>
   <!-- PageModal -->
 
-  <ul class="tabs">
-    <li class="active"><a href="#tabAddLearningObject">Add RLO</a></li>
-    <li><a href="#tabEditLearningObjects">Edit RLOs</a></li>
+
+  <!--
+
+  If we want a single dialog, then the add() or edit() function to show the dialog
+  needs to
+  (1) set the text of the header and buttons
+  (2) remove existing events from buttons
+  (3) add new events to buttons
+  (4) show the dialog
+
+  -->
+  
+
+  <div id="modalUserAdd" class="modal hide fade">
+    <div class="modal-header">
+      <a href="#" class="close close-modal">&times;</a>
+      <h3>Add User</h3>
+    </div>
+    <div class="modal-body">
+      <form class="form-stacked">
+        <div class="clearfix">
+          <label for="txtUsername">Username</label><input class="span6" id="txtUsername" type="text" placeholder="Username" onkeyup="GenerateUsername();" />
+          <br /><br /><label for="txtPassword1">Password</label><input class="span6" id="txtPassword1" type="password" placeholder="Password" />
+          <br /><br /><label for="txtPassword2">Confirm Password</label><input class="span6" id="txtPassword2" type="password" placeholder="Confirm Password" />
+          <br /><br /><label for="txtEmail">Email</label><input class="span6" id="txtEmail" type="text" placeholder="Password" />
+          <br /><br /><label for="chkIsAdministrator">Administrator</label><input type="checkbox" id="chkIsAdministrator" />&nbsp;User can administer other users
+          <br /><br /><label for="chkIsContentEditor">Content Editor</label><input type="checkbox" id="chkIsContentEditor" />&nbsp;User can create & edit content
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer"><a href="#" id="btnModalUserAdd" class="btn primary">Add User</a><a href="#" id="btnModalUserAddCancel" class="btn">Cancel</a></div>
+  </div>
+
+  <div id="modalUserEdit" class="modal hide fade">
+    <div class="modal-header">
+      <a href="#" class="close close-modal">&times;</a>
+      <h3>Edit User</h3>
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer"><a href="#" id="btnModalUserEditSave" class="btn primary">Save</a><a href="#" id="btnModalUserEditCancel" class="btn">Cancel</a></div>
+  </div>
+
+
+  <!-- ------- ---- ------- -->
+  <!-- ------- TABS ------- -->
+
+
+  <ul class="tabs" data-tabs="tabs">
+    <li class="active"><a href="#tabRLO">RLOs</a></li>
     <li><a href="#tabAddPage">Add Page</a></li>
     <li><a href="#tabPages">Edit Pages</a></li>
+    <li class="disabled"><a href="#tabUsers">Users</a></li>
   </ul>
 
   <!-- tabs -->
   <div class="pill-content">
 
+  <div id="tabUsers">
+    <form class="form-stacked">
+      <div class="clearfix">
+        <label for="lstUsers">Users</label>
+        <select class="span6" id="lstUsers"></select>
+        <br />
+        <br />
+        <a href="#" data-controls-modal="modalUserAdd" data-backdrop="true" data-keyboard="true" class="btn" id="btnEditUser">Add</a>
+        <a href="#" data-controls-modal="modalUserEdit" data-backdrop="true" data-keyboard="true" class="btn" id="A1">Edit</a>
+        <a href="#" class="btn danger" id="btnDeleteUser">Delete</a>
+      </div>
+    </form>
+  </div>
+
     <!-- tabLearningObjects -->
-    <div class="active" id="tabAddLearningObject">
+    <div class="active" id="tabRLO">
       <form class="form-stacked">
         <div class="clearfix">
           <label for="loTitle">Title</label>
-          <div class="input">
-            <input class="span6" id="loTitle" type="text" placeholder="Learning Object Title" />
-            <br />
-            <br />
-            <a href="#" class="btn" id="addLearningObject">Add</a><br />
-          </div>
+          <input class="span6" id="loTitle" type="text" placeholder="Learning Object Title" />
+          <br />
+          <br />
+          <a href="#" class="btn" id="addLearningObject">Add</a><br />
+        </div>
+        <br />
+        <br />
+        <div class="clearfix">
+          <label for="lstRLO1">Learning Objects</label>
+          <select class="span6" id="lstRLO1"></select>
+          <br />
+          <br />
+          <a href="#" data-controls-modal="editLearningObjectModal" data-backdrop="true" data-keyboard="true" class="btn" id="btnEditLearningObject">Edit</a>
+          <a href="#" class="btn danger" id="deleteLearningObject">Delete</a>
         </div>
       </form>
     </div>
     <!-- tabLearningObjects -->
-
-    <!-- tabEditLearningObjects -->
-    <div id="tabEditLearningObjects">
-      <form class="form-stacked">
-        <div class="clearfix">
-          <label for="loList1">Learning Objects</label>
-          <select class="span6" id="loList1"></select>
-          <br />
-          <br />
-          <a href="#" data-controls-modal="editLearningObjectModal" data-backdrop="true" data-keyboard="true" class="btn" rel="popover" title="Edit Learning Object" data-content="Edit the selected Learning Object." id="btnEditLearningObject">Edit</a>
-          <a href="#" class="btn danger" rel="popover" title="Delete Learning Object" data-content="Permanently delete the selected Learning Object." id="deleteLearningObject">Delete</a>
-        </div>
-      </form>
-    </div>
 
     <div id="tabAddPage">
       <form class="form-stacked">
         <div class="clearfix">
           <label for="loTitle">Learning Objects</label>
-          <select class="span6" id="loList2"></select>
+          <select class="span6" id="lstRLO2"></select>
           <br />
           <br />
           <label for="pageTitle">Title</label>
@@ -124,7 +180,7 @@
       <form class="form-stacked">
         <div class="clearfix">
           <label for="loTitle">Learning Objects</label>
-          <select class="span6" id="loList3"></select>
+          <select class="span6" id="lstRLO3"></select>
           <br />
           <br />
           <label for="loTitle">Pages</label>
@@ -144,8 +200,10 @@
   
   <script language="javascript" type="text/javascript">
 
-
     $(document).ready(function () {
+
+      $('#tabUsers').attr('enabled', 'false');
+
       $("a[rel=popover]").popover({ offset: 10 }).click(function (e) {
         e.preventDefault();
       });
@@ -166,13 +224,14 @@
       $('#deleteLearningObject').click(function () {
         deletePage();
       });
-      $('#loList3').change(function () {
+      $('#lstRLO3').change(function () {
         loadPages($(this).attr('value'));
       });
       $('#addPage').click(function () {
         addPage();
       });
 
+      // Page
       $('#btnEditPage').click(function () {
         editPage();
       });
@@ -183,6 +242,7 @@
         cancelEditPage();
       });
 
+      // RLO
       $('#btnEditLearningObject').click(function () {
         editLearningObject();
       });
@@ -192,10 +252,22 @@
       $('#btnEditLearningObjectCancel').click(function () {
         cancelEditLearningObject();
       });
+
+      // User
+      $('#btnModalUserAddCancel').click(function () {
+        $('#modalUserAdd').modal('hide');
+      });
+      $('#btnModalUserEditCancel').click(function () {
+        $('#modalUserEdit').modal('hide');
+      });
+
     });
 
+
+
+
     function editLearningObject() {
-      var learningObjectUrl = $('#loList1').val();
+      var learningObjectUrl = $('#lstRLO1').val();
       OpenRLO.Web.Service.LearningObjectService.GetByUrl(learningObjectUrl, function (lo) {
         if (lo != null) {
           $('#editLearningObjectTitle').val(lo.Title);
@@ -210,7 +282,7 @@
       });
     }
     function saveEditLearningObject() {
-      var learningObjectUrl = $('#loList1').val();
+      var learningObjectUrl = $('#lstRLO1').val();
       var newLearningObjectTitle = $('#editLearningObjectTitle').val();
 
       OpenRLO.Web.Service.LearningObjectService.Edit(learningObjectUrl, newLearningObjectTitle, function (a) {
@@ -227,7 +299,7 @@
     }
 
     function addPage() {
-      var learningObjectUrl = $('#loList2').val();
+      var learningObjectUrl = $('#lstRLO2').val();
       var pageTitle = $('#pageTitle').val();
       var pageContent = $('#pageContent').val();
       OpenRLO.Web.Service.PageService.Add(learningObjectUrl, pageTitle, pageContent, function (a) {
@@ -239,7 +311,7 @@
     }
 
     function editPage() {
-      var learningObjectUrl = $('#loList3').val();
+      var learningObjectUrl = $('#lstRLO3').val();
       var pageUrl = $('#pageList').val();
       OpenRLO.Web.Service.PageService.GetByUrl(learningObjectUrl, pageUrl, function (page) {
         if (page != null) {
@@ -258,7 +330,7 @@
     }
 
     function saveEditPage() {
-      var learningObjectUrl = $('#loList3').val();
+      var learningObjectUrl = $('#lstRLO3').val();
       var oldPageUrl = $('#pageList').val();
       var newPageTitle = $('#txtEditPageTitle').val();
       var newPageContents = $('#txtEditPageContents').val();
@@ -282,7 +354,7 @@
     }
 
     function deletePage() {
-      var learningObjectUrl = $('#loList3').val();
+      var learningObjectUrl = $('#lstRLO3').val();
       var pageUrl = $('#pageList').val();
       if (confirm('Delete ' + pageUrl + ' from ' + learningObjectUrl + '?')) {
         OpenRLO.Web.Service.PageService.DeleteByUrl(learningObjectUrl, pageUrl, function (a) {
@@ -295,7 +367,7 @@
     }
 
     function movePageUp() {
-      var learningObjectUrl = $('#loList3').val();
+      var learningObjectUrl = $('#lstRLO3').val();
       var pageUrl = $('#pageList').val();
       OpenRLO.Web.Service.PageService.MovePageUp(learningObjectUrl, pageUrl, function (a) {
         loadPages(learningObjectUrl);
@@ -306,7 +378,7 @@
     }
 
     function movePageDown() {
-      var learningObjectUrl = $('#loList3').val();
+      var learningObjectUrl = $('#lstRLO3').val();
       var pageUrl = $('#pageList').val();
       OpenRLO.Web.Service.PageService.MovePageDown(learningObjectUrl, pageUrl, function (a) {
         loadPages(learningObjectUrl);
@@ -335,9 +407,9 @@
     function loadLearningObjectList() {
       OpenRLO.Web.Service.LearningObjectService.GetList(function (a) {
         if (a != null) {
-          var listControl1 = $('#loList1')[0];
-          var listControl2 = $('#loList2')[0];
-          var listControl3 = $('#loList3')[0];
+          var listControl1 = $('#lstRLO1')[0];
+          var listControl2 = $('#lstRLO2')[0];
+          var listControl3 = $('#lstRLO3')[0];
           listControl1.options.length = 0;
           listControl2.options.length = 0;
           listControl3.options.length = 0;
@@ -349,7 +421,7 @@
             listControl2.options[i] = new Option(a[i].Title, a[i].Url);
             listControl3.options[i] = new Option(a[i].Title, a[i].Url);
           });
-          loadPages($('#loList3').val());
+          loadPages($('#lstRLO3').val());
         }
       }, function (m) {
         alert('Error: Unable to load Learning Object list.');
@@ -367,7 +439,7 @@
     }
 
     function deleteLearningObject() {
-      var listControl = $('#loList1').get(0);
+      var listControl = $('#lstRLO1').get(0);
       if (listControl.selectedIndex >= 0) {
         var elem = listControl.options[listControl.selectedIndex];
         var text = elem.value;

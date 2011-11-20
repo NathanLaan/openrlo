@@ -10,12 +10,11 @@ namespace OpenRLO.Data
   {
 
     public Guid UserID { get; set; }
-    public bool IsContentCreator { get; set; }
+    public bool IsContentEditor { get; set; }
     public bool IsAdministrator { get; set; }
     
     public string Email{get;set;}
     public string Username { get; set; }
-    public string Showname { get; set; }
     public string Password { get; set; }
     public string Saltcode { get; set; }
     public string Timezone { get; set; }
@@ -48,9 +47,6 @@ namespace OpenRLO.Data
       StringBuilder stringBuilder = new StringBuilder();
       stringBuilder.Append(" Username: ");
       stringBuilder.Append(this.Username);
-      stringBuilder.Append(System.Environment.NewLine);
-      stringBuilder.Append(" Showname: ");
-      stringBuilder.Append(this.Showname);
       stringBuilder.Append(System.Environment.NewLine);
       stringBuilder.Append(" Password: ");
       stringBuilder.Append(this.Password);

@@ -1,10 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="AdminSiteUserManage.aspx.cs" Inherits="OpenRLO.Web.Admin.AdminSiteUserManage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="AdminSiteUserManage.aspx.cs" Inherits="OpenRLO.Web.Admin.AdminSiteUserManage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-  <asp:ScriptManager runat="server" ID="masterPageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
-    <Services>
-      <asp:ServiceReference Path="~/Service/SiteUserService.asmx" />
-    </Services>
-  </asp:ScriptManager>
+  <form runat="server">
+    <asp:ScriptManager runat="server" ID="masterPageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
+      <Services>
+        <asp:ServiceReference Path="~/Service/SiteUserService.asmx" />
+      </Services>
+    </asp:ScriptManager>
+  </form>
   <!--<h2>Manage Users</h2>-->
   <br /><label for="selList">Users:</label><select id="lstUser" onchange="SelectedUserChange();"></select>
   <br /><label for="Delete">&nbsp;</label><input type="button" value="Delete" id="btnDelete" onclick="DeleteUser();" /><input type="button" value="Edit" id="btnEdit" onclick="EditUser();" />
@@ -13,9 +15,11 @@
   <label for="txtShowname">Display Name:</label><input type="text" id="txtShowname" size="40" maxlength="100" onkeyup="GenerateUsername();" />
   <br /><label for="txtUsername">Username:</label><input type="text" id="txtUsername" size="40" maxlength="100" />
   <br /><label for="txtPassword1">Password:</label><input type="text" id="txtPassword1" size="40" maxlength="100" />
-  <br /><label for="txtPassword2">Confirm:</label><input type="text" id="txtPassword2" size="40" maxlength="100" />
-  <br /><label for="txtTimezone">Timezone:</label><input type="text" id="txtTimezone" size="40" maxlength="100" />
-  <br /><label for="txtEmail">Email:</label><input type="text" id="txtEmail" size="40" maxlength="100" />
+  <br /><label for="txtPassword2">Confirm:&nbsp;</label><input type="text" id="txtPassword2" size="40" maxlength="100" />
+  <br /><label for="txtTimezone">Timezone:&nbsp;</label><input type="text" id="txtTimezone" size="40" maxlength="100" />
+  <br /><label for="txtEmail">Email:&nbsp;</label><input type="text" id="txtEmail" size="40" maxlength="100" />
+  <br /><label for="chkIsAdministrator">Admin:&nbsp;</label><input type="checkbox" id="chkIsAdministrator" />
+  Editor:&nbsp;<input type="checkbox" id="chkIsContentEditor" />
   <br /><label for="btnAdd">&nbsp;</label><input type="button" value="Add" id="btnAdd" onclick="AddUser();" />
   <input type="button" value="Save" id="btnEditSave" disabled="disabled" onclick="SaveUser();" />
   <input type="button" value="Cancel" id="btnEditCancel" disabled="disabled" onclick="CancelEditUser();" />

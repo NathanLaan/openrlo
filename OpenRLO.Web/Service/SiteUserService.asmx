@@ -38,6 +38,10 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public void Add(SiteUser siteUser)
     {
+      //
+      // TODO: Check if current logged-in user is allowed to do this
+      //
+      
       Global.SiteUserIndex.SiteUserList.Add(siteUser);
       Global.SiteUserIndex.Save();
     }
@@ -46,6 +50,10 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public string Delete(string username)
     {
+      //
+      // TODO: Check if current logged-in user is allowed to do this
+      //
+      
       try
       {
         Global.SiteUserIndex.Delete(username);
@@ -61,6 +69,10 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public void Edit(SiteUser oldSiteUser, SiteUser newSiteUser)
     {
+      //
+      // TODO: Check if current logged-in user is allowed to do this
+      //
+      
       SiteUser old = this.Get(oldSiteUser.Username);
       if (old != null)
       {

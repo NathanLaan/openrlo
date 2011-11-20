@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="Upload.aspx.cs" Inherits="OpenRLO.Web.Admin.Upload" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="Upload.aspx.cs" Inherits="OpenRLO.Web.Admin.Upload" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
   <!--<h2>File Upload</h2>-->
   <br />

@@ -13,6 +13,7 @@
   <asp:Label runat="server" ID="lblOutput"></asp:Label>
   </form>
   <form>
+  <h2>Register Account</h2>
 
   </form>
 </asp:Content>
