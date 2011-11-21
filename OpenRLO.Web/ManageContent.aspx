@@ -117,19 +117,19 @@
   <!-- tabs -->
   <div class="pill-content">
 
-  <div id="tabUsers">
-    <form class="form-stacked">
-      <div class="clearfix">
-        <label for="lstUsers">Users</label>
-        <select class="span6" id="lstUsers"></select>
-        <br />
-        <br />
-        <a href="#" class="btn" id="btnUserAdd">Add</a>
-        <a href="#" class="btn" id="btnUserEdit">Edit</a>
-        <a href="#" class="btn danger" id="btnUserDelete">Delete</a>
-      </div>
-    </form>
-  </div>
+    <div id="tabUsers">
+      <form class="form-stacked">
+        <div class="clearfix">
+          <label for="lstUsers">Users</label>
+          <select class="span6" id="lstUsers"></select>
+          <br />
+          <br />
+          <a href="#" class="btn" id="btnUserAdd">Add</a>
+          <a href="#" class="btn" id="btnUserEdit">Edit</a>
+          <a href="#" class="btn danger" id="btnUserDelete">Delete</a>
+        </div>
+      </form>
+    </div>
 
     <!-- tabLearningObjects -->
     <div class="active" id="tabRLO">
