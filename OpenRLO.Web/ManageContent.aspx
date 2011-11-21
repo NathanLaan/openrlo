@@ -265,6 +265,34 @@
 
 
 
+    function AddUser() {
+      var usr = new OpenRLO.Web.Data.SiteUser();
+      usr.Username = $('#txtUsername').val();
+      usr.Passcode = $('#txtPassword1').val();
+      usr.TimeZone = $('#txtTimezone').val();
+      usr.Email = $('#txtEmail').val();
+      OpenRLO.Web.Service.SiteUserService.Exists(usr.Username, usr.Showname, function (b) {
+        if (b) {
+          alert('User account already exists');
+        } else {
+          if ($('#txtPassword1').val() != $('#txtPassword2').val()) {
+            alert('Passwords do not match.<br/>');
+          } else {
+            OpenRLO.Web.Service.SiteUserService.Add(usr, function () {
+              $('div#output').html('User added.<br/>');
+              ClearFields();
+              LoadList();
+            }, function (m) {
+              $('div#output').html('Error: ' + m.toString() + '.<br/>');
+              LoadList();
+            });
+          }
+        }
+      }, function (m) {
+        $('div#output').html('Error: ' + m.toString() + '.<br/>');
+      });
+    }`
+
 
     function editLearningObject() {
       var learningObjectUrl = $('#lstRLO1').val();
