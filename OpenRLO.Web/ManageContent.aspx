@@ -72,10 +72,10 @@
   -->
   
 
-  <div id="modalUserAdd" class="modal hide fade">
+  <div id="modalUser" class="modal hide fade">
     <div class="modal-header">
       <a href="#" class="close close-modal">&times;</a>
-      <h3>Add User</h3>
+      <h3 id="modalUserTitle">TITLE</h3>
     </div>
     <div class="modal-body">
       <form class="form-stacked">
@@ -89,7 +89,7 @@
         </div>
       </form>
     </div>
-    <div class="modal-footer"><a href="#" id="btnModalUserAdd" class="btn primary">Add User</a><a href="#" id="btnModalUserAddCancel" class="btn">Cancel</a></div>
+    <div class="modal-footer"><a href="#" id="btnModalUserConfirm" class="btn primary">CONFIRM</a><a href="#" id="btnModalUserCancel" class="btn">Cancel</a></div>
   </div>
 
   <div id="modalUserEdit" class="modal hide fade">
@@ -111,7 +111,7 @@
     <li class="active"><a href="#tabRLO">RLOs</a></li>
     <li><a href="#tabAddPage">Add Page</a></li>
     <li><a href="#tabPages">Edit Pages</a></li>
-    <li class="disabled"><a href="#tabUsers">Users</a></li>
+    <li><a href="#tabUsers">Users</a></li>
   </ul>
 
   <!-- tabs -->
@@ -124,9 +124,9 @@
         <select class="span6" id="lstUsers"></select>
         <br />
         <br />
-        <a href="#" data-controls-modal="modalUserAdd" data-backdrop="true" data-keyboard="true" class="btn" id="btnEditUser">Add</a>
-        <a href="#" data-controls-modal="modalUserEdit" data-backdrop="true" data-keyboard="true" class="btn" id="A1">Edit</a>
-        <a href="#" class="btn danger" id="btnDeleteUser">Delete</a>
+        <a href="#" class="btn" id="btnUserAdd">Add</a>
+        <a href="#" class="btn" id="btnUserEdit">Edit</a>
+        <a href="#" class="btn danger" id="btnUserDelete">Delete</a>
       </div>
     </form>
   </div>
@@ -255,17 +255,43 @@
       });
 
       // User
-      $('#btnModalUserAddCancel').click(function () {
-        $('#modalUserAdd').modal('hide');
+
+      //
+      // the user modal needs to be manually activated since we are using 1 modal for ADD and EDIT
+      //
+      $('#modalUser').modal({ keyboard: true, backdrop: true });
+
+      $('#btnModalUserCancel').click(function () {
+        $('#modalUser').modal('hide');
       });
-      $('#btnModalUserEditCancel').click(function () {
-        $('#modalUserEdit').modal('hide');
+      //$('#btnModalUserConfirm').click(function () {
+      //  addUser();
+      //});
+
+      $('#btnUserAdd').click(function () {
+        $('#btnModalUserConfirm').unbind('click');
+        $('#btnModalUserConfirm').click(function () {
+          addUser();
+        });
+        $('#btnModalUserConfirm').text('Add User');
+        $('#modalUserTitle').html('Add User');
+        $('#modalUser').modal('show');
       });
-      $('#btnModalUserAdd').click(function () {
-        addUser();
+      $('#btnUserEdit').click(function () {
+        $('#btnModalUserConfirm').unbind('click');
+        $('#btnModalUserConfirm').click(function () {
+          editUser();
+        });
+        $('#btnModalUserConfirm').text('Save User');
+        $('#modalUserTitle').html('Edit User');
+        $('#modalUser').modal('show');
       });
 
     });
+
+    function editUser() {
+      alert('editUser NYI');
+    }
 
 
 
@@ -275,42 +301,63 @@
     //
 
     function addUser() {
-      if ($('#txtPassword1').val() != $('#txtPassword2').val()) {
-        alert('Passwords do not match');
-      } else {
-        var usr = new OpenRLO.Data.SiteUser();
-        usr.Username = $('#txtUsername').val();
-        usr.Passcode = $('#txtPassword1').val();
-        usr.Email = $('#txtEmail').val();
-        usr.IsAdministrator = $('#chkIsAdministrator').is(':checked');//$('#chkIsAdministrator').val();
-        usr.IsContentEditor = $('#chkIsContentEditor').is(':checked');//$('#chkIsContentEditor').val();
-        OpenRLO.Web.Service.SiteUserService.UsernameExists(usr.Username, function (b) {
-          if (b) {
-            alert('User account already exists');
-          } else {
 
-            OpenRLO.Web.Service.SiteUserService.EmailExists(usr.Username, function (b) {
-              if (b) {
-                alert('Email already exists');
-              } else {
-                OpenRLO.Web.Service.SiteUserService.Add(usr, function () {
-                  alert('User added');
-                  clearUserFields();
-                  loadUserList();
-                  $('#modalUserEdit').modal('hide');
-                }, function (m) {
-                  alert('Error adding user');
-                  loadUserList();
-                });
-              }
-            }, function (m) {
-              alert('Error checking username');
-            });
-          }
-        }, function (m) {
-          alert('Error checking username');
-        });
+      var usr = new OpenRLO.Data.SiteUser();
+      usr.Username = $('#txtUsername').val();
+      usr.Passcode = $('#txtPassword1').val();
+      usr.Email = $('#txtEmail').val();
+      usr.IsAdministrator = $('#chkIsAdministrator').is(':checked'); //$('#chkIsAdministrator').val();
+      usr.IsContentEditor = $('#chkIsContentEditor').is(':checked'); //$('#chkIsContentEditor').val();
+
+      var password1 = $('#txtPassword1').val();
+      var password2 = $('#txtPassword2').val();
+
+      //
+      // basic form validation
+      //
+      if (usr.Username == null || usr.Username == '') {
+        alert('Please enter a username');
+        return;
       }
+      if (usr.Email == null || usr.Email == '') {
+        alert('Please enter an email');
+        return;
+      }
+      if (password1 == null || password1 == '') {
+        alert('Please enter an email');
+        return;
+      }
+      if (password1 != password2) {
+        alert('Passwords do not match');
+        return;
+      }
+
+      OpenRLO.Web.Service.SiteUserService.UsernameExists(usr.Username, function (b) {
+        if (b) {
+          alert('User account already exists');
+        } else {
+
+          OpenRLO.Web.Service.SiteUserService.EmailExists(usr.Username, function (b) {
+            if (b) {
+              alert('Email already exists');
+            } else {
+              OpenRLO.Web.Service.SiteUserService.Add(usr, function () {
+                alert('User added');
+                clearUserFields();
+                loadUserList();
+                $('#modalUserEdit').modal('hide');
+              }, function (m) {
+                alert('Error adding user');
+                loadUserList();
+              });
+            }
+          }, function (m) {
+            alert('Error checking username');
+          });
+        }
+      }, function (m) {
+        alert('Error checking username');
+      });
     }
 
     function clearUserFields() {
