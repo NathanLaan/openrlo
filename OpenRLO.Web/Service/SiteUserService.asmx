@@ -77,7 +77,6 @@ namespace OpenRLO.Web.Service
       if (old != null)
       {
         old.Username = newSiteUser.Username;
-        old.Showname = newSiteUser.Showname;
         old.Timezone = newSiteUser.Timezone;
         old.Email = newSiteUser.Email;
         // The Passcode is set by the JavaScript on the Edit 
@@ -110,19 +109,38 @@ namespace OpenRLO.Web.Service
     }
 
     /// <summary>
-    /// Returns true if EITHER username or showname exist.
+    /// Returns true if username exists.
     /// </summary>
     /// <param name="username"></param>
-    /// <param name="showname"></param>
     /// <returns></returns>
     [WebMethod]
     [ScriptMethod]
-    public bool Exists(string username, string showname)
+    public bool UsernameExists(string username)
     {
       List<SiteUser> list = Global.SiteUserIndex.SiteUserList;
       foreach (SiteUser siteUser in list)
       {
-        if (username.Equals(siteUser.Username) || showname.Equals(siteUser.Showname))
+        if (username.Equals(siteUser.Username))
+        {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    /// <summary>
+    /// Returns true if username exists.
+    /// </summary>
+    /// <param name="username"></param>
+    /// <returns></returns>
+    [WebMethod]
+    [ScriptMethod]
+    public bool EmailExists(string email)
+    {
+      List<SiteUser> list = Global.SiteUserIndex.SiteUserList;
+      foreach (SiteUser siteUser in list)
+      {
+        if (email.Equals(siteUser.Email))
         {
           return true;
         }

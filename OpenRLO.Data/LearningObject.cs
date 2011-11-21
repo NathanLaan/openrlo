@@ -84,9 +84,14 @@ namespace OpenRLO.Data
     }
 
 
+    /// <summary>
+    /// Generate the URL by removing "unsafe" characters.
+    /// 
+    /// TODO: Perhaps consider using URL-ENCODING instead?
+    /// </summary>
     public void GenerateUrl()
     {
-      this.Url = Title.Replace(" ", "").Replace("/", "").Replace("\\", "").Replace("'", "").Replace("\"", "");
+      this.Url = Title.Replace(" ", "").Replace("/", "").Replace("\\", "").Replace("'", "").Replace("\"", "").Replace("&", "").Replace(".", "").Replace("_", "").Replace("-", "").Replace("+", "").Replace("=", "").Replace("@", "").Replace("#", "").Replace("$", "").Replace("%", "").Replace("^", "");
     }
 
 

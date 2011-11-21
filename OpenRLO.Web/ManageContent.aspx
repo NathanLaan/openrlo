@@ -80,7 +80,7 @@
     <div class="modal-body">
       <form class="form-stacked">
         <div class="clearfix">
-          <label for="txtUsername">Username</label><input class="span6" id="txtUsername" type="text" placeholder="Username" onkeyup="GenerateUsername();" />
+          <label for="txtUsername">Username</label><input class="span6" id="txtUsername" type="text" placeholder="Username" />
           <br /><br /><label for="txtPassword1">Password</label><input class="span6" id="txtPassword1" type="password" placeholder="Password" />
           <br /><br /><label for="txtPassword2">Confirm Password</label><input class="span6" id="txtPassword2" type="password" placeholder="Confirm Password" />
           <br /><br /><label for="txtEmail">Email</label><input class="span6" id="txtEmail" type="text" placeholder="Password" />
@@ -201,14 +201,15 @@
   <script language="javascript" type="text/javascript">
 
     $(document).ready(function () {
+      loadLearningObjectList();
+      loadUserList();
 
-      $('#tabUsers').attr('enabled', 'false');
+      $('.tabs').tabs();
+      $('#tabUsers').attr('visible', 'false');
 
       $("a[rel=popover]").popover({ offset: 10 }).click(function (e) {
         e.preventDefault();
       });
-      $('.tabs').tabs();
-      loadLearningObjectList();
       $('#addLearningObject').click(function () {
         addLearningObject();
       });
@@ -260,9 +261,88 @@
       $('#btnModalUserEditCancel').click(function () {
         $('#modalUserEdit').modal('hide');
       });
+      $('#btnModalUserAdd').click(function () {
+        addUser();
+      });
 
     });
 
+
+
+
+    //
+    // USER
+    //
+
+    function addUser() {
+      if ($('#txtPassword1').val() != $('#txtPassword2').val()) {
+        alert('Passwords do not match');
+      } else {
+        var usr = new OpenRLO.Data.SiteUser();
+        usr.Username = $('#txtUsername').val();
+        usr.Passcode = $('#txtPassword1').val();
+        usr.Email = $('#txtEmail').val();
+        usr.IsAdministrator = $('#chkIsAdministrator').is(':checked');//$('#chkIsAdministrator').val();
+        usr.IsContentEditor = $('#chkIsContentEditor').is(':checked');//$('#chkIsContentEditor').val();
+        OpenRLO.Web.Service.SiteUserService.UsernameExists(usr.Username, function (b) {
+          if (b) {
+            alert('User account already exists');
+          } else {
+
+            OpenRLO.Web.Service.SiteUserService.EmailExists(usr.Username, function (b) {
+              if (b) {
+                alert('Email already exists');
+              } else {
+                OpenRLO.Web.Service.SiteUserService.Add(usr, function () {
+                  alert('User added');
+                  clearUserFields();
+                  loadUserList();
+                  $('#modalUserEdit').modal('hide');
+                }, function (m) {
+                  alert('Error adding user');
+                  loadUserList();
+                });
+              }
+            }, function (m) {
+              alert('Error checking username');
+            });
+          }
+        }, function (m) {
+          alert('Error checking username');
+        });
+      }
+    }
+
+    function clearUserFields() {
+      $('#txtUsername').val('');
+      $('#txtPassword1').val('');
+      $('#txtPassword2').val('');
+      $('#txtEmail').val('');
+      $('#chkIsAdministrator').val('');
+      $('#chkIsContentEditor').val('');
+    }
+
+    function loadUserList() {
+      OpenRLO.Web.Service.SiteUserService.GetList(function (a) {
+        if (a != null) {
+          var listControl = $('#lstUsers')[0];
+          listControl.options.length = 0;
+          $.each(a, function () {
+            var idx = listControl.options.length;
+            listControl.options[idx] = new Option(a[idx].Username + " [" + a[idx].Email + "]", a[idx].Username);
+          });
+        }
+      }, function (m) {
+        $('div#output').html('Error: ' + m.toString() + '.<br/>');
+      });
+    }
+
+
+
+
+    //
+    // END USER
+    //
 
 
 

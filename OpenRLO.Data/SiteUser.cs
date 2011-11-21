@@ -19,6 +19,11 @@ namespace OpenRLO.Data
     public string Saltcode { get; set; }
     public string Timezone { get; set; }
 
+    public SiteUser()
+    {
+      this.UserID = Guid.NewGuid();
+    }
+
     public string Passcode
     {
       set

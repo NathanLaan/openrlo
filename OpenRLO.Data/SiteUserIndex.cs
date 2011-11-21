@@ -86,13 +86,14 @@ namespace OpenRLO.Data
                 if (indexEntries.Length > 2)
                 {
                   SiteUser siteUser = new SiteUser();
-                  siteUser.Username = indexEntries[0];
-                  siteUser.Saltcode = indexEntries[1];
-                  siteUser.Password = indexEntries[2];
-                  siteUser.Timezone = indexEntries[3];
-                  siteUser.Email = indexEntries[4];
-                  siteUser.IsAdministrator = bool.Parse(indexEntries[5]);
-                  siteUser.IsContentEditor = bool.Parse(indexEntries[6]);
+                  siteUser.UserID = new Guid(indexEntries[0]);
+                  siteUser.Username = indexEntries[1];
+                  siteUser.Saltcode = indexEntries[2];
+                  siteUser.Password = indexEntries[3];
+                  siteUser.Timezone = indexEntries[4];
+                  siteUser.Email = indexEntries[5];
+                  siteUser.IsAdministrator = bool.Parse(indexEntries[6]);
+                  siteUser.IsContentEditor = bool.Parse(indexEntries[7]);
                   this.list.Add(siteUser);
                 }
               }
@@ -104,6 +105,7 @@ namespace OpenRLO.Data
       if (this.list.Count == 0)
       {
         SiteUser siteUser = new SiteUser();
+        siteUser.UserID = Guid.NewGuid();
         siteUser.Email = "admin@openrlo.com";
         siteUser.Timezone = "GMT";
         siteUser.Username = "admin";
@@ -119,6 +121,8 @@ namespace OpenRLO.Data
       StringBuilder sb = new StringBuilder();
       foreach (SiteUser siteUser in this.list)
       {
+        sb.Append(siteUser.UserID);
+        sb.Append(Constants.IndexEntryDelimiter);
         sb.Append(siteUser.Username);
         sb.Append(Constants.IndexEntryDelimiter);
         sb.Append(siteUser.Saltcode);

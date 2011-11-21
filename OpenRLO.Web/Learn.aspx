@@ -18,24 +18,17 @@
   <br />
 
   <!-- jump menu -->
+  <div class="pagination">
+    <ul>
+    <li class="prev" id="liPrev"><a href="#" id="aPrev">&larr; Previous</a></li>
+    <!--<li class="active"><a href="#">1</a></li>-->
+    <li class="next" id="liNext"><a href="#" id="aNext">Next &rarr;</a></li>
+  </div>
+  <br />
   <div class="clearfix">
-    Jump to: <select class="span4" name="pageList" id="pageList"></select>
-    <a href="#" class="btn" id="btnJump">Go</a>
-    <a href="#" class="btn" id="btnPrev">&lt;&lt; Prev</a>
-    <a href="#" class="btn" id="btnNext">Next &gt;&gt;</a>
+    <select class="span4" name="pageList" id="pageList"></select><a href="#" class="btn" id="btnJump">Go</a>
   </div>
   
-  <div class="pagination">
-<ul>
-<li class="prev disabled"><a href="#">&larr; Previous</a></li>
-<li class="active"><a href="#">1</a></li>
-<li><a href="#">2</a></li>
-<li><a href="#">3</a></li>
-<li><a href="#">4</a></li>
-<li><a href="#">5</a></li>
-<li class="next"><a href="#">Next &rarr;</a></li>
-</ul>
-</div>
   
   
   <script language="javascript" type="text/javascript">
@@ -68,14 +61,15 @@
       var pageNumber = parseInt(_p);
 
       if (pageNumber == 1) {
-        $('#btnPrev').hide();
+        $('#liPrev').addClass('disabled');
+      } else {
+        $('#aPrev').attr('href', '/learn/' + _learningObject.Url + '/' + (pageNumber - 1));
       }
       if (pageNumber >= _learningObject.PageCount) {
-        $('#btnNext').hide();
+        $('#liNext').addClass('disabled');
+      } else {
+        $('#aNext').attr('href', '/learn/' + _learningObject.Url + '/' + (pageNumber + 1));
       }
-
-      $('#btnPrev').attr('href', '/learn/' + _learningObject.Url + '/' + (pageNumber - 1));
-      $('#btnNext').attr('href', '/learn/' + _learningObject.Url + '/' + (pageNumber + 1));
     }
 
     function loadPageContent() {
