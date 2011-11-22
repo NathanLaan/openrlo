@@ -49,22 +49,23 @@ namespace OpenRLO.Data
 
     public override string ToString()
     {
-      StringBuilder stringBuilder = new StringBuilder();
-      stringBuilder.Append(" Username: ");
-      stringBuilder.Append(this.Username);
-      stringBuilder.Append(System.Environment.NewLine);
-      stringBuilder.Append(" Password: ");
-      stringBuilder.Append(this.Password);
-      stringBuilder.Append(System.Environment.NewLine);
-      stringBuilder.Append(" Saltcode: ");
-      stringBuilder.Append(this.Saltcode);
-      stringBuilder.Append(System.Environment.NewLine);
-      stringBuilder.Append(" Timezone: ");
-      stringBuilder.Append(this.Timezone);
-      stringBuilder.Append(System.Environment.NewLine);
-      stringBuilder.Append(" Email: ");
-      stringBuilder.Append(this.Email);
-      return stringBuilder.ToString();
+      return this.UserID.ToString();
+      //StringBuilder stringBuilder = new StringBuilder();
+      //stringBuilder.Append(" Username: ");
+      //stringBuilder.Append(this.Username);
+      //stringBuilder.Append(System.Environment.NewLine);
+      //stringBuilder.Append(" Password: ");
+      //stringBuilder.Append(this.Password);
+      //stringBuilder.Append(System.Environment.NewLine);
+      //stringBuilder.Append(" Saltcode: ");
+      //stringBuilder.Append(this.Saltcode);
+      //stringBuilder.Append(System.Environment.NewLine);
+      //stringBuilder.Append(" Timezone: ");
+      //stringBuilder.Append(this.Timezone);
+      //stringBuilder.Append(System.Environment.NewLine);
+      //stringBuilder.Append(" Email: ");
+      //stringBuilder.Append(this.Email);
+      //return stringBuilder.ToString();
     }
 
   }

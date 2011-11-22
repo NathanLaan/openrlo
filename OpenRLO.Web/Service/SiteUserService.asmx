@@ -36,6 +36,21 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
+    public SiteUser GetByID(string userID)
+    {
+      List<SiteUser> list = Global.SiteUserIndex.SiteUserList;
+      foreach (SiteUser siteUser in list)
+      {
+        if (userID.Equals(siteUser.UserID.ToString()))
+        {
+          return siteUser;
+        }
+      }
+      return null;
+    }
+
+    [WebMethod]
+    [ScriptMethod]
     public void Add(SiteUser siteUser)
     {
       //
@@ -48,7 +63,7 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public string Delete(string username)
+    public string Delete(string userID)
     {
       //
       // TODO: Check if current logged-in user is allowed to do this
@@ -56,8 +71,14 @@ namespace OpenRLO.Web.Service
       
       try
       {
-        Global.SiteUserIndex.Delete(username);
-        return "Deleted";
+        if (Global.SiteUserIndex.Delete(userID))
+        {
+          return "Deleted";
+        }
+        else
+        {
+          return "Unable to delete";
+        }
       }
       catch (Exception e)
       {
@@ -67,13 +88,13 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public void Edit(SiteUser oldSiteUser, SiteUser newSiteUser)
+    public void Edit(string userID, SiteUser newSiteUser)
     {
       //
       // TODO: Check if current logged-in user is allowed to do this
       //
-      
-      SiteUser old = this.Get(oldSiteUser.Username);
+
+      SiteUser old = this.GetByID(userID);
       if (old != null)
       {
         old.Username = newSiteUser.Username;
@@ -83,20 +104,14 @@ namespace OpenRLO.Web.Service
         // User Page, so we copy the Saltcode and Password.
         old.Saltcode = newSiteUser.Saltcode;
         old.Password = newSiteUser.Password;
+        old.IsAdministrator = newSiteUser.IsAdministrator;
+        old.IsContentEditor = newSiteUser.IsContentEditor;
         Global.SiteUserIndex.Save();
-        try
-        {
-
-        }
-        catch
-        {
-          // TODO: Logging?
-        }
       }
       else
       {
         //
-        //
+        // TODO: Error handling
         //
       }
     }
