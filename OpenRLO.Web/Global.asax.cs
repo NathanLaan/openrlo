@@ -58,7 +58,7 @@ namespace OpenRLO.Web
       FlexHttpHandlerFactory.DetectMobile = true;
       FlexHttpHandlerFactory.Add(new OpenRLO.Web.HttpHandler.WebSiteFlexHttpHandlerPlugin());
 
-      FlexHttpHandlerFactory.Add(new FlexPage("manage", "/manage", "/ManageContent.aspx"));
+      FlexHttpHandlerFactory.Add(new FlexPage("manage", "/manage", "/ManageSite.aspx"));
       FlexHttpHandlerFactory.Add(new FlexPage("view", "/view", "/View.aspx"));
       FlexHttpHandlerFactory.Add(new FlexPage("about", "/about", "/About.aspx"));
       FlexHttpHandlerFactory.Add(new FlexPage("home", "/", "/default.aspx"));
