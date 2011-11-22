@@ -42,29 +42,33 @@ namespace OpenRLO.Data
     //  return "";
     //}
 
-    public bool ValidateUser(string username, string password)
+    public SiteUser GetByID(string userID)
+    {
+      foreach (SiteUser siteUser in this.list)
+      {
+        if (userID.Equals(siteUser.UserID.ToString()))
+        {
+          return siteUser;
+        }
+      }
+      return null;
+    }
+
+    public SiteUser ValidateUser(string username, string password)
     {
       string usernameLower = username.ToLower();
       foreach (SiteUser siteUser in this.list)
       {
-        if (usernameLower.Equals(siteUser.Username.ToLower()))
+        if (usernameLower.Equals(siteUser.Username.ToLower()) || usernameLower.Equals(siteUser.Email.ToLower()))
         {
           string hashcode = SiteUser.CreatePassword(password, siteUser.Saltcode);
           if (siteUser.Password.Equals(hashcode))
           {
-            return true;
-          }
-        }
-        if (usernameLower.Equals(siteUser.Email.ToLower()))
-        {
-          string hashcode = SiteUser.CreatePassword(password, siteUser.Saltcode);
-          if (siteUser.Password.Equals(hashcode))
-          {
-            return true;
+            return siteUser;
           }
         }
       }
-      return false;
+      return null;
     }
     
     public void Load()

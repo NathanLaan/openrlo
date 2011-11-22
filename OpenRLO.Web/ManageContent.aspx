@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="ManageContent.aspx.cs" Inherits="OpenRLO.Web.ManageContent" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="PageNameContent" runat="server">Manage Content</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="PageNameContent" runat="server">Manage Website</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TaglineContent" runat="server"></asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
@@ -98,10 +98,10 @@
 
 
   <ul class="tabs" data-tabs="tabs">
-    <li class="active"><a href="#tabRLO">RLOs</a></li>
-    <li><a href="#tabAddPage">Add Page</a></li>
-    <li><a href="#tabPages">Edit Pages</a></li>
-    <li><a href="#tabUsers">Users</a></li>
+    <li id="liRLO" runat="server"><a href="#tabRLO">RLO</a></li>
+    <li id="liAddPage" runat="server"><a href="#tabAddPage">Add Page</a></li>
+    <li id="liEditPage" runat="server"><a href="#tabPages">Edit Pages</a></li>
+    <li id="liUsers" runat="server"><a href="#tabUsers">Users</a></li>
   </ul>
 
   <!-- tabs -->
@@ -122,7 +122,7 @@
     </div>
 
     <!-- tabLearningObjects -->
-    <div class="active" id="tabRLO">
+    <div id="tabRLO">
       <form class="form-stacked">
         <div class="clearfix">
           <label for="loTitle">Title</label>
@@ -191,11 +191,26 @@
   <script language="javascript" type="text/javascript">
 
     $(document).ready(function () {
-      loadLearningObjectList();
-      loadUserList();
 
       $('.tabs').tabs();
-      $('#tabUsers').attr('visible', 'false');
+
+      var isAdministrator = ($('#isAdministrator').val() === 'true');
+      var isContentEditor = ($('#isContentEditor').val() === 'true');
+      if (isAdministrator && !isContentEditor) {
+        $('#tabRLO').removeClass('active');
+        $('#tabUsers').addClass('active');
+        $('#ctl00_bodyContentPlaceHolder_liRLO').removeClass('active');
+        $('#ctl00_bodyContentPlaceHolder_liUsers').addClass('active');
+      } else if (isContentEditor) {
+        $('#tabRLO').addClass('active');
+        $('#tabUsers').removeClass('active');
+        $('#ctl00_bodyContentPlaceHolder_liRLO').addClass('active');
+        $('#ctl00_bodyContentPlaceHolder_liUsers').removeClass('active');
+      }
+
+
+      loadLearningObjectList();
+      loadUserList();
 
       $("a[rel=popover]").popover({ offset: 10 }).click(function (e) {
         e.preventDefault();
