@@ -22,9 +22,11 @@ namespace OpenRLO.Web
       // http://msdn.microsoft.com/en-us/library/ff647070.aspx
       //
 
-      if (Global.SiteUserIndex.ValidateUser(txtUsername.Text, txtPassword.Text))
+      SiteUser siteUser = Global.SiteUserIndex.ValidateUser(txtUsername.Text, txtPassword.Text);
+
+      if (siteUser != null)
       {
-        FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, true);
+        FormsAuthentication.RedirectFromLoginPage(siteUser.UserID.ToString(), true);
       }
       else
       {
