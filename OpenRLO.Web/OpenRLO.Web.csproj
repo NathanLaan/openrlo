@@ -51,7 +51,7 @@
     <Content Include="Admin\AdminSiteUserManage.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Admin\Upload.aspx" />
-    <Content Include="ManageContent.aspx" />
+    <Content Include="ManageSite.aspx" />
     <Content Include="css\bootstrap940.css" />
     <Content Include="css\bootstrap480.css" />
     <Content Include="css\bootstrap320.css" />
@@ -130,12 +130,12 @@
     <Compile Include="Admin\AdminSiteUserManage.aspx.designer.cs">
       <DependentUpon>AdminSiteUserManage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManageContent.aspx.cs">
-      <DependentUpon>ManageContent.aspx</DependentUpon>
+    <Compile Include="ManageSite.aspx.cs">
+      <DependentUpon>ManageSite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ManageContent.aspx.designer.cs">
-      <DependentUpon>ManageContent.aspx</DependentUpon>
+    <Compile Include="ManageSite.aspx.designer.cs">
+      <DependentUpon>ManageSite.aspx</DependentUpon>
     </Compile>
     <Compile Include="Learn.aspx.cs">
       <DependentUpon>Learn.aspx</DependentUpon>

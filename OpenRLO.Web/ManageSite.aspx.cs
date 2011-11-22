@@ -9,7 +9,7 @@ using OpenRLO.Data;
 
 namespace OpenRLO.Web
 {
-  public partial class ManageContent : System.Web.UI.Page
+  public partial class ManageSite : System.Web.UI.Page
   {
     protected void Page_Load(object sender, EventArgs e)
     {

@@ -10,7 +10,7 @@
 namespace OpenRLO.Web {
     
     
-    public partial class ManageContent {
+    public partial class ManageSite {
         
         /// <summary>
         /// masterPageScriptManager control.
@@ -56,5 +56,14 @@ namespace OpenRLO.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liUsers;
+        
+        /// <summary>
+        /// liSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liSettings;
     }
 }

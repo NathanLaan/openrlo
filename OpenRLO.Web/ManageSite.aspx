@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="ManageContent.aspx.cs" Inherits="OpenRLO.Web.ManageContent" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="ManageSite.aspx.cs" Inherits="OpenRLO.Web.ManageSite" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageNameContent" runat="server">Manage Website</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TaglineContent" runat="server"></asp:Content>
@@ -34,6 +34,25 @@
   </div>
   <!-- LearningObjectModal -->
 
+  <!-- modalRLO -->
+  <div id="modalRLO" class="modal hide fade">
+    <div class="modal-header">
+      <a href="#" class="close close-modal">&times;</a>
+      <h3 id="modalRLOTitle">Add RLO</h3>
+    </div>
+    <div class="modal-body">
+      <form class="form-stacked">
+        <div class="clearfix">
+          <label for="txtRLOTitle">Title</label>
+          <input class="span6" id="txtModalRLOTitle" type="text" />
+        </div>
+      </form>
+      <br />
+      <br />
+    </div>
+    <div class="modal-footer"><a href="#" id="btnModalRLOConfirm" class="btn primary">Add</a><a href="#" id="btnModalRLOCancel" class="btn">Cancel</a></div>
+  </div>
+
   <!-- PageModal -->
   <div id="editPageModal" class="modal hide fade">
     <div class="modal-header">
@@ -58,20 +77,9 @@
     <div class="modal-footer"><a href="#" id="btnEditPageSave" class="btn primary">Save</a><a href="#" id="btnEditPageCancel" class="btn">Cancel</a></div>
   </div>
   <!-- PageModal -->
-
-
-  <!--
-
-  If we want a single dialog, then the add() or edit() function to show the dialog
-  needs to
-  (1) set the text of the header and buttons
-  (2) remove existing events from buttons
-  (3) add new events to buttons
-  (4) show the dialog
-
-  -->
   
 
+  <!-- modalUser -->
   <div id="modalUser" class="modal hide fade">
     <div class="modal-header">
       <a href="#" class="close close-modal">&times;</a>
@@ -91,21 +99,26 @@
     </div>
     <div class="modal-footer"><a href="#" id="btnModalUserConfirm" class="btn primary">CONFIRM</a><a href="#" id="btnModalUserCancel" class="btn">Cancel</a></div>
   </div>
+  <!-- modalUser -->
 
 
-  <!-- ------- ---- ------- -->
-  <!-- ------- TABS ------- -->
-
-
+  <!---------------------->
+  <!---------TABS--------->
+  <!---------------------->
   <ul class="tabs" data-tabs="tabs">
     <li id="liRLO" runat="server"><a href="#tabRLO">RLO</a></li>
     <li id="liAddPage" runat="server"><a href="#tabAddPage">Add Page</a></li>
     <li id="liEditPage" runat="server"><a href="#tabPages">Edit Pages</a></li>
     <li id="liUsers" runat="server"><a href="#tabUsers">Users</a></li>
+    <li id="liSettings" runat="server"><a href="#tabSiteSettings">Site Settings</a></li>
   </ul>
-
-  <!-- tabs -->
+  
+  <!---------------------->
+  <!---------TABS--------->
+  <!---------------------->
   <div class="pill-content">
+
+    <div id="tabSiteSettings">TBD</div>
 
     <div id="tabUsers">
       <form class="form-stacked">
@@ -125,21 +138,13 @@
     <div id="tabRLO">
       <form class="form-stacked">
         <div class="clearfix">
-          <label for="loTitle">Title</label>
-          <input class="span6" id="loTitle" type="text" placeholder="Learning Object Title" />
-          <br />
-          <br />
-          <a href="#" class="btn" id="addLearningObject">Add</a><br />
-        </div>
-        <br />
-        <br />
-        <div class="clearfix">
           <label for="lstRLO1">Learning Objects</label>
           <select class="span6" id="lstRLO1"></select>
           <br />
           <br />
-          <a href="#" data-controls-modal="editLearningObjectModal" data-backdrop="true" data-keyboard="true" class="btn" id="btnEditLearningObject">Edit</a>
-          <a href="#" class="btn danger" id="deleteLearningObject">Delete</a>
+          <a href="#" class="btn" id="btnAddRLO">Add</a>
+          <a href="#" class="btn" id="btnEditRLO">Edit</a>
+          <a href="#" class="btn danger" id="btnDeleteRLO">Delete</a>
         </div>
       </form>
     </div>
@@ -215,9 +220,10 @@
       $("a[rel=popover]").popover({ offset: 10 }).click(function (e) {
         e.preventDefault();
       });
-      $('#addLearningObject').click(function () {
-        addLearningObject();
-      });
+
+
+
+      // Page //////////////////////////////////////////////////////
       $('#movePageUp').click(function () {
         movePageUp();
       });
@@ -227,17 +233,12 @@
       $('#deletePage').click(function () {
         deletePage();
       });
-      $('#deleteLearningObject').click(function () {
-        deletePage();
-      });
       $('#lstRLO3').change(function () {
         loadPages($(this).attr('value'));
       });
       $('#addPage').click(function () {
         addPage();
       });
-
-      // Page
       $('#btnEditPage').click(function () {
         editPage();
       });
@@ -248,16 +249,90 @@
         cancelEditPage();
       });
 
-      // RLO
-      $('#btnEditLearningObject').click(function () {
-        editLearningObject();
+      // Page //////////////////////////////////////////////////////
+
+
+      // RLO //////////////////////////////////////////////////////
+
+      // the modal needs to be manually activated since we are using 1 modal for ADD and EDIT
+      $('#modalRLO').modal({ keyboard: true, backdrop: true });
+
+      $('#btnDeleteRLO').click(function () {
+//        var listControl = $('#lstRLO1').get(0);
+//        if (listControl.selectedIndex >= 0) {
+//          var elem = listControl.options[listControl.selectedIndex];
+//          var text = elem.value;
+//          if (confirm('Delete ' + text + '?')) {
+//            OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(text, function (s) {
+//              loadLearningObjectList();
+//            }, function (m) {
+//              alert('Error: Unable to delete [' + text + ']');
+//            });
+//          }
+//        } else {
+//          alert('Please select a RLO from the list to delete');
+//        }
+        var rloURL = $('#lstRLO1').val();
+        if (confirm('Delete ' + rloURL + '?')) {
+          OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(rloURL, function (m) {
+            loadLearningObjectList();
+            alert(m);
+          }, function (m) {
+            alert('Error: Unable to delete RLO [' + pageUrl + ']');
+          });
+        }
       });
-      $('#btnEditLearningObjectSave').click(function () {
-        saveEditLearningObject();
+      $('#btnAddRLO').click(function () {
+        $('#btnModalRLOConfirm').unbind('click');
+        $('#btnModalRLOConfirm').click(function () {
+          var rloTitle = $('#txtModalRLOTitle').val();
+          OpenRLO.Web.Service.LearningObjectService.Add(rloTitle, function (a) {
+            loadLearningObjectList();
+            alert(a);
+            $('#modalRLO').modal('hide');
+          }, function (m) {
+            alert('Error: Unable to add Learning Object [' + rloTitle + ']');
+          });
+        });
+        $('#btnModalRLOConfirm').text('Add RLO');
+        $('#modalUserTitle').html('Add RLO');
+        $('#modalRLO').modal('show');
       });
-      $('#btnEditLearningObjectCancel').click(function () {
-        cancelEditLearningObject();
+      $('#btnEditRLO').click(function () {
+        var rloUrl = $('#lstRLO1').val();
+        OpenRLO.Web.Service.LearningObjectService.GetByUrl(rloUrl, function (rlo) {
+          if (rlo != null) {
+            $('#txtModalRLOTitle').val(rlo.Title);
+            $('#btnModalRLOConfirm').unbind('click');
+            $('#btnModalRLOConfirm').click(function () {
+              var rloURL = $('#lstRLO1').val();
+              var rloTitle = $('#txtModalRLOTitle').val();
+              OpenRLO.Web.Service.LearningObjectService.Edit(rloURL, rloTitle, function (a) {
+                loadLearningObjectList();
+                alert(a);
+                $('#modalRLO').modal('hide');
+              }, function (m) {
+                alert('Error saving RLO');
+              });
+            });
+            $('#btnModalRLOConfirm').text('Save RLO');
+            $('#modalUserTitle').html('Edit RLO');
+            $('#modalRLO').modal('show');
+          } else {
+            //TODO: Error handling
+            alert("Invalid Learning Object");
+          }
+        }, function (m) {
+          alert("Error loading RLO details");
+        });
+      }); //btnEditRLO
+      $('#btnModalRLOCancel').click(function () {
+        $('#modalRLO').modal('hide');
       });
+
+      // RLO //////////////////////////////////////////////////////
+
+
 
       // User
 
@@ -287,6 +362,9 @@
       //$('#btnModalUserConfirm').click(function () {
       //  addUser();
       //});
+
+
+
 
       $('#btnUserAdd').click(function () {
         $('#btnModalUserConfirm').unbind('click');
@@ -479,37 +557,6 @@
 
 
 
-    function editLearningObject() {
-      var learningObjectUrl = $('#lstRLO1').val();
-      OpenRLO.Web.Service.LearningObjectService.GetByUrl(learningObjectUrl, function (lo) {
-        if (lo != null) {
-          $('#editLearningObjectTitle').val(lo.Title);
-        } else {
-          //
-          //TODO: Error handling
-          //
-          $('#editLearningObjectTitle').val("Invalid Learning Object");
-        }
-      }, function (m) {
-        $('#pageContent').html("Error loading page contents");
-      });
-    }
-    function saveEditLearningObject() {
-      var learningObjectUrl = $('#lstRLO1').val();
-      var newLearningObjectTitle = $('#editLearningObjectTitle').val();
-
-      OpenRLO.Web.Service.LearningObjectService.Edit(learningObjectUrl, newLearningObjectTitle, function (a) {
-        loadLearningObjectList();
-        alert(a);
-      }, function (m) {
-        $('#pageContent').html("Error loading page contents");
-      });
-
-      $('#editLearningObjectModal').modal('hide');
-    }
-    function cancelEditLearningObject() {
-      $('#editLearningObjectModal').modal('hide');
-    }
 
     function addPage() {
       var learningObjectUrl = $('#lstRLO2').val();
@@ -641,17 +688,7 @@
       });
     }
 
-    function addLearningObject() {
-      var loTitle = $('#loTitle').val();
-      OpenRLO.Web.Service.LearningObjectService.Add(loTitle, function (a) {
-        loadLearningObjectList();
-        alert(a);
-      }, function (m) {
-        alert('Error: Unable to add Learning Object [' + loTitle + ']');
-      });
-    }
-
-    function deleteLearningObject() {
+    function deleteRLO() {
       var listControl = $('#lstRLO1').get(0);
       if (listControl.selectedIndex >= 0) {
         var elem = listControl.options[listControl.selectedIndex];
@@ -664,7 +701,7 @@
           });
         }
       } else {
-        alert('Please select a user from the list to delete');
+        alert('Please select a RLO from the list to delete');
       }
     }
 
