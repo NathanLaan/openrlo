@@ -48,7 +48,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Admin\AdminSiteSettingsEdit.aspx" />
-    <Content Include="Admin\AdminSiteUserManage.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Admin\Upload.aspx" />
     <Content Include="ManageSite.aspx" />
@@ -122,13 +121,6 @@
     </Compile>
     <Compile Include="Admin\AdminSiteSettingsEdit.aspx.designer.cs">
       <DependentUpon>AdminSiteSettingsEdit.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\AdminSiteUserManage.aspx.cs">
-      <DependentUpon>AdminSiteUserManage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\AdminSiteUserManage.aspx.designer.cs">
-      <DependentUpon>AdminSiteUserManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageSite.aspx.cs">
       <DependentUpon>ManageSite.aspx</DependentUpon>

@@ -31,22 +31,13 @@ namespace OpenRLO.Web {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liRLO;
         
         /// <summary>
-        /// liAddPage control.
+        /// liPages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAddPage;
-        
-        /// <summary>
-        /// liEditPage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liEditPage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPages;
         
         /// <summary>
         /// liUsers control.
