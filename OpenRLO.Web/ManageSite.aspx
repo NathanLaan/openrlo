@@ -220,6 +220,47 @@
         $('#modalPageTitle').html('Add Page');
         $('#modalPage').modal('show');
       }); //END btnPageAdd
+      $('#btnPageEdit').click(function () {
+        $('#btnModalPageConfirm').unbind('click');
+        var rloURL = $('#lstRLO2').val();
+        var pageUrl = $('#pageList').val();
+        OpenRLO.Web.Service.PageService.GetByUrl(rloURL, pageUrl, function (page) {
+          if (page != null) {
+            $('#btnModalPageConfirm').click(function () {
+              var rloURL = $('#lstRLO2').val();
+              var oldPageUrl = $('#pageList').val();
+              var newPageTitle = $('#txtModalPageTitle').val();
+              var newPageContents = $('#txtModalPageContents').val();
+              OpenRLO.Web.Service.PageService.Edit(rloURL, oldPageUrl, newPageTitle, newPageContents, function (a) {
+                loadPageList(rloURL);
+                alert(a);
+                //
+                // TODO: clear dialog...
+                //
+                $('#modalPage').modal('hide');
+              }, function (m) {
+                alert('Error saving page');
+              });
+            });
+            $('#txtModalPageTitle').val(page.Title);
+            $('#txtModalPageContents').val(page.Contents);
+            $('#btnModalPageConfirm').text('Save Page');
+            $('#modalPageTitle').html('Edit Page');
+            $('#modalPage').modal('show');
+          } else {
+            //
+            //TODO: Error handling
+            //
+            alert('Unable to load page details');
+            $('#modalPage').modal('hide');
+          }
+        }, function (m) {
+          alert('Error loading page details');
+          $('#modalPage').modal('hide');
+        });
+
+      }); // END btnPageEdit
+
       $('#btnPageDelete').click(function () {
         var rloURL = $('#lstRLO2').val();
         var pageUrl = $('#pageList').val();
@@ -232,45 +273,6 @@
           });
         }
       });
-
-      function editPage() {
-        var learningObjectUrl = $('#lstRLO2').val();
-        var pageUrl = $('#pageList').val();
-        OpenRLO.Web.Service.PageService.GetByUrl(learningObjectUrl, pageUrl, function (page) {
-          if (page != null) {
-            $('#txtModalPageTitle').val(page.Title);
-            $('#txtModalPageContents').val(page.Contents);
-          } else {
-            //
-            //TODO: Error handling
-            //
-            $('#txtModalPageTitle').val("Invalid page contents");
-            $('#txtModalPageContents').val("Invalid page contents");
-          }
-        }, function (m) {
-          $('#pageContent').html("Error loading page contents");
-        });
-      }
-
-      function saveEditPage() {
-        var learningObjectUrl = $('#lstRLO2').val();
-        var oldPageUrl = $('#pageList').val();
-        var newPageTitle = $('#txtModalPageTitle').val();
-        var newPageContents = $('#txtModalPageContents').val();
-
-        //
-        // TODO: It would be nice to disable everything while we are saving...
-        //
-
-        OpenRLO.Web.Service.PageService.Edit(learningObjectUrl, oldPageUrl, newPageTitle, newPageContents, function (a) {
-          loadPageList(learningObjectUrl);
-          alert(a);
-        }, function (m) {
-          $('#pageContent').html("Error loading page contents");
-        });
-
-        $('#editPageModal').modal('hide');
-      }
 
       // Page //////////////////////////////////////////////////////
 
@@ -406,7 +408,7 @@
         });
       });
 
-    });  // END document.ready()
+    });   // END document.ready()
 
 
 

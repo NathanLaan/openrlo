@@ -1,4 +1,4 @@
-TODO: Executive Summary
+TODO: EXECUTIVE SUMMARY
 
 The [Agile Manifesto](http://agilemanifesto.org/) defines agile software development as being a series of 4 core values, and 12 guiding principles whose purpose is to provide a better way of developing software.
 
