@@ -117,6 +117,7 @@ namespace OpenRLO.Data
         siteUser.IsAdministrator = true;
         siteUser.IsContentEditor = true;
         this.list.Add(siteUser);
+        this.Save();
       }
     }
 
