@@ -74,6 +74,10 @@ namespace OpenRLO.Web
           }
 
         }
+        else
+        {
+          this.Redirect();
+        }
 
       }
       catch
@@ -87,6 +91,9 @@ namespace OpenRLO.Web
 
     private void Redirect()
     {
+      //
+      // TODO: Send user to "Access Denied" page...
+      //
     }
 
   }

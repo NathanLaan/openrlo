@@ -258,20 +258,20 @@
       $('#modalRLO').modal({ keyboard: true, backdrop: true });
 
       $('#btnDeleteRLO').click(function () {
-//        var listControl = $('#lstRLO1').get(0);
-//        if (listControl.selectedIndex >= 0) {
-//          var elem = listControl.options[listControl.selectedIndex];
-//          var text = elem.value;
-//          if (confirm('Delete ' + text + '?')) {
-//            OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(text, function (s) {
-//              loadLearningObjectList();
-//            }, function (m) {
-//              alert('Error: Unable to delete [' + text + ']');
-//            });
-//          }
-//        } else {
-//          alert('Please select a RLO from the list to delete');
-//        }
+        //        var listControl = $('#lstRLO1').get(0);
+        //        if (listControl.selectedIndex >= 0) {
+        //          var elem = listControl.options[listControl.selectedIndex];
+        //          var text = elem.value;
+        //          if (confirm('Delete ' + text + '?')) {
+        //            OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(text, function (s) {
+        //              loadLearningObjectList();
+        //            }, function (m) {
+        //              alert('Error: Unable to delete [' + text + ']');
+        //            });
+        //          }
+        //        } else {
+        //          alert('Please select a RLO from the list to delete');
+        //        }
         var rloURL = $('#lstRLO1').val();
         if (confirm('Delete ' + rloURL + '?')) {
           OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(rloURL, function (m) {
@@ -289,6 +289,7 @@
           OpenRLO.Web.Service.LearningObjectService.Add(rloTitle, function (a) {
             loadLearningObjectList();
             alert(a);
+            $('#txtModalRLOTitle').val('');
             $('#modalRLO').modal('hide');
           }, function (m) {
             alert('Error: Unable to add Learning Object [' + rloTitle + ']');
@@ -310,6 +311,7 @@
               OpenRLO.Web.Service.LearningObjectService.Edit(rloURL, rloTitle, function (a) {
                 loadLearningObjectList();
                 alert(a);
+                $('#txtModalRLOTitle').val('');
                 $('#modalRLO').modal('hide');
               }, function (m) {
                 alert('Error saving RLO');
