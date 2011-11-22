@@ -92,16 +92,6 @@
     <div class="modal-footer"><a href="#" id="btnModalUserConfirm" class="btn primary">CONFIRM</a><a href="#" id="btnModalUserCancel" class="btn">Cancel</a></div>
   </div>
 
-  <div id="modalUserEdit" class="modal hide fade">
-    <div class="modal-header">
-      <a href="#" class="close close-modal">&times;</a>
-      <h3>Edit User</h3>
-    </div>
-    <div class="modal-body">
-    </div>
-    <div class="modal-footer"><a href="#" id="btnModalUserEditSave" class="btn primary">Save</a><a href="#" id="btnModalUserEditCancel" class="btn">Cancel</a></div>
-  </div>
-
 
   <!-- ------- ---- ------- -->
   <!-- ------- TABS ------- -->
@@ -391,34 +381,6 @@
     // END USER
     //
 
-
-    function AddUser() {
-      var usr = new OpenRLO.Web.Data.SiteUser();
-      usr.Username = $('#txtUsername').val();
-      usr.Passcode = $('#txtPassword1').val();
-      usr.TimeZone = $('#txtTimezone').val();
-      usr.Email = $('#txtEmail').val();
-      OpenRLO.Web.Service.SiteUserService.Exists(usr.Username, usr.Showname, function (b) {
-        if (b) {
-          alert('User account already exists');
-        } else {
-          if ($('#txtPassword1').val() != $('#txtPassword2').val()) {
-            alert('Passwords do not match.<br/>');
-          } else {
-            OpenRLO.Web.Service.SiteUserService.Add(usr, function () {
-              $('div#output').html('User added.<br/>');
-              ClearFields();
-              LoadList();
-            }, function (m) {
-              $('div#output').html('Error: ' + m.toString() + '.<br/>');
-              LoadList();
-            });
-          }
-        }
-      }, function (m) {
-        $('div#output').html('Error: ' + m.toString() + '.<br/>');
-      });
-    }`
 
 
     function editLearningObject() {
