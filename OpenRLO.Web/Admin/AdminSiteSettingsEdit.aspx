@@ -1,10 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMobile.Master" AutoEventWireup="true" CodeBehind="AdminSiteSettingsEdit.aspx.cs" Inherits="OpenRLO.Web.Admin.AdminSiteSettingsEdit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+  <form runat="server">
   <asp:ScriptManager runat="server" ID="pageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
     <Services>
       <asp:ServiceReference Path="~/Service/SiteSettingsService.asmx" />
     </Services>
   </asp:ScriptManager>
+  </form>
   <!--<h2>Edit Site Settings</h2>-->
   <br />
   <label for="txtName">Site Name:</label><input type="text" id="txtName" size="50" maxlength="50" />

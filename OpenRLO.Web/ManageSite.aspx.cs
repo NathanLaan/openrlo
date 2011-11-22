@@ -42,12 +42,14 @@ namespace OpenRLO.Web
             // add field to allow appropriate javascript to be disabled
             Page.ClientScript.RegisterHiddenField("isAdministrator", "true");
             this.liUsers.Visible = true;
+            this.liSettings.Visible = true;
             denied = false;
           }
           else
           {
             Page.ClientScript.RegisterHiddenField("isAdministrator", "false");
             this.liUsers.Visible = false;
+            this.liSettings.Visible = false;
           }
 
           if (siteUser.IsContentEditor)
@@ -55,16 +57,14 @@ namespace OpenRLO.Web
             // add field to allow appropriate javascript to be disabled
             Page.ClientScript.RegisterHiddenField("isContentEditor", "true");
             this.liRLO.Visible = true;
-            this.liAddPage.Visible = true;
-            this.liEditPage.Visible = true;
+            this.liPages.Visible = true;
             denied = false;
           }
           else
           {
             Page.ClientScript.RegisterHiddenField("isContentEditor", "false");
             this.liRLO.Visible = false;
-            this.liAddPage.Visible = false;
-            this.liEditPage.Visible = false;
+            this.liPages.Visible = false;
           }
 
 

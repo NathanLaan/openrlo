@@ -120,11 +120,11 @@ namespace OpenRLO.Data
         this.Title = indexEntries[0];
         this.Url = indexEntries[1];
         this.ModifiedDateTime = DateTime.Parse(indexEntries[2]);
-        this.LoadPages();
+        this.loadPageList();
       }
     }
 
-    private void LoadPages()
+    private void loadPageList()
     {
       this.PageIndex = new Index<Page>(this.FileName);
       this.PageIndex.Load();
