@@ -251,6 +251,21 @@
       //
       $('#modalUser').modal({ keyboard: true, backdrop: true });
 
+      $('#btnUserDelete').click(function () {
+        // get user display text
+        var userText = $('#lstUsers option:selected').text();
+        var userID = $('#lstUsers').val();
+
+        //confirm if user should be deleted
+        if (confirm('Delete user ' + userText + '?' + userID)) {
+          OpenRLO.Web.Service.SiteUserService.Delete(userID, function (m) {
+            alert(m);
+            loadUserList();
+          }, function (m) {
+            alert('Error deleting user ' + userText);
+          });
+        }
+      });
       $('#btnModalUserCancel').click(function () {
         $('#modalUser').modal('hide');
       });
@@ -268,20 +283,35 @@
         $('#modalUser').modal('show');
       });
       $('#btnUserEdit').click(function () {
-        $('#btnModalUserConfirm').unbind('click');
-        $('#btnModalUserConfirm').click(function () {
-          editUser();
+        //
+        // get and load user details
+        //
+        var userID = $('#lstUsers').val();
+        OpenRLO.Web.Service.SiteUserService.GetByID(userID, function (u) {
+          if (u != null) {
+            editUser = u;
+            clearUserFields();
+            $('#txtUsername').val(u.Username);
+            $('#txtEmail').val(u.Email);
+            $("#chkIsAdministrator").prop("checked", u.IsAdministrator);
+            $("#chkIsContentEditor").prop("checked", u.IsContentEditor);
+
+            // setup modal UI
+            $('#btnModalUserConfirm').unbind('click');
+            $('#btnModalUserConfirm').click(function () {
+              saveEditUser();
+            });
+            $('#btnModalUserConfirm').text('Save User');
+            $('#modalUserTitle').html('Edit User');
+            $('#modalUser').modal('show');
+          } else {
+          }
+        }, function (m) {
+          alert('Error loading user details');
         });
-        $('#btnModalUserConfirm').text('Save User');
-        $('#modalUserTitle').html('Edit User');
-        $('#modalUser').modal('show');
       });
 
     });
-
-    function editUser() {
-      alert('editUser NYI');
-    }
 
 
 
@@ -289,6 +319,57 @@
     //
     // USER
     //
+
+    var editUser = null;
+
+    function saveEditUser() {
+      var userID = editUser.UserID;
+
+      var usr = new OpenRLO.Data.SiteUser();
+      usr.Username = $('#txtUsername').val();
+      //do NOT set this, or we might lose the password
+      //usr.Passcode = $('#txtPassword1').val();
+      usr.Email = $('#txtEmail').val();
+      usr.IsAdministrator = $('#chkIsAdministrator').is(':checked'); //$('#chkIsAdministrator').val();
+      usr.IsContentEditor = $('#chkIsContentEditor').is(':checked'); //$('#chkIsContentEditor').val();
+
+      var password1 = $('#txtPassword1').val();
+      var password2 = $('#txtPassword2').val();
+
+      //
+      // basic form validation
+      //
+      if (usr.Username == null || usr.Username == '') {
+        alert('Please enter a username');
+        return;
+      }
+      if (usr.Email == null || usr.Email == '') {
+        alert('Please enter an email');
+        return;
+      }
+      if (password1 != null && password1 != '' && password1 != password2) {
+        alert('The passwords do not match');
+        return;
+      }
+      if ((password1 == null || password1 == '') && password1 == password2) {
+        // set the password to the old password
+        usr.Saltcode = editUser.Saltcode;
+        usr.Password = editUser.Password;
+      } else if (password1 != null && password1 != '' && password1 == password2) {
+        // set the new password
+        usr.Passcode = password1;
+      }
+
+      OpenRLO.Web.Service.SiteUserService.Edit(userID, usr, function (u) {
+        clearUserFields();
+        loadUserList();
+        $('#modalUser').modal('hide');
+      }, function (m) {
+        alert('Error loading user details');
+      });
+
+      $('#modalUserEdit').modal('hide');
+    }
 
     function addUser() {
 
@@ -314,11 +395,11 @@
         return;
       }
       if (password1 == null || password1 == '') {
-        alert('Please enter an email');
+        alert('Please enter a password');
         return;
       }
       if (password1 != password2) {
-        alert('Passwords do not match');
+        alert('The passwords do not match');
         return;
       }
 
@@ -326,7 +407,6 @@
         if (b) {
           alert('User account already exists');
         } else {
-
           OpenRLO.Web.Service.SiteUserService.EmailExists(usr.Username, function (b) {
             if (b) {
               alert('Email already exists');
@@ -349,14 +429,15 @@
         alert('Error checking username');
       });
     }
+    //addUser()
 
     function clearUserFields() {
       $('#txtUsername').val('');
       $('#txtPassword1').val('');
       $('#txtPassword2').val('');
       $('#txtEmail').val('');
-      $('#chkIsAdministrator').val('');
-      $('#chkIsContentEditor').val('');
+      $("#chkIsAdministrator").prop("checked", false);
+      $("#chkIsContentEditor").prop("checked", false);
     }
 
     function loadUserList() {
@@ -366,7 +447,7 @@
           listControl.options.length = 0;
           $.each(a, function () {
             var idx = listControl.options.length;
-            listControl.options[idx] = new Option(a[idx].Username + " [" + a[idx].Email + "]", a[idx].Username);
+            listControl.options[idx] = new Option(a[idx].Username + " [" + a[idx].Email + "]", a[idx].UserID);
           });
         }
       }, function (m) {

@@ -146,11 +146,11 @@ namespace OpenRLO.Data
       }
     }
 
-    public bool Delete(string username)
+    public bool Delete(string userID)
     {
       foreach (SiteUser siteUser in this.list)
       {
-        if (siteUser.Username.Equals(username))
+        if (siteUser.UserID.ToString().Equals(userID))
         {
           this.list.Remove(siteUser);
           this.Save();
