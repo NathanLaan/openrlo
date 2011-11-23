@@ -1,8 +1,9 @@
 TODO: EXECUTIVE SUMMARY
 
-The [Agile Manifesto](http://agilemanifesto.org/) defines agile software development as being a series of 4 core values, and 12 guiding principles whose purpose is to provide a better way of developing software.
+The [Agile Manifesto][1] defines agile software development as being a series of [4 core values][1], and [12 guiding principles][3] whose purpose is to provide a better way of developing software.
 
-Agile software development is a broad term that encompasses a number of different, but similar, methodologies, such as SCRUM, Extreme Programming, and the Adaptive Software Development process ([Larman, 2004][1]).
+Agile software development is a broad term that encompasses a number of different, but similar, methodologies, such as SCRUM, Extreme Programming, and the Adaptive Software Development process ([Larman, 2004][4]).
 
-
-[1]: # "Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4"
+[1]: http://agilemanifesto.org/ "Agile Manifesto website"
+[3]: http://agilemanifesto.org/principles.html "Principles behind the Agile Manifesto"
+[4]: # "Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4"
