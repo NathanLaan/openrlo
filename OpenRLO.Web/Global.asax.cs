@@ -16,6 +16,66 @@ namespace OpenRLO.Web
 
     //////////////////////////////////////////////////////
 
+    #region User/Admin Functionality
+
+    public static readonly string ACCESS_DENIED = "Access Denied";
+
+    public static bool IsLoggedIn
+    {
+      get
+      {
+        IIdentity id = HttpContext.Current.User.Identity;
+        if (id != null)
+        {
+          if (id.Name != null && id.Name != string.Empty)
+          {
+            SiteUser siteUser = Global.SiteUserIndex.GetByID(id.Name);
+            if (siteUser != null)
+            {
+              return true;
+            }
+          }
+        }
+        return false;
+      }
+    }
+
+    public static bool IsAdministrator
+    {
+      get
+      {
+        if (Global.IsLoggedIn)
+        {
+          IIdentity id = HttpContext.Current.User.Identity;
+          SiteUser siteUser = Global.SiteUserIndex.GetByID(id.Name);
+          if (siteUser != null)
+          {
+            return siteUser.IsAdministrator;
+          }
+        }
+        return false;
+      }
+    }
+
+    public static bool IsContentEditor
+    {
+      get
+      {
+        if (Global.IsLoggedIn)
+        {
+          IIdentity id = HttpContext.Current.User.Identity;
+          SiteUser siteUser = Global.SiteUserIndex.GetByID(id.Name);
+          if (siteUser != null)
+          {
+            return siteUser.IsContentEditor;
+          }
+        }
+        return false;
+      }
+    }
+
+    #endregion
+
     #region Properties
 
     //public static Index<Page> PageIndex { get; private set; }
@@ -150,19 +210,6 @@ namespace OpenRLO.Web
 
     protected void Application_End(object sender, EventArgs e)
     {
-    }
-
-    public static bool IsLoggedIn()
-    {
-      IIdentity id = HttpContext.Current.User.Identity;
-      if (id != null)
-      {
-        if (id.Name != null && id.Name != string.Empty)
-        {
-          return true;
-        }
-      }
-      return false;
     }
 
   }

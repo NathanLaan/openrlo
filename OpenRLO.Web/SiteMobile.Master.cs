@@ -74,7 +74,7 @@ namespace OpenRLO.Web
       //
       // Authentication
       //
-      if (Global.IsLoggedIn())
+      if (Global.IsLoggedIn)
       {
         //this.liManage.Visible = true;
         //this.lnkAdmin.Visible = true;

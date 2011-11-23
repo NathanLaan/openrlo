@@ -40,22 +40,27 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public string Add(string title)
     {
-      if (string.IsNullOrEmpty(title))
+      if (Global.IsLoggedIn())
       {
-        return "Invalid Learning Object title";
+
+        if (string.IsNullOrEmpty(title))
+        {
+          return "Invalid Learning Object title";
+        }
+        LearningObject learningObject = new LearningObject();
+        learningObject.Title = title;
+        learningObject.GenerateUrl();
+        learningObject.ModifiedDateTime = DateTime.Now;
+        if (Global.LearningObjectIndex.Exists(learningObject.Url))
+        {
+          return "Learning Object already exists";
+        }
+        Global.LearningObjectIndex.IndexList.Add(learningObject);
+        Global.LearningObjectIndex.IndexList.Sort();
+        Global.LearningObjectIndex.Save();
+        return "Learning Object added";
       }
-      LearningObject learningObject = new LearningObject();
-      learningObject.Title = title;
-      learningObject.GenerateUrl();
-      learningObject.ModifiedDateTime = DateTime.Now;
-      if (Global.LearningObjectIndex.Exists(learningObject.Url))
-      {
-        return "Learning Object already exists";
-      }
-      Global.LearningObjectIndex.IndexList.Add(learningObject);
-      Global.LearningObjectIndex.IndexList.Sort();
-      Global.LearningObjectIndex.Save();
-      return "Learning Object added";
+      return Global.ACCESS_DENIED;
     }
     
 
