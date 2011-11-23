@@ -8,6 +8,7 @@
     <asp:ScriptManager runat="server" ID="masterPageScriptManager" AsyncPostBackErrorMessage="timeout" AsyncPostBackTimeout="300">
       <Services>
         <asp:ServiceReference Path="~/Service/SiteUserService.asmx" />
+        <asp:ServiceReference Path="~/Service/SiteSettingsService.asmx" />
         <asp:ServiceReference Path="~/Service/LearningObjectService.asmx" />
         <asp:ServiceReference Path="~/Service/PageService.asmx" />
       </Services>
@@ -101,8 +102,7 @@
     <div id="tabRLO">
       <form class="form-stacked">
         <div class="clearfix">
-          <label for="lstRLO1">Learning Objects</label>
-          <select class="span6" id="lstRLO1"></select>
+          <label for="lstRLO1">Learning Objects</label><select class="span6" id="lstRLO1"></select>
           <br />
           <br />
           <a href="#" class="btn" id="btnAddRLO">Add</a>
@@ -116,17 +116,15 @@
     <div id="tabPages">
       <form class="form-stacked">
         <div class="clearfix">
-          <label for="lstRLO2">Learning Objects</label>
-          <select class="span6" id="lstRLO2"></select>
+          <label for="lstRLO2">Learning Objects</label><select class="span6" id="lstRLO2"></select>
           <br />
           <br />
-          <label for="loTitle">Pages</label>
-          <select class="span6" id="pageList"></select>
+          <label for="loTitle">Pages</label><select class="span6" id="pageList"></select>
           <br />
           <br />
           <a href="#" class="btn" id="btnPageAdd">Add</a>
-          <a href="#" class="btn" id="movePageUp">Move Up</a>
-          <a href="#" class="btn" id="movePageDown">Move Down</a>
+          <a href="#" class="btn" id="btnPageMoveUp">Move Up</a>
+          <a href="#" class="btn" id="btnPageMoveDown">Move Down</a>
           <a href="#" class="btn" id="btnPageEdit">Edit</a>
           <a href="#" class="btn danger" id="btnPageDelete">Delete</a>
         </div>
@@ -147,14 +145,54 @@
       </form>
     </div>
 
-    <div id="tabSiteSettings">TBD</div>
+    <div id="tabSiteSettings">
+      <form class="form-stacked">
+        <div class="clearfix">
+          <label for="txtSiteSettingsName">Site Name:</label><input class="span6" type="text" id="txtSiteSettingsName" />
+          <br /><label for="txtSiteSettingsName">Site Copyright:</label><input class="span6" type="text" id="txtSiteSettingsCopyright" />
+          <br /><label for="txtSiteSettingsName">Site URL:</label><input class="span6" type="text" id="txtSiteSettingsUrl" />
+          <br /><label for="txtSiteSettingsName">Google Analytics:</label><input class="span6" type="text" id="txtSiteSettingsGoogleAnalytics" />
+          <br />
+          <br /><a href="#" class="btn" id="btnSiteSettingsSave">Save</a>
+        </div>
+      </form>
+    </div>
 
   </div>
   <!-- tabs -->
   
   <script language="javascript" type="text/javascript">
 
+    function loadSiteSettings() {
+      OpenRLO.Web.Service.SiteSettingsService.Get(function (siteSettings) {
+        console.log(siteSettings);
+        $('#txtSiteSettingsName').val(siteSettings.SiteName);
+        $('#txtSiteSettingsCopyright').val(siteSettings.SiteCopyright);
+        $('#txtSiteSettingsUrl').val(siteSettings.SiteUrl);
+        $('#txtSiteSettingsGoogleAnalytics').val(siteSettings.GoogleAnalyticsTrackingCode);
+      }, function (m) {
+        alert('Error loading Site Settings');
+      });
+    }
+    function saveSiteSettings() {
+      var siteSettings = new OpenRLO.Data.SiteSettings();
+      siteSettings.SiteName = $('#txtSiteSettingsName').val();
+      siteSettings.SiteCopyright = $('#txtSiteSettingsCopyright').val();
+      siteSettings.SiteUrl = $('#txtSiteSettingsUrl').val();
+      siteSettings.GoogleAnalyticsTrackingCode = $('#txtSiteSettingsGoogleAnalytics').val();
+      OpenRLO.Web.Service.SiteSettingsService.Set(siteSettings, function (m) {
+        alert(m);
+      }, function (e) {
+        alert('Error saving Site Settings');
+      });
+    }
+
     $(document).ready(function () {
+
+
+      $('#btnSiteSettingsSave').click(function () {
+        saveSiteSettings();
+      });
 
       $('.tabs').tabs();
 
@@ -175,6 +213,7 @@
 
       loadLearningObjectList();
       loadUserList();
+      loadSiteSettings();
 
       //$("a[rel=popover]").popover({ offset: 10 }).click(function (e) {
       //  e.preventDefault();
@@ -185,10 +224,10 @@
 
 
       // Page //////////////////////////////////////////////////////
-      $('#movePageUp').click(function () {
+      $('#btnPageMoveUp').click(function () {
         movePageUp();
       });
-      $('#movePageDown').click(function () {
+      $('#btnPageMoveDown').click(function () {
         movePageDown();
       });
       $('#lstRLO2').change(function () {
@@ -206,9 +245,8 @@
           OpenRLO.Web.Service.PageService.Add(rloURL, pageTitle, pageContent, function (a) {
             loadPageList(rloURL);
             alert(a);
-            //
-            // TODO: Clear Page Form
-            //
+            $('#txtModalPageTitle').val('');
+            $('#txtModalPageContents').val('');
             $('#modalPage').modal('hide');
           }, function (m) {
             console.log(m);
@@ -244,7 +282,7 @@
             });
             $('#txtModalPageTitle').val(page.Title);
             $('#txtModalPageContents').val(page.Contents);
-            $('#btnModalPageConfirm').text('Save Page');
+            $('#btnModalPageConfirm').text('Save');
             $('#modalPageTitle').html('Edit Page');
             $('#modalPage').modal('show');
           } else {
@@ -314,8 +352,8 @@
         OpenRLO.Web.Service.LearningObjectService.GetByUrl(rloUrl, function (rlo) {
           if (rlo != null) {
             $('#txtModalRLOTitle').val(rlo.Title);
-            $('#btnModalRLOConfirm').unbind('click');
-            $('#btnModalRLOConfirm').click(function () {
+            $('#modalUserTitle').html('Edit RLO');
+            $('#btnModalRLOConfirm').unbind('click').text('Save').click(function () {
               var rloURL = $('#lstRLO1').val();
               var rloTitle = $('#txtModalRLOTitle').val();
               OpenRLO.Web.Service.LearningObjectService.Edit(rloURL, rloTitle, function (a) {
@@ -327,8 +365,6 @@
                 alert('Error saving RLO');
               });
             });
-            $('#btnModalRLOConfirm').text('Save RLO');
-            $('#modalUserTitle').html('Edit RLO');
             $('#modalRLO').modal('show');
           } else {
             //TODO: Error handling
@@ -359,7 +395,6 @@
         // get user display text
         var userText = $('#lstUsers option:selected').text();
         var userID = $('#lstUsers').val();
-
         //confirm if user should be deleted
         if (confirm('Delete user ' + userText + '?' + userID)) {
           OpenRLO.Web.Service.SiteUserService.Delete(userID, function (m) {
@@ -371,12 +406,10 @@
         }
       });
       $('#btnUserAdd').click(function () {
-        $('#btnModalUserConfirm').unbind('click');
-        $('#btnModalUserConfirm').click(function () {
+        $('#modalUserTitle').html('Add User');
+        $('#btnModalUserConfirm').unbind('click').text('Add User').click(function () {
           addUser();
         });
-        $('#btnModalUserConfirm').text('Add User');
-        $('#modalUserTitle').html('Add User');
         $('#modalUser').modal('show');
       });
       $('#btnUserEdit').click(function () {
@@ -392,13 +425,10 @@
             $('#txtEmail').val(u.Email);
             $("#chkIsAdministrator").prop("checked", u.IsAdministrator);
             $("#chkIsContentEditor").prop("checked", u.IsContentEditor);
-
             // setup modal UI
-            $('#btnModalUserConfirm').unbind('click');
-            $('#btnModalUserConfirm').click(function () {
+            $('#btnModalUserConfirm').unbind('click').text('Save').click(function () {
               saveEditUser();
             });
-            $('#btnModalUserConfirm').text('Save User');
             $('#modalUserTitle').html('Edit User');
             $('#modalUser').modal('show');
           } else {
@@ -408,14 +438,13 @@
         });
       });
 
-    });   // END document.ready()
+    });    // END document.ready()
 
 
 
     var editUser = null;
     function saveEditUser() {
       var userID = editUser.UserID;
-
       var usr = new OpenRLO.Data.SiteUser();
       usr.Username = $('#txtUsername').val();
       //do NOT set this, or we might lose the password
@@ -456,21 +485,18 @@
         loadUserList();
         $('#modalUser').modal('hide');
       }, function (m) {
-        alert('Error loading user details');
+        alert('Error saving user details');
       });
-
-      $('#modalUserEdit').modal('hide');
     }
 
+    // addUser
     function addUser() {
-
       var usr = new OpenRLO.Data.SiteUser();
       usr.Username = $('#txtUsername').val();
       usr.Passcode = $('#txtPassword1').val();
       usr.Email = $('#txtEmail').val();
       usr.IsAdministrator = $('#chkIsAdministrator').is(':checked'); //$('#chkIsAdministrator').val();
       usr.IsContentEditor = $('#chkIsContentEditor').is(':checked'); //$('#chkIsContentEditor').val();
-
       var password1 = $('#txtPassword1').val();
       var password2 = $('#txtPassword2').val();
 
@@ -506,7 +532,7 @@
                 alert('User added');
                 clearUserFields();
                 loadUserList();
-                $('#modalUserEdit').modal('hide');
+                $('#modalUser').modal('hide');
               }, function (m) {
                 alert('Error adding user');
                 loadUserList();
