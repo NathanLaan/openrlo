@@ -26,7 +26,7 @@
   </div>
   <br />
   <div class="clearfix">
-    <select class="span4" name="pageList" id="pageList"></select><a href="#" class="btn" id="btnJump">Go</a>
+    <select class="span6" name="pageList" id="pageList"></select><a href="#" class="btn" id="btnJump">Go</a>
   </div>
   
   
