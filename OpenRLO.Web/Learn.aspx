@@ -38,37 +38,38 @@
     $(document).ready(function () {
       _t = $('#hiddenFieldT').val();
       _p = $('#hiddenFieldP').val();
-      if (_p == null || _p == "") {
+
+
+      if (_p == null || _p == "" || isNaN(_p)) {
         _p = 1;
       }
+      _p = parseInt(_p);
+
       loadPageContent();
       $('#btnJump').click(function () {
         var pageNumber = $('#pageList').val();
         window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
       });
-//      $('#btnPrev').click(function () {
-//        var pageNumber = _p - 1;
-//        window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
-//      });
-//      $('#btnNext').click(function () {
-//        var pageNumber = _p + 1;
-//        window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
-//      });
+      //      $('#btnPrev').click(function () {
+      //        var pageNumber = _p - 1;
+      //        window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
+      //      });
+      //      $('#btnNext').click(function () {
+      //        var pageNumber = _p + 1;
+      //        window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
+      //      });
     });
 
     function setupLinks() {
-      // force _p into an integer
-      var pageNumber = parseInt(_p);
-
-      if (pageNumber == 1) {
+      if (_p == 1) {
         $('#liPrev').addClass('disabled');
       } else {
-        $('#aPrev').attr('href', '/learn/' + _learningObject.Url + '/' + (pageNumber - 1));
+        $('#aPrev').attr('href', '/learn/' + _learningObject.Url + '/' + (_p - 1));
       }
-      if (pageNumber >= _learningObject.PageCount) {
+      if (_p >= _learningObject.PageCount) {
         $('#liNext').addClass('disabled');
       } else {
-        $('#aNext').attr('href', '/learn/' + _learningObject.Url + '/' + (pageNumber + 1));
+        $('#aNext').attr('href', '/learn/' + _learningObject.Url + '/' + (_p + 1));
       }
     }
 
@@ -81,6 +82,7 @@
             var i = pageList.options.length;
             pageList.options[i] = new Option((i+1) + ": " + a[i].Title, a[i].Order);
           });
+          $('#pageList option').eq(_p-1).attr('selected', 'selected');
         }
       }, function (m) {
         alert('Error loading page contents');

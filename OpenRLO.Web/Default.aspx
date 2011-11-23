@@ -53,6 +53,7 @@
     </div>
   </fieldset>
 </form>
+<!--
 <form>
   <fieldset>
     <div class="clearfix">
@@ -61,6 +62,7 @@
     </div>
   </fieldset>
 </form>
+-->
 
 <h3>Mission</h3>
 <p>OpenRLO aims to provide a platform for creating open reusable learning objects.</p>
