@@ -55,9 +55,6 @@
     <Content Include="Service\PageService.asmx" />
     <Content Include="Service\LearningObjectService.asmx" />
     <Content Include="Learn.aspx" />
-    <Content Include="css\reset.css" />
-    <Content Include="css\screen.css" />
-    <Content Include="css\text.css" />
     <Content Include="favicon.ico" />
     <Content Include="humans.txt" />
     <Content Include="img\missing.jpg" />
