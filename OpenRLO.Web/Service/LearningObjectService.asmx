@@ -18,7 +18,7 @@ namespace OpenRLO.Web.Service
   [System.Web.Script.Services.ScriptService]
   public class LearningObjectService : System.Web.Services.WebService
   {
-    
+
 
     [WebMethod]
     [ScriptMethod]
@@ -35,14 +35,13 @@ namespace OpenRLO.Web.Service
       return null;
     }
 
-    
+
     [WebMethod]
     [ScriptMethod]
     public string Add(string title)
     {
-      if (Global.IsLoggedIn())
+      if (Global.IsContentEditor)
       {
-
         if (string.IsNullOrEmpty(title))
         {
           return "Invalid Learning Object title";
@@ -60,51 +59,68 @@ namespace OpenRLO.Web.Service
         Global.LearningObjectIndex.Save();
         return "Learning Object added";
       }
-      return Global.ACCESS_DENIED;
+      else
+      {
+        return Global.ACCESS_DENIED;
+      }
     }
-    
+
 
     [WebMethod]
     [ScriptMethod]
     public string DeleteByUrl(string url)
     {
-      try
+      if (Global.IsContentEditor)
       {
-        Global.LearningObjectIndex.DeleteByUrl(url);
-        Global.LearningObjectIndex.Save();
-        return "Learning Object deleted";
+        try
+        {
+          Global.LearningObjectIndex.DeleteByUrl(url);
+          Global.LearningObjectIndex.Save();
+          return "Learning Object deleted";
+        }
+        catch (Exception e)
+        {
+          return e.ToString();
+        }
       }
-      catch (Exception e)
+      else
       {
-        return e.ToString();
+        return Global.ACCESS_DENIED;
       }
     }
 
-    
+
     [WebMethod]
     [ScriptMethod]
     public string Edit(string learningObjectUrl, string newLearningObjectTitle)
     {
-      LearningObject learningObject = this.GetByUrl(learningObjectUrl);
-      if (learningObject != null)
+      if (Global.IsContentEditor)
       {
-        learningObject.Title = newLearningObjectTitle;
-        learningObject.GenerateUrl();
-        learningObject.ModifiedDateTime = DateTime.Now;
-        Global.LearningObjectIndex.Save();
-        return "Learning Object updated";
+        LearningObject learningObject = this.GetByUrl(learningObjectUrl);
+        if (learningObject != null)
+        {
+          learningObject.Title = newLearningObjectTitle;
+          learningObject.GenerateUrl();
+          learningObject.ModifiedDateTime = DateTime.Now;
+          Global.LearningObjectIndex.Save();
+          return "Learning Object updated";
+        }
+        return "Error updating Learning Object";
       }
-      return "Error updating Learning Object";
+      else
+      {
+        return Global.ACCESS_DENIED;
+      }
     }
 
-    
+
     [WebMethod]
     [ScriptMethod]
     public List<LearningObject> GetList()
     {
       return Global.LearningObjectIndex.IndexList;
     }
-    
+
 
     /// <summary>
     /// Returns true if EITHER username or showname exist.
@@ -126,7 +142,7 @@ namespace OpenRLO.Web.Service
       }
       return false;
     }
-    
+
 
   }
 }

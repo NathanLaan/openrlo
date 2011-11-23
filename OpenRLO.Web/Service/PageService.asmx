@@ -53,171 +53,206 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public string Add(string learningObjectUrl, string pageTitle, string pageContents)
     {
-      if (string.IsNullOrEmpty(learningObjectUrl))
+      if (Global.IsContentEditor)
       {
-        return "Invalid learning object";
+        if (string.IsNullOrEmpty(learningObjectUrl))
+        {
+          return "Invalid learning object";
+        }
+        if (string.IsNullOrEmpty(pageTitle))
+        {
+          return "Invalid page title";
+        }
+        if (string.IsNullOrEmpty(pageContents))
+        {
+          return "Invalid page contents";
+        }
+
+        Page page = new Page();
+        page.ParentLearningObjectUrl = learningObjectUrl;
+        page.Title = pageTitle;
+        page.Contents = pageContents;
+        page.GenerateUrl();
+        page.ModifiedDateTime = DateTime.Now;
+
+
+        LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+
+        if (learningObject == null)
+        {
+          return "Invalid Learning Object";
+        }
+        if (learningObject.PageIndex.Exists(page.Url))
+        {
+          return "Page already exists";
+        }
+
+        //
+        // Page Number starts at ONE (1).
+        //
+        page.Order = learningObject.PageIndex.IndexList.Count + 1;
+
+        learningObject.PageIndex.Add(page);
+        Global.LearningObjectIndex.Save();
+
+
+        //
+        // Do we need to?
+        //
+        learningObject.PageIndex.Save();
+
+        return "Page added";
       }
-      if (string.IsNullOrEmpty(pageTitle))
+      else
       {
-        return "Invalid page title";
+        return Global.ACCESS_DENIED;
       }
-      if (string.IsNullOrEmpty(pageContents))
-      {
-        return "Invalid page contents";
-      }
-      
-      Page page = new Page();
-      page.ParentLearningObjectUrl = learningObjectUrl;
-      page.Title = pageTitle;
-      page.Contents = pageContents;
-      page.GenerateUrl();
-      page.ModifiedDateTime = DateTime.Now;
-
-      
-      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
-
-      if (learningObject == null)
-      {
-        return "Invalid Learning Object";
-      }
-      if (learningObject.PageIndex.Exists(page.Url))
-      {
-        return "Page already exists";
-      }
-
-      //
-      // Page Number starts at ONE (1).
-      //
-      page.Order = learningObject.PageIndex.IndexList.Count + 1;
-
-      learningObject.PageIndex.Add(page);
-      Global.LearningObjectIndex.Save();
-
-      
-      //
-      // Do we need to?
-      //
-      learningObject.PageIndex.Save();
-      
-      return "Page added";
     }
 
     [WebMethod]
     [ScriptMethod]
     public string DeleteByUrl(string learningObjectUrl, string pageUrl)
     {
-      try
+      if (Global.IsContentEditor)
       {
-        LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
-        if (learningObject != null)
+        try
         {
-          foreach (Page page in learningObject.PageIndex.IndexList)
+          LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+          if (learningObject != null)
           {
-            if (page.Url == pageUrl)
+            foreach (Page page in learningObject.PageIndex.IndexList)
             {
-              learningObject.PageIndex.DeleteByUrl(pageUrl);
-              learningObject.Save();
-              return "Page deleted";
+              if (page.Url == pageUrl)
+              {
+                learningObject.PageIndex.DeleteByUrl(pageUrl);
+                learningObject.Save();
+                return "Page deleted";
+              }
             }
           }
+          else
+          {
+            return "Learning Object [" + learningObjectUrl + "] not found";
+          }
         }
-        else
+        catch (Exception e)
         {
-          return "Learning Object ["+learningObjectUrl+"] not found";
+          return e.ToString();
         }
+        return "Page [" + pageUrl + "] not deleted";
       }
-      catch (Exception e)
+      else
       {
-        return e.ToString();
+        return Global.ACCESS_DENIED;
       }
-      return "Page [" + pageUrl + "] not deleted";
     }
 
     [WebMethod]
     [ScriptMethod]
     public string MovePageUp(string learningObjectUrl, string pageUrl)
     {
-      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
-      if (learningObject != null)
+      if (Global.IsContentEditor)
       {
-        int x = learningObject.PageIndex.IndexList.Count;
-        if (x > 1)
+        LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+        if (learningObject != null)
         {
-          for (int i = 1; i < x; i++)
+          int x = learningObject.PageIndex.IndexList.Count;
+          if (x > 1)
           {
-            if (learningObject.PageIndex.IndexList[i].Url.Equals(pageUrl))
+            for (int i = 1; i < x; i++)
             {
-              int o = learningObject.PageIndex.IndexList[i].Order;
-              learningObject.PageIndex.IndexList[i].Order = learningObject.PageIndex.IndexList[i - 1].Order;
-              learningObject.PageIndex.IndexList[i - 1].Order = o;
+              if (learningObject.PageIndex.IndexList[i].Url.Equals(pageUrl))
+              {
+                int o = learningObject.PageIndex.IndexList[i].Order;
+                learningObject.PageIndex.IndexList[i].Order = learningObject.PageIndex.IndexList[i - 1].Order;
+                learningObject.PageIndex.IndexList[i - 1].Order = o;
+              }
             }
+            learningObject.PageIndex.IndexList.Sort();
+            learningObject.Save();
+            return "Page [" + pageUrl + "] moved";
           }
-          learningObject.PageIndex.IndexList.Sort();
-          learningObject.Save();
-          return "Page [" + pageUrl + "] moved";
         }
+        else
+        {
+          return "Learning Object [" + learningObjectUrl + "] not found";
+        }
+        return "Unable to move page [" + pageUrl + "]";
       }
       else
       {
-        return "Learning Object [" + learningObjectUrl + "] not found";
+        return Global.ACCESS_DENIED;
       }
-      return "Unable to move page [" + pageUrl + "]";
     }
 
     [WebMethod]
     [ScriptMethod]
     public string MovePageDown(string learningObjectUrl, string pageUrl)
     {
-      LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
-      if (learningObject != null)
+      if (Global.IsContentEditor)
       {
-        int x = learningObject.PageIndex.IndexList.Count;
-        if (x > 1)
+        LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+        if (learningObject != null)
         {
-          for (int i = x - 1; i >= 0; i--)
+          int x = learningObject.PageIndex.IndexList.Count;
+          if (x > 1)
           {
-            if (learningObject.PageIndex.IndexList[i].Url.Equals(pageUrl))
+            for (int i = x - 1; i >= 0; i--)
             {
-              int o = learningObject.PageIndex.IndexList[i].Order;
-              learningObject.PageIndex.IndexList[i].Order = learningObject.PageIndex.IndexList[i + 1].Order;
-              learningObject.PageIndex.IndexList[i + 1].Order = o;
+              if (learningObject.PageIndex.IndexList[i].Url.Equals(pageUrl))
+              {
+                int o = learningObject.PageIndex.IndexList[i].Order;
+                learningObject.PageIndex.IndexList[i].Order = learningObject.PageIndex.IndexList[i + 1].Order;
+                learningObject.PageIndex.IndexList[i + 1].Order = o;
+              }
             }
-          }
 
-          learningObject.PageIndex.IndexList.Sort();
-          learningObject.Save();
-          return "Page [" + pageUrl + "] moved";
+            learningObject.PageIndex.IndexList.Sort();
+            learningObject.Save();
+            return "Page [" + pageUrl + "] moved";
+          }
         }
+        else
+        {
+          return "Learning Object [" + learningObjectUrl + "] not found";
+        }
+        return "Unable to move page [" + pageUrl + "]";
       }
       else
       {
-        return "Learning Object [" + learningObjectUrl + "] not found";
+        return Global.ACCESS_DENIED;
       }
-      return "Unable to move page [" + pageUrl + "]";
     }
 
     [WebMethod]
     [ScriptMethod]
     public string Edit(string learningObjectUrl, string oldPageUrl, string newPageTitle, string newPageContents)
     {
-      Page oldPage = this.GetByUrl(learningObjectUrl, oldPageUrl);
-      if (oldPage != null)
+      if (Global.IsContentEditor)
       {
-        oldPage.Title = newPageTitle;
-        oldPage.Contents = newPageContents;
-        oldPage.GenerateUrl();
-        oldPage.ModifiedDateTime = DateTime.Now;
-
-        LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
-        if (learningObject != null)
+        Page oldPage = this.GetByUrl(learningObjectUrl, oldPageUrl);
+        if (oldPage != null)
         {
-          learningObject.PageIndex.IndexList.Sort();
-          learningObject.Save();
-          return "Page updated";
+          oldPage.Title = newPageTitle;
+          oldPage.Contents = newPageContents;
+          oldPage.GenerateUrl();
+          oldPage.ModifiedDateTime = DateTime.Now;
+
+          LearningObject learningObject = Global.LearningObjectIndex.GetByUrl(learningObjectUrl);
+          if (learningObject != null)
+          {
+            learningObject.PageIndex.IndexList.Sort();
+            learningObject.Save();
+            return "Page updated";
+          }
+          // get parent
         }
-        // get parent
+        return "Error updating page";
       }
-      return "Error updating page";
+      else
+      {
+        return Global.ACCESS_DENIED;
+      }
     }
 
     [WebMethod]
@@ -232,22 +267,6 @@ namespace OpenRLO.Web.Service
       return null;
     }
 
-    
-    [WebMethod]
-    [ScriptMethod]
-    public bool Exists(string learningObjectUrl, string pageUrl)
-    {
-      //List<Page> list = Global.PageIndex.IndexList;
-      //foreach (Page lo in list)
-      //{
-      //  if (lo.Url.Equals(url))
-      //  {
-      //    return true;
-      //  }
-      //}
-      return false;
-    }
-    
 
   }
 }
