@@ -1,1 +1,6 @@
 Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4
+
+Lindstrom, L., & Jeffries, R. (2004). Extreme Programming and Agile Software Development Methodologies. Information Systems Management, Vol. 21, No. 3
+
+Newkirk, J. (2002). Introduction to agile processes and extreme programming. International Conference on Software Engineering 2002 Proceedings of the 24th International Conference on Software Engineering. ISBN:1-58113-472-X
+
