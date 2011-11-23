@@ -165,7 +165,6 @@
 
     function loadSiteSettings() {
       OpenRLO.Web.Service.SiteSettingsService.Get(function (siteSettings) {
-        console.log(siteSettings);
         $('#txtSiteSettingsName').val(siteSettings.SiteName);
         $('#txtSiteSettingsCopyright').val(siteSettings.SiteCopyright);
         $('#txtSiteSettingsUrl').val(siteSettings.SiteUrl);
@@ -249,7 +248,6 @@
             $('#txtModalPageContents').val('');
             $('#modalPage').modal('hide');
           }, function (m) {
-            console.log(m);
             alert('Error: Unable to add page [' + pageTitle + ']');
           });
 
