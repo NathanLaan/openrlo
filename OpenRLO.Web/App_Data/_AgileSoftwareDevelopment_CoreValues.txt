@@ -6,4 +6,4 @@ There are four core values that constitute the real heart of what Agile Software
 4. Responding to change valued over following a plan
 
 
-[1] # "Newkirk, J. (2002). Introduction to agile processes and extreme programming. ICSE 2002 Proceedings of the 24th International Conference on Software Engineering. ISBN:1-58113-472-X"
+[1]: # "Newkirk, J. (2002). Introduction to agile processes and extreme programming. ICSE 2002 Proceedings of the 24th International Conference on Software Engineering. ISBN:1-58113-472-X"
