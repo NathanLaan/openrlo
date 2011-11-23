@@ -1,3 +1,5 @@
+Beck, K. et al. (2001). Manifesto for Agile Software Development. http://agilemanifesto.org Retrieved Oct 24 2011
+
 Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4
 
 Lindstrom, L., & Jeffries, R. (2004). Extreme Programming and Agile Software Development Methodologies. Information Systems Management, Vol. 21, No. 3
