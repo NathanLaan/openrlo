@@ -25,11 +25,7 @@ namespace OpenRLO.Web
         //
         // If the user is not authorized, we need to redirect them to a "Not Authorized" page.
         //
-        IIdentity id = HttpContext.Current.User.Identity;
-
-        SiteUser siteUser = Global.SiteUserIndex.GetByID(id.Name);
-
-        if (siteUser != null)
+        if (Global.IsLoggedIn)
         {
           //
           // if the user has access to either admin or content 
@@ -37,7 +33,7 @@ namespace OpenRLO.Web
           //
           bool denied = true;
 
-          if (siteUser.IsAdministrator)
+          if (Global.IsAdministrator)
           {
             // add field to allow appropriate javascript to be disabled
             Page.ClientScript.RegisterHiddenField("isAdministrator", "true");
@@ -52,7 +48,7 @@ namespace OpenRLO.Web
             this.liSettings.Visible = false;
           }
 
-          if (siteUser.IsContentEditor)
+          if (Global.IsContentEditor)
           {
             // add field to allow appropriate javascript to be disabled
             Page.ClientScript.RegisterHiddenField("isContentEditor", "true");
