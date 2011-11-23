@@ -47,9 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Admin\AdminSiteSettingsEdit.aspx" />
     <Content Include="Logout.aspx" />
-    <Content Include="Admin\Upload.aspx" />
     <Content Include="ManageSite.aspx" />
     <Content Include="css\bootstrap940.css" />
     <Content Include="css\bootstrap480.css" />
@@ -115,13 +113,6 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AdminSiteSettingsEdit.aspx.cs">
-      <DependentUpon>AdminSiteSettingsEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\AdminSiteSettingsEdit.aspx.designer.cs">
-      <DependentUpon>AdminSiteSettingsEdit.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ManageSite.aspx.cs">
       <DependentUpon>ManageSite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -142,13 +133,6 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Upload.aspx.cs">
-      <DependentUpon>Upload.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Upload.aspx.designer.cs">
-      <DependentUpon>Upload.aspx</DependentUpon>
     </Compile>
     <Compile Include="SiteMobile.Master.cs">
       <DependentUpon>SiteMobile.Master</DependentUpon>
@@ -195,9 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SiteMobile.Master" />
-    <Content Include="Admin\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -205,7 +186,6 @@
     <Content Include="Service\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
