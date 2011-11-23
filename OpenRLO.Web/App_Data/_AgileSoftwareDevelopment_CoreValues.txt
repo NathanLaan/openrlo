@@ -1,4 +1,4 @@
-There are four core values that constitute the real heart of what Agile Software Development stands for ([Newkirk, 2002][1]).
+There are four core values that form the foundation of what Agile Software Development stands for ([Beck et al., 2001][1], [Newkirk, 2002][2]).
 
 1. Individuals and interactions valued over processes and tools
 2. Working software valued over comprehensive documentation
@@ -6,4 +6,5 @@ There are four core values that constitute the real heart of what Agile Software
 4. Responding to change valued over following a plan
 
 
-[1]: # "Newkirk, J. (2002). Introduction to agile processes and extreme programming. ICSE 2002 Proceedings of the 24th International Conference on Software Engineering. ISBN:1-58113-472-X"
+[1]: http://agilemanifesto.org/ "Beck, K. et al. (2001). Manifesto for Agile Software Development. http://agilemanifesto.org Retrieved Oct 24 2011"
+[2]: # "Newkirk, J. (2002). Introduction to agile processes and extreme programming. ICSE 2002 Proceedings of the 24th International Conference on Software Engineering. ISBN:1-58113-472-X"

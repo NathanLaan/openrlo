@@ -1,1 +1,4 @@
-History of Agile.
+The Agile Software Development manifesto emerged from a gathering of like-minded software developers that were not satisfied with typical "documentation driven, heavyweight software development processes" ([Highsmith, 2001][1]).
+
+
+[1]: http://agilemanifesto.org/history.html "Highsmith, J. (2001). History: The Agile Manifesto. http://agilemanifesto.org/history.html Retrieved Nov 23 2011"
