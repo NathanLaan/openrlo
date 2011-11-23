@@ -29,15 +29,22 @@ namespace OpenRLO.Web.Service
     [ScriptMethod]
     public string Set(SiteSettings siteSettings)
     {
-      Global.SiteSettings.Set(siteSettings);
-      try
+      if (Global.IsAdministrator)
       {
-        Global.SiteSettings.Save();
-        return "Site Settings saved";
+        Global.SiteSettings.Set(siteSettings);
+        try
+        {
+          Global.SiteSettings.Save();
+          return "Site Settings saved";
+        }
+        catch (Exception exception)
+        {
+          return exception.ToString();
+        }
       }
-      catch (Exception exception)
+      else
       {
-        return exception.ToString();
+        return Global.ACCESS_DENIED;
       }
     }
     

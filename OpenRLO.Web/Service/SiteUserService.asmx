@@ -51,68 +51,74 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
-    public void Add(SiteUser siteUser)
+    public string Add(SiteUser siteUser)
     {
-      //
-      // TODO: Check if current logged-in user is allowed to do this
-      //
-      
-      Global.SiteUserIndex.SiteUserList.Add(siteUser);
-      Global.SiteUserIndex.Save();
+      if (Global.IsAdministrator)
+      {
+        Global.SiteUserIndex.SiteUserList.Add(siteUser);
+        Global.SiteUserIndex.Save();
+        return "User added";
+      }
+      else
+      {
+        return Global.ACCESS_DENIED;
+      }
     }
 
     [WebMethod]
     [ScriptMethod]
     public string Delete(string userID)
     {
-      //
-      // TODO: Check if current logged-in user is allowed to do this
-      //
-      
-      try
+      if (Global.IsAdministrator)
       {
-        if (Global.SiteUserIndex.Delete(userID))
+        try
         {
-          return "Deleted";
+          if (Global.SiteUserIndex.Delete(userID))
+          {
+            return "Deleted";
+          }
+          else
+          {
+            return "Unable to delete";
+          }
         }
-        else
+        catch (Exception e)
         {
-          return "Unable to delete";
+          return e.ToString();
         }
       }
-      catch (Exception e)
+      else
       {
-        return e.ToString();
+        return Global.ACCESS_DENIED;
       }
     }
 
     [WebMethod]
     [ScriptMethod]
-    public void Edit(string userID, SiteUser newSiteUser)
+    public string Edit(string userID, SiteUser newSiteUser)
     {
-      //
-      // TODO: Check if current logged-in user is allowed to do this
-      //
-
-      SiteUser old = this.GetByID(userID);
-      if (old != null)
+      if (Global.IsAdministrator)
       {
-        old.Username = newSiteUser.Username;
-        old.Timezone = newSiteUser.Timezone;
-        old.Email = newSiteUser.Email;
-        // The Passcode is set by the JavaScript on the Edit 
-        // User Page, so we copy the Saltcode and Password.
-        old.Saltcode = newSiteUser.Saltcode;
-        old.Password = newSiteUser.Password;
-        old.IsAdministrator = newSiteUser.IsAdministrator;
-        old.IsContentEditor = newSiteUser.IsContentEditor;
-        Global.SiteUserIndex.Save();
+        SiteUser old = this.GetByID(userID);
+        if (old != null)
+        {
+          old.Username = newSiteUser.Username;
+          old.Timezone = newSiteUser.Timezone;
+          old.Email = newSiteUser.Email;
+          // The Passcode is set by the JavaScript on the Edit 
+          // User Page, so we copy the Saltcode and Password.
+          old.Saltcode = newSiteUser.Saltcode;
+          old.Password = newSiteUser.Password;
+          old.IsAdministrator = newSiteUser.IsAdministrator;
+          old.IsContentEditor = newSiteUser.IsContentEditor;
+          Global.SiteUserIndex.Save();
+          return "User updated";
+        }
+        return "Error updating user";
       }
       else
       {
-        //
-        // TODO: Error handling
-        //
+        return Global.ACCESS_DENIED;
       }
     }
 
