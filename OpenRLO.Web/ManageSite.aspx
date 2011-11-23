@@ -224,25 +224,41 @@
 
       // Page //////////////////////////////////////////////////////
       $('#btnPageMoveUp').click(function () {
-        movePageUp();
+        var rloUrl = $('#lstRLO2').val();
+        var pageUrl = $('#pageList').val();
+        OpenRLO.Web.Service.PageService.MovePageUp(rloUrl, pageUrl, function (a) {
+          loadPageList(rloUrl);
+          alert(a);
+        }, function (m) {
+          alert('Error: Unable to move page [' + pageUrl + ']');
+        });
       });
       $('#btnPageMoveDown').click(function () {
-        movePageDown();
+        var rloUrl = $('#lstRLO2').val();
+        var pageUrl = $('#pageList').val();
+        OpenRLO.Web.Service.PageService.MovePageDown(rloUrl, pageUrl, function (a) {
+          loadPageList(rloUrl);
+          alert(a);
+        }, function (m) {
+          alert('Error: Unable to move page [' + pageUrl + ']');
+        });
       });
       $('#lstRLO2').change(function () {
         loadPageList($(this).attr('value'));
       });
       $('#btnModalPageCancel').click(function () {
+        $('#txtModalPageTitle').val('');
+        $('#txtModalPageContents').val('');
         $('#modalPage').modal('hide');
       });
       $('#btnPageAdd').click(function () {
         $('#btnModalPageConfirm').unbind('click');
-        var rloURL = $('#lstRLO2').val();
+        var rloUrl = $('#lstRLO2').val();
         $('#btnModalPageConfirm').click(function () {
           var pageTitle = $('#txtModalPageTitle').val();
           var pageContent = $('#txtModalPageContents').val();
-          OpenRLO.Web.Service.PageService.Add(rloURL, pageTitle, pageContent, function (a) {
-            loadPageList(rloURL);
+          OpenRLO.Web.Service.PageService.Add(rloUrl, pageTitle, pageContent, function (a) {
+            loadPageList(rloUrl);
             alert(a);
             $('#txtModalPageTitle').val('');
             $('#txtModalPageContents').val('');
@@ -258,21 +274,20 @@
       }); //END btnPageAdd
       $('#btnPageEdit').click(function () {
         $('#btnModalPageConfirm').unbind('click');
-        var rloURL = $('#lstRLO2').val();
+        var rloUrl = $('#lstRLO2').val();
         var pageUrl = $('#pageList').val();
-        OpenRLO.Web.Service.PageService.GetByUrl(rloURL, pageUrl, function (page) {
+        OpenRLO.Web.Service.PageService.GetByUrl(rloUrl, pageUrl, function (page) {
           if (page != null) {
             $('#btnModalPageConfirm').click(function () {
-              var rloURL = $('#lstRLO2').val();
+              var rloUrl = $('#lstRLO2').val();
               var oldPageUrl = $('#pageList').val();
               var newPageTitle = $('#txtModalPageTitle').val();
               var newPageContents = $('#txtModalPageContents').val();
-              OpenRLO.Web.Service.PageService.Edit(rloURL, oldPageUrl, newPageTitle, newPageContents, function (a) {
-                loadPageList(rloURL);
+              OpenRLO.Web.Service.PageService.Edit(rloUrl, oldPageUrl, newPageTitle, newPageContents, function (a) {
+                loadPageList(rloUrl);
                 alert(a);
-                //
-                // TODO: clear dialog...
-                //
+                $('#txtModalPageTitle').val('');
+                $('#txtModalPageContents').val('');
                 $('#modalPage').modal('hide');
               }, function (m) {
                 alert('Error saving page');
@@ -298,11 +313,11 @@
       }); // END btnPageEdit
 
       $('#btnPageDelete').click(function () {
-        var rloURL = $('#lstRLO2').val();
+        var rloUrl = $('#lstRLO2').val();
         var pageUrl = $('#pageList').val();
-        if (confirm('Delete ' + pageUrl + ' from ' + rloURL + '?')) {
-          OpenRLO.Web.Service.PageService.DeleteByUrl(rloURL, pageUrl, function (a) {
-            loadPageList(rloURL);
+        if (confirm('Delete ' + pageUrl + ' from ' + rloUrl + '?')) {
+          OpenRLO.Web.Service.PageService.DeleteByUrl(rloUrl, pageUrl, function (a) {
+            loadPageList(rloUrl);
             alert(a);
           }, function (m) {
             alert('Error: Unable to delete page [' + pageUrl + ']');
@@ -318,9 +333,9 @@
       // the modal needs to be manually activated since we are using 1 modal for ADD and EDIT
 
       $('#btnDeleteRLO').click(function () {
-        var rloURL = $('#lstRLO1').val();
-        if (confirm('Delete ' + rloURL + '?')) {
-          OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(rloURL, function (m) {
+        var rloUrl = $('#lstRLO1').val();
+        if (confirm('Delete ' + rloUrl + '?')) {
+          OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(rloUrl, function (m) {
             loadLearningObjectList();
             alert(m);
           }, function (m) {
@@ -352,9 +367,9 @@
             $('#txtModalRLOTitle').val(rlo.Title);
             $('#modalUserTitle').html('Edit RLO');
             $('#btnModalRLOConfirm').unbind('click').text('Save').click(function () {
-              var rloURL = $('#lstRLO1').val();
+              var rloUrl = $('#lstRLO1').val();
               var rloTitle = $('#txtModalRLOTitle').val();
-              OpenRLO.Web.Service.LearningObjectService.Edit(rloURL, rloTitle, function (a) {
+              OpenRLO.Web.Service.LearningObjectService.Edit(rloUrl, rloTitle, function (a) {
                 loadLearningObjectList();
                 alert(a);
                 $('#txtModalRLOTitle').val('');
@@ -373,6 +388,7 @@
         });
       }); //btnEditRLO
       $('#btnModalRLOCancel').click(function () {
+        $('#txtModalRLOTitle').val('');
         $('#modalRLO').modal('hide');
       });
 
@@ -387,6 +403,7 @@
       //
 
       $('#btnModalUserCancel').click(function () {
+        clearUserFields();
         $('#modalUser').modal('hide');
       });
       $('#btnUserDelete').click(function () {
@@ -411,9 +428,6 @@
         $('#modalUser').modal('show');
       });
       $('#btnUserEdit').click(function () {
-        //
-        // get and load user details
-        //
         var userID = $('#lstUsers').val();
         OpenRLO.Web.Service.SiteUserService.GetByID(userID, function (u) {
           if (u != null) {
@@ -576,30 +590,9 @@
 
 
 
-    function movePageUp() {
-      var learningObjectUrl = $('#lstRLO2').val();
-      var pageUrl = $('#pageList').val();
-      OpenRLO.Web.Service.PageService.MovePageUp(learningObjectUrl, pageUrl, function (a) {
-        loadPageList(learningObjectUrl);
-        alert(a);
-      }, function (m) {
-        alert('Error: Unable to move page [' + pageUrl + ']');
-      });
-    }
 
-    function movePageDown() {
-      var learningObjectUrl = $('#lstRLO2').val();
-      var pageUrl = $('#pageList').val();
-      OpenRLO.Web.Service.PageService.MovePageDown(learningObjectUrl, pageUrl, function (a) {
-        loadPageList(learningObjectUrl);
-        alert(a);
-      }, function (m) {
-        alert('Error: Unable to move page [' + pageUrl + ']');
-      });
-    }
-
-    function loadPageList(rloURL) {
-      OpenRLO.Web.Service.PageService.GetList(rloURL, function (a) {
+    function loadPageList(rloUrl) {
+      OpenRLO.Web.Service.PageService.GetList(rloUrl, function (a) {
         if (a != null) {
           var pageList = $('#pageList')[0];
           pageList.options.length = 0;
@@ -609,7 +602,7 @@
           });
         }
       }, function (m) {
-        alert('Error: Unable to load pages for [' + rloURL + ']');
+        alert('Error: Unable to load pages for [' + rloUrl + ']');
       });
     }
 
