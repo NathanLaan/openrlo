@@ -1,7 +1,8 @@
 AgileSoftwareDevelopment|Introduction|Introduction|2011.11.22 23:04:16|1|
-AgileSoftwareDevelopment|Core Values|CoreValues|2011.11.19 15:23:57|2|
-AgileSoftwareDevelopment|Guiding Principles|GuidingPrinciples|2011.11.19 15:25:16|3|
-AgileSoftwareDevelopment|History|History|2011.11.19 15:34:39|4|
-AgileSoftwareDevelopment|Using Agile|UsingAgile|2011.11.19 15:35:08|5|
-AgileSoftwareDevelopment|Pros & Cons|ProsCons|2011.11.19 15:35:21|6|
-AgileSoftwareDevelopment|Summary|Summary|2011.11.19 15:35:33|7|
+AgileSoftwareDevelopment|Misconceptions|Misconceptions|2011.11.23 09:23:54|2|
+AgileSoftwareDevelopment|Core Values|CoreValues|2011.11.19 15:23:57|3|
+AgileSoftwareDevelopment|Guiding Principles|GuidingPrinciples|2011.11.19 15:25:16|4|
+AgileSoftwareDevelopment|History|History|2011.11.19 15:34:39|5|
+AgileSoftwareDevelopment|Using Agile|UsingAgile|2011.11.19 15:35:08|6|
+AgileSoftwareDevelopment|Pros & Cons|ProsCons|2011.11.19 15:35:21|7|
+AgileSoftwareDevelopment|Summary|Summary|2011.11.19 15:35:33|8|
