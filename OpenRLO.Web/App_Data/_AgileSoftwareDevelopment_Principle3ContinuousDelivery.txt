@@ -1,5 +1,9 @@
-**Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.**
+> *"Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale."*
 
-* Work must produce value
-* Short means “easily manageable”
-* Quick change promotes quick feedback
+* This principle is actually quite subtle, but powerful.
+* Essentially it is saying that work must produce value.
+* Underlying this is the idea that software developed in a series of short iterations must avoid so-called "astronaut architecture" ([Spolsky, 2009][1]).
+* Short iterations mean that development cycles are easily manageable.
+* Short iterations also imply that software is changing relatively rapidly. This is good, as quick change promotes quick feedback.
+
+[1]: http://www.joelonsoftware.com/items/2009/09/23.html "Spolsky, J (2009). The Duct Tape Programmer. Joel on Software Website. Retrieved from http://www.joelonsoftware.com/items/2009/09/23.html on November 22 2011"

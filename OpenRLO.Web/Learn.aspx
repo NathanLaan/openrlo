@@ -12,8 +12,8 @@
   </form>
 
   <h2 id="pageTitle"></h2>
+  <br />
   <div class="clearfix" id="pageContent">Loading content...</div>
-
   <br />
   <br />
 

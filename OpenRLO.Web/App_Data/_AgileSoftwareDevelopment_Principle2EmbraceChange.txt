@@ -1,3 +1,4 @@
-**Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage**
+> *"Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage"*
 
-Embrace and harness change. Never take requirements for granted. Software projects, like virtually everything in the world, are not static; everything is constantly changing. Therefore, requirements are also changing.
+* This principle encourages development teams to embrace and harness change. What this really means is that software developments must *never take requirements for granted*.
+* Software systems, like virtually everything in the world, are not static. Software requirements are constantly changing.

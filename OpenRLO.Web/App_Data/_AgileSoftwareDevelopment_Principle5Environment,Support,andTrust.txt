@@ -1,4 +1,8 @@
-**Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done**
+> *"Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done"*
 
-* Although tools are secondary to the team members themselves, they are still imporntant
-* The team must be supported, trusted, and empowered
+* The team must be supported, trusted, and empowered.
+* This carries down to project decisions, the team must be empowered to filter the feedback, requests, and suggestions ([Larman, 2004][1]).
+* Although tools are secondary to the team members themselves, they are still important.
+
+
+[1]: # "Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4"

@@ -1,5 +1,5 @@
-**Business people and developers must work together daily throughout the project**
+> *"Business people and developers must work together daily throughout the project"*
 
-* Collaboration is incredibly important across functions
-* Collaborate early and often
-* Business experts must not work in isolation
+* Collaboration is incredibly important between the business team, the end users, and the developers.
+* While the idea of collaboration should be obvious, it is very important that collaboration begin early and continue daily.
+* The business experts for a system (often the end users) must not produce requirements, perform testing, or provide feedback in isolation.

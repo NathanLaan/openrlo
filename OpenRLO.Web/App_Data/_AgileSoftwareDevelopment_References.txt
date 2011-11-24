@@ -1,3 +1,7 @@
+Adkins, L. (2010). Coaching Agile Teams. *Addison-Wesley* ISBN: 0321637704
+
+Augustine, S. (2005). Managing Agile Projects. *Prentice Hall*. Upper Saddle River, NJ, USA. ISBN:0131240714
+
 Beck, K. et al. (2001). Manifesto for Agile Software Development. *Agile Manifesto website*. Retrieved from http://agilemanifesto.org on Oct 24 2011
 
 Koch, S. (2004). Agile Principles and Open Source Software Development: A Theoretical and Empirical Discussion. Extreme Programming and Agile Processes in Software Engineering. *Lecture Notes in Computer Science*, Vol. 3092, No. 1, p. 85-93
@@ -8,4 +12,4 @@ Lindstrom, L., & Jeffries, R. (2004). Extreme Programming and Agile Software Dev
 
 Newkirk, J. (2002). Introduction to agile processes and extreme programming. *ICSE 2002 Proceedings of the 24th International Conference on Software Engineering*. ISBN:1-58113-472-X
 
-Adkins, L. (2010). Coaching Agile Teams. *Addison-Wesley* ISBN: 0321637704
+Spolsky, J (2009). The Duct Tape Programmer. *Joel on Software Website*. Retrieved from http://www.joelonsoftware.com/items/2009/09/23.html on November 22 2011

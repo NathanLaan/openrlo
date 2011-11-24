@@ -1,4 +1,7 @@
-**Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely**
+> *"Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely"*
 
-* Overworking team members leads to long term problems
-* Underworking team members leads to waste and boredom
+Overworking team members leads to long term problems. Conversely, team members that are not properly engaged are being wasteful, and will often end up bored. This also causes long term problems ([Augustine, 2005][1], [Larman, 2004][2]).
+
+
+[1]: # "Augustine, S. (2005). Managing Agile Projects. Prentice Hall. Upper Saddle River, NJ, USA. ISBN:0131240714"
+[2]: # "Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4"
