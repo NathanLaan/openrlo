@@ -1,0 +1,4 @@
+**Working software is the primary measure of progress.**
+
+* It doesn’t matter what is in progress
+* The only thing that counts is working software or components

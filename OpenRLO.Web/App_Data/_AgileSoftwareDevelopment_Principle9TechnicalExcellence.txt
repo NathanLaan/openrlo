@@ -1,0 +1,5 @@
+**Continuous attention to technical excellence and good design enhances agility.**
+
+* Beware of falling into a routine
+* Gather the right team with the right skills
+* Good design & code is better in the long run

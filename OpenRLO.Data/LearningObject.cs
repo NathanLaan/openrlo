@@ -91,7 +91,10 @@ namespace OpenRLO.Data
     /// </summary>
     public void GenerateUrl()
     {
-      this.Url = Title.Replace(" ", "").Replace("/", "").Replace("\\", "").Replace("'", "").Replace("\"", "").Replace("&", "").Replace(".", "").Replace("_", "").Replace("-", "").Replace("+", "").Replace("=", "").Replace("@", "").Replace("#", "").Replace("$", "").Replace("%", "").Replace("^", "");
+      //
+      // TODO: replace this with a REGEX
+      //
+      this.Url = Title.Replace(" ", "").Replace(":", "").Replace("?", "").Replace(";", "").Replace("/", "").Replace("\\", "").Replace("'", "").Replace("\"", "").Replace("&", "").Replace(".", "").Replace("_", "").Replace("-", "").Replace("+", "").Replace("=", "").Replace("@", "").Replace("#", "").Replace("$", "").Replace("%", "").Replace("^", "");
     }
 
 

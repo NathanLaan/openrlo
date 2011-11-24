@@ -6,3 +6,4 @@ Lindstrom, L., & Jeffries, R. (2004). Extreme Programming and Agile Software Dev
 
 Newkirk, J. (2002). Introduction to agile processes and extreme programming. ICSE 2002 Proceedings of the 24th International Conference on Software Engineering. ISBN:1-58113-472-X
 
+Adkins, L. (2010). Coaching Agile Teams. Addison-Wesley  ISBN: 0321637704

@@ -1,0 +1,5 @@
+**The best architectures, requirements, and designs emerge from self-organizing teams**
+
+* Software cannot realistically be planned entirely up front. Acknowledge this reality.
+* Set direction, do not make immovable concrete plans
+

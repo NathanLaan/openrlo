@@ -1,0 +1,3 @@
+**Principle 1: Our highest priority is to satisfy users through early and continuous delivery of valuable software**
+
+The key concept here is to satisfy your users (how novel!) and utilize early, continuous delivery.
