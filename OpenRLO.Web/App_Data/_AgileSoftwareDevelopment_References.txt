@@ -1,9 +1,11 @@
-Beck, K. et al. (2001). Manifesto for Agile Software Development. http://agilemanifesto.org Retrieved Oct 24 2011
+Beck, K. et al. (2001). Manifesto for Agile Software Development. *Agile Manifesto website*. Retrieved from http://agilemanifesto.org on Oct 24 2011
+
+Koch, S. (2004). Agile Principles and Open Source Software Development: A Theoretical and Empirical Discussion. Extreme Programming and Agile Processes in Software Engineering. *Lecture Notes in Computer Science*, Vol. 3092, No. 1, p. 85-93
 
 Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4
 
-Lindstrom, L., & Jeffries, R. (2004). Extreme Programming and Agile Software Development Methodologies. Information Systems Management, Vol. 21, No. 3
+Lindstrom, L., & Jeffries, R. (2004). Extreme Programming and Agile Software Development Methodologies. *Information Systems Management*, Vol. 21, No. 3
 
-Newkirk, J. (2002). Introduction to agile processes and extreme programming. ICSE 2002 Proceedings of the 24th International Conference on Software Engineering. ISBN:1-58113-472-X
+Newkirk, J. (2002). Introduction to agile processes and extreme programming. *ICSE 2002 Proceedings of the 24th International Conference on Software Engineering*. ISBN:1-58113-472-X
 
-Adkins, L. (2010). Coaching Agile Teams. Addison-Wesley  ISBN: 0321637704
+Adkins, L. (2010). Coaching Agile Teams. *Addison-Wesley* ISBN: 0321637704
