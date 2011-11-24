@@ -1,4 +1,4 @@
-There are four core values that form the foundation of what Agile Software Development stands for ([Beck et al., 2001][1], [Newkirk, 2002][2]).
+There are four core values that form the foundation of Agile Software Development ([Beck et al., 2001][1], [Newkirk, 2002][2]).
 
 1. Individuals and interactions valued over processes and tools
 2. Working software valued over comprehensive documentation
