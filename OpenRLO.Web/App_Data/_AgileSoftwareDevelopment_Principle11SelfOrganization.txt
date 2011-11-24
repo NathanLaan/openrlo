@@ -1,5 +1,8 @@
-**The best architectures, requirements, and designs emerge from self-organizing teams**
+> *"The best architectures, requirements, and designs emerge from self-organizing teams"*
 
-* Software cannot realistically be planned entirely up front. Acknowledge this reality.
-* Set direction, do not make immovable concrete plans
+Software cannot realistically be planned entirely up front. Agile aknowledges this reality, and calls for projects to have momentum and an overal *direction*, but agile does not work well within the confines of a concrete imutable plan ([Adkins, 2010][1], [Eckstein, 2009][2], [Larman, 2004][3]).
 
+
+[1]: # "Adkins, L. (2010). Coaching Agile Teams. *Addison-Wesley* ISBN: 0321637704"
+[2]: # "Eckstein, J. (2009). Agile Software Development in the Large. Encontro Agil Conference 2009. Retrieved from http://www.encontroagil.com.br/2009/slides/jutta-AgileInTheLargePict.pdf November 3 2011"
+[3]: # "Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4"

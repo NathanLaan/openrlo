@@ -1,8 +1,12 @@
 Adkins, L. (2010). Coaching Agile Teams. *Addison-Wesley* ISBN: 0321637704
 
+Ambler, S. (2002). Agile Modelling. Ronin International Press. Retrieved from www.agilemodeling.com November 2 2011
+
 Augustine, S. (2005). Managing Agile Projects. *Prentice Hall*. Upper Saddle River, NJ, USA. ISBN:0131240714
 
 Beck, K. et al. (2001). Manifesto for Agile Software Development. *Agile Manifesto website*. Retrieved from http://agilemanifesto.org on Oct 24 2011
+
+Eckstein, J. (2009). Agile Software Development in the Large. Encontro Agil Conference 2009. Retrieved from http://www.encontroagil.com.br/2009/slides/jutta-AgileInTheLargePict.pdf November 3 2011
 
 Koch, S. (2004). Agile Principles and Open Source Software Development: A Theoretical and Empirical Discussion. Extreme Programming and Agile Processes in Software Engineering. *Lecture Notes in Computer Science*, Vol. 3092, No. 1, p. 85-93
 
