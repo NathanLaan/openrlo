@@ -1,5 +1,12 @@
-**At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly**
+> *"At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly"*
 
 * Reflect
 * Inspect
 * Adapt
+
+The agile process calls for teams to be introspective. Teams that are able to reflect on their triumphs, successes, failures, and mistakes will be better able to adapt and improve over time ([Augustine, 2005][1], [Larman, 2004][2], [Newkirk, 2002][3]).
+
+
+[1]: # "Augustine, S. (2005). Managing Agile Projects. *Prentice Hall*. Upper Saddle River, NJ, USA. ISBN:0131240714"
+[2]: # "Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4"
+[3]: # "Newkirk, J. (2002). Introduction to agile processes and extreme programming. *ICSE 2002 Proceedings of the 24th International Conference on Software Engineering*. ISBN:1-58113-472-X"
