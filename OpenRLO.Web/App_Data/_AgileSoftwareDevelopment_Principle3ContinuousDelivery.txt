@@ -1,0 +1,5 @@
+**Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.**
+
+* Work must produce value
+* Short means “easily manageable”
+* Quick change promotes quick feedback

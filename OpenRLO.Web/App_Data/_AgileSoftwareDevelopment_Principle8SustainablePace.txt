@@ -1,0 +1,4 @@
+**Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely**
+
+* Overworking team members leads to long term problems
+* Underworking team members leads to waste and boredom

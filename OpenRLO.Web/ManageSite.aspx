@@ -287,6 +287,7 @@
                 $('#txtModalPageContents').val('');
                 $('#modalPage').modal('hide');
               }, function (m) {
+                console.log(m);
                 alert('Error saving page');
               });
             });
@@ -447,7 +448,7 @@
         });
       });
 
-    });    // END document.ready()
+    });     // END document.ready()
 
 
 
@@ -624,6 +625,7 @@
           loadPageList($('#lstRLO2').val());
         }
       }, function (m) {
+        console.log(m);
         alert('Error: Unable to load Learning Object list.');
       });
     }
