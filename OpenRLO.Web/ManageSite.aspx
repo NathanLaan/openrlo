@@ -28,8 +28,6 @@
           <input class="span6" id="txtModalRLOTitle" type="text" />
         </div>
       </form>
-      <br />
-      <br />
     </div>
     <div class="modal-footer"><a href="#" id="btnModalRLOConfirm" class="btn primary">CONFIRM</a><a href="#" id="btnModalRLOCancel" class="btn">Cancel</a></div>
   </div>
@@ -45,7 +43,6 @@
         <div class="clearfix">
           <label for="txtModalPageTitle">Title</label>
           <input class="span6" id="txtModalPageTitle" type="text" />
-          <br />
           <br />
           <label for="txtModalPageContents">Content</label>
           <textarea class="xxlarge" id="txtModalPageContents" name="pageContent" rows="10"></textarea>

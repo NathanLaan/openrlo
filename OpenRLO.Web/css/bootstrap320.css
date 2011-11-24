@@ -814,6 +814,8 @@ select.xxlarge {
   /* width: 530px; */
   /* MOBILE */
   width: 150px;
+  height: 100px;
+  height: 80px;
 }
 textarea.xxlarge {
   overflow-y: auto;
@@ -2204,7 +2206,8 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   width: 220px;
   margin: -250px 0 0 -280px;
   margin: -250px 0 0 -180px;
-  margin: -100px 0 0 -110px;
+  margin: -140px 0 0 -110px;
+  margin: -190px 0 0 -110px;
   background-color: #ffffff;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -2238,6 +2241,8 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 .modal-header {
   border-bottom: 1px solid #eee;
   padding: 5px 15px;
+  visibility:hidden;
+  height: 0px;
 }
 .modal-body {
   padding: 15px;
