@@ -125,6 +125,10 @@ namespace OpenRLO.Web.Service
               if (page.Url == pageUrl)
               {
                 learningObject.PageIndex.DeleteByUrl(pageUrl);
+                //
+                // TODO: re-order the index
+                //
+                learningObject.ReorderPageList();
                 learningObject.Save();
                 return "Page deleted";
               }

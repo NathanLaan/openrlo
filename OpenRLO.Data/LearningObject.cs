@@ -134,5 +134,28 @@ namespace OpenRLO.Data
       this.PageIndex.IndexList.Sort();
     }
 
+
+    /// <summary>
+    /// After a page has been deleted, the Page.Order values will be invalid
+    /// </summary>
+    public void ReorderPageList()
+    {
+
+      Page prevPage = null;
+
+      foreach (Page page in this.PageIndex.IndexList)
+      {
+        if (prevPage != null)
+        {
+          if (page.Order - 1 > prevPage.Order)
+          {
+            page.Order--;
+          }          
+        }
+        prevPage = page;
+      }
+    }
+
+
   }
 }
