@@ -15,8 +15,6 @@
 15|AgileSoftwareDevelopment|Principle 11: Self-Organization|Principle11SelfOrganization|2011.11.24 14:09:22|
 16|AgileSoftwareDevelopment|Principle 12: Reflection|Principle12Reflection|2011.11.24 14:13:12|
 17|AgileSoftwareDevelopment|Summarizing the Principles|SummarizingthePrinciples|2011.11.24 14:18:59|
-18|AgileSoftwareDevelopment|History|History|2011.11.23 14:46:28|
-19|AgileSoftwareDevelopment|Using Agile|UsingAgile|2011.11.19 15:35:08|
-20|AgileSoftwareDevelopment|Pros & Cons|ProsCons|2011.11.19 15:35:21|
-21|AgileSoftwareDevelopment|Summary|Summary|2011.11.19 15:35:33|
-22|AgileSoftwareDevelopment|References|References|2011.11.24 14:02:06|
+18|AgileSoftwareDevelopment|History|History|2011.11.24 14:20:28|
+19|AgileSoftwareDevelopment|Pros & Cons|ProsCons|2011.11.24 14:26:10|
+20|AgileSoftwareDevelopment|References|References|2011.11.24 14:27:20|

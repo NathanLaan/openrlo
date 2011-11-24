@@ -1,1 +1,6 @@
-Pros & Cons
+# Physical Location
+
+Agile software development has strong physical requirements in the sense that it calls for close interaction between all team members. The creators of the agile manifesto feel that that close collaboration.is not possible when team members are physically separated, or working remotely. This is an acknowledgement of the physical components of human communication. This means that fully utilizing agile is not possible in a virtual team environment without the use of technology such as virtual presence or video conferencing, and even then, some of the value of agile is lost ([Augustine, 2005][1]).
+
+
+[1]: # "Augustine, S. (2005). Managing Agile Projects. *Prentice Hall*. Upper Saddle River, NJ, USA. ISBN:0131240714"
