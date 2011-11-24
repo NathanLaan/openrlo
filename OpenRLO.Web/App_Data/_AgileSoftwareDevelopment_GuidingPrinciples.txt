@@ -1,4 +1,4 @@
-Expanding on the core values, Agile also defines 12 guiding principles ([Adkins, 2010][1], [Beck et al., 2001][2], [Koch, 2010][3], [Newkirk, 2002][4]).
+Expanding on the core values, Agile also defines 12 guiding principles ([Adkins, 2010][1], [Augustine, 2005][2], [Beck et al., 2001][3], [Koch, 2010][4], [Newkirk, 2002][5]). These guiding principles constitute the responsibilities of an agile team, towards the customers, users, development team, and the software itself ([Augustine, 2005][2], [Koch, 2010][4]).
 
 1. Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
 2. Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage.
@@ -15,6 +15,7 @@ Expanding on the core values, Agile also defines 12 guiding principles ([Adkins,
 
 
 [1]: # "Adkins, L. (2010). Coaching Agile Teams. Addison-Wesley  ISBN: 0321637704"
-[2]: http://agilemanifesto.org/ "Beck, K. et al. (2001). Manifesto for Agile Software Development. http://agilemanifesto.org Retrieved Oct 24 2011"
-[3]: # "Koch, S. (2004). Agile Principles and Open Source Software Development: A Theoretical and Empirical Discussion. Extreme Programming and Agile Processes in Software Engineering. Lecture Notes in Computer Science, Vol. 3092, No. 1, p. 85-93"
-[4]: # "Newkirk, J. (2002). Introduction to agile processes and extreme programming. ICSE 2002 Proceedings of the 24th International Conference on Software Engineering. ISBN:1-58113-472-X"
+[2]: # "Augustine, S. (2005). Managing Agile Projects. *Prentice Hall*. Upper Saddle River, NJ, USA. ISBN:0131240714"
+[3]: http://agilemanifesto.org/ "Beck, K. et al. (2001). Manifesto for Agile Software Development. http://agilemanifesto.org Retrieved Oct 24 2011"
+[4]: # "Koch, S. (2004). Agile Principles and Open Source Software Development: A Theoretical and Empirical Discussion. Extreme Programming and Agile Processes in Software Engineering. Lecture Notes in Computer Science, Vol. 3092, No. 1, p. 85-93"
+[5]: # "Newkirk, J. (2002). Introduction to agile processes and extreme programming. ICSE 2002 Proceedings of the 24th International Conference on Software Engineering. ISBN:1-58113-472-X"

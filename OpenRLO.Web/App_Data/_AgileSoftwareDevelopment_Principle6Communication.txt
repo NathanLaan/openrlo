@@ -1,4 +1,7 @@
-**The most efficient and effective method of conveying information to and within a development team is face-to-face conversation**
+> *"The most efficient and effective method of conveying information to and within a development team is face-to-face conversation"*
 
-* Communication is key
-* Passive communication is not enough
+Communication is key. This should be obvious. However, *passive communication* is not enough. Team members must be able to meet and communicate face-to-face ([Augustine, 2005][1], [Larman, 2004][2]).
+
+
+[1]: # "Augustine, S. (2005). Managing Agile Projects. *Prentice Hall*. Upper Saddle River, NJ, USA. ISBN:0131240714"
+[2]: # "Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4"

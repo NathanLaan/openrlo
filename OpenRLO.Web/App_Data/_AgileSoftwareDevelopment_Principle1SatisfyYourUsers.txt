@@ -1,3 +1,5 @@
-**Our highest priority is to satisfy users through early and continuous delivery of valuable software**
+> *"Our highest priority is to satisfy customers through early and continuous delivery of valuable software."*
 
-The key concept here is to satisfy your users (how novel!) and utilize early, continuous delivery.
+The key concept here is to satisfy the customers, business team, and users of your software.
+
+Underlying this concept is the idea that early, continuous delivery will provide satisfaction, and also improve relations between the customer and developers.
