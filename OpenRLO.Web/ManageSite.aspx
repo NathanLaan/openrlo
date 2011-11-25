@@ -116,7 +116,7 @@
           <label for="lstRLO2">Learning Objects</label><select class="span6" id="lstRLO2"></select>
           <br />
           <br />
-          <label for="loTitle">Pages</label><select class="span6" id="pageList"></select>
+          <label for="loTitle">Pages</label><select class="span6 multirows" size="10" id="pageList"></select>
           <br />
           <br />
           <a href="#" class="btn" id="btnPageAdd">Add</a>

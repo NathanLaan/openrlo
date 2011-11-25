@@ -1,20 +1,20 @@
-1|AgileSoftwareDevelopment|Introduction|Introduction|2011.11.23 14:46:43|
-2|AgileSoftwareDevelopment|Misconceptions|Misconceptions|2011.11.23 14:42:33|
-3|AgileSoftwareDevelopment|Core Values|CoreValues|2011.11.24 09:26:11|
-4|AgileSoftwareDevelopment|Guiding Principles|GuidingPrinciples|2011.11.24 09:40:38|
-5|AgileSoftwareDevelopment|Principle 1: Satisfy Your Users|Principle1SatisfyYourUsers|2011.11.24 10:02:07|
-6|AgileSoftwareDevelopment|Principle 2: Embrace Change|Principle2EmbraceChange|2011.11.24 10:06:04|
-7|AgileSoftwareDevelopment|Principle 3: Continuous Delivery|Principle3ContinuousDelivery|2011.11.24 10:11:58|
-8|AgileSoftwareDevelopment|Principle 4: Team Collaboration|Principle4TeamCollaboration|2011.11.24 10:15:17|
-9|AgileSoftwareDevelopment|Principle 5: Environment, Support, and Trust|Principle5Environment,Support,andTrust|2011.11.24 10:18:12|
-10|AgileSoftwareDevelopment|Principle 6: Communication|Principle6Communication|2011.11.24 10:27:38|
-11|AgileSoftwareDevelopment|Principle 7: Measuring Progress|Principle7MeasuringProgress|2011.11.24 10:36:44|
-12|AgileSoftwareDevelopment|Principle 8: Sustainable Pace|Principle8SustainablePace|2011.11.24 10:34:16|
-13|AgileSoftwareDevelopment|Principle 9: Technical Excellence|Principle9TechnicalExcellence|2011.11.24 13:49:56|
-14|AgileSoftwareDevelopment|Principle 10: Simplicity|Principle10Simplicity|2011.11.24 14:04:58|
-15|AgileSoftwareDevelopment|Principle 11: Self-Organization|Principle11SelfOrganization|2011.11.24 14:09:22|
-16|AgileSoftwareDevelopment|Principle 12: Reflection|Principle12Reflection|2011.11.24 14:13:12|
-17|AgileSoftwareDevelopment|Summarizing the Principles|SummarizingthePrinciples|2011.11.24 14:18:59|
-18|AgileSoftwareDevelopment|History|History|2011.11.24 14:20:28|
-19|AgileSoftwareDevelopment|Pros & Cons|ProsCons|2011.11.24 14:26:10|
-20|AgileSoftwareDevelopment|References|References|2011.11.24 14:27:20|
+1|AgileSoftwareDevelopment|Introduction|Introduction|11/23/2011 2:46:43 PM|
+2|AgileSoftwareDevelopment|History|History|11/24/2011 8:45:58 PM|
+3|AgileSoftwareDevelopment|Misconceptions|Misconceptions|11/23/2011 2:42:33 PM|
+4|AgileSoftwareDevelopment|Core Values|CoreValues|11/24/2011 9:26:11 AM|
+5|AgileSoftwareDevelopment|Guiding Principles|GuidingPrinciples|11/24/2011 9:40:38 AM|
+6|AgileSoftwareDevelopment|Principle 1: Satisfy Your Users|Principle1SatisfyYourUsers|11/24/2011 10:02:07 AM|
+7|AgileSoftwareDevelopment|Principle 2: Embrace Change|Principle2EmbraceChange|11/24/2011 10:06:04 AM|
+8|AgileSoftwareDevelopment|Principle 3: Continuous Delivery|Principle3ContinuousDelivery|11/24/2011 10:11:58 AM|
+9|AgileSoftwareDevelopment|Principle 4: Team Collaboration|Principle4TeamCollaboration|11/24/2011 10:15:17 AM|
+10|AgileSoftwareDevelopment|Principle 5: Environment, Support, and Trust|Principle5Environment,Support,andTrust|11/24/2011 10:18:12 AM|
+11|AgileSoftwareDevelopment|Principle 6: Communication|Principle6Communication|11/24/2011 10:27:38 AM|
+12|AgileSoftwareDevelopment|Principle 7: Measuring Progress|Principle7MeasuringProgress|11/24/2011 10:36:44 AM|
+13|AgileSoftwareDevelopment|Principle 8: Sustainable Pace|Principle8SustainablePace|11/24/2011 10:34:16 AM|
+14|AgileSoftwareDevelopment|Principle 9: Technical Excellence|Principle9TechnicalExcellence|11/24/2011 1:49:56 PM|
+15|AgileSoftwareDevelopment|Principle 10: Simplicity|Principle10Simplicity|11/24/2011 2:04:58 PM|
+16|AgileSoftwareDevelopment|Principle 11: Self-Organization|Principle11SelfOrganization|11/24/2011 2:09:22 PM|
+17|AgileSoftwareDevelopment|Principle 12: Reflection|Principle12Reflection|11/24/2011 2:13:12 PM|
+18|AgileSoftwareDevelopment|Summarizing the Principles|SummarizingthePrinciples|11/24/2011 2:18:59 PM|
+19|AgileSoftwareDevelopment|Pros & Cons|ProsCons|11/24/2011 2:26:10 PM|
+20|AgileSoftwareDevelopment|References|References|11/24/2011 8:53:32 PM|
