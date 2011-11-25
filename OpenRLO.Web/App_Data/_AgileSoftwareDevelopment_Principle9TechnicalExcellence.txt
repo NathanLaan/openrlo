@@ -1,6 +1,6 @@
 > *"Continuous attention to technical excellence and good design enhances agility."*
 
-It is important to gather the right team with the right skills ([Augustine, 2004][1], [Larman, 2004][1]). It is also important to produce good code with a good design ([Lindstrom, & Jeffries, 2004][2]). Making sure you have a good team will pay off in the long run, and enable your team to be more agile ([Lindstrom, & Jeffries, 2004][2], [Newkirk, 2002][3]).
+It is important to gather the right team with the right skills ([Augustine, 2004][1]; [Larman, 2004][2]). It is also important to produce good code with a good design ([Lindstrom, & Jeffries, 2004][3]). Making sure you have a good team will pay off in the long run, and enable your team to be more agile ([Lindstrom, & Jeffries, 2004][3]; [Newkirk, 2002][4]).
 
 
 [1]: # "Augustine, S. (2005). Managing Agile Projects. *Prentice Hall*. Upper Saddle River, NJ, USA. ISBN:0131240714"

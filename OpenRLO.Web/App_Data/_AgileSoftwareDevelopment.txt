@@ -9,14 +9,14 @@
 9|AgileSoftwareDevelopment|Principle 4: Team Collaboration|Principle4TeamCollaboration|11/24/2011 10:15:17 AM|
 10|AgileSoftwareDevelopment|Principle 5: Environment, Support, and Trust|Principle5Environment,Support,andTrust|11/24/2011 10:18:12 AM|
 11|AgileSoftwareDevelopment|Principle 6: Communication|Principle6Communication|11/24/2011 10:27:38 AM|
-12|AgileSoftwareDevelopment|Principle 7: Measuring Progress|Principle7MeasuringProgress|11/24/2011 10:36:44 AM|
-13|AgileSoftwareDevelopment|Principle 8: Sustainable Pace|Principle8SustainablePace|11/24/2011 10:34:16 AM|
-14|AgileSoftwareDevelopment|Principle 9: Technical Excellence|Principle9TechnicalExcellence|11/24/2011 1:49:56 PM|
-15|AgileSoftwareDevelopment|Principle 10: Simplicity|Principle10Simplicity|11/24/2011 2:04:58 PM|
-16|AgileSoftwareDevelopment|Principle 11: Self-Organization|Principle11SelfOrganization|11/24/2011 2:09:22 PM|
-17|AgileSoftwareDevelopment|Principle 12: Reflection|Principle12Reflection|11/24/2011 2:13:12 PM|
+12|AgileSoftwareDevelopment|Principle 7: Measuring Progress|Principle7MeasuringProgress|11/25/2011 3:35:26 PM|
+13|AgileSoftwareDevelopment|Principle 8: Sustainable Pace|Principle8SustainablePace|11/25/2011 3:35:48 PM|
+14|AgileSoftwareDevelopment|Principle 9: Technical Excellence|Principle9TechnicalExcellence|11/25/2011 3:36:49 PM|
+15|AgileSoftwareDevelopment|Principle 10: Simplicity|Principle10Simplicity|11/25/2011 3:37:20 PM|
+16|AgileSoftwareDevelopment|Principle 11: Self-Organization|Principle11SelfOrganization|11/25/2011 3:37:46 PM|
+17|AgileSoftwareDevelopment|Principle 12: Reflection|Principle12Reflection|11/25/2011 3:38:11 PM|
 18|AgileSoftwareDevelopment|Summarizing the Principles|SummarizingthePrinciples|11/25/2011 3:17:07 PM|
 19|AgileSoftwareDevelopment|Agile Software Development Methodologies|AgileSoftwareDevelopmentMethodologies|11/25/2011 3:13:36 PM|
 20|AgileSoftwareDevelopment|Pros & Cons|ProsCons|11/25/2011 12:21:39 AM|
 21|AgileSoftwareDevelopment|Summary|Summary|11/25/2011 3:16:46 PM|
-22|AgileSoftwareDevelopment|References|References|11/25/2011 2:07:42 PM|
+22|AgileSoftwareDevelopment|References|References|11/25/2011 3:39:48 PM|
