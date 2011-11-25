@@ -26,7 +26,7 @@
   </div>
   <br />
   <div class="clearfix">
-    <select class="span6" name="pageList" id="pageList"></select><a href="#" class="btn" id="btnJump">Go</a>
+    <select class="span6" name="pageList" id="pageList"></select><!--<a href="#" class="btn" id="btnJump">Go</a>-->
   </div>
   
   
@@ -34,6 +34,11 @@
   <script language="javascript" type="text/javascript">
 
     var _t, _p, _learningObject, gPage;
+
+    function jump() {
+      var pageNumber = $('#pageList').val();
+      window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
+    }
 
     $(document).ready(function () {
       _t = $('#hiddenFieldT').val();
@@ -47,9 +52,9 @@
 
       loadPageContent();
       $('#btnJump').click(function () {
-        var pageNumber = $('#pageList').val();
-        window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
+        jump();
       });
+
       //      $('#btnPrev').click(function () {
       //        var pageNumber = _p - 1;
       //        window.location = "/learn/" + _learningObject.Url + "/" + pageNumber;
@@ -82,7 +87,11 @@
             var i = pageList.options.length;
             pageList.options[i] = new Option((i+1) + ": " + a[i].Title, a[i].Order);
           });
-          $('#pageList option').eq(_p-1).attr('selected', 'selected');
+          $('#pageList option').eq(_p - 1).attr('selected', 'selected');
+
+          $('#pageList').change(function () {
+            jump();
+          });
         }
       }, function (m) {
         alert('Error loading page contents');

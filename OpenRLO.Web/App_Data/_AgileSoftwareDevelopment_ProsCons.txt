@@ -1,4 +1,6 @@
-# Physical Location
+### Physical Location
+
+There are a number of pros and cons associated with agile software development. Here are a few of them.
 
 Agile software development has strong physical requirements in the sense that it calls for close interaction between all team members. The creators of the agile manifesto feel that that close collaboration.is not possible when team members are physically separated, or working remotely. This is an acknowledgement of the physical components of human communication. This means that fully utilizing agile is not possible in a virtual team environment without the use of technology such as virtual presence or video conferencing, and even then, some of the value of agile is lost ([Augustine, 2005][1]).
 
