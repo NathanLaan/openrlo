@@ -1,0 +1,13 @@
+Agile Software Development is an adaptive, incremental approach to creating software, with a focus on team communication and close business collaboration. There are a number of popular well known development methodologies associated with Agile, including *Scrum* and *Extreme Programming*. Agile places a strong emphasis on 4 core values:
+
+* Individuals and interactions valued over processes and tools
+* Working software valued over comprehensive documentation
+* Customer collaboration valued over contract negotiation
+* Responding to change valued over following a plan
+
+These 4 core values lead into a set of 12 principles, which have several common themes running through them:
+
+* The customer, business team, and users come first.
+* Expect and embrace change.
+* Iterate and continuously deliver.
+* Continuously improve through reflection, inspection, and adaptation.

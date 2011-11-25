@@ -22,4 +22,6 @@ Newkirk, J. (2002). Introduction to agile processes and extreme programming. *IC
 
 Poppendieck, M., & Poppendieck, T. (2003). Lean Software Development, Boston, MA, ISBN 0321150783
 
+Schwaber, K. (2004). Agile Project Management with Scrum. Microsoft Press. ISBN 978-0-7356-1993-7
+
 Spolsky, J (2009). The Duct Tape Programmer. *Joel on Software Website*. Retrieved from http://www.joelonsoftware.com/items/2009/09/23.html on November 22 2011

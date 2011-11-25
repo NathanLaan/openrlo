@@ -1,0 +1,15 @@
+Although it is beyond the scope of this Learning Object to discuss agile software development methodologies in detail, it is difficult to discuss agile without at least mentioning a few of the different methodologies. Two of the more well known agile development methodologies are *Scrum* and *Extreme Programming*. Here is a brief overview of these.
+
+
+### Scrum
+
+Scrum is an incremental approach to software development that makes extensive use of "timeboxing", that is, iterations which last a specific amount of time. Scrum iterations are known as *sprints*, and they are typically limited to short durations of only one to four weeks. Sprints begin with a planning meeting, focus on producing a specific deliverable, and end with a review meeting. The planning meeting at the start of each sprint is used to decide which tasks the team will be working on from the *project backlog*, which is a list of all project tasks. During the sprint, quick 15 minute daily scrum meetings will take place, and team members will quickly cover what they accomplished the previous day, what they will be working on today, and any issues or roadblocks they are dealing with. At the end of the sprint the team holds a review meeting to discuss where they are at and which tasks they were unable to complete. Any remaining tasks are placed back on the project backlog, to be dealt with in future sprints.
+
+* Schwaber, K. (2004). Agile Project Management with Scrum. Microsoft Press. ISBN 978-0735619937. Retrieved from O'Reilly Safari Books Online November 23 2011
+
+
+### Extreme Programming
+
+Extreme Programming is a software development methodology that places strong emphasis on testing and teamwork. Developers work together in pairs (so-called *pair programming*) and also create *unit tests* prior to writing code. The testing focus of Extreme Programming caries over to integration testing, and developers will typically perform full system integration tests on a daily basis.
+
+* Beck, K. (1999). Extreme Programming Explained: Embrace Change. Addison-Wesley Professional. ISBN 978-0201616415
