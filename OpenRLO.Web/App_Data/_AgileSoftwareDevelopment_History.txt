@@ -1,6 +1,11 @@
-To fully understand agile software development it is helpful to understand some of the history behind the agile movement.
+To better understand agile software development it is helpful to understand some of the history behind the agile movement.
 
-The agile software development manifesto emerged from a gathering of like-minded software developers that were not satisfied with typical "documentation driven, heavyweight software development processes" ([Highsmith, 2001][1]).
+In the 1990s criticism began to mount over the "heavyweight" nature of the waterfall software development model, and the net result was the emergence of a number of "lightweight" software development processes ([Harvey, 2004][2]; [Larman, & Basili, 2003][3]; [Poppendieck, & Poppendieck, 2003][4]). Among these was Extreme Programming, and the Scrum software development methodology ([Larman, & Basili, 2003][3]). In February of 2001, a group of 17 respected developers and proponents of various lightweight development models gathered together in an effort to discuss common interests and goals. In was out of this meeting that the Manifesto for Agile Software Development ([Highsmith, 2001][1]; [Harvey, 2004][2]).
+
+The fact that a relatively large group of diverse, independent thinkers and developers was able to get together and agree is actually fairly remarkable  ([Highsmith, 2001][1]).
 
 
 [1]: http://agilemanifesto.org/history.html "Highsmith, J. (2001). History: The Agile Manifesto. http://agilemanifesto.org/history.html Retrieved Nov 23 2011"
+[2] # "Harvey, D. (2004). Lean, Agile. The Software Value Stream. OT 2004 Workshop"
+[3]: # "Larman, C., & Basili, V. (2003). Iterative and Incremental Development: A Brief History. Computer, Vol. 36, No. 6, p. 47–56"
+[4]: # "Poppendieck, M., & Poppendieck, T. (2003). Lean Software Development, Boston, MA, ISBN 0321150783"
