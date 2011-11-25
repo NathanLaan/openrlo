@@ -1,0 +1,3 @@
+Before continuing further, it is important to note that there is a significant misconception concerning Agile Software Development. Simply put, Agile Software Development is *not* a software development methodology. Instead, agile is really a *philosophy*; a set of value and guiding principles.
+
+Let's take a closer look at these values and principles.

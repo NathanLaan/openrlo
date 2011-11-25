@@ -1,3 +1,0 @@
-Before continuing further, it is important to note that there is a significant misconception concerning Agile Software Development.
-
-Simply put, Agile Software Development is *not* a software development methodology. In fact, as we will see later on, Agile encompasses a number of different software development methodologies.
