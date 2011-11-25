@@ -13,7 +13,7 @@
 
   <h2 id="pageTitle"></h2>
   <br />
-  <div class="clearfix" id="pageContent">Loading content...</div>
+  <div class="clearfix" id="pageContent">&nbsp;</div>
   <br />
   <br />
 
