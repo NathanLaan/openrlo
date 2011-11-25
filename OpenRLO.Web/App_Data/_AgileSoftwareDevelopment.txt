@@ -1,6 +1,6 @@
 1|AgileSoftwareDevelopment|Introduction|Introduction|11/23/2011 2:46:43 PM|
 2|AgileSoftwareDevelopment|History|History|11/25/2011 9:16:13 AM|
-3|AgileSoftwareDevelopment|Misconceptions|Misconceptions|11/23/2011 2:42:33 PM|
+3|AgileSoftwareDevelopment|Methodology vs Philosophy|MethodologyvsPhilosophy|11/25/2011 3:32:27 PM|
 4|AgileSoftwareDevelopment|Core Values|CoreValues|11/25/2011 9:16:50 AM|
 5|AgileSoftwareDevelopment|Guiding Principles|GuidingPrinciples|11/25/2011 9:17:14 AM|
 6|AgileSoftwareDevelopment|Principle 1: Satisfy Your Users|Principle1SatisfyYourUsers|11/24/2011 10:02:07 AM|
