@@ -53,14 +53,12 @@ namespace OpenRLO.Web
             // add field to allow appropriate javascript to be disabled
             Page.ClientScript.RegisterHiddenField("isContentEditor", "true");
             this.liRLO.Visible = true;
-            this.liPages.Visible = true;
             denied = false;
           }
           else
           {
             Page.ClientScript.RegisterHiddenField("isContentEditor", "false");
             this.liRLO.Visible = false;
-            this.liPages.Visible = false;
           }
 
 
