@@ -85,9 +85,8 @@
   <!---------------------->
   <ul class="tabs" data-tabs="tabs">
     <li id="liRLO" runat="server"><a href="#tabRLO">RLO</a></li>
-    <li id="liPages" runat="server"><a href="#tabPages">Pages</a></li>
     <li id="liUsers" runat="server"><a href="#tabUsers">Users</a></li>
-    <li id="liSettings" runat="server"><a href="#tabSiteSettings">Site Settings</a></li>
+    <li id="liSettings" runat="server"><a href="#tabSiteSettings">Settings</a></li>
   </ul>
   
   <!---------------------->
@@ -99,34 +98,27 @@
     <div id="tabRLO">
       <form class="form-stacked">
         <div class="clearfix">
-          <label for="lstRLO1">Learning Objects</label><select class="span6" id="lstRLO1"></select>
+          <label for="lstRLO">Learning Objects</label><select class="span6" id="lstRLO"></select>
           <br />
           <br />
           <a href="#" class="btn" id="btnAddRLO">Add</a>
           <a href="#" class="btn" id="btnEditRLO">Edit</a>
           <a href="#" class="btn danger" id="btnDeleteRLO">Delete</a>
-        </div>
-      </form>
-    </div>
-    <!-- tabLearningObjects -->
-         
-    <div id="tabPages">
-      <form class="form-stacked">
-        <div class="clearfix">
-          <label for="lstRLO2">Learning Objects</label><select class="span6" id="lstRLO2"></select>
+          <br />
           <br />
           <br />
           <label for="loTitle">Pages</label><select class="span6 multirows" size="10" id="pageList"></select>
           <br />
           <br />
           <a href="#" class="btn" id="btnPageAdd">Add</a>
-          <a href="#" class="btn" id="btnPageMoveUp">Move Up</a>
-          <a href="#" class="btn" id="btnPageMoveDown">Move Down</a>
           <a href="#" class="btn" id="btnPageEdit">Edit</a>
           <a href="#" class="btn danger" id="btnPageDelete">Delete</a>
+          <a href="#" class="btn" id="btnPageMoveUp">Move Up</a>
+          <a href="#" class="btn" id="btnPageMoveDown">Move Down</a>
         </div>
       </form>
     </div>
+    <!-- tabRLO -->
 
     <div id="tabUsers">
       <form class="form-stacked">
@@ -185,13 +177,6 @@
 
     $(document).ready(function () {
 
-
-      $('#btnSiteSettingsSave').click(function () {
-        saveSiteSettings();
-      });
-
-      $('.tabs').tabs();
-
       var isAdministrator = ($('#isAdministrator').val() === 'true');
       var isContentEditor = ($('#isContentEditor').val() === 'true');
       if (isAdministrator && !isContentEditor) {
@@ -207,6 +192,8 @@
       }
 
 
+      $('.tabs').tabs();
+
       loadLearningObjectList();
       loadUserList();
       loadSiteSettings();
@@ -221,7 +208,7 @@
 
       // Page //////////////////////////////////////////////////////
       $('#btnPageMoveUp').click(function () {
-        var rloUrl = $('#lstRLO2').val();
+        var rloUrl = $('#lstRLO').val();
         var pageUrl = $('#pageList').val();
         OpenRLO.Web.Service.PageService.MovePageUp(rloUrl, pageUrl, function (a) {
           loadPageList(rloUrl);
@@ -231,7 +218,7 @@
         });
       });
       $('#btnPageMoveDown').click(function () {
-        var rloUrl = $('#lstRLO2').val();
+        var rloUrl = $('#lstRLO').val();
         var pageUrl = $('#pageList').val();
         OpenRLO.Web.Service.PageService.MovePageDown(rloUrl, pageUrl, function (a) {
           loadPageList(rloUrl);
@@ -240,7 +227,7 @@
           alert('Error: Unable to move page [' + pageUrl + ']');
         });
       });
-      $('#lstRLO2').change(function () {
+      $('#lstRLO').change(function () {
         loadPageList($(this).attr('value'));
       });
       $('#btnModalPageCancel').click(function () {
@@ -250,7 +237,7 @@
       });
       $('#btnPageAdd').click(function () {
         $('#btnModalPageConfirm').unbind('click');
-        var rloUrl = $('#lstRLO2').val();
+        var rloUrl = $('#lstRLO').val();
         $('#btnModalPageConfirm').click(function () {
           var pageTitle = $('#txtModalPageTitle').val();
           var pageContent = $('#txtModalPageContents').val();
@@ -271,12 +258,12 @@
       }); //END btnPageAdd
       $('#btnPageEdit').click(function () {
         $('#btnModalPageConfirm').unbind('click');
-        var rloUrl = $('#lstRLO2').val();
+        var rloUrl = $('#lstRLO').val();
         var pageUrl = $('#pageList').val();
         OpenRLO.Web.Service.PageService.GetByUrl(rloUrl, pageUrl, function (page) {
           if (page != null) {
             $('#btnModalPageConfirm').click(function () {
-              var rloUrl = $('#lstRLO2').val();
+              var rloUrl = $('#lstRLO').val();
               var oldPageUrl = $('#pageList').val();
               var newPageTitle = $('#txtModalPageTitle').val();
               var newPageContents = $('#txtModalPageContents').val();
@@ -311,7 +298,7 @@
       }); // END btnPageEdit
 
       $('#btnPageDelete').click(function () {
-        var rloUrl = $('#lstRLO2').val();
+        var rloUrl = $('#lstRLO').val();
         var pageUrl = $('#pageList').val();
         if (confirm('Delete ' + pageUrl + ' from ' + rloUrl + '?')) {
           OpenRLO.Web.Service.PageService.DeleteByUrl(rloUrl, pageUrl, function (a) {
@@ -331,7 +318,7 @@
       // the modal needs to be manually activated since we are using 1 modal for ADD and EDIT
 
       $('#btnDeleteRLO').click(function () {
-        var rloUrl = $('#lstRLO1').val();
+        var rloUrl = $('#lstRLO').val();
         if (confirm('Delete ' + rloUrl + '?')) {
           OpenRLO.Web.Service.LearningObjectService.DeleteByUrl(rloUrl, function (m) {
             loadLearningObjectList();
@@ -359,13 +346,13 @@
         $('#modalRLO').modal('show');
       });
       $('#btnEditRLO').click(function () {
-        var rloUrl = $('#lstRLO1').val();
+        var rloUrl = $('#lstRLO').val();
         OpenRLO.Web.Service.LearningObjectService.GetByUrl(rloUrl, function (rlo) {
           if (rlo != null) {
             $('#txtModalRLOTitle').val(rlo.Title);
             $('#modalUserTitle').html('Edit RLO');
             $('#btnModalRLOConfirm').unbind('click').text('Save').click(function () {
-              var rloUrl = $('#lstRLO1').val();
+              var rloUrl = $('#lstRLO').val();
               var rloTitle = $('#txtModalRLOTitle').val();
               OpenRLO.Web.Service.LearningObjectService.Edit(rloUrl, rloTitle, function (a) {
                 loadLearningObjectList();
@@ -446,6 +433,12 @@
         }, function (m) {
           alert('Error loading user details');
         });
+      });
+
+
+      // SITE SETTINGS
+      $('#btnSiteSettingsSave').click(function () {
+        saveSiteSettings();
       });
 
     });     // END document.ready()
@@ -598,6 +591,11 @@
             var i = pageList.options.length;
             pageList.options[i] = new Option((i + 1) + ": " + a[i].Title, a[i].Url);
           });
+          //
+          // TODO: When calling loadPageList() save the currently selected 
+          // item so that after the list is loaded, we can select it again.
+          //
+          $('#pageList option').eq(0).attr('selected', 'selected');
         }
       }, function (m) {
         alert('Error: Unable to load pages for [' + rloUrl + ']');
@@ -608,9 +606,9 @@
     function loadLearningObjectList() {
       OpenRLO.Web.Service.LearningObjectService.GetList(function (a) {
         if (a != null) {
-          var listControl1 = $('#lstRLO1')[0];
-          var listControl2 = $('#lstRLO2')[0];
-          var listControl3 = $('#lstRLO2')[0];
+          var listControl1 = $('#lstRLO')[0];
+          var listControl2 = $('#lstRLO')[0];
+          var listControl3 = $('#lstRLO')[0];
           listControl1.options.length = 0;
           listControl2.options.length = 0;
           listControl3.options.length = 0;
@@ -622,7 +620,7 @@
             listControl2.options[i] = new Option(a[i].Title, a[i].Url);
             listControl3.options[i] = new Option(a[i].Title, a[i].Url);
           });
-          loadPageList($('#lstRLO2').val());
+          loadPageList($('#lstRLO').val());
         }
       }, function (m) {
         console.log(m);
@@ -631,7 +629,7 @@
     }
 
     function deleteRLO() {
-      var listControl = $('#lstRLO1').get(0);
+      var listControl = $('#lstRLO').get(0);
       if (listControl.selectedIndex >= 0) {
         var elem = listControl.options[listControl.selectedIndex];
         var text = elem.value;
