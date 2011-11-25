@@ -1,27 +1,27 @@
-Adkins, L. (2010). Coaching Agile Teams. *Addison-Wesley* ISBN: 0321637704
+* Adkins, L. (2010). Coaching Agile Teams. *Addison-Wesley* ISBN: 0321637704
 
-Ambler, S. (2002). Agile Modelling. Ronin International Press. Retrieved from www.agilemodeling.com November 2 2011
+* Ambler, S. (2002). Agile Modelling. Ronin International Press. Retrieved from www.agilemodeling.com November 2 2011
 
-Augustine, S. (2005). Managing Agile Projects. *Prentice Hall*. Upper Saddle River, NJ, USA. ISBN:0131240714
+* Augustine, S. (2005). Managing Agile Projects. *Prentice Hall*. Upper Saddle River, NJ, USA. ISBN:0131240714
 
-Beck, K. et al. (2001). Manifesto for Agile Software Development. *Agile Manifesto website*. Retrieved from http://agilemanifesto.org on Oct 24 2011
+* Beck, K. et al. (2001). Manifesto for Agile Software Development. *Agile Manifesto website*. Retrieved from http://agilemanifesto.org on Oct 24 2011
 
-Eckstein, J. (2009). Agile Software Development in the Large. Encontro Agil Conference 2009. Retrieved from http://www.encontroagil.com.br/2009/slides/jutta-AgileInTheLargePict.pdf November 3 2011
+* Eckstein, J. (2009). Agile Software Development in the Large. Encontro Agil Conference 2009. Retrieved from http://www.encontroagil.com.br/2009/slides/jutta-AgileInTheLargePict.pdf November 3 2011
 
-Harvey, D. (2004). Lean, Agile. The Software Value Stream. OT 2004 Workshop
+* Harvey, D. (2004). Lean, Agile. The Software Value Stream. OT 2004 Workshop
 
-Koch, S. (2004). Agile Principles and Open Source Software Development: A Theoretical and Empirical Discussion. Extreme Programming and Agile Processes in Software Engineering. *Lecture Notes in Computer Science*, Vol. 3092, No. 1, p. 85-93
+* Koch, S. (2004). Agile Principles and Open Source Software Development: A Theoretical and Empirical Discussion. Extreme Programming and Agile Processes in Software Engineering. *Lecture Notes in Computer Science*, Vol. 3092, No. 1, p. 85-93
 
-Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4
+* Larman, C. (2004) Agile and Iterative Development: A Manager's Guide. Addison-Wesley. p. 27. ISBN 978-0-13-111155-4
 
-Larman, C., & Basili, V. (2003). Iterative and Incremental Development: A Brief History. Computer, Vol. 36, No. 6, p. 47–56
+* Larman, C., & Basili, V. (2003). Iterative and Incremental Development: A Brief History. Computer, Vol. 36, No. 6, p. 47–56
 
-Lindstrom, L., & Jeffries, R. (2004). Extreme Programming and Agile Software Development Methodologies. *Information Systems Management*, Vol. 21, No. 3
+* Lindstrom, L., & Jeffries, R. (2004). Extreme Programming and Agile Software Development Methodologies. *Information Systems Management*, Vol. 21, No. 3
 
-Newkirk, J. (2002). Introduction to agile processes and extreme programming. *ICSE 2002 Proceedings of the 24th International Conference on Software Engineering*. ISBN:1-58113-472-X
+* Newkirk, J. (2002). Introduction to agile processes and extreme programming. *ICSE 2002 Proceedings of the 24th International Conference on Software Engineering*. ISBN:1-58113-472-X
 
-Poppendieck, M., & Poppendieck, T. (2003). Lean Software Development, Boston, MA, ISBN 0321150783
+* Poppendieck, M., & Poppendieck, T. (2003). Lean Software Development, Boston, MA, ISBN 0321150783
 
-Schwaber, K. (2004). Agile Project Management with Scrum. Microsoft Press. ISBN 978-0-7356-1993-7
+* Schwaber, K. (2004). Agile Project Management with Scrum. Microsoft Press. ISBN 978-0-7356-1993-7
 
-Spolsky, J (2009). The Duct Tape Programmer. *Joel on Software Website*. Retrieved from http://www.joelonsoftware.com/items/2009/09/23.html on November 22 2011
+* Spolsky, J (2009). The Duct Tape Programmer. *Joel on Software Website*. Retrieved from http://www.joelonsoftware.com/items/2009/09/23.html on November 22 2011

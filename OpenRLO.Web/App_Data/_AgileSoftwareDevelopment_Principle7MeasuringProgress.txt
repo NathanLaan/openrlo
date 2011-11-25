@@ -1,6 +1,6 @@
 > *"Working software is the primary measure of progress."*
 
-The working components of a software system are the primary way to measure how complete a system is. Components that are in progress do not count. This makes sense from the perspective of the customers and the end users; until something is working (and working properly) it might as well not count ([Augustine, 2005][2]). This principle makes sense when considered with the short development iterations that agile advocates, as longer development cycles would promote more software components being incomplete or in progress at any given point in time ([Adkins, 2010][1], [Augustine, 2005][2]).
+The working components of a software system are the primary way to measure how complete a system is. Components that are in progress do not count. This makes sense from the perspective of the customers and the end users; until something is working (and working properly) it might as well not count ([Augustine, 2005][2]). This principle makes sense when considered with the short development iterations that agile advocates, as longer development cycles would promote more software components being incomplete or in progress at any given point in time ([Adkins, 2010][1]; [Augustine, 2005][2]).
 
 
 [1]: # "Adkins, L. (2010). Coaching Agile Teams. Addison-Wesley ISBN: 0321637704"

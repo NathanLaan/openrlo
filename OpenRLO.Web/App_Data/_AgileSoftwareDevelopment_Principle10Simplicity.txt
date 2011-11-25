@@ -1,6 +1,6 @@
 > *"Simplicity, the art of maximizing the amount of work not done, is essential."*
 
-Minimize the amount of work required. Simplicity is not easy, but it leads to *conceptual integrity* which pays off in the long run ([Ambler, 2002][1], [Eckstein, 2009][2]). Having good leadership, and moving towards a common goal can help achieve simplicity ([Eckstein, 2009][2]).
+Minimize the amount of work required. Simplicity is not easy, but it leads to *conceptual integrity* which pays off in the long run ([Ambler, 2002][1]; [Eckstein, 2009][2]). Having good leadership, and moving towards a common goal can help achieve simplicity ([Eckstein, 2009][2]).
 
 
 [1]: # "Ambler, S. (2002). Agile Modelling and the Agile Unified Process. Ronin International Press. Retrieved from www.agilemodeling.com on November 2 2011"
