@@ -12,14 +12,12 @@
   </form>
 
   <script language="javascript" type="text/javascript">
-
     $(document).ready(function () {
       loadLearningObjectList();
       $('#navigateButton').click(function () {
         navigateToLearningObject();
       });
     });
-
     function loadLearningObjectList() {
       OpenRLO.Web.Service.LearningObjectService.GetList(function (a) {
         if (a != null) {
@@ -34,40 +32,24 @@
         alert('ERROR: Unable to get Learning Object list');
       });
     }
-
     function navigateToLearningObject() {
       var learningObjectUrl = $('#learningObjectList').val();
       //alert("/learn/" + learningObjectUrl);
       window.location = "/learn/" + learningObjectUrl;
     }
-
   </script>
 
-<h3>Learn</h3>
-<form>
-  <fieldset>
+  <h3>Learn</h3>
+  <form>
     <div class="clearfix">
       <select class="span6" name="normalSelect" id="learningObjectList"></select>
       <a href="#" class="btn primary" id="navigateButton">Go</a>
       <span class="help-block">Navigate to a learning object.</span>
     </div>
-  </fieldset>
-</form>
-<!--
-<form>
-  <fieldset>
-    <div class="clearfix">
-      <input class="span6" id="" name="" type="text" placeholder="Search" /><button class="btn primary">Search</button>
-      <span class="help-block">Search for learning objects by keywords.</span>
-    </div>
-  </fieldset>
-</form>
--->
-
-<h3>Mission</h3>
-<p>OpenRLO is an open source platform for creating Reusable Learning Objects.</p>
-<p>Knowledge is socially constructed through dialogue and interaction with others [Berger, P. (1966). The Social Construction of Reality. Anchor Books. ISBN 0385058985].</p>
-<br />  
-<br />
+  </form>
+  <h3>Mission</h3>
+  <p>OpenRLO is an open source platform for creating Reusable Learning Objects.</p>
+  <br />  
+  <br />
 
 </asp:Content>
