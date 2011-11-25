@@ -1,3 +1,0 @@
-Agile Software Development is an adaptive, incremental approach to creating software, with a focus on team communication and close business collaboration.
-
-TODO: Summary of methodologies.

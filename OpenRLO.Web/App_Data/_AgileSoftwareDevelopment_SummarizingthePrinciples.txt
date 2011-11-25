@@ -1,4 +1,4 @@
-The 12 principles of agile software development have four common themes running through them ([Lindstrom, & Jeffries][2004][1]).
+The 12 principles of agile software development have four common themes running through them ([Lindstrom, & Jeffries, 2004][1]).
 
 * The customer, business team, and users come first.
 * Expect and embrace change.
