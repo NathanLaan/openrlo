@@ -1,4 +1,4 @@
-Expanding on the core values, Agile also defines 12 guiding principles ([Adkins, 2010][1], [Augustine, 2005][2], [Beck et al., 2001][3], [Koch, 2010][4], [Newkirk, 2002][5]). These guiding principles constitute the responsibilities of an agile team, towards the customers, users, development team, and the software itself ([Augustine, 2005][2], [Koch, 2010][4]).
+Expanding on the core values, Agile also defines 12 guiding principles ([Adkins, 2010][1]; [Augustine, 2005][2]; [Beck et al., 2001][3]; [Koch, 2010][4]; [Newkirk, 2002][5]). These guiding principles constitute the responsibilities of an agile team, towards the customers, users, development team, and the software itself ([Augustine, 2005][2]; [Koch, 2010][4]).
 
 1. Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
 2. Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage.

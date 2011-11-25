@@ -6,6 +6,6 @@ The fact that a relatively large group of diverse, independent thinkers and deve
 
 
 [1]: http://agilemanifesto.org/history.html "Highsmith, J. (2001). History: The Agile Manifesto. http://agilemanifesto.org/history.html Retrieved Nov 23 2011"
-[2] # "Harvey, D. (2004). Lean, Agile. The Software Value Stream. OT 2004 Workshop"
+[2]: # "Harvey, D. (2004). Lean, Agile. The Software Value Stream. OT 2004 Workshop"
 [3]: # "Larman, C., & Basili, V. (2003). Iterative and Incremental Development: A Brief History. Computer, Vol. 36, No. 6, p. 47–56"
 [4]: # "Poppendieck, M., & Poppendieck, T. (2003). Lean Software Development, Boston, MA, ISBN 0321150783"

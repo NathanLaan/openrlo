@@ -1,8 +1,8 @@
 1|AgileSoftwareDevelopment|Introduction|Introduction|11/23/2011 2:46:43 PM|
-2|AgileSoftwareDevelopment|History|History|11/24/2011 8:45:58 PM|
+2|AgileSoftwareDevelopment|History|History|11/25/2011 9:16:13 AM|
 3|AgileSoftwareDevelopment|Misconceptions|Misconceptions|11/23/2011 2:42:33 PM|
-4|AgileSoftwareDevelopment|Core Values|CoreValues|11/24/2011 9:26:11 AM|
-5|AgileSoftwareDevelopment|Guiding Principles|GuidingPrinciples|11/24/2011 9:40:38 AM|
+4|AgileSoftwareDevelopment|Core Values|CoreValues|11/25/2011 9:16:50 AM|
+5|AgileSoftwareDevelopment|Guiding Principles|GuidingPrinciples|11/25/2011 9:17:14 AM|
 6|AgileSoftwareDevelopment|Principle 1: Satisfy Your Users|Principle1SatisfyYourUsers|11/24/2011 10:02:07 AM|
 7|AgileSoftwareDevelopment|Principle 2: Embrace Change|Principle2EmbraceChange|11/24/2011 10:06:04 AM|
 8|AgileSoftwareDevelopment|Principle 3: Continuous Delivery|Principle3ContinuousDelivery|11/24/2011 10:11:58 AM|
