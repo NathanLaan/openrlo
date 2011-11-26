@@ -13,6 +13,15 @@ namespace OpenRLO.Web {
     public partial class Login {
         
         /// <summary>
+        /// masterPageScriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager masterPageScriptManager;
+        
+        /// <summary>
         /// txtUsername control.
         /// </summary>
         /// <remarks>

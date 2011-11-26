@@ -74,6 +74,23 @@ namespace OpenRLO.Web
       }
     }
 
+    public static string CurrentUserAccount
+    {
+      get
+      {
+        if (Global.IsLoggedIn)
+        {
+          IIdentity id = HttpContext.Current.User.Identity;
+          SiteUser siteUser = Global.SiteUserIndex.GetByID(id.Name);
+          if (siteUser != null)
+          {
+            return siteUser.Username;
+          }
+        }
+        return "";
+      }
+    }
+
     #endregion
 
     #region Properties

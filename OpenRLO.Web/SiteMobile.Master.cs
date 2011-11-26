@@ -79,10 +79,11 @@ namespace OpenRLO.Web
         //this.liManage.Visible = true;
         //this.lnkAdmin.Visible = true;
         //this.lnkAdmin.NavigateUrl = "/admin";
-        //this.lblUsername.Visible = true;
-        this.lblUsername.Visible = false;
+        this.lblUsername.Visible = true;
+        this.lblUsernamePRE.Visible = true;
+        //this.lblUsername.Visible = false;
         // DisplayName should always be found because the user is logged in...
-        //this.lblUsername.Text = Global.SiteUserIndex.GetDisplayName(HttpContext.Current.User.Identity.Name);
+        this.lblUsername.Text = Global.CurrentUserAccount;
         this.lnkLogout.Visible = true;
         this.lnkLogout.Text = "Logout";
         this.lnkLogout.NavigateUrl = "/logout";
@@ -93,6 +94,7 @@ namespace OpenRLO.Web
         //this.liManage.Visible = false;
         //this.lnkAdmin.Visible = false;
         this.lblUsername.Visible = false;
+        this.lblUsernamePRE.Visible = false;
         this.lnkLogout.Text = "Login";
         this.lnkLogout.NavigateUrl = "/login";
         //this.divFooterBar.Visible = false;
