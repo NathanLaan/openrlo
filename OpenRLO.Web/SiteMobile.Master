@@ -119,7 +119,7 @@
             <li runat="server" ID="liManage"><a href="/manage" title="Manage Content">Manage</a></li>
             <li runat="server" ID="liAbout"><a href="/about" title="About">About</a></li>
           </ul>
-          <p class="pull-right"><asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink>|<asp:Label runat="server" ID="lblUsername"></asp:Label></p>
+          <p class="pull-right"><asp:HyperLink ID="lnkLogout" runat="server">Logout</asp:HyperLink></p>
         </div>
       </div>
     </div>
@@ -137,7 +137,7 @@
         </div>
       </div>
       <footer>
-        <p><asp:Label runat="server" ID="lblCopyright"></asp:Label>&nbsp;|&nbsp;Version <asp:Label runat="server" ID="lblSiteVersion"></asp:Label></p>
+        <p><asp:Label runat="server" ID="lblCopyright"></asp:Label>&nbsp;|&nbsp;Version <asp:Label runat="server" ID="lblSiteVersion"></asp:Label><asp:Label runat="server" ID="lblUsernamePRE">&nbsp;|&nbsp;User Account:&nbsp;</asp:Label><asp:Label runat="server" ID="lblUsername"></asp:Label></p>
       </footer>
     </div> <!-- /container -->
 

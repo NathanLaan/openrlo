@@ -21,6 +21,51 @@ namespace OpenRLO.Web.Service
 
     [WebMethod]
     [ScriptMethod]
+    public string CreateAccount(string username, string password, string email)
+    {
+      try
+      {
+        //
+        // TODO: Data input validation
+        //
+        if (string.IsNullOrEmpty(password))
+        {
+          return "Invalid password";
+        }
+        if (string.IsNullOrEmpty(username))
+        {
+          return "Invalid username";
+        }
+        if (string.IsNullOrEmpty(email))
+        {
+          return "Invalid email";
+        }
+        if (this.UsernameExists(username))
+        {
+          return "Username already exists";
+        }
+        if (this.EmailExists(email))
+        {
+          return "Email already exists";
+        }
+        SiteUser siteUser = new SiteUser();
+        siteUser.Username = username;
+        siteUser.Passcode = password;
+        siteUser.Email = email;
+        siteUser.UserID = Guid.NewGuid();
+        Global.SiteUserIndex.SiteUserList.Add(siteUser);
+        Global.SiteUserIndex.Save();
+        return "User account created";
+      }
+      catch
+      {
+      }
+      return "Unable to create user account";
+    }
+    
+
+    [WebMethod]
+    [ScriptMethod]
     public SiteUser Get(string username)
     {
       List<SiteUser> list = Global.SiteUserIndex.SiteUserList;
